@@ -1,0 +1,43 @@
+{
+  "Peter_DLHnb1yt_cluster": {
+    "wallet_name": "Peter_DLHnb1yt_cluster",
+    "wallet_address": "LZcXJY4TT6T4q63RRZjsWHHS7ByV5RL4rxMAxGmiUFE",
+    "acquisition_method": "prebonding_suspected",
+    "source_wallet": null,
+    "total_crm_acquired": 28668823.52,
+    "cost_basis_usd": 0.0,
+    "evidence_level": "MEDIUM",
+    "notes": []
+  },
+  "HLnpSz9h_network": {
+    "wallet_name": "HLnpSz9h_feeder_network",
+    "wallet_address": "HLnpSz9h2S4hiLQ43rnSD9XkcUThA7B8hQMKmDaiTLcC",
+    "acquisition_method": "dust_transfer",
+    "source_wallet": "8eVZa7bEBnd6MA6JJkNdABRN4S3LbVLRnCZNJAUeuwQj",
+    "total_crm_acquired": 20000000,
+    "cost_basis_usd": 0.0,
+    "evidence_level": "HIGH",
+    "notes": [
+      "30+ transfers Dec 28-31, 2025",
+      "0.0020 SOL per transfer (~$0.20) = essentially free",
+      "Internal accounting between controlled wallets",
+      "~20M CRM moved from HLnpSz9h to 8eVZa7"
+    ]
+  },
+  "BKLBtcJQJ2_allocation": {
+    "wallet_name": "BKLBtcJQJ2_dumper",
+    "wallet_address": "BKLBtcJQJ2gB6Bz9sUPf2r4DR7yXGo3MQH3UjSncEpLz",
+    "acquisition_method": "free_allocation",
+    "source_wallet": null,
+    "total_crm_acquired": 36675895,
+    "cost_basis_usd": 0.0,
+    "evidence_level": "HIGH",
+    "notes": [
+      "36.7M CRM received Nov 27, 2025 at $0 cost",
+      "Direct allocation - likely 'team' or 'marketing' wallet",
+      "No purchase transaction visible = free allocation",
+      "Dumped 41M Dec 8, then HPVUJGJwJ reloaded 17.4M (wash trading)",
+      "Allocation tx: Unknown"
+    ]
+  }
+}

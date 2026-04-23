@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MunchScan - Apache ECharts Crypto Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0d1117; color: #e6edf3; min-height: 100vh; }
+        .header { background: #161b22; border-bottom: 1px solid #30363d; padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 28px; font-weight: 800; background: linear-gradient(90deg, #00d4aa, #00a8e8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .dashboard { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; padding: 20px; max-width: 1600px; margin: 0 auto; }
+        .chart-panel { background: #161b22; border: 1px solid #30363d; border-radius: 12px; padding: 20px; }
+        .panel-title { font-size: 16px; font-weight: 600; margin-bottom: 16px; }
+        .chart-container { width: 100%; height: 350px; }
+        .full-width { grid-column: 1 / -1; }
+        @media (max-width: 1024px) { .dashboard { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">🍔 MunchScan - ECharts Dashboard</div>
+    </div>
+    
+    <div class="dashboard">
+        <div class="chart-panel full-width">
+            <div class="panel-title">📊 Advanced Candlestick with Volume</div>
+            <div id="mainChart" class="chart-container"></div>
+        </div>
+        <div class="chart-panel">
+            <div class="panel-title">🔥 Price Momentum Heatmap</div>
+            <div id="heatmapChart" class="chart-container"></div>
+        </div>
+        <div class="chart-panel">
+            <div class="panel-title">🤖 AI Price Prediction</div>
+            <div id="predictionChart" class="chart-container"></div>
+        </div>
+    </div>
+
+    <script>
+        function generateData(count) {
+            const data = [];
+            let price = 65000;
+            const now = new Date();
+            for (let i = count; i > 0; i--) {
+                const time = new Date(now - i * 3600000);
+                const volatility = price * 0.02;
+                const open = price;
+                const close = price + (Math.random() - 0.5) * volatility;
+                const high = Math.max(open, close) + Math.random() * volatility * 0.5;
+                const low = Math.min(open, close) - Math.random() * volatility * 0.5;
+                data.push([time.toISOString(), parseFloat(open.toFixed(2)), parseFloat(close.toFixed(2)), parseFloat(low.toFixed(2)), parseFloat(high.toFixed(2)), Math.floor(Math.random() * 1000000 + 500000)]);
+                price = close;
+            }
+            return data;
+        }
+        
+        const rawData = generateData(100);
+        const mainChart = echarts.init(document.getElementById('mainChart'));
+        const dates = rawData.map(item => item[0]);
+        const candleData = rawData.map(item => [item[1], item[2], item[3], item[4]]);
+        const volumes = rawData.map((item, index) => [index, item[5], item[2] > item[1] ? 1 : -1]);
+        
+        mainChart.setOption({
+            backgroundColor: 'transparent',
+            legend: { bottom: 10, data: ['BTC/USD', 'Volume'], textStyle: { color: '#e6edf3' } },
+            tooltip: { trigger: 'axis', axisPointer: { type: 'cross' }, backgroundColor: '#161b22', borderColor: '#30363d', textStyle: { color: '#e6edf3' } },
+            grid: [{ left: '10%', right: '8%', height: '50%' }, { left: '10%', right: '8%', top: '68%', height: '16%' }],
+            xAxis: [{ type: 'category', data: dates, scale: true, axisLine: { lineStyle: { color: '#30363d' } }, axisLabel: { color: '#8b949e' } }, { type: 'category', gridIndex: 1, data: dates, scale: true, axisLabel: { show: false } }],
+            yAxis: [{ scale: true, axisLine: { lineStyle: { color: '#30363d' } }, axisLabel: { color: '#8b949e' }, splitLine: { lineStyle: { color: '#21262d' } } }, { scale: true, gridIndex: 1, splitNumber: 2, axisLabel: { show: false } }],
+            dataZoom: [{ type: 'inside', xAxisIndex: [0, 1], start: 50, end: 100 }],
+            series: [
+                { name: 'BTC/USD', type: 'candlestick', data: candleData, itemStyle: { color: '#00d4aa', color0: '#ff6b6b', borderColor: '#00d4aa', borderColor0: '#ff6b6b' } },
+                { name: 'Volume', type: 'bar', xAxisIndex: 1, yAxisIndex: 1, data: volumes, itemStyle: { color: p => p.value[2] > 0 ? '#00d4aa' : '#ff6b6b' } }
+            ]
+        });
+
+        const heatmapChart = echarts.init(document.getElementById('heatmapChart'));
+        const hours = ['12a','1a','2a','3a','4a','5a','6a','7a','8a','9a','10a','11a','12p','1p','2p','3p','4p','5p','6p','7p','8p','9p','10p','11p'];
+        const days = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+        const heatmapData = [];
+        for (let i = 0; i < 7; i++) for (let j = 0; j < 24; j++) heatmapData.push([j, i, (Math.random() * 10 - 5).toFixed(2)]);
+        
+        heatmapChart.setOption({
+            backgroundColor: 'transparent',
+            tooltip: { position: 'top', backgroundColor: '#161b22', borderColor: '#30363d', textStyle: { color: '#e6edf3' } },
+            grid: { height: '70%', top: '10%' },
+            xAxis: { type: 'category', data: hours, splitArea: { show: true }, axisLine: { lineStyle: { color: '#30363d' } }, axisLabel: { color: '#8b949e' } },
+            yAxis: { type: 'category', data: days, splitArea: { show: true }, axisLine: { lineStyle: { color: '#30363d' } }, axisLabel: { color: '#8b949e' } },
+            visualMap: { min: -5, max: 5, orient: 'horizontal', left: 'center', bottom: '5%', inRange: { color: ['#ff6b6b', '#161b22', '#00d4aa'] }, textStyle: { color: '#8b949e' } },
+            series: [{ name: 'Price Change %', type: 'heatmap', data: heatmapData, label: { show: false } }]
+        });
+
+        const predictionChart = echarts.init(document.getElementById('predictionChart'));
+        const historicalData = rawData.slice(-30).map((item, idx) => [idx, item[2]]);
+        const lastPrice = rawData[rawData.length - 1][2];
+        const trend = (rawData[rawData.length - 1][2] - rawData[rawData.length - 10][2]) / 10;
+        const predictionData = [];
+        let predPrice = lastPrice;
+        for (let i = 1; i <= 12; i++) { predPrice += trend + (Math.random() - 0.5) * 100; predictionData.push([29 + i, predPrice]); }
+        
+        predictionChart.setOption({
+            backgroundColor: 'transparent',
+            tooltip: { trigger: 'axis', backgroundColor: '#161b22', borderColor: '#30363d', textStyle: { color: '#e6edf3' } },
+            legend: { data: ['Historical', 'Prediction'], textStyle: { color: '#e6edf3' }, bottom: 0 },
+            grid: { left: '10%', right: '8%' },
+            xAxis: { type: 'value', axisLine: { lineStyle: { color: '#30363d' } }, axisLabel: { color: '#8b949e' }, splitLine: { lineStyle: { color: '#21262d' } } },
+            yAxis: { type: 'value', axisLine: { lineStyle: { color: '#30363d' } }, axisLabel: { color: '#8b949e' }, splitLine: { lineStyle: { color: '#21262d' } } },
+            series: [
+                { name: 'Historical', type: 'line', data: historicalData, smooth: true, lineStyle: { color: '#00d4aa', width: 2 } },
+                { name: 'Prediction', type: 'line', data: [[29, lastPrice], ...predictionData], smooth: true, lineStyle: { color: '#00a8e8', width: 2, type: 'dashed' } }
+            ]
+        });
+
+        window.addEventListener('resize', () => { mainChart.resize(); heatmapChart.resize(); predictionChart.resize(); });
+    </script>
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MunchScan Charting Toolkit - Examples</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
+            background: linear-gradient(135deg, #0d1117 0%, #161b22 100%); 
+            color: #e6edf3; 
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container { max-width: 1000px; margin: 0 auto; }
+        .header { text-align: center; margin-bottom: 50px; }
+        .logo { 
+            font-size: 48px; 
+            font-weight: 800; 
+            background: linear-gradient(90deg, #00d4aa, #00a8e8, #f39c12); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+            margin-bottom: 10px;
+        }
+        .tagline { 
+            font-size: 18px; 
+            color: #8b949e; 
+            margin-bottom: 30px; 
+        }
+        .features { 
+            display: flex; 
+            justify-content: center; 
+            gap: 30px; 
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        .feature { 
+            background: rgba(0, 212, 170, 0.1); 
+            border: 1px solid rgba(0, 212, 170, 0.3); 
+            padding: 10px 20px; 
+            border-radius: 20px; 
+            font-size: 14px;
+            color: #00d4aa;
+        }
+        .examples-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 20px; 
+            margin-bottom: 50px;
+        }
+        .example-card { 
+            background: #161b22; 
+            border: 1px solid #30363d; 
+            border-radius: 12px; 
+            padding: 24px; 
+            transition: all 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .example-card:hover { 
+            transform: translateY(-4px); 
+            border-color: #00d4aa;
+            box-shadow: 0 10px 30px rgba(0, 212, 170, 0.1);
+        }
+        .example-icon { 
+            font-size: 36px; 
+            margin-bottom: 16px; 
+        }
+        .example-title { 
+            font-size: 20px; 
+            font-weight: 700; 
+            margin-bottom: 8px; 
+            color: #e6edf3;
+        }
+        .example-desc { 
+            font-size: 14px; 
+            color: #8b949e; 
+            line-height: 1.6;
+        }
+        .example-tech {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid #30363d;
+            font-size: 12px;
+            color: #00d4aa;
+        }
+        .cta-section {
+            background: linear-gradient(135deg, rgba(0, 212, 170, 0.1), rgba(0, 168, 232, 0.1));
+            border: 1px solid #00d4aa;
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+        }
+        .cta-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        .cta-desc {
+            font-size: 16px;
+            color: #8b949e;
+            margin-bottom: 24px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-primary {
+            background: #00d4aa;
+            color: #0d1117;
+        }
+        .btn-primary:hover {
+            background: #00e6b8;
+            transform: scale(1.05);
+        }
+        .btn-secondary {
+            background: transparent;
+            color: #e6edf3;
+            border: 2px solid #30363d;
+        }
+        .btn-secondary:hover {
+            border-color: #00d4aa;
+            color: #00d4aa;
+        }
+        .footer {
+            text-align: center;
+            padding: 40px 0;
+            color: #8b949e;
+            font-size: 14px;
+            border-top: 1px solid #30363d;
+            margin-top: 60px;
+        }
+        .footer a {
+            color: #00d4aa;
+            text-decoration: none;
+        }
+        @media (max-width: 768px) {
+            .logo { font-size: 36px; }
+            .examples-grid { grid-template-columns: 1fr; }
+            .cta-buttons { flex-direction: column; }
+            .btn { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">🍔 MunchScan</div>
+            <div class="tagline">Open-Source Charting Toolkit for Crypto Analytics</div>
+            <div class="features">
+                <div class="feature">✨ 100% Free</div>
+                <div class="feature">⚡ High Performance</div>
+                <div class="feature">📱 Mobile Ready</div>
+                <div class="feature">🤖 AI Predictions</div>
+            </div>
+        </div>
+
+        <div class="examples-grid">
+            <a href="examples/munchscan-dashboard.html" class="example-card">
+                <div class="example-icon">🚀</div>
+                <div class="example-title">MunchScan Dashboard</div>
+                <div class="example-desc">Full-featured trading interface with AI predictions, order book, and volume analysis. The complete package.</div>
+                <div class="example-tech">TradingView + Chart.js</div>
+            </a>
+
+            <a href="examples/tradingview-candlestick.html" class="example-card">
+                <div class="example-icon">📊</div>
+                <div class="example-title">TradingView Charts</div>
+                <div class="example-desc">Industry-standard candlestick charts with volume histograms, moving averages, and prediction overlays. Best for main trading view.</div>
+                <div class="example-tech">TradingView Lightweight Charts</div>
+            </a>
+
+            <a href="examples/chartjs-financial.html" class="example-card">
+                <div class="example-icon">📈</div>
+                <div class="example-title">Chart.js Financial</div>
+                <div class="example-desc">Alternative approach with candlesticks, line charts with predictions, volume bars, and radar charts for token health scores.</div>
+                <div class="example-tech">Chart.js + Financial Plugin</div>
+            </a>
+
+            <a href="examples/echarts-crypto.html" class="example-card">
+                <div class="example-icon">🔥</div>
+                <div class="example-title">Apache ECharts</div>
+                <div class="example-desc">Advanced visualizations including heatmaps, candlesticks with volume, and AI prediction lines. Great for analytics dashboards.</div>
+                <div class="example-tech">Apache ECharts</div>
+            </a>
+        </div>
+
+        <div class="cta-section">
+            <div class="cta-title">Build Something Better Than DexScreener</div>
+            <div class="cta-desc">
+                Get the complete toolkit with prediction algorithms, data feeds, and multiple charting libraries. 
+                No license fees. No attribution headaches. Just pure open-source power.
+            </div>
+            <div class="cta-buttons">
+                <a href="README.md" class="btn btn-primary">📖 Read Documentation</a>
+                <a href="COMPARISON.md" class="btn btn-secondary">📊 Library Comparison</a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Built with 💚 for the crypto community</p>
+            <p style="margin-top: 8px;">
+                Libraries: 
+                <a href="https://github.com/tradingview/lightweight-charts" target="_blank">TradingView</a> • 
+                <a href="https://github.com/chartjs/Chart.js" target="_blank">Chart.js</a> • 
+                <a href="https://github.com/apache/echarts" target="_blank">Apache ECharts</a>
+            </p>
+            <p style="margin-top: 16px; font-size: 12px; color: #6b7280;">
+                ⚠️ For educational purposes only. Not financial advice.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

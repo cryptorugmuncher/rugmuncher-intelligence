@@ -1,0 +1,26 @@
+RMI Master Recovery Key
+========================
+Generated: 2026-04-14
+Key ID: a5fc6a99-2ff0-43bc-8471-9df5dc196191
+User: master@system.local
+
+THIS IS YOUR DISASTER RECOVERY KEY:
+  rmi_rmi_master_41c737fe869d287ac225d971e79866195889fb309a928e4abdf2ccbd4e2cacf7
+
+⚠️  WARNING:
+- Store this in your password manager IMMEDIATELY
+- This key has FULL ADMIN access
+- It never expires
+- It is derived from your SECRET_KEY
+- Anyone with this key controls your API
+
+Usage:
+  curl -H "Authorization: Bearer rmi_rmi_master_41c737fe869d287ac225d971e79866195889fb309a928e4abdf2ccbd4e2cacf7" \
+    http://localhost:8000/api/v2/scans
+
+If you lose this:
+  1. SSH into server
+  2. Run: sudo -u postgres psql rmi_db
+  3. Or run the emergency script
+
+KEEP THIS FILE SECURE (chmod 600)

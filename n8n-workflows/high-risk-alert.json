@@ -1,0 +1,18 @@
+{
+  "name": "High Risk Alert to X",
+  "nodes": [
+    {
+      "type": "n8n-nodes-base.webhook",
+      "name": "Scan Webhook",
+      "webhookId": "high-risk-scan"
+    },
+    {
+      "type": "n8n-nodes-base.if",
+      "name": "Check Score > 80"
+    },
+    {
+      "type": "n8n-nodes-base.twitter",
+      "name": "Post to @RugMunchBot"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+RMI Admin API Key
+==================
+Generated: 2026-04-14
+Key ID: 2a7eaa35-be9d-4e61-a1c7-df7289887639
+User: master@system.local
+
+YOUR ADMIN KEY:
+  rmi_i2D5k4mljEjfUtuLcNn1i4jt14l1e4q5d30LsNSiCsU
+
+Permissions: read, write, admin
+
+Usage:
+  curl -H "Authorization: Bearer rmi_i2D5k4mljEjfUtuLcNn1i4jt14l1e4q5d30LsNSiCsU" \
+    http://localhost:8000/api/v2/scans
+
+Create Boundary session (for privileged ops):
+  curl -X POST \
+    -H "Authorization: Bearer rmi_i2D5k4mljEjfUtuLcNn1i4jt14l1e4q5d30LsNSiCsU" \
+    http://localhost:8000/api/v2/admin/session/create
+
+This is your regular-use admin key. Keep it secure but accessible.
+If lost, use the MASTER KEY to create a new one.

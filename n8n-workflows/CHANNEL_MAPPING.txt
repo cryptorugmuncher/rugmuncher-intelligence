@@ -1,0 +1,12 @@
+RMI Telegram Channel Mapping
+==================================================
+
+Bot: @rugmunchbot
+Token: 8720275246:AAHaQWZlQZybgVyJ50YFl7707AAjEjDFDhU
+
+Channels:
+  main: -1002056885429
+  intel: -1003818352164
+  alpha: -1003762675055
+  backend: -1003991061445
+  scans: -1003924326210

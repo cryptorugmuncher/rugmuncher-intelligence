@@ -1,0 +1,159 @@
+{
+  "name": "Detection Emergency Alert",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "webhook-receive",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [250, 300],
+      "webhookId": "detection-emergency"
+    },
+    {
+      "parameters": {
+        "chatId": "@rmi_alpha_alerts",
+        "text": "={{$json.alert.telegram_message}}",
+        "parseMode": "HTML",
+        "disableNotification": false
+      },
+      "id": "telegram-alpha",
+      "name": "Telegram Alpha Alerts",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1,
+      "position": [500, 200]
+    },
+    {
+      "parameters": {
+        "chatId": "@rugmunchbot_admin",
+        "text": "={{$json.alert.telegram_message}}",
+        "parseMode": "HTML",
+        "disableNotification": false
+      },
+      "id": "telegram-admin",
+      "name": "Telegram Admin",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1,
+      "position": [500, 400]
+    },
+    {
+      "parameters": {
+        "table": "detection_alerts",
+        "data": {
+          "sent_to_telegram": true,
+          "telegram_sent_at": "={{$now}}",
+          "channels": "={{$json.routing.channels}}"
+        }
+      },
+      "id": "supabase-update",
+      "name": "Update Supabase",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [750, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "is-honeypot",
+              "leftValue": "={{$json.alert.type}}",
+              "rightValue": "HONEYPOT_BASIC",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ]
+        }
+      },
+      "id": "if-honeypot",
+      "name": "Is Honeypot?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [500, 600]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://localhost:8002/api/v1/detection/auto-blacklist",
+        "body": {
+          "token_mint": "={{$json.alert.token_mint}}",
+          "reason": "Emergency: Honeypot detected",
+          "auto_block": true
+        }
+      },
+      "id": "auto-blacklist",
+      "name": "Auto Blacklist",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 1,
+      "position": [750, 600]
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Telegram Alpha Alerts",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Telegram Admin",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Is Honeypot?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Telegram Alpha Alerts": {
+      "main": [
+        [
+          {
+            "node": "Update Supabase",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Telegram Admin": {
+      "main": [
+        [
+          {
+            "node": "Update Supabase",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is Honeypot?": {
+      "main": [
+        [
+          {
+            "node": "Auto Blacklist",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": ["detection", "emergency", "alerts"]
+}

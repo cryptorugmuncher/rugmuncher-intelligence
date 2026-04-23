@@ -1,0 +1,16 @@
+{
+  "agent_id": "acd0f4529",
+  "subagent_type": "explore",
+  "status": "idle",
+  "description": "Explore codebase structure",
+  "created_at": 1775827204.8307781,
+  "updated_at": 1775827404.46151,
+  "last_task_id": null,
+  "launch_spec": {
+    "agent_id": "acd0f4529",
+    "subagent_type": "explore",
+    "model_override": null,
+    "effective_model": null,
+    "created_at": 1775827204.8307781
+  }
+}

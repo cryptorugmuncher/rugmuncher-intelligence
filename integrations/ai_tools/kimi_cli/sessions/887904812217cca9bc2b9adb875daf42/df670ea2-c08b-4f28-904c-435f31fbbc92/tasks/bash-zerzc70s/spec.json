@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "id": "bash-zerzc70s",
+  "kind": "bash",
+  "session_id": "df670ea2-c08b-4f28-904c-435f31fbbc92",
+  "description": "Start Rug Muncher File Dump server",
+  "tool_call_id": "tool_rdbL10D1wPoVkTpNaCP20EvV",
+  "owner_role": "root",
+  "created_at": 1775712221.5667222,
+  "command": "cd /root && python3 dump_server_v2.py",
+  "shell_name": "bash",
+  "shell_path": "/bin/bash",
+  "cwd": "/root",
+  "timeout_s": 60,
+  "kind_payload": null
+}

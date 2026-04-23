@@ -1,0 +1,58 @@
+
+EXCHANGE DEPOSIT ANALYSIS REPORT
+=================================
+Generated: 2026-04-13T21:20:56.800123
+Case: CRM-SCAM-2025-001
+
+EXECUTIVE SUMMARY
+-----------------
+Potential Exchange Deposits Found: 179
+Estimated Amount Traced: $0.00
+Target Recovery Amount: $886,597+
+
+BY EXCHANGE
+-----------
+  Raydium DEX: 73 potential deposits
+  OKX: 11 potential deposits
+  Binance: 54 potential deposits
+  FTX (defunct): 27 potential deposits
+  Jupiter DEX Aggregator: 14 potential deposits
+
+TARGET WALLETS ANALYZED
+-----------------------
+  AFXigaYuRKYmvd9HZQCo... - Tier 1 (Root)
+  BMq4XUa3rJJNkjXbJDpM... - Tier 2 (Bridge)
+  HxyXAE1PHQsh6iLj3t8M... - Tier 3 (Coord)
+  8eVZa7bEBnd6MA6JJkNd... - Tier 4 (Distro)
+  7abBmGf4HNu3UXsanJc7... - Tier 5 (Victim)
+  7GsFEUPC9ZWMRb3wXsyr... - SHIFT Dumper
+
+RECOMMENDATIONS FOR ASSET RECOVERY
+-----------------------------------
+1. Emergency Freeze Orders
+   - Target: All Tier 1-4 wallets
+   - Priority: Binance, Coinbase, Kraken (regulated, responsive)
+   
+2. Subpoena Strategy
+   - Subpoena KYC records for deposits linked to target wallets
+   - Request withdrawal addresses and bank account links
+   - Timeline: Urgent (funds may be moving)
+   
+3. Cross-Exchange Analysis
+   - Track if same KYC used across multiple exchanges
+   - Identify fiat off-ramp points
+   
+4. DEX Considerations
+   - Jupiter/Raydium non-custodial (no KYC)
+   - Focus on downstream CEX deposits from DEX swaps
+
+NEXT STEPS
+----------
+[ ] File emergency freeze requests with major exchanges
+[ ] Coordinate with FBI IC3 for international exchange cooperation
+[ ] Request blockchain analysis from specialized firms (Chainalysis, TRM Labs)
+[ ] Prepare victim restitution claims
+
+NOTE: This analysis uses pattern matching on available CSV data.
+For definitive exchange identification, direct API queries to
+blockchain analytics providers (Helius, QuickNode, Alchemy) recommended.

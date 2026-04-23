@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "id": "n30611516",
+  "category": "task",
+  "type": "task.failed",
+  "source_kind": "background_task",
+  "source_id": "bash-d7ugk2sm",
+  "title": "Background task failed: Install Python dependencies (retry)",
+  "body": "Task ID: bash-d7ugk2sm\nStatus: failed\nDescription: Install Python dependencies (retry)\nExit code: 1\nFailure reason: Command failed with exit code 1",
+  "severity": "error",
+  "created_at": 1775755394.8466275,
+  "payload": {
+    "task_id": "bash-d7ugk2sm",
+    "task_kind": "bash",
+    "status": "failed",
+    "description": "Install Python dependencies (retry)",
+    "exit_code": 1,
+    "interrupted": false,
+    "timed_out": false,
+    "terminal_reason": "failed",
+    "failure_reason": "Command failed with exit code 1"
+  },
+  "targets": [
+    "llm",
+    "wire",
+    "shell"
+  ],
+  "dedupe_key": "background_task:bash-d7ugk2sm:failed"
+}

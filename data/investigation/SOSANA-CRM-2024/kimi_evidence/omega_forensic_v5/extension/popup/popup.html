@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RMI - RugMunch Intelligence</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="rmi-popup">
+    <!-- Header -->
+    <header class="rmi-header">
+      <div class="rmi-logo">
+        <span class="rmi-logo-icon">🛡️</span>
+        <div class="rmi-logo-text">
+          <span class="rmi-logo-title">RMI</span>
+          <span class="rmi-logo-subtitle">RugMunch Intelligence</span>
+        </div>
+      </div>
+      <div class="rmi-status" id="rmi-status">
+        <span class="rmi-status-dot rmi-status-active"></span>
+        <span class="rmi-status-text">Active</span>
+      </div>
+    </header>
+
+    <!-- Quick Scan Section -->
+    <section class="rmi-section rmi-quick-scan">
+      <h3>Quick Scan</h3>
+      <div class="rmi-scan-input-group">
+        <input 
+          type="text" 
+          id="rmi-scan-input" 
+          class="rmi-input" 
+          placeholder="Enter token address..."
+          maxlength="44"
+        >
+        <button id="rmi-scan-btn" class="rmi-btn rmi-btn-primary">
+          <span class="rmi-btn-icon">🔍</span>
+          Scan
+        </button>
+      </div>
+      <div id="rmi-scan-result" class="rmi-scan-result hidden">
+        <!-- Scan results will appear here -->
+      </div>
+    </section>
+
+    <!-- Current Page Status -->
+    <section class="rmi-section rmi-page-status" id="rmi-page-status">
+      <h3>Current Page</h3>
+      <div class="rmi-page-info">
+        <div class="rmi-page-icon" id="rmi-page-icon">🌐</div>
+        <div class="rmi-page-details">
+          <span class="rmi-page-name" id="rmi-page-name">Unknown</span>
+          <span class="rmi-page-url" id="rmi-page-url">-</span>
+        </div>
+      </div>
+      <div class="rmi-page-risk" id="rmi-page-risk">
+        <span class="rmi-risk-indicator rmi-risk-unknown">Unknown Risk</span>
+      </div>
+    </section>
+
+    <!-- Recent Scans -->
+    <section class="rmi-section rmi-recent">
+      <div class="rmi-section-header">
+        <h3>Recent Scans</h3>
+        <button id="rmi-clear-recent" class="rmi-link">Clear</button>
+      </div>
+      <div id="rmi-recent-list" class="rmi-recent-list">
+        <div class="rmi-empty">No recent scans</div>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="rmi-section rmi-stats">
+      <h3>Protection Stats</h3>
+      <div class="rmi-stats-grid">
+        <div class="rmi-stat">
+          <span class="rmi-stat-value" id="rmi-stat-scans">0</span>
+          <span class="rmi-stat-label">Scans</span>
+        </div>
+        <div class="rmi-stat">
+          <span class="rmi-stat-value" id="rmi-stat-threats">0</span>
+          <span class="rmi-stat-label">Threats</span>
+        </div>
+        <div class="rmi-stat">
+          <span class="rmi-stat-value" id="rmi-stat-sites">0</span>
+          <span class="rmi-stat-label">Sites</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Watchlist -->
+    <section class="rmi-section rmi-watchlist">
+      <div class="rmi-section-header">
+        <h3>Watchlist</h3>
+        <button id="rmi-view-watchlist" class="rmi-link">View All</button>
+      </div>
+      <div id="rmi-watchlist-preview" class="rmi-watchlist-preview">
+        <div class="rmi-empty">No tokens in watchlist</div>
+      </div>
+    </section>
+
+    <!-- Settings -->
+    <section class="rmi-section rmi-settings">
+      <h3>Settings</h3>
+      <div class="rmi-setting-item">
+        <label class="rmi-toggle">
+          <input type="checkbox" id="rmi-setting-warnings" checked>
+          <span class="rmi-toggle-slider"></span>
+          <span class="rmi-toggle-label">Show warnings on DEXs</span>
+        </label>
+      </div>
+      <div class="rmi-setting-item">
+        <label class="rmi-toggle">
+          <input type="checkbox" id="rmi-setting-phishing" checked>
+          <span class="rmi-toggle-slider"></span>
+          <span class="rmi-toggle-label">Phishing protection</span>
+        </label>
+      </div>
+      <div class="rmi-setting-item">
+        <label class="rmi-toggle">
+          <input type="checkbox" id="rmi-setting-notifications" checked>
+          <span class="rmi-toggle-slider"></span>
+          <span class="rmi-toggle-label">Risk change notifications</span>
+        </label>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="rmi-footer">
+      <a href="https://intel.cryptorugmunch.com" target="_blank" class="rmi-footer-link">
+        Open Dashboard
+      </a>
+      <a href="https://intel.cryptorugmunch.com/library" target="_blank" class="rmi-footer-link">
+        Scam Library
+      </a>
+      <button id="rmi-settings-btn" class="rmi-footer-link">
+        Settings
+      </button>
+    </footer>
+  </div>
+
+  <!-- Settings Modal -->
+  <div id="rmi-settings-modal" class="rmi-modal hidden">
+    <div class="rmi-modal-header">
+      <h3>Settings</h3>
+      <button id="rmi-close-settings" class="rmi-modal-close">&times;</button>
+    </div>
+    <div class="rmi-modal-body">
+      <div class="rmi-setting-group">
+        <h4>API Configuration</h4>
+        <div class="rmi-input-group">
+          <label>API Key (optional)</label>
+          <input type="password" id="rmi-api-key" class="rmi-input" placeholder="Enter your API key">
+        </div>
+        <p class="rmi-help-text">API key unlocks higher rate limits and premium features.</p>
+      </div>
+      
+      <div class="rmi-setting-group">
+        <h4>Data & Privacy</h4>
+        <button id="rmi-clear-data" class="rmi-btn rmi-btn-secondary">
+          Clear All Data
+        </button>
+        <p class="rmi-help-text">This will remove all cached scan data and preferences.</p>
+      </div>
+      
+      <div class="rmi-setting-group">
+        <h4>About</h4>
+        <p class="rmi-about-text">
+          <strong>Version:</strong> 2.0.0<br>
+          <strong>Build:</strong> 20250115<br>
+          <a href="https://intel.cryptorugmunch.com/privacy" target="_blank">Privacy Policy</a> • 
+          <a href="https://intel.cryptorugmunch.com/terms" target="_blank">Terms of Service</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

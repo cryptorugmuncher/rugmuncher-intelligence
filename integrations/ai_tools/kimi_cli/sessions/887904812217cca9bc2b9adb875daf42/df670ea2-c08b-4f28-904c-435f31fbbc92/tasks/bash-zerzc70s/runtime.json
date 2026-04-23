@@ -1,0 +1,14 @@
+{
+  "status": "failed",
+  "worker_pid": 184481,
+  "child_pid": 184483,
+  "child_pgid": 184483,
+  "started_at": 1775712222.976295,
+  "heartbeat_at": 1775712283.003543,
+  "updated_at": 1775712283.003543,
+  "finished_at": 1775712283.003543,
+  "exit_code": -15,
+  "interrupted": true,
+  "timed_out": true,
+  "failure_reason": "Command timed out after 60s"
+}

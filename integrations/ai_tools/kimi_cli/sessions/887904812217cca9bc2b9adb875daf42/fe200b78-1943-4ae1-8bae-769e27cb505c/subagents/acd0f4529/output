@@ -1,0 +1,495 @@
+[stage] runner_started
+[stage] agent_built
+[stage] context_restored
+[stage] context_ready
+[stage] run_soul_start
+I'll conduct a thorough exploration of the codebase. Let me start with multiple parallel searches to understand the structure.[tool] Shell
+[tool] Shell
+[tool] Shell
+[tool] Grep
+[tool_result] success
+[tool_result] success
+[tool_result] success
+[tool_result] success
+Let me get the actual project Python files (excluding cache) and read key files to understand the architecture:[tool] Shell
+[tool] Shell
+[tool_result] success
+[tool] ReadFile
+[tool_result] success
+[tool] ReadFile
+[tool] ReadFile
+[tool_result] success
+[tool_result] success
+[tool_result] success
+Let me continue exploring the key Python files and architecture:[tool] ReadFile
+[tool] ReadFile
+[tool] ReadFile
+[tool] ReadFile
+[tool] Shell
+[tool_result] success
+[tool] Shell
+[tool_result] success
+[tool_result] success
+[tool_result] success
+[tool_result] success
+[tool_result] success
+Let me continue exploring key architecture files and look for issues:[tool] ReadFile
+[tool] ReadFile
+[tool] ReadFile
+[tool] Grep
+[tool_result] success
+[tool_result] success
+[tool_result] success
+[tool_result] success
+Let me search for more issues and examine key security-sensitive patterns:[tool] Grep
+[tool] Grep
+[tool] Grep
+[tool] Shell
+[tool_result] success
+[tool] ReadFile
+[tool_result] success
+[tool_result] success
+[tool_result] success
+[tool_result] success
+Let me examine the shell scripts and entry points, and look for any actual security issues in the project code:[tool] Shell
+[tool] ReadFile
+[tool] ReadFile
+[tool_result] success
+[tool] Grep
+[tool] Shell
+[tool_result] success
+[tool_result] success
+[tool_result] success
+[tool_result] success
+Let me check for SQL injection vulnerabilities, examine the social-analyzer, and look at test files:[tool] Grep
+[tool] ReadFile
+[tool] Shell
+[tool] Shell
+[tool_result] success
+[tool_result] success
+[tool_result] success
+[tool_result] success
+Let me check a few more key areas - the archive, SQL queries for injection risks, and examine the rmi folder structure:[tool] Shell
+[tool] Grep
+[tool_result] success
+[tool] Shell
+[tool] ReadFile
+[tool] Shell
+[tool_result] success
+[tool_result] success
+[tool_result] success
+[tool_result] success
+Let me get a final overview of the main project directories and the JavaScript files:[tool] Shell
+[tool] Shell
+[tool_result] success
+[tool] ReadFile
+[tool_result] success
+[tool] Shell
+[tool_result] success
+[tool_result] success
+Now I have a comprehensive understanding of the codebase. Let me provide you with a detailed summary:
+
+---
+
+## 🔍 CODEBASE EXPLORATION SUMMARY
+
+### 1. MAIN COMPONENTS/MODULES
+
+The project is **Rug Muncher** - a crypto scam detection ecosystem with the following major components:
+
+| Component | Purpose | Key Files |
+|-----------|---------|-----------|
+| **Core Bot** | Telegram bot for contract scanning | `rug_muncher_bot.py`, `rug_muncher_bot_fixed.py` (40K+ lines) |
+| **Investigation Backend** | Flask/FastAPI backend for evidence handling | `investigation_backend.py`, `server.py` |
+| **AI Router** | Routes AI requests to multiple providers | `rugmuncher_ai_router.py`, `ollama_fastapi_server.py` |
+| **Security Systems** | Credential rotation, vault client, hardening | `credential_rotation_system.py`, `rugmuncher_vault_client.py` |
+| **Analysis Engines** | Bundle detection, threat intel, voiceprint | `rugmuncher_bundling.py`, `rugmuncher_threat_intel.py`, `rugmuncher_voiceprint.py` |
+| **Data Sanitization** | Cleans sensitive data for public repos | `rugmuncher_data_sanitizer.py`, `rugmuncher_data_cleansing.py` |
+| **GitHub Integration** | Auto-update public/private repos | `github_integration.py`, `github_auto_update.py` |
+| **RMI Ecosystem** | Full platform with DAO, mobile app backend | `/rmi/` directory (wallet system, gamification, etc.) |
+| **Social Analyzer** | Third-party tool for social media analysis | `/social-analyzer/` (AGPL-3.0 licensed) |
+
+### 2. OVERALL ARCHITECTURE
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                        RUG MUNCHER v3/v4                        │
+├─────────────────────────────────────────────────────────────────┤
+│  📱 Telegram Bot (Primary Interface)                             │
+│     ├── Contract scanning (/munch command)                       │
+│     ├── Wallet analysis                                          │
+│     ├── Risk scoring (100-point system)                          │
+│     └── Payment/subscription handling                            │
+├─────────────────────────────────────────────────────────────────┤
+│  🔍 Analysis Layer                                               │
+│     ├── Honeypot.is API integration                              │
+│     ├── Bubble Maps (holder visualization)                       │
+│     ├── Bundle detection (ML-based)                              │
+│     ├── Dev voiceprint (cross-chain tracking)                    │
+│     └── Rug prediction (timing analysis)                         │
+├─────────────────────────────────────────────────────────────────┤
+│  🤖 AI Layer                                                     │
+│     ├── Ollama (local models: deepseek, qwen, gemma)            │
+│     ├── AI Router (Silicon Flow, Groq, Fireworks)               │
+│     └── Data sanitization before external APIs                   │
+├─────────────────────────────────────────────────────────────────┤
+│  🔒 Security Layer                                               │
+│     ├── HashiCorp Vault for secrets                              │
+│     ├── Shamir's Secret Sharing                                  │
+│     ├── Auto credential rotation                                 │
+│     └── OPSEC identity management                                │
+├─────────────────────────────────────────────────────────────────┤
+│  🗄️ Data Layer                                                   │
+│     ├── SQLite (local) / Supabase (cloud)                        │
+│     ├── ScyllaDB (high-risk contracts)                           │
+│     ├── Neo4j (graph relationships)                              │
+│     └── QuestDB (time-series)                                    │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### 3. KEY PYTHON FILES AND THEIR PURPOSES
+
+| File | Lines | Purpose |
+|------|-------|---------|
+| `rug_muncher_bot_fixed.py` | 1,327 | Main Telegram bot (v4.4) - most complete version |
+| `rug_muncher_bot.py` | 1,140 | Original bot implementation |
+| `munchmaps_visualization.py` | 1,075 | Bubble map visualizations for token holders |
+| `rugmuncher_bundling.py` | 910 | Advanced bundle detection (ML/clustering) |
+| `investigation_backend.py` | 712 | Flask backend for evidence management |
+| `rugmuncher_security_hardening.py` | 784 | Shamir secret sharing, dead man's switch |
+| `rugmuncher_advanced_apis.py` | 816 | External API integrations |
+| `api_provider_credential_manager.py` | 637 | Multi-provider API key management |
+| `dump_server_v2.py` | 672 | File upload/analysis server |
+| `rugmuncher_data_cleansing.py` | 617 | Data sanitization for public exposure |
+| `ollama_fastapi_server.py` | 542 | FastAPI wrapper for Ollama with auth |
+| `opsec_identity_manager.py` | 536 | Identity rotation and management |
+| `credential_rotation_system.py` | 551 | Automated credential rotation |
+| `rugmuncher_telegram_bridge.py` | 528 | Telegram-Ollama bridge (Python) |
+| `rugmuncher_threat_intel.py` | 655 | Threat intelligence system |
+| `rugmuncher_predictor.py` | 591 | Rug pull prediction ML models |
+| `rugmuncher_voiceprint.py` | 580 | Dev voiceprint analysis |
+| `continuous_sync.py` | 395 | Automated GitHub sync with sanitization |
+| `human_like_sync.py` | 398 | Human-like commit patterns for stealth |
+
+### 4. CONFIGURATION FILES, REQUIREMENTS & ENTRY POINTS
+
+**Configuration Files:**
+- `.env` - Main environment file (⚠️ contains actual secrets)
+- `.env.example` - Template for environment setup
+- `requirements.txt` - Python dependencies (telegram-bot, web3, fastapi, etc.)
+- `database_schema.sql` - Complete SQL schema for PostgreSQL/SQLite
+
+**Entry Points:**
+- `rug_muncher_bot_fixed.py` - Main bot entry point
+- `server.py` - Flask upload server (port 8000)
+- `ollama_fastapi_server.py` - Ollama API server (port 11435)
+- `investigation_backend.py` - Investigation system backend
+- `telegram-bridge.js` - Node.js Telegram bridge
+- `install_v3.py` - One-click installer script
+
+**Shell Scripts:**
+- `secure_infrastructure.sh` - Server hardening
+- `vault_configure.sh` - HashiCorp Vault setup
+- `rotate-credentials.sh` - Credential rotation automation
+- `setup_github_access.sh` - GitHub integration setup
+
+### 5. 🔴 RED FLAGS & ISSUES FOUND
+
+#### CRITICAL SECURITY ISSUES:
+
+1. **Exposed Credentials in Environment Files**
+   - `/root/.env` contains real API keys
+   - `/root/rmi/backend/.env` has backup files with exposed keys
+   - Files like `.env.backup.exposed.20260410_143404` indicate previous exposure
+
+2. **Shell Command Injection Risks**
+   - `debug_bot.py:44` - `subprocess.run(cmd, shell=True, ...)` with user input
+   - `github_repo_manager.py:27` - `os.system("pip install...")`
+
+3. **SQL Injection Vulnerabilities**
+   - `test_v3.py:64` - `cursor.execute(f"SELECT COUNT(*) FROM {table}")` (f-string)
+   - `rmi/user_profile_system.py:294` - Dynamic SQL with f-strings
+   - `rmi/backend/database/postgres_client.py` - Multiple f-string queries
+
+4. **Weak Authentication**
+   - `ollama_fastapi_server.py:34` - API key generated from `os.urandom()` but printed to stdout
+   - Simple string comparison for API keys instead of constant-time comparison
+
+#### CODE QUALITY ISSUES:
+
+5. **Bare Exception Handling**
+   - Multiple `except: pass` patterns found (suppressing all errors)
+   - `social-analyzer/app.py:135` - `except Exception: pass`
+
+6. **TODO/FIXME Comments (Actual Project Code)**
+   - `rugmuncher_ollama_addon.py:465` - `# TODO: Implement cloud fallback`
+   - `rug_muncher_bot_fixed.py:1084` - `# TODO: Replace with actual AI router call`
+
+7. **Hardcoded Values**
+   - Known mixer/CEX wallets hardcoded in `rugmuncher_bundling.py` (this is intentional for detection)
+   - Default placeholder values in config that might not be changed
+
+8. **Directory/File Issues**
+   - `dumps/investigation-20260409/` - Contains extracted evidence with potentially sensitive data
+   - Multiple backup copies of databases and env files
+   - `archive/old_bots/` - Contains old bot versions with potential vulnerabilities
+
+#### ARCHITECTURE CONCERNS:
+
+9. **Mixed Python Versions**
+   - `/root/rmi/venv/` uses Python 3.12
+   - `/root/.cache/pipx/` uses Python 3.12/3.13
+   - Potential compatibility issues
+
+10. **In-Memory Rate Limiting**
+    - `ollama_fastapi_server.py:98` - Rate limiter uses in-memory dict (won't work across multiple workers)
+
+11. **CORS Misconfiguration**
+    - `investigation_backend.py:32` - `CORS(app, origins=["*"])` - Too permissive for production
+
+### 6. 📊 STATISTICS
+
+| Metric | Count |
+|--------|-------|
+| Total Python Files (root) | 58 |
+| Total Lines of Python Code | ~25,000 (project) / ~500,000+ (with venv) |
+| Markdown Documentation | 50+ files |
+| Shell Scripts | 12 |
+| JavaScript Files | 2 |
+| SQL Schema Files | 3 |
+
+### 7. ✅ POSITIVE FINDINGS
+
+1. **Comprehensive Security Framework**
+   - Shamir's Secret Sharing implementation
+   - HashiCorp Vault integration
+   - Dead man's switch functionality
+   - Data sanitization before public exposure
+
+2. **Well-Documented**
+   - Extensive README files
+   - Setup guides
+   - Architecture documentation
+
+3. **Multi-Layered Architecture**
+   - Clear separation between public/private components
+   - Automated sanitization for open-source release
+
+4. **Modern Python Practices**
+   - Type hints used extensively
+   - Dataclasses for structured data
+   - Async/await for I/O operations
+
+---
+
+**RECOMMENDATION:** Before any production deployment or public release:
+1. Rotate all exposed credentials immediately
+2. Fix SQL injection vulnerabilities using parameterized queries
+3. Remove shell=True from subprocess calls
+4. Implement proper constant-time authentication
+5. Review and clean the `dumps/` directory for sensitive data
+6. Set up proper secrets management (Vault is already partially configured)[stage] run_soul_finished
+
+[summary]
+Now I have a comprehensive understanding of the codebase. Let me provide you with a detailed summary:
+
+---
+
+## 🔍 CODEBASE EXPLORATION SUMMARY
+
+### 1. MAIN COMPONENTS/MODULES
+
+The project is **Rug Muncher** - a crypto scam detection ecosystem with the following major components:
+
+| Component | Purpose | Key Files |
+|-----------|---------|-----------|
+| **Core Bot** | Telegram bot for contract scanning | `rug_muncher_bot.py`, `rug_muncher_bot_fixed.py` (40K+ lines) |
+| **Investigation Backend** | Flask/FastAPI backend for evidence handling | `investigation_backend.py`, `server.py` |
+| **AI Router** | Routes AI requests to multiple providers | `rugmuncher_ai_router.py`, `ollama_fastapi_server.py` |
+| **Security Systems** | Credential rotation, vault client, hardening | `credential_rotation_system.py`, `rugmuncher_vault_client.py` |
+| **Analysis Engines** | Bundle detection, threat intel, voiceprint | `rugmuncher_bundling.py`, `rugmuncher_threat_intel.py`, `rugmuncher_voiceprint.py` |
+| **Data Sanitization** | Cleans sensitive data for public repos | `rugmuncher_data_sanitizer.py`, `rugmuncher_data_cleansing.py` |
+| **GitHub Integration** | Auto-update public/private repos | `github_integration.py`, `github_auto_update.py` |
+| **RMI Ecosystem** | Full platform with DAO, mobile app backend | `/rmi/` directory (wallet system, gamification, etc.) |
+| **Social Analyzer** | Third-party tool for social media analysis | `/social-analyzer/` (AGPL-3.0 licensed) |
+
+### 2. OVERALL ARCHITECTURE
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                        RUG MUNCHER v3/v4                        │
+├─────────────────────────────────────────────────────────────────┤
+│  📱 Telegram Bot (Primary Interface)                             │
+│     ├── Contract scanning (/munch command)                       │
+│     ├── Wallet analysis                                          │
+│     ├── Risk scoring (100-point system)                          │
+│     └── Payment/subscription handling                            │
+├─────────────────────────────────────────────────────────────────┤
+│  🔍 Analysis Layer                                               │
+│     ├── Honeypot.is API integration                              │
+│     ├── Bubble Maps (holder visualization)                       │
+│     ├── Bundle detection (ML-based)                              │
+│     ├── Dev voiceprint (cross-chain tracking)                    │
+│     └── Rug prediction (timing analysis)                         │
+├─────────────────────────────────────────────────────────────────┤
+│  🤖 AI Layer                                                     │
+│     ├── Ollama (local models: deepseek, qwen, gemma)            │
+│     ├── AI Router (Silicon Flow, Groq, Fireworks)               │
+│     └── Data sanitization before external APIs                   │
+├─────────────────────────────────────────────────────────────────┤
+│  🔒 Security Layer                                               │
+│     ├── HashiCorp Vault for secrets                              │
+│     ├── Shamir's Secret Sharing                                  │
+│     ├── Auto credential rotation                                 │
+│     └── OPSEC identity management                                │
+├─────────────────────────────────────────────────────────────────┤
+│  🗄️ Data Layer                                                   │
+│     ├── SQLite (local) / Supabase (cloud)                        │
+│     ├── ScyllaDB (high-risk contracts)                           │
+│     ├── Neo4j (graph relationships)                              │
+│     └── QuestDB (time-series)                                    │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### 3. KEY PYTHON FILES AND THEIR PURPOSES
+
+| File | Lines | Purpose |
+|------|-------|---------|
+| `rug_muncher_bot_fixed.py` | 1,327 | Main Telegram bot (v4.4) - most complete version |
+| `rug_muncher_bot.py` | 1,140 | Original bot implementation |
+| `munchmaps_visualization.py` | 1,075 | Bubble map visualizations for token holders |
+| `rugmuncher_bundling.py` | 910 | Advanced bundle detection (ML/clustering) |
+| `investigation_backend.py` | 712 | Flask backend for evidence management |
+| `rugmuncher_security_hardening.py` | 784 | Shamir secret sharing, dead man's switch |
+| `rugmuncher_advanced_apis.py` | 816 | External API integrations |
+| `api_provider_credential_manager.py` | 637 | Multi-provider API key management |
+| `dump_server_v2.py` | 672 | File upload/analysis server |
+| `rugmuncher_data_cleansing.py` | 617 | Data sanitization for public exposure |
+| `ollama_fastapi_server.py` | 542 | FastAPI wrapper for Ollama with auth |
+| `opsec_identity_manager.py` | 536 | Identity rotation and management |
+| `credential_rotation_system.py` | 551 | Automated credential rotation |
+| `rugmuncher_telegram_bridge.py` | 528 | Telegram-Ollama bridge (Python) |
+| `rugmuncher_threat_intel.py` | 655 | Threat intelligence system |
+| `rugmuncher_predictor.py` | 591 | Rug pull prediction ML models |
+| `rugmuncher_voiceprint.py` | 580 | Dev voiceprint analysis |
+| `continuous_sync.py` | 395 | Automated GitHub sync with sanitization |
+| `human_like_sync.py` | 398 | Human-like commit patterns for stealth |
+
+### 4. CONFIGURATION FILES, REQUIREMENTS & ENTRY POINTS
+
+**Configuration Files:**
+- `.env` - Main environment file (⚠️ contains actual secrets)
+- `.env.example` - Template for environment setup
+- `requirements.txt` - Python dependencies (telegram-bot, web3, fastapi, etc.)
+- `database_schema.sql` - Complete SQL schema for PostgreSQL/SQLite
+
+**Entry Points:**
+- `rug_muncher_bot_fixed.py` - Main bot entry point
+- `server.py` - Flask upload server (port 8000)
+- `ollama_fastapi_server.py` - Ollama API server (port 11435)
+- `investigation_backend.py` - Investigation system backend
+- `telegram-bridge.js` - Node.js Telegram bridge
+- `install_v3.py` - One-click installer script
+
+**Shell Scripts:**
+- `secure_infrastructure.sh` - Server hardening
+- `vault_configure.sh` - HashiCorp Vault setup
+- `rotate-credentials.sh` - Credential rotation automation
+- `setup_github_access.sh` - GitHub integration setup
+
+### 5. 🔴 RED FLAGS & ISSUES FOUND
+
+#### CRITICAL SECURITY ISSUES:
+
+1. **Exposed Credentials in Environment Files**
+   - `/root/.env` contains real API keys
+   - `/root/rmi/backend/.env` has backup files with exposed keys
+   - Files like `.env.backup.exposed.20260410_143404` indicate previous exposure
+
+2. **Shell Command Injection Risks**
+   - `debug_bot.py:44` - `subprocess.run(cmd, shell=True, ...)` with user input
+   - `github_repo_manager.py:27` - `os.system("pip install...")`
+
+3. **SQL Injection Vulnerabilities**
+   - `test_v3.py:64` - `cursor.execute(f"SELECT COUNT(*) FROM {table}")` (f-string)
+   - `rmi/user_profile_system.py:294` - Dynamic SQL with f-strings
+   - `rmi/backend/database/postgres_client.py` - Multiple f-string queries
+
+4. **Weak Authentication**
+   - `ollama_fastapi_server.py:34` - API key generated from `os.urandom()` but printed to stdout
+   - Simple string comparison for API keys instead of constant-time comparison
+
+#### CODE QUALITY ISSUES:
+
+5. **Bare Exception Handling**
+   - Multiple `except: pass` patterns found (suppressing all errors)
+   - `social-analyzer/app.py:135` - `except Exception: pass`
+
+6. **TODO/FIXME Comments (Actual Project Code)**
+   - `rugmuncher_ollama_addon.py:465` - `# TODO: Implement cloud fallback`
+   - `rug_muncher_bot_fixed.py:1084` - `# TODO: Replace with actual AI router call`
+
+7. **Hardcoded Values**
+   - Known mixer/CEX wallets hardcoded in `rugmuncher_bundling.py` (this is intentional for detection)
+   - Default placeholder values in config that might not be changed
+
+8. **Directory/File Issues**
+   - `dumps/investigation-20260409/` - Contains extracted evidence with potentially sensitive data
+   - Multiple backup copies of databases and env files
+   - `archive/old_bots/` - Contains old bot versions with potential vulnerabilities
+
+#### ARCHITECTURE CONCERNS:
+
+9. **Mixed Python Versions**
+   - `/root/rmi/venv/` uses Python 3.12
+   - `/root/.cache/pipx/` uses Python 3.12/3.13
+   - Potential compatibility issues
+
+10. **In-Memory Rate Limiting**
+    - `ollama_fastapi_server.py:98` - Rate limiter uses in-memory dict (won't work across multiple workers)
+
+11. **CORS Misconfiguration**
+    - `investigation_backend.py:32` - `CORS(app, origins=["*"])` - Too permissive for production
+
+### 6. 📊 STATISTICS
+
+| Metric | Count |
+|--------|-------|
+| Total Python Files (root) | 58 |
+| Total Lines of Python Code | ~25,000 (project) / ~500,000+ (with venv) |
+| Markdown Documentation | 50+ files |
+| Shell Scripts | 12 |
+| JavaScript Files | 2 |
+| SQL Schema Files | 3 |
+
+### 7. ✅ POSITIVE FINDINGS
+
+1. **Comprehensive Security Framework**
+   - Shamir's Secret Sharing implementation
+   - HashiCorp Vault integration
+   - Dead man's switch functionality
+   - Data sanitization before public exposure
+
+2. **Well-Documented**
+   - Extensive README files
+   - Setup guides
+   - Architecture documentation
+
+3. **Multi-Layered Architecture**
+   - Clear separation between public/private components
+   - Automated sanitization for open-source release
+
+4. **Modern Python Practices**
+   - Type hints used extensively
+   - Dataclasses for structured data
+   - Async/await for I/O operations
+
+---
+
+**RECOMMENDATION:** Before any production deployment or public release:
+1. Rotate all exposed credentials immediately
+2. Fix SQL injection vulnerabilities using parameterized queries
+3. Remove shell=True from subprocess calls
+4. Implement proper constant-time authentication
+5. Review and clean the `dumps/` directory for sensitive data
+6. Set up proper secrets management (Vault is already partially configured)

@@ -1,0 +1,114 @@
+{
+  "name": "Scan Results to Community Channel",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "scan-result",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-node",
+      "name": "Scan Result Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [250, 300],
+      "webhookId": "scan-result"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Process scan result data\nconst data = $input.first().json.body;\n\n// Validate required fields\nif (!data.contract_address || !data.token_name) {\n  return {\n    status: 'error',\n    message: 'Missing required fields'\n  };\n}\n\n// Calculate risk score and emoji\nconst score = data.risk_score || 5;\nlet emoji = '✅';\nlet status = 'SAFE';\n\nif (score >= 8) {\n  emoji = '🚨';\n  status = 'HIGH RISK';\n} else if (score >= 5) {\n  emoji = '⚠️';\n  status = 'MODERATE RISK';\n} else if (score >= 3) {\n  emoji = '⚡';\n  status = 'LOW RISK';\n}\n\n// Format contract address (shorten)\nconst contract = data.contract_address;\nconst shortContract = `${contract.slice(0, 6)}...${contract.slice(-4)}`\n\n// Build issues list\nlet issuesText = '';\nif (data.issues && data.issues.length > 0) {\n  issuesText = data.issues.slice(0, 3).map(i => `❌ ${i}`).join('\\n');\n  if (data.issues.length > 3) {\n  issuesText += `\\n...and ${data.issues.length - 3} more`;\n  }\n}\n\n// Format message\nconst message = `🔍 <b>Community Scan Result</b>\n\n<b>${data.token_name}</b> <code>${shortContract}</code>\n\n${emoji} Risk Score: <b>${score}/10</b> (${status})\n\n${issuesText ? issuesText + '\\n\\n' : ''}Scanned by: @${data.username || 'anonymous'}\n${data.scan_url ? `<a href=\"${data.scan_url}\">View Full Report</a>` : ''}`;\n\nreturn {\n  status: 'success',\n  message: message,\n  risk_score: score,\n  contract: contract\n};"
+      },
+      "id": "process-node",
+      "name": "Format Scan Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "chatId": "-1003924326210",
+        "text": "={{ $json.message }}",
+        "additionalFields": {
+          "parse_mode": "HTML",
+          "disable_notification": false
+        }
+      },
+      "id": "telegram-node",
+      "name": "Post to Munch Scans",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.1,
+      "position": [650, 300],
+      "credentials": {
+        "telegramApi": {
+          "id": "telegram-bot-credentials",
+          "name": "Rug Munch Bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "options": {},
+        "responseBody": "={{ JSON.stringify({ success: true, posted: true, channel: 'munchscans' }) }}"
+      },
+      "id": "respond-node",
+      "name": "Confirm Post",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [850, 300]
+    }
+  ],
+  "connections": {
+    "Scan Result Webhook": {
+      "main": [
+        [
+          {
+            "node": "Format Scan Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Scan Result": {
+      "main": [
+        [
+          {
+            "node": "Post to Munch Scans",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Post to Munch Scans": {
+      "main": [
+        [
+          {
+            "node": "Confirm Post",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveExecutionProgress": true,
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "name": "Community",
+      "color": "#00ff88"
+    },
+    {
+      "name": "Automation",
+      "color": "#e94560"
+    }
+  ]
+}

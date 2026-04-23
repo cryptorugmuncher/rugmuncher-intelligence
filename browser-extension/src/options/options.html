@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rug Munch Intel - Extension Settings</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #12121a;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 40px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid #374151;
+    }
+
+    .logo {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo svg {
+      width: 28px;
+      height: 28px;
+      color: #fff;
+    }
+
+    .header-text h1 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .header-text p {
+      color: #9ca3af;
+      font-size: 14px;
+    }
+
+    .section {
+      background: #1a1a2e;
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-icon {
+      color: #8b5cf6;
+    }
+
+    .setting-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      border-bottom: 1px solid #374151;
+    }
+
+    .setting-item:last-child {
+      border-bottom: none;
+    }
+
+    .setting-info {
+      flex: 1;
+    }
+
+    .setting-label {
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .setting-description {
+      color: #9ca3af;
+      font-size: 13px;
+    }
+
+    /* Toggle Switch */
+    .toggle {
+      position: relative;
+      width: 52px;
+      height: 28px;
+      margin-left: 16px;
+    }
+
+    .toggle input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .toggle-slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #374151;
+      transition: 0.3s;
+      border-radius: 28px;
+    }
+
+    .toggle-slider:before {
+      position: absolute;
+      content: "";
+      height: 22px;
+      width: 22px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: 0.3s;
+      border-radius: 50%;
+    }
+
+    input:checked + .toggle-slider {
+      background-color: #8b5cf6;
+    }
+
+    input:checked + .toggle-slider:before {
+      transform: translateX(24px);
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .status-badge.connected {
+      background: #22c55e20;
+      color: #22c55e;
+    }
+
+    .status-badge.disconnected {
+      background: #ef444420;
+      color: #ef4444;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    .status-badge.connected .status-dot {
+      background: #22c55e;
+    }
+
+    .status-badge.disconnected .status-dot {
+      background: #ef4444;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    .btn {
+      background: #8b5cf6;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 20px;
+      color: #fff;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn:hover {
+      background: #7c3aed;
+    }
+
+    .btn-secondary {
+      background: #374151;
+    }
+
+    .btn-secondary:hover {
+      background: #4b5563;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .alert-history {
+      max-height: 400px;
+      overflow-y: auto;
+    }
+
+    .alert-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px;
+      background: #12121a;
+      border-radius: 8px;
+      margin-bottom: 8px;
+    }
+
+    .alert-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .alert-icon.whale { background: #3b82f620; color: #3b82f6; }
+    .alert-icon.risk { background: #f59e0b20; color: #f59e0b; }
+    .alert-icon.scam { background: #ef444420; color: #ef4444; }
+
+    .alert-content {
+      flex: 1;
+    }
+
+    .alert-title {
+      font-weight: 500;
+      margin-bottom: 2px;
+    }
+
+    .alert-message {
+      color: #9ca3af;
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+
+    .alert-time {
+      color: #6b7280;
+      font-size: 11px;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 40px;
+      color: #6b7280;
+    }
+
+    .footer {
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid #374151;
+      text-align: center;
+      color: #9ca3af;
+      font-size: 13px;
+    }
+
+    .footer a {
+      color: #8b5cf6;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+        </svg>
+      </div>
+      <div class="header-text">
+        <h1>Rug Munch Intel Settings</h1>
+        <p>Configure your extension preferences</p>
+      </div>
+    </div>
+
+    <!-- Connection Status -->
+    <div class="section">
+      <h2 class="section-title">
+        <svg class="section-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
+        Connection Status
+      </h2>
+      <div style="display: flex; align-items: center; justify-content: space-between;">
+        <div>
+          <div class="setting-label">Real-time Alerts</div>
+          <div class="setting-description">WebSocket connection to receive live updates</div>
+        </div>
+        <span id="connectionStatus" class="status-badge disconnected">
+          <span class="status-dot"></span>
+          <span id="connectionText">Disconnected</span>
+        </span>
+      </div>
+    </div>
+
+    <!-- Notification Settings -->
+    <div class="section">
+      <h2 class="section-title">
+        <svg class="section-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+        </svg>
+        Notifications
+      </h2>
+
+      <div class="setting-item">
+        <div class="setting-info">
+          <div class="setting-label">Enable Notifications</div>
+          <div class="setting-description">Show desktop notifications for important alerts</div>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" id="notificationsEnabled">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+
+      <div class="setting-item">
+        <div class="setting-info">
+          <div class="setting-label">Risk Alerts</div>
+          <div class="setting-description">Get notified about suspicious wallet activity</div>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" id="riskAlertsEnabled">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+
+      <div class="setting-item">
+        <div class="setting-info">
+          <div class="setting-label">Whale Alerts</div>
+          <div class="setting-description">Large transactions and whale movements</div>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" id="whaleAlertsEnabled">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+
+      <div class="setting-item">
+        <div class="setting-info">
+          <div class="setting-label">Scam Alerts</div>
+          <div class="setting-description">Newly detected scams and rug pulls</div>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" id="scamAlertsEnabled">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+
+      <div class="setting-item">
+        <div class="setting-info">
+          <div class="setting-label">Price Alerts</div>
+          <div class="setting-description">Significant price movements in tracked tokens</div>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" id="priceAlertsEnabled">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Display Settings -->
+    <div class="section">
+      <h2 class="section-title">
+        <svg class="section-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+        </svg>
+        Display
+      </h2>
+
+      <div class="setting-item">
+        <div class="setting-info">
+          <div class="setting-label">Badge Counter</div>
+          <div class="setting-description">Show unread alert count on extension icon</div>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" id="badgeAlertsEnabled">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+
+      <div class="setting-item">
+        <div class="setting-info">
+          <div class="setting-label">Alert Sounds</div>
+          <div class="setting-description">Play sound for critical alerts</div>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" id="soundEnabled">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Alert History -->
+    <div class="section">
+      <h2 class="section-title">
+        <svg class="section-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        Recent Alerts
+      </h2>
+      <div id="alertHistory" class="alert-history">
+        <div class="empty-state">No recent alerts</div>
+      </div>
+      <div class="btn-group">
+        <button id="clearAlertsBtn" class="btn btn-secondary">Clear History</button>
+        <button id="markAllReadBtn" class="btn">Mark All Read</button>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>Rug Munch Intel Browser Extension v1.0.0</p>
+      <p style="margin-top: 8px;">
+        <a href="https://cryptorugmunch.com" target="_blank">cryptorugmunch.com</a> |
+        <a href="https://app.cryptorugmunch.com" target="_blank">Web App</a>
+      </p>
+    </div>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>

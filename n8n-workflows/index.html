@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RMI n8n Workflows - Download</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 50px auto; padding: 20px; background: #1a1a2e; color: #eee; }
+        h1 { color: #00d4ff; text-align: center; }
+        .count { text-align: center; color: #e94560; font-size: 18px; margin-bottom: 30px; }
+        .workflow { background: #16213e; padding: 20px; margin: 15px 0; border-radius: 8px; border-left: 4px solid #00d4ff; }
+        .workflow h3 { margin-top: 0; color: #e94560; }
+        .workflow p { color: #aaa; font-size: 14px; }
+        a.download { display: inline-block; background: #00d4ff; color: #1a1a2e; padding: 10px 20px; text-decoration: none; border-radius: 4px; font-weight: bold; margin-top: 10px; }
+        a.download:hover { background: #00a8cc; }
+        .note { background: #0f3460; padding: 15px; border-radius: 8px; margin-top: 30px; font-size: 14px; }
+        .category { color: #00d4ff; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
+    </style>
+</head>
+<body>
+    <h1>🐲 RMI n8n Workflows</h1>
+    <p class="count">📦 7 Workflows Available</p>
+    <p style="text-align: center;">Download these JSON files and upload to your n8n instance</p>
+
+    <div class="workflow">
+        <div class="category">Core Automation</div>
+        <h3>🚨 Scam Alert System</h3>
+        <p>Processes scam alerts, calculates risk scores, posts critical alerts to X/Twitter and saves to database.</p>
+        <a href="scam-alert-workflow-fixed.json" download class="download">⬇ Download scam-alert-workflow-fixed.json</a>
+    </div>
+
+    <div class="workflow">
+        <div class="category">Core Automation</div>
+        <h3>🏆 Badge Unlock Notifications</h3>
+        <p>Triggers when users earn badges, announces rare badges on X and Discord.</p>
+        <a href="badge-unlock-workflow-fixed.json" download class="download">⬇ Download badge-unlock-workflow-fixed.json</a>
+    </div>
+
+    <div class="workflow">
+        <div class="category">Core Automation</div>
+        <h3>⚠️ High Risk Alert to X</h3>
+        <p>Simple webhook for high-risk entity alerts with X posting.</p>
+        <a href="high-risk-alert.json" download class="download">⬇ Download high-risk-alert.json</a>
+    </div>
+
+    <div class="workflow">
+        <div class="category">Core Automation</div>
+        <h3>🐋 Whale Alert</h3>
+        <p>Monitors large transactions and alerts on whale movements.</p>
+        <a href="whale-alert.json" download class="download">⬇ Download whale-alert.json</a>
+    </div>
+
+    <div class="workflow">
+        <div class="category">RMI System Integration</div>
+        <h3>📊 Daily Intelligence Report</h3>
+        <p>Runs daily at 9 AM, fetches intelligence briefing from RMI backend, formats and sends to Telegram. Includes top stories, scam alerts, trending topics.</p>
+        <a href="rmi_daily_intelligence.json" download class="download">⬇ Download rmi_daily_intelligence.json</a>
+    </div>
+
+    <div class="workflow">
+        <div class="category">RMI System Integration</div>
+        <h3>🔍 Investigation Webhook Handler</h3>
+        <p>Receives investigation events from RMI backend (/webhook/investigation), processes case actions, validates data.</p>
+        <a href="rmi_investigation_webhook.json" download class="download">⬇ Download rmi_investigation_webhook.json</a>
+    </div>
+
+    <div class="workflow">
+        <div class="category">RMI System Integration</div>
+        <h3>🤖 RMI Scam Alert Automation</h3>
+        <p>Advanced scam alert workflow with Telegram, Twitter/X posting, and Supabase storage integration.</p>
+        <a href="rmi_scam_alert_flow.json" download class="download">⬇ Download rmi_scam_alert_flow.json</a>
+    </div>
+
+    <div class="note">
+        <strong>How to import:</strong>
+        <ol>
+            <li>Click download buttons above to save JSON files</li>
+            <li>In n8n, go to <strong>Workflows → Add Workflow → Import from File</strong></li>
+            <li>Select the downloaded JSON file</li>
+            <li>Save and activate the workflow</li>
+        </ol>
+    </div>
+
+    <p style="text-align: center; margin-top: 40px; color: #666; font-size: 12px;">
+        RMI System | n8n Automation Workflows | Total: 7 Workflows
+    </p>
+</body>
+</html>

@@ -1,0 +1,29 @@
+# RMI Platform - Python Dependencies
+# ===================================
+
+# Web Framework
+flask==3.0.0
+flask-cors==4.0.0
+
+# Telegram Bot
+python-telegram-bot==20.7
+
+# HTTP Client
+aiohttp==3.9.1
+requests==2.31.0
+
+# Environment
+python-dotenv==1.0.0
+
+# Data Processing
+numpy==1.26.2
+pandas==2.1.4
+
+# AWS (for Bedrock)
+boto3==1.34.0
+
+# Google AI
+google-generativeai==0.3.2
+
+# Utilities
+python-dateutil==2.8.2

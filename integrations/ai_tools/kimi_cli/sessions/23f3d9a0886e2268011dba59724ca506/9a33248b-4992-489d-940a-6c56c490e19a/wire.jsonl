@@ -1,0 +1,7 @@
+{"type": "metadata", "protocol_version": "1.8"}
+{"timestamp": 1775565354.8315628, "message": {"type": "TurnBegin", "payload": {"user_input": "Hello, confirm you are working"}}}
+{"timestamp": 1775565354.8412428, "message": {"type": "StepBegin", "payload": {"n": 1}}}
+{"timestamp": 1775565361.1461139, "message": {"type": "ContentPart", "payload": {"type": "think", "think": "The user is simply asking me to confirm I'm working. This is a straightforward greeting/confirmation request that doesn't require any tool usage. I should respond directly in text.", "encrypted": null}}}
+{"timestamp": 1775565362.2493076, "message": {"type": "ContentPart", "payload": {"type": "text", "text": "Hello! I'm Kimi Code CLI, and I'm working properly. I can help you with software engineering tasks, file operations, code editing, and more.\n\nWhat can I help you with today?"}}}
+{"timestamp": 1775565362.2580757, "message": {"type": "StatusUpdate", "payload": {"context_usage": 0.03882598876953125, "context_tokens": 10178, "max_context_tokens": 262144, "token_usage": {"input_other": 1218, "output": 75, "input_cache_read": 8960, "input_cache_creation": 0}, "message_id": "chatcmpl-fjmpTc9hxKXAzbp6jZwgIIj7", "plan_mode": false, "mcp_status": null}}}
+{"timestamp": 1775565362.2841728, "message": {"type": "TurnEnd", "payload": {}}}

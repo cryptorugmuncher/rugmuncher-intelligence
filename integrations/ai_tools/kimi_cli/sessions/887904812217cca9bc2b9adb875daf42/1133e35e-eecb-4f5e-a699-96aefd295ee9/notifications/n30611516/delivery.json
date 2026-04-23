@@ -1,0 +1,19 @@
+{
+  "sinks": {
+    "llm": {
+      "status": "acked",
+      "claimed_at": null,
+      "acked_at": 1775755412.2830207
+    },
+    "wire": {
+      "status": "acked",
+      "claimed_at": null,
+      "acked_at": 1775755394.9272358
+    },
+    "shell": {
+      "status": "acked",
+      "claimed_at": null,
+      "acked_at": 1775755394.9057508
+    }
+  }
+}

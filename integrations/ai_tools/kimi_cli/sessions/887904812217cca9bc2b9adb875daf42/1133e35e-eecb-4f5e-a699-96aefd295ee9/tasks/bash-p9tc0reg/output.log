@@ -1,0 +1,49 @@
+Hit:1 http://archive.ubuntu.com/ubuntu noble InRelease
+Get:2 https://download.docker.com/linux/ubuntu noble InRelease [48.5 kB]
+Get:3 http://archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+Get:4 http://security.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+Get:5 https://ppa.launchpadcontent.net/mozillateam/ppa/ubuntu noble InRelease [24.4 kB]
+Get:6 http://archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+Get:7 https://download.docker.com/linux/ubuntu noble/stable amd64 Packages [49.7 kB]
+Get:8 http://security.ubuntu.com/ubuntu noble-security/main amd64 Packages [1579 kB]
+Get:9 http://security.ubuntu.com/ubuntu noble-security/main Translation-en [253 kB]
+Get:10 http://security.ubuntu.com/ubuntu noble-security/main amd64 Components [21.5 kB]
+Get:11 http://security.ubuntu.com/ubuntu noble-security/main amd64 c-n-f Metadata [10.7 kB]
+Get:12 http://security.ubuntu.com/ubuntu noble-security/universe amd64 Packages [1170 kB]
+Get:13 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [1881 kB]
+Get:14 http://security.ubuntu.com/ubuntu noble-security/universe Translation-en [225 kB]
+Get:15 http://security.ubuntu.com/ubuntu noble-security/universe amd64 Components [74.2 kB]
+Get:16 http://security.ubuntu.com/ubuntu noble-security/universe amd64 c-n-f Metadata [22.8 kB]
+Get:17 http://security.ubuntu.com/ubuntu noble-security/restricted amd64 Components [212 B]
+Get:18 http://security.ubuntu.com/ubuntu noble-security/multiverse amd64 Components [212 B]
+Get:19 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 Components [177 kB]
+Get:20 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [1663 kB]
+Get:21 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 Components [386 kB]
+Get:22 http://archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Components [212 B]
+Get:23 http://archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Components [940 B]
+Get:24 http://archive.ubuntu.com/ubuntu noble-backports/main amd64 Components [7364 B]
+Get:25 http://archive.ubuntu.com/ubuntu noble-backports/universe amd64 Components [13.2 kB]
+Get:26 http://archive.ubuntu.com/ubuntu noble-backports/restricted amd64 Components [216 B]
+Get:27 http://archive.ubuntu.com/ubuntu noble-backports/multiverse amd64 Components [212 B]
+Fetched 7988 kB in 3s (2933 kB/s)
+Reading package lists...
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K[1;1H[33m[42mPackage configuration[6;3H[34m[40m┌────────────────────────┤ [31mPending kernel upgrade[34m ├────────────────────────┐[7;3H│[33m                                                                          [34m│[32m [8;3H[34m│[33m [36m[42mNewer kernel available                                                  [33m[40m [34m│[32m [9;3H[34m│[33m [36m[42m                                                                        [33m[40m [34m│[32m [10;3H[34m│[33m [36m[42mThe currently running kernel version is 6.8.0-106-generic which is not  [33m[40m [34m│[32m [11;3H[34m│[33m [36m[42mthe expected kernel version 6.8.0-107-generic.                          [33m[40m [34m│[32m [12;3H[34m│[33m [36m[42m                                                                        [33m[40m [34m│[32m [13;3H[34m│[33m [36m[42mRestarting the system to load the new kernel will not be handled        [33m[40m [34m│[32m [14;3H[34m│[33m [36m[42mautomatically, so you should consider rebooting.                        [33m[40m [34m│[32m [15;3H[34m│[33m                                                                          [34m│[32m [16;3H[34m│[33m                                  [37m[41m<Ok>[33m[40m                                    [34m│[32m [17;3H[34m│[33m                                                                          [34m│[32m [18;3H[34m└──────────────────────────────────────────────────────────────────────────┘[32m [19;4H                                                                            [16;39H[?12l[?25h[24;1H[37m(B[m[39;49m[K[?1049l[23;0;0tFailed to open terminal.debconf: whiptail output the above errors, giving up!
+Use of uninitialized value $ret in scalar chomp at /usr/share/perl5/Debconf/Client/ConfModule.pm line 133, <STDIN> line 9.
+Use of uninitialized value $ret in split at /usr/share/perl5/Debconf/Client/ConfModule.pm line 134, <STDIN> line 9.
+Use of uninitialized value $ret[0] in string eq at /usr/share/perl5/Debconf/Client/ConfModule.pm line 135, <STDIN> line 9.
+
+Restarting services...

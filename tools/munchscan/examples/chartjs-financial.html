@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MunchScan - Chart.js Financial Charts</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-financial@0.2.1/dist/chartjs-chart-financial.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0d1117;
+            color: #e6edf3;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .logo {
+            font-size: 32px;
+            font-weight: 800;
+            background: linear-gradient(90deg, #00d4aa, #00a8e8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #8b949e;
+            font-size: 14px;
+        }
+        
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .chart-card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 20px;
+        }
+        
+        .chart-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .chart-container {
+            position: relative;
+            height: 300px;
+        }
+        
+        .stats-row {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid #30363d;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-label {
+            font-size: 11px;
+            color: #8b949e;
+            text-transform: uppercase;
+        }
+        
+        .stat-value {
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+        
+        .positive { color: #00d4aa; }
+        .negative { color: #ff6b6b; }
+        
+        @media (max-width: 600px) {
+            .charts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">🍔 MunchScan</div>
+        <div class="subtitle">Chart.js Financial Charts - Alternative to TradingView</div>
+    </div>
+    
+    <div class="charts-grid">
+        <!-- Candlestick Chart -->
+        <div class="chart-card">
+            <div class="chart-title">📊 Candlestick Chart (BTC/USD)</div>
+            <div class="chart-container">
+                <canvas id="candleChart"></canvas>
+            </div>
+            <div class="stats-row">
+                <div class="stat">
+                    <div class="stat-label">Open</div>
+                    <div class="stat-value" id="open">-</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">High</div>
+                    <div class="stat-value" id="high">-</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">Low</div>
+                    <div class="stat-value" id="low">-</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">Close</div>
+                    <div class="stat-value" id="close">-</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Line Chart with Prediction -->
+        <div class="chart-card">
+            <div class="chart-title">📈 Price Trend with Prediction</div>
+            <div class="chart-container">
+                <canvas id="lineChart"></canvas>
+            </div>
+            <div class="stats-row">
+                <div class="stat">
+                    <div class="stat-label">Current</div>
+                    <div class="stat-value positive" id="current">$67,420</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">Predicted (24h)</div>
+                    <div class="stat-value positive" id="predicted">$68,950</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">Confidence</div>
+                    <div class="stat-value">72%</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Volume Chart -->
+        <div class="chart-card">
+            <div class="chart-title">📊 Volume Analysis</div>
+            <div class="chart-container">
+                <canvas id="volumeChart"></canvas>
+            </div>
+            <div class="stats-row">
+                <div class="stat">
+                    <div class="stat-label">24h Volume</div>
+                    <div class="stat-value">$28.4B</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">Avg Volume</div>
+                    <div class="stat-value">$24.1B</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">Change</div>
+                    <div class="stat-value positive">+17.8%</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Radar Chart - Token Metrics -->
+        <div class="chart-card">
+            <div class="chart-title">🎯 Token Health Score</div>
+            <div class="chart-container">
+                <canvas id="radarChart"></canvas>
+            </div>
+            <div class="stats-row">
+                <div class="stat">
+                    <div class="stat-label">Overall Score</div>
+                    <div class="stat-value positive">8.4/10</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">Risk Level</div>
+                    <div class="stat-value">Medium</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Generate candlestick data
+        function generateCandleData(count) {
+            const data = [];
+            let price = 65000;
+            const now = new Date();
+            
+            for (let i = count; i > 0; i--) {
+                const time = new Date(now - i * 3600000);
+                const volatility = price * 0.02;
+                
+                const open = price;
+                const close = price + (Math.random() - 0.5) * volatility;
+                const high = Math.max(open, close) + Math.random() * volatility * 0.5;
+                const low = Math.min(open, close) - Math.random() * volatility * 0.5;
+                const volume = Math.random() * 1000000 + 500000;
+                
+                data.push({
+                    x: time.getTime(),
+                    o: parseFloat(open.toFixed(2)),
+                    h: parseFloat(high.toFixed(2)),
+                    l: parseFloat(low.toFixed(2)),
+                    c: parseFloat(close.toFixed(2)),
+                    v: volume
+                });
+                
+                price = close;
+            }
+            
+            return data;
+        }
+        
+        const candleData = generateCandleData(50);
+        const lastCandle = candleData[candleData.length - 1];
+        
+        // Update stats
+        document.getElementById('open').textContent = '$' + lastCandle.o.toLocaleString();
+        document.getElementById('high').textContent = '$' + lastCandle.h.toLocaleString();
+        document.getElementById('low').textContent = '$' + lastCandle.l.toLocaleString();
+        document.getElementById('close').textContent = '$' + lastCandle.c.toLocaleString();
+        
+        // Common chart options
+        const commonOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            interaction: {
+                intersect: false,
+                mode: 'index'
+            },
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#e6edf3'
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    grid: {
+                        color: '#30363d'
+                    },
+                    ticks: {
+                        color: '#8b949e'
+                    }
+                },
+                y: {
+                    grid: {
+                        color: '#30363d'
+                    },
+                    ticks: {
+                        color: '#8b949e'
+                    }
+                }
+            }
+        };
+        
+        // 1. Candlestick Chart
+        const candleCtx = document.getElementById('candleChart').getContext('2d');
+        new Chart(candleCtx, {
+            type: 'candlestick',
+            data: {
+                datasets: [{
+                    label: 'BTC/USD',
+                    data: candleData,
+                    color: {
+                        up: '#00d4aa',
+                        down: '#ff6b6b',
+                        unchanged: '#8b949e'
+                    }
+                }]
+            },
+            options: {
+                ...commonOptions,
+                scales: {
+                    x: {
+                        type: 'time',
+                        time: {
+                            unit: 'hour'
+                        },
+                        grid: { color: '#30363d' },
+                        ticks: { color: '#8b949e' }
+                    },
+                    y: {
+                        grid: { color: '#30363d' },
+                        ticks: { 
+                            color: '#8b949e',
+                            callback: function(value) {
+                                return '$' + value.toLocaleString();
+                            }
+                        }
+                    }
+                }
+            }
+        });
+        
+        // 2. Line Chart with Prediction
+        const lineData = candleData.map(d => ({ x: d.x, y: d.c }));
+        
+        // Simple linear prediction
+        const lastPoints = lineData.slice(-10);
+        const trend = (lastPoints[lastPoints.length - 1].y - lastPoints[0].y) / 10;
+        const prediction = [];
+        let lastTime = lineData[lineData.length - 1].x;
+        let lastPrice = lineData[lineData.length - 1].y;
+        
+        for (let i = 1; i <= 10; i++) {
+            lastTime += 3600000;
+            lastPrice += trend + (Math.random() - 0.5) * 100;
+            prediction.push({ x: lastTime, y: lastPrice });
+        }
+        
+        const lineCtx = document.getElementById('lineChart').getContext('2d');
+        new Chart(lineCtx, {
+            type: 'line',
+            data: {
+                datasets: [
+                    {
+                        label: 'Historical',
+                        data: lineData,
+                        borderColor: '#00d4aa',
+                        backgroundColor: 'rgba(0, 212, 170, 0.1)',
+                        fill: true,
+                        tension: 0.4
+                    },
+                    {
+                        label: 'AI Prediction',
+                        data: prediction,
+                        borderColor: '#00a8e8',
+                        backgroundColor: 'rgba(0, 168, 232, 0.1)',
+                        borderDash: [5, 5],
+                        fill: true,
+                        tension: 0.4
+                    }
+                ]
+            },
+            options: {
+                ...commonOptions,
+                scales: {
+                    x: {
+                        type: 'time',
+                        grid: { color: '#30363d' },
+                        ticks: { color: '#8b949e' }
+                    },
+                    y: {
+                        grid: { color: '#30363d' },
+                        ticks: { 
+                            color: '#8b949e',
+                            callback: function(value) {
+                                return '$' + value.toLocaleString();
+                            }
+                        }
+                    }
+                }
+            }
+        });
+        
+        // 3. Volume Chart
+        const volumeCtx = document.getElementById('volumeChart').getContext('2d');
+        new Chart(volumeCtx, {
+            type: 'bar',
+            data: {
+                datasets: [{
+                    label: 'Volume',
+                    data: candleData.map(d => ({ x: d.x, y: d.v })),
+                    backgroundColor: candleData.map(d => d.c >= d.o ? '#00d4aa' : '#ff6b6b'),
+                    borderRadius: 2
+                }]
+            },
+            options: {
+                ...commonOptions,
+                scales: {
+                    x: {
+                        type: 'time',
+                        grid: { color: '#30363d' },
+                        ticks: { color: '#8b949e' }
+                    },
+                    y: {
+                        grid: { color: '#30363d' },
+                        ticks: { 
+                            color: '#8b949e',
+                            callback: function(value) {
+                                return (value / 1000000).toFixed(1) + 'M';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+        
+        // 4. Radar Chart - Token Metrics
+        const radarCtx = document.getElementById('radarChart').getContext('2d');
+        new Chart(radarCtx, {
+            type: 'radar',
+            data: {
+                labels: ['Liquidity', 'Volume', 'Holder Growth', 'Social Sentiment', 'Price Momentum', 'Dev Activity'],
+                datasets: [{
+                    label: 'Current',
+                    data: [8.5, 7.2, 9.1, 6.8, 8.9, 7.5],
+                    backgroundColor: 'rgba(0, 212, 170, 0.2)',
+                    borderColor: '#00d4aa',
+                    pointBackgroundColor: '#00d4aa',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: '#00d4aa'
+                }, {
+                    label: '30d Ago',
+                    data: [7.0, 6.5, 7.8, 5.5, 7.2, 6.8],
+                    backgroundColor: 'rgba(139, 148, 158, 0.2)',
+                    borderColor: '#8b949e',
+                    pointBackgroundColor: '#8b949e',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: '#8b949e'
+                }]
+            },
+            options: {
+                ...commonOptions,
+                scales: {
+                    r: {
+                        angleLines: {
+                            color: '#30363d'
+                        },
+                        grid: {
+                            color: '#30363d'
+                        },
+                        pointLabels: {
+                            color: '#e6edf3'
+                        },
+                        ticks: {
+                            color: '#8b949e',
+                            backdropColor: 'transparent'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

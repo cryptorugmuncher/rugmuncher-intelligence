@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rug Munch Intel</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 360px;
+      min-height: 500px;
+      background: #12121a;
+      color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    .container {
+      padding: 16px;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .logo {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo svg {
+      width: 24px;
+      height: 24px;
+      color: #fff;
+    }
+
+    .title {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .subtitle {
+      font-size: 12px;
+      color: #9ca3af;
+    }
+
+    .scan-section {
+      background: #1a1a2e;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .input-group {
+      display: flex;
+      gap: 8px;
+    }
+
+    .address-input {
+      flex: 1;
+      background: #12121a;
+      border: 1px solid #374151;
+      border-radius: 8px;
+      padding: 10px 12px;
+      color: #fff;
+      font-size: 13px;
+      font-family: monospace;
+    }
+
+    .address-input:focus {
+      outline: none;
+      border-color: #8b5cf6;
+    }
+
+    .scan-btn {
+      background: #8b5cf6;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 16px;
+      color: #fff;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .scan-btn:hover {
+      background: #7c3aed;
+    }
+
+    .scan-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .chain-select {
+      background: #12121a;
+      border: 1px solid #374151;
+      border-radius: 8px;
+      padding: 8px;
+      color: #fff;
+      font-size: 13px;
+      margin-top: 8px;
+      width: 100%;
+    }
+
+    .quick-actions {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .action-btn {
+      background: #1a1a2e;
+      border: none;
+      border-radius: 8px;
+      padding: 12px;
+      color: #fff;
+      font-size: 11px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .action-btn:hover {
+      background: #8b5cf620;
+    }
+
+    .action-icon {
+      font-size: 20px;
+    }
+
+    .recent-scans {
+      background: #1a1a2e;
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    .section-title {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .scan-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid #374151;
+    }
+
+    .scan-item:last-child {
+      border-bottom: none;
+    }
+
+    .scan-info {
+      flex: 1;
+    }
+
+    .scan-address {
+      font-size: 13px;
+      font-family: monospace;
+      color: #fff;
+    }
+
+    .scan-chain {
+      font-size: 11px;
+      color: #9ca3af;
+      text-transform: uppercase;
+    }
+
+    .risk-badge {
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .risk-low {
+      background: #22c55e20;
+      color: #22c55e;
+    }
+
+    .risk-medium {
+      background: #f59e0b20;
+      color: #f59e0b;
+    }
+
+    .risk-high {
+      background: #ef444420;
+      color: #ef4444;
+    }
+
+    .risk-critical {
+      background: #dc262620;
+      color: #dc2626;
+    }
+
+    .loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .spinner {
+      width: 20px;
+      height: 20px;
+      border: 2px solid #374151;
+      border-top-color: #8b5cf6;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .error {
+      background: #ef444420;
+      color: #ef4444;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 13px;
+      margin-top: 12px;
+    }
+
+    .result-card {
+      background: #1a1a2e;
+      border-radius: 12px;
+      padding: 16px;
+      margin-top: 16px;
+    }
+
+    .risk-header {
+      text-align: center;
+      padding: 20px;
+      border-radius: 8px;
+      border: 2px solid;
+      margin-bottom: 16px;
+    }
+
+    .risk-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      color: #9ca3af;
+    }
+
+    .risk-value {
+      font-size: 28px;
+      font-weight: bold;
+      margin-top: 4px;
+    }
+
+    .risk-score {
+      font-size: 14px;
+      color: #6b7280;
+      margin-top: 4px;
+    }
+
+    .footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid #374151;
+    }
+
+    .footer-text {
+      font-size: 12px;
+      color: #9ca3af;
+    }
+
+    .footer-link {
+      color: #8b5cf6;
+      text-decoration: none;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+        </svg>
+      </div>
+      <div>
+        <div class="title">Rug Munch Intel</div>
+        <div class="subtitle">Wallet Risk Analyzer</div>
+      </div>
+    </div>
+
+    <div class="scan-section">
+      <div class="input-group">
+        <input
+          type="text"
+          class="address-input"
+          id="addressInput"
+          placeholder="Enter wallet address (0x...)"
+        >
+        <button class="scan-btn" id="scanBtn">
+          <span>Scan</span>
+        </button>
+      </div>
+      <select class="chain-select" id="chainSelect">
+        <option value="ethereum">Ethereum</option>
+        <option value="bsc">BSC</option>
+        <option value="polygon">Polygon</option>
+        <option value="arbitrum">Arbitrum</option>
+        <option value="optimism">Optimism</option>
+        <option value="base">Base</option>
+        <option value="solana">Solana</option>
+      </select>
+    </div>
+
+    <div class="quick-actions">
+      <button class="action-btn" id="portfolioBtn">
+        <span class="action-icon">📊</span>
+        <span>Portfolio</span>
+      </button>
+      <button class="action-btn" id="alertsBtn">
+        <span class="action-icon">🔔</span>
+        <span>Alerts</span>
+      </button>
+      <button class="action-btn" id="mapsBtn">
+        <span class="action-icon">🕸️</span>
+        <span>Maps</span>
+      </button>
+      <button class="action-btn" id="reportBtn">
+        <span class="action-icon">⚠️</span>
+        <span>Report</span>
+      </button>
+    </div>
+
+    <div id="resultContainer"></div>
+
+    <div class="recent-scans">
+      <div class="section-title">
+        <span>Recent Scans</span>
+        <span id="clearAll" style="font-size: 11px; color: #6b7280; cursor: pointer;">Clear</span>
+      </div>
+      <div id="recentScans"></div>
+    </div>
+
+    <div class="footer">
+      <span class="footer-text">Powered by</span>
+      <a href="https://cryptorugmunch.com" target="_blank" class="footer-link">cryptorugmunch.com</a>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

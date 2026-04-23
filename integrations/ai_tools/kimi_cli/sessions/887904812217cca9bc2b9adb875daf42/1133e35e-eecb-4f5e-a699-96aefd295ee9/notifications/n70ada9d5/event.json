@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "id": "n70ada9d5",
+  "category": "task",
+  "type": "task.completed",
+  "source_kind": "background_task",
+  "source_id": "bash-p9tc0reg",
+  "title": "Background task completed: Install PostgreSQL",
+  "body": "Task ID: bash-p9tc0reg\nStatus: completed\nDescription: Install PostgreSQL\nExit code: 0",
+  "severity": "success",
+  "created_at": 1775756071.9178553,
+  "payload": {
+    "task_id": "bash-p9tc0reg",
+    "task_kind": "bash",
+    "status": "completed",
+    "description": "Install PostgreSQL",
+    "exit_code": 0,
+    "interrupted": false,
+    "timed_out": false,
+    "terminal_reason": "completed",
+    "failure_reason": null
+  },
+  "targets": [
+    "llm",
+    "wire",
+    "shell"
+  ],
+  "dedupe_key": "background_task:bash-p9tc0reg:completed"
+}

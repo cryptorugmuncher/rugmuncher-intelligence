@@ -1,0 +1,34 @@
+{
+  "package_id": "EP-20260412-134228",
+  "generated_at": "2026-04-12T13:42:28.615249",
+  "case_id": "CRM-SCAM-2025-001",
+  "contents": [
+    {
+      "file": "evidence/blockchain_data/crm_holders_march_2026.json",
+      "type": "blockchain_evidence",
+      "hash": "6f7fc9cd7796ec56cbe68103fa94d6c3"
+    },
+    {
+      "file": "evidence/blockchain_data/crm_holders_list.txt",
+      "type": "blockchain_evidence",
+      "hash": "ccd40b617b6f12025452b663eb618ce8"
+    },
+    {
+      "file": "reports/forensic_report_20260412_134228.txt",
+      "type": "forensic_report",
+      "hash": "5aa376cf3702364cf00b05479782c4a3"
+    },
+    {
+      "file": "reports/forensic_report_20260412_112515.txt",
+      "type": "forensic_report",
+      "hash": "119df177b76eec468cf49cb602715270"
+    },
+    {
+      "directory": "evidence/communications/",
+      "type": "communication_records",
+      "count": 67,
+      "note": "Verify legal acquisition"
+    }
+  ],
+  "chain_of_custody": []
+}

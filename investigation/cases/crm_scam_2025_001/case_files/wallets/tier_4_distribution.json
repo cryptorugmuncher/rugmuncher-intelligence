@@ -1,0 +1,41 @@
+{
+  "wallet_id": "WALLET-T4-001",
+  "address": "8eVZa7bEBnd6MA6JJkNdABRN4S3LbVLRnCZNJAUeuwQj",
+  "tier": 4,
+  "classification": "suspect",
+  "function": "Distribution node - Loading ammunition into execution wallets",
+  "status": "ACTIVE",
+  "evidence": "Free-loaded 20M CRM from HLnpSz9h (Dec 28-31, 2025) at $0 cost basis",
+  "risk_score": 0.95,
+  "cost_basis": {
+    "amount": 0,
+    "description": "$0 cost basis - internal allocation, not market purchase"
+  },
+  "token_loading": {
+    "amount_crm": 20000000,
+    "source": "HLnpSz9h4Kz6rHLz9h1F2pKjGz9nHpT4sP1zM2bH6sT",
+    "date_start": "2025-12-28",
+    "date_end": "2025-12-31"
+  },
+  "distribution_targets": [
+    {
+      "wallet": "7abBmGf4HNu3UXsanJc7WwAPW2PgkEb9hwrFKwCySvyL",
+      "amount": 1000000,
+      "date": "2025-12-31",
+      "classification": "victim whale - compromised"
+    }
+  ],
+  "related_wallets": [
+    "HxyXAE1PHQsh6iLj3t8MagpFovmR7yk76PEADmTKeVfi",
+    "HLnpSz9h4Kz6rHLz9h1F2pKjGz9nHpT4sP1zM2bH6sT",
+    "7abBmGf4HNu3UXsanJc7WwAPW2PgkEb9hwrFKwCySvyL"
+  ],
+  "batch_testing": [
+    {"date": "2026-03-05", "activity": "Distribution testing"},
+    {"date": "2026-03-08", "activity": "Distribution testing"},
+    {"date": "2026-03-11", "activity": "Distribution testing"}
+  ],
+  "legal_significance": "Critical link between criminal infrastructure and victim wallets - Proves infiltration",
+  "added_date": "2026-04-09",
+  "last_updated": "2026-04-12"
+}

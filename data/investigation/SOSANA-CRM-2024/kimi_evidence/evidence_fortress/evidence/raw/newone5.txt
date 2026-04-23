@@ -1,0 +1,48 @@
+Gemini said
+Based on a cross-reference of the holder amounts list (crms-holders-amounts-3-30-2026-528am.txt) with the forensic investigation documents provided (specifically bot3.txt), several of the top token holders are directly connected to the 13 Criminal Wallets that infiltrated the CRM token.
++3
+
+Here is the breakdown of the exact matches and connections between the two lists:
+
+
+D9ZGRMhmdMdf5dRdEiLSJLrSETsFuofSPDZHjx5tuULT: Appears on the holder list with 31,971,154 CRM. The forensic report identifies this as a "Satellite" criminal wallet that was loaded by the feeder wallet HLnpSz9h.
++3
+
+
+HPVUJGJwJnpGBDCzoAPKPjHe8QfXLgRjbktXCRyMNi5w: Appears on the holder list with 22,015,172 CRM. The forensic report maps this as a "Dec 8 Reload" wallet, which was loaded 67 minutes after a major dump.
++3
+
+
+J3V68JvjXFArRBb86NAX8mCoYgFce7MmZjs9ziz74RzT: Appears on the holder list with 22,000,000 CRM. The forensic report identifies this as a "Satellite" wallet involved in dust buys (0.002 SOL).
++3
+
+
+7abBmGf4HNu3UXsanJc7WwAPW2PgkEb9hwrFKwCySvyL: Appears on the holder list with 20,000,000 CRM. The forensic report identifies this as a "Scammer Satellite" that received its CRM from the main operator wallet (8eVZa7) on Dec 31.
++3
+
+
+8eVZa7bEBnd6MA6JJkNdABRN4S3LbVLRnCZNJAUeuwQj: Appears on the holder list with 19,700,000 CRM. The forensic report marks this as the primary "CRM OPERATOR" wallet and the "smoking gun" connecting the CRM sabotage to the SOSANA/PBTC insider network.
++4
+
+
+hHxyZi7ZxbYqQmBhTRtdwpjwpfhmWVypRfMVmn2HzPt: Appears on the holder list with 19,298,335 CRM. The forensic report labels it as an "Exiting" wallet executing systematic sells (at the time of the bot's snapshot, it held 8.29M CRM).
++1
+
+
+CyhJT3o8xrW5vvenMkrJDdpYcdboGGg6SQvSoeVtcA35: Appears on the holder list with 12,107,745 CRM. The forensic report identifies this as an "IMMINENT THREAT" dormant wallet that was loaded by HLnpSz9h on March 18.
++4
+
+Wallets with Changing Suffixes but Matching Amounts/Prefixes
+Your investigation also reveals that several wallets on the holder list share identical prefixes and exact token amounts as the criminal wallets, suggesting the operators may be rotating or migrating addresses:
+
+
+The "Dormant Volcano": The holder list shows DLHnb1yt6DMx... holding 28.66M CRM , while the report identifies a nearly identical DLHnb1yt6DMx... wallet as a "Dormant Volcano" holding ~30.37M CRM.
++4
+
+
+The "Core Consolidation" Wallet: The holder list shows 8pyiqMct... holding exactly 24,800,000 CRM. The report maps a matching 8pyiqMct... wallet with the exact same 24,800,000 CRM balance as a "Core Consolidation wallet".
++3
+
+
+The "Core SOSANA tx cluster": The holder list shows E9bg6VC... holding 20,348,068 CRM. The report maps a matching E9bg6VC... wallet with the exact same 20,348,068 CRM balance as part of the core SOSANA transaction cluster.
++3

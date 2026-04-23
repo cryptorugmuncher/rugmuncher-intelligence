@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "id": "bash-5vrgku3m",
+  "kind": "bash",
+  "session_id": "ff3f0ed5-7175-471f-990e-c28dc268dff5",
+  "description": "Pull remaining Ollama models",
+  "tool_call_id": "tool_BFix7P8Pe6KXJ6o6lYOFyZIL",
+  "owner_role": "root",
+  "created_at": 1775781103.8989933,
+  "command": "ollama pull qwen2.5:7b &\nollama pull deepseek-r1:14b &\necho \"Pulling remaining 2 models in background...\"\nsleep 2\nollama list",
+  "shell_name": "bash",
+  "shell_path": "/bin/bash",
+  "cwd": "/root",
+  "timeout_s": 60,
+  "kind_payload": null
+}

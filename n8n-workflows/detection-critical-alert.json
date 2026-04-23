@@ -1,0 +1,192 @@
+{
+  "name": "Detection Critical Alert",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "webhook-receive",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [250, 300],
+      "webhookId": "detection-critical"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true
+          },
+          "conditions": [
+            {
+              "id": "check-tier",
+              "leftValue": "={{$json.routing.tier}}",
+              "rightValue": "beginner",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ]
+        }
+      },
+      "id": "route-tier",
+      "name": "Route by Tier",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 1,
+      "position": [500, 300]
+    },
+    {
+      "parameters": {
+        "chatId": "@rmi_alpha_alerts",
+        "text": "={{$json.alert.telegram_message}}",
+        "parseMode": "HTML"
+      },
+      "id": "telegram-alpha",
+      "name": "Alpha Alerts Channel",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1,
+      "position": [750, 200]
+    },
+    {
+      "parameters": {
+        "chatId": "@rmi_alerts_bot",
+        "text": "={{$json.alert.telegram_message}}",
+        "parseMode": "HTML"
+      },
+      "id": "telegram-free",
+      "name": "Free Alerts Channel",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1,
+      "position": [750, 300]
+    },
+    {
+      "parameters": {
+        "chatId": "@munchscans_bot",
+        "text": "={{$json.alert.telegram_message}}",
+        "parseMode": "HTML"
+      },
+      "id": "telegram-whale",
+      "name": "Whale Alerts Channel",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1,
+      "position": [750, 400]
+    },
+    {
+      "parameters": {
+        "chatId": "@alpha_scanner_bot",
+        "text": "={{$json.alert.telegram_message}}",
+        "parseMode": "HTML"
+      },
+      "id": "telegram-advanced",
+      "name": "Advanced Scanner Channel",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1,
+      "position": [750, 500]
+    },
+    {
+      "parameters": {
+        "table": "detection_alerts",
+        "data": {
+          "sent_to_telegram": true,
+          "telegram_sent_at": "={{$now}}"
+        }
+      },
+      "id": "supabase-update",
+      "name": "Log to Supabase",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [1000, 300]
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Route by Tier",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Route by Tier": {
+      "main": [
+        [
+          {
+            "node": "Alpha Alerts Channel",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Free Alerts Channel",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Whale Alerts Channel",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Advanced Scanner Channel",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Alpha Alerts Channel": {
+      "main": [
+        [
+          {
+            "node": "Log to Supabase",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Free Alerts Channel": {
+      "main": [
+        [
+          {
+            "node": "Log to Supabase",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Whale Alerts Channel": {
+      "main": [
+        [
+          {
+            "node": "Log to Supabase",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Advanced Scanner Channel": {
+      "main": [
+        [
+          {
+            "node": "Log to Supabase",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "tags": ["detection", "critical", "alerts"]
+}

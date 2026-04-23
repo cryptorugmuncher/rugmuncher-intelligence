@@ -1,0 +1,23 @@
+# Google Vertex AI Integration for RMI
+# Install with: pip install -r /root/rmi/integrations/requirements-vertex-ai.txt
+
+# Core Vertex AI SDK
+google-cloud-aiplatform>=1.38.0
+vertexai>=0.0.1
+
+# Google Cloud dependencies
+google-cloud-storage>=2.10.0
+google-auth>=2.22.0
+google-auth-oauthlib>=1.0.0
+
+# Async support for Python SDK
+asyncio>=3.4.3
+aiohttp>=3.8.5
+
+# Data handling (usually already installed)
+pydantic>=2.0.0
+python-dotenv>=1.0.0
+
+# Optional: For advanced embeddings
+# sentence-transformers>=2.2.0
+# faiss-cpu>=1.7.4

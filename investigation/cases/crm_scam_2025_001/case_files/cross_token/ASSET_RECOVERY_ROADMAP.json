@@ -1,0 +1,148 @@
+{
+  "generated_at": "2026-04-13T21:21:10.617055",
+  "case_id": "CRM-SCAM-2025-001-RECOVERY-ROADMAP",
+  "total_stolen_usd": 1818500,
+  "recovery_status": {
+    "immediately_recoverable": 16109.22528555,
+    "traceable_moved_funds": 132.47501265,
+    "recovery_percentage": 0.893137217387957
+  },
+  "current_holdings": [
+    {
+      "wallet": "HLnpSz9h2S4hiLQ43rnSD9XkcUThA7B8hQMKmDaiTLcC",
+      "role": "Tier 1 Feeder",
+      "value_usd": 16069.904514,
+      "sol_balance": 107.13269676
+    },
+    {
+      "wallet": "8eVZa7bEBnd6MA6JJkNdABRN4S3LbVLRnCZNJAUeuwQj",
+      "role": "Tier 5 Feeder",
+      "value_usd": 26.588909249999997,
+      "sol_balance": 0.177259395
+    },
+    {
+      "wallet": "Cx5qTEtnp3arFVBuusMXHafoRzLCLuigtz2AiQAFmq2Q",
+      "role": "Tier 2 Bridge",
+      "value_usd": 12.7318623,
+      "sol_balance": 0.084879082
+    }
+  ],
+  "flow_analysis": {
+    "F4HGHWyajPWc9h2jS49Wxa5bdqPsL7YEvwq6xv1xBh1s": {
+      "wallet": "F4HGHWyajPWc9h2jS49Wxa5bdqPsL7YEvwq6xv1xBh1s",
+      "total_transactions_analyzed": 0,
+      "outgoing_transfers": [],
+      "dex_interactions": [],
+      "exchange_deposits": [],
+      "unknown_destinations": [],
+      "total_value_moved": 0,
+      "largest_transfer": 0,
+      "primary_destination": null
+    },
+    "AFXigaYuRKYmvd9HZQCobtZ98FNAwnwpsnjvJRztUGb6": {
+      "wallet": "AFXigaYuRKYmvd9HZQCobtZ98FNAwnwpsnjvJRztUGb6",
+      "total_transactions_analyzed": 20,
+      "outgoing_transfers": [
+        {
+          "type": "SOL",
+          "amount": 0.883166751,
+          "destination": "ComputeBudget111111111111111111111111111111",
+          "timestamp": 1774643460,
+          "category": "unknown"
+        }
+      ],
+      "dex_interactions": [],
+      "exchange_deposits": [],
+      "unknown_destinations": [
+        {
+          "type": "SOL",
+          "amount": 0.883166751,
+          "destination": "ComputeBudget111111111111111111111111111111",
+          "timestamp": 1774643460,
+          "category": "unknown"
+        }
+      ],
+      "total_value_moved": 0.883166751,
+      "largest_transfer": 0.883166751,
+      "primary_destination": "ComputeBudget111111111111111111111111111111"
+    },
+    "DojAziGhpT6A9CY4C9PAmzZWm3ypZqgfnUAypm8PjqPE": {
+      "wallet": "DojAziGhpT6A9CY4C9PAmzZWm3ypZqgfnUAypm8PjqPE",
+      "total_transactions_analyzed": 0,
+      "outgoing_transfers": [],
+      "dex_interactions": [],
+      "exchange_deposits": [],
+      "unknown_destinations": [],
+      "total_value_moved": 0,
+      "largest_transfer": 0,
+      "primary_destination": null
+    },
+    "HxyXAE1PHZ5iTFB7GzNHrp7djm2Bi8b8bNjqU0gKj46a": {
+      "wallet": "HxyXAE1PHZ5iTFB7GzNHrp7djm2Bi8b8bNjqU0gKj46a",
+      "total_transactions_analyzed": 0,
+      "outgoing_transfers": [],
+      "dex_interactions": [],
+      "exchange_deposits": [],
+      "unknown_destinations": [],
+      "total_value_moved": 0,
+      "largest_transfer": 0,
+      "primary_destination": null
+    },
+    "CaTWE2NPewVt1WLrQZeQGvUiMYexyV3YBaWhEDQ33kDh": {
+      "wallet": "CaTWE2NPewVt1WLrQZeQGvUiMYexyV3YBaWhEDQ33kDh",
+      "total_transactions_analyzed": 20,
+      "outgoing_transfers": [],
+      "dex_interactions": [],
+      "exchange_deposits": [],
+      "unknown_destinations": [],
+      "total_value_moved": 0,
+      "largest_transfer": 0,
+      "primary_destination": null
+    },
+    "CNSob1L8o7mM9Uwo1K1HVrV5H3Su8QweRzPrgLU3197i": {
+      "wallet": "CNSob1L8o7mM9Uwo1K1HVrV5H3Su8QweRzPrgLU3197i",
+      "total_transactions_analyzed": 0,
+      "outgoing_transfers": [],
+      "dex_interactions": [],
+      "exchange_deposits": [],
+      "unknown_destinations": [],
+      "total_value_moved": 0,
+      "largest_transfer": 0,
+      "primary_destination": null
+    },
+    "5dQWEMf1tTgkUwM3M3p4yAFv15nMxCvS9mof3x5BwtWc": {
+      "wallet": "5dQWEMf1tTgkUwM3M3p4yAFv15nMxCvS9mof3x5BwtWc",
+      "total_transactions_analyzed": 0,
+      "outgoing_transfers": [],
+      "dex_interactions": [],
+      "exchange_deposits": [],
+      "unknown_destinations": [],
+      "total_value_moved": 0,
+      "largest_transfer": 0,
+      "primary_destination": null
+    }
+  },
+  "recovery_strategy": {
+    "phase_1_immediate": [
+      "Emergency freeze 3 wallets with $16,109.23 in current holdings",
+      "File emergency TROs (Temporary Restraining Orders)",
+      "Notify exchanges of identified deposit addresses"
+    ],
+    "phase_2_trace": [
+      "Subpoena transaction history for 7 empty-but-active wallets",
+      "Trace DEX liquidity pool positions",
+      "Analyze bridge transfers (Wormhole, Allbridge)",
+      "Cross-reference with CEX KYC records"
+    ],
+    "phase_3_recovery": [
+      "Asset forfeiture proceedings on frozen funds",
+      "Victim restitution distribution",
+      "International cooperation for off-shore accounts"
+    ]
+  },
+  "key_targets": {
+    "priority_1": "HLnpSz9h... (Tier 1 Feeder) - $16,069.90 currently held",
+    "priority_2": "Exchange deposit cluster - ~$50K+ in aggregate flows",
+    "priority_3": "DEX liquidity positions - unknown value"
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "wallet": "Mihso7kXXNPb7GUZ71H7rGYfTDyNS5VD6MmUX3d7c4o",
+  "analysis_date": "2026-04-13T20:53:47.493550",
+  "mode": "SIMULATED",
+  "transactions_analyzed": 347,
+  "counterparties": {
+    "user_wallets": {
+      "HXi8XZXxC9sKFGaWu3J7v7tTg2pKm5S1v6h5rQ9dXwZ": {
+        "first_seen": 1713000000,
+        "interaction_count": 20,
+        "transaction_types": [
+          "token_transfer"
+        ]
+      },
+      "7Kl2Mn5Op8Qr1St4Uv7Wx0Yz3Ab6Cd9Ef2Gh5Ij8Kl1": {
+        "first_seen": 1713007200,
+        "interaction_count": 23,
+        "transaction_types": [
+          "token_transfer"
+        ]
+      },
+      "4Ij0Kl3Mn6Op9Qr2St5Uv8Wx1Yz4Ab7Cd0Ef3Gh6Ij9": {
+        "first_seen": 1713018000,
+        "interaction_count": 17,
+        "transaction_types": [
+          "token_transfer"
+        ]
+      },
+      "9Yj7KMn3D4vBs5T6uF8wQ2hJ4kL7pZ9xCvB3nM5kL8pQ": {
+        "first_seen": 1713025200,
+        "interaction_count": 31,
+        "transaction_types": [
+          "token_transfer"
+        ]
+      },
+      "3Cd6Ef9Gh2Ij5Kl8Mn1Op4Qr7St0Uv3Wx6Yz9Ab2Cd5": {
+        "first_seen": 1713046800,
+        "interaction_count": 16,
+        "transaction_types": [
+          "token_transfer"
+        ]
+      },
+      "5Rt7Uv9WxYz2Ab4CdEf6Gh8IjKl0MnOpQrStUvWxYz1": {
+        "first_seen": 1713068400,
+        "interaction_count": 22,
+        "transaction_types": [
+          "token_transfer"
+        ]
+      },
+      "2Wq4Rt6Y8uI0oP3aSdFg5H7jKl9ZxCvBn3M5kL8pQzX9": {
+        "first_seen": 1713075600,
+        "interaction_count": 20,
+        "transaction_types": [
+          "token_transfer"
+        ]
+      },
+      "6Ef2Gh5Ij8Kl1Mn4Op7Qr0St3Uv6Wx9Yz2Ab5Cd8Ef1": {
+        "first_seen": 1713104400,
+        "interaction_count": 22,
+        "transaction_types": [
+          "token_transfer"
+        ]
+      },
+      "1Gh4Ij7Kl0Mn3Op6Qr9St2Uv5Wx8Yz1Ab4Cd7Ef0Gh3": {
+        "first_seen": 1713126000,
+        "interaction_count": 21,
+        "transaction_types": [
+          "token_transfer"
+        ]
+      },
+      "8Ab1Cd3Ef5Gh7Ij9Kl2Mn4Op6Qr8St0Uv2Wx4Yz6Ab8": {
+        "first_seen": 1713136800,
+        "interaction_count": 14,
+        "transaction_types": [
+          "token_transfer"
+        ]
+      }
+    },
+    "dex_programs": {},
+    "system_programs": {
+      "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA": {
+        "name": "Token Program",
+        "interactions": 38
+      },
+      "11111111111111111111111111111111": {
+        "name": "System Program",
+        "interactions": 120
+      },
+      "MemoSq4gqABAXKb96qnH8TysNcWxMyWCqXgDLGmfcHr": {
+        "name": "Memo Program v2",
+        "interactions": 34
+      },
+      "Memo1UhkJRfHyvLMc3uc1g6B9HXn1cU5U3GwbJ7nPnm": {
+        "name": "Memo Program",
+        "interactions": 44
+      },
+      "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL": {
+        "name": "Associated Token Program",
+        "interactions": 46
+      },
+      "675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8": {
+        "name": "Raydium AMM Program",
+        "interactions": 36
+      },
+      "So11111111111111111111111111111111111111112": {
+        "name": "Wrapped SOL",
+        "interactions": 65
+      },
+      "JUP6LkbZbjS1jKKwapdHNy74zcjn3VLbqatjhSL8BS": {
+        "name": "Jupiter Aggregator v6",
+        "interactions": 29
+      }
+    },
+    "cex_connections": [],
+    "token_accounts": [],
+    "contract_interactions": []
+  },
+  "assessment": {
+    "pattern": "operational",
+    "sophistication_score": 35,
+    "indicators": [
+      "High-frequency coordination with key wallets",
+      "Active token distribution"
+    ]
+  }
+}

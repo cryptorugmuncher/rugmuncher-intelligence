@@ -1,0 +1,590 @@
+{
+  "case_metadata": {
+    "case_id": "CRM-SCAM-2025-001",
+    "case_name": "Cross-Token Criminal Enterprise (SHIFT/SOSANA/CRM/BONK/WIF/POPCAT + Launchpad Manipulation)",
+    "classification": "Multi-Jurisdictional Criminal Enterprise (RICO-eligible)",
+    "investigation_status": "ACTIVE - EXPANDED to cross-token analysis",
+    "priority": "CRITICAL",
+    "created_date": "2026-04-09",
+    "last_updated": "2026-04-13",
+    "assigned_investigators": [
+      "Marcus Aurelius"
+    ],
+    "jurisdictions": [
+      "USA (FBI IC3)",
+      "SEC",
+      "CFTC",
+      "International"
+    ],
+    "estimated_financial_impact": "$1.07M - $1.74M (expanded estimate)",
+    "victim_count": "2,000+ wallets across all projects"
+  },
+  "executive_summary": {
+    "key_findings": [
+      "7-phase manipulation timeline documented: Prebonding \u2192 SHIFT \u2192 SOSANA \u2192 CRM December \u2192 CRM March \u2192 Investigation",
+      "970 wallets seeded in 7 seconds (138/second) - military-grade automation - Computer Fraud (18 U.S.C. \u00a7 1030)",
+      "No voting contract existed during April 2025 'community contest' - Kill shot evidence of fraud",
+      "December 8, 2025 'Birth Suppression': 41M CRM mega-dump followed by 67-minute reload at suppressed price",
+      "30.52% CRM supply controlled (305M CRM) at $0 cost basis - weaponized stability bomb",
+      "Cross-token infiltration: SHIFT \u2192 SOSANA \u2192 CRM pattern confirmed",
+      "$801,392+ total position, $743,092+ realized extraction",
+      "5-tier criminal hierarchy with Treasury \u2192 Processors \u2192 Routing \u2192 Field Ops \u2192 Disposable Assets",
+      "EXPANDED INVESTIGATION: Solana ecosystem infiltration (BONK, WIF, POPCAT) + Pump.fun launchpad manipulation",
+      "Estimated total extraction: $1.07M - $1.74M across 8+ projects",
+      "Same automation infrastructure (AFXigaYu) deployed across multiple tokens"
+    ],
+    "criminal_enterprise_structure": {
+      "tier_0_treasury_staging": {
+        "wallet": "CNSob1LwXvDRmjioxyjm78tDb2S7nzFK6K8t3VmuhKpn",
+        "function": "Pre-operation staging treasury (WIPED)",
+        "crm_outflow": "6,998,750 CRM",
+        "operational_period": "December 2025 - January 2026",
+        "status": "No accessible history - forensic reconstruction complete",
+        "role": "Predecessor treasury - Staging CRM for March 26 operation",
+        "evidence_destruction": "History wiped between Jan 2026 and March 26, 2026"
+      },
+      "tier_1_treasury": {
+        "wallet": "F4HGHWyaMAkQH7Q2YJfAyGmPoo5aRs6R6VuSPia3JM3U",
+        "function": "Central funding and control",
+        "sent": "11,344.34 SOL",
+        "role": "Treasury - Root of all operations"
+      },
+      "tier_2_processors": {
+        "wallet": "DojAziGhpZVn8rKNCmPXpDoaMbUNpTjJjSWVLTYzhbqY",
+        "function": "Distribution and reward coordination",
+        "role": "Processor - Handles 'rewards' distribution"
+      },
+      "tier_3_routing": {
+        "wallet": "HxyXAE1PHQsh6iLj3t8MagpFovmR7yk76PEADmTKeVfi",
+        "function": "Field operations coordination",
+        "evidence": "19 CRM transactions (Feb-Mar 2026)",
+        "role": "Routing - Coordination node"
+      },
+      "tier_4_field_ops": {
+        "wallets": [
+          "AFXigaYuRKYmvd9HZQCobtZ98FNAwnwpsnjvJRztUGb6",
+          "8eVZa7bEBnd6MA6JJkNdABRN4S3LbVLRnCZNJAUeuwQj",
+          "BKLBtcJQJ2MxJP6wfbRkoqrYNWUPVLfeB8vs91agBxjt",
+          "HPVUJGJwJnpGBDCzoAPKPjHe8QfXLgRjbktXCRyMNi5w",
+          "HLnpSz9h2S4hiLQ4uN3vGYAHJqDmbFCwkx9prSXkdPMc"
+        ],
+        "function": "Direct manipulation execution",
+        "operations": [
+          "970-wallet automation deployment",
+          "Birth suppression mega-dump (Dec 8)",
+          "67-minute reload coordination",
+          "Mechanized loading operations"
+        ]
+      },
+      "tier_5_disposable": {
+        "count": 970,
+        "created": "2026-03-26 in 7 seconds",
+        "function": "Distributed extraction infrastructure"
+      }
+    }
+  },
+  "timeline_files": {
+    "master_timeline": {
+      "path": "case_files/timeline/master_timeline.json",
+      "description": "Complete 33-event timeline from April 2025 through April 2026",
+      "total_events": 33,
+      "phases_covered": 8
+    },
+    "december_2025_manipulation": {
+      "path": "case_files/timeline/december_2025_manipulation_detailed.json",
+      "description": "Day-by-day forensic reconstruction of December 2025 manipulation phase",
+      "critical_event": "Dec 8, 2025 Mega-Dump and Reload operation",
+      "supply_control": "30.52% (305M CRM)"
+    },
+    "march_2026_execution": {
+      "path": "case_files/timeline/march_2026_coordinated_dump_detailed.json",
+      "description": "Complete March 2026 execution phase documentation",
+      "critical_event": "Mar 26, 2026 - 970 wallets in 7 seconds",
+      "key_finding": "Military-grade automation (138/sec)"
+    },
+    "complete_manipulation_analysis": {
+      "path": "case_files/timeline/prebonding_through_crm_manipulation_analysis.json",
+      "description": "Complete multi-phase manipulation analysis: Prebonding \u2192 SHIFT \u2192 SOSANA \u2192 CRM",
+      "phases_analyzed": 7,
+      "pattern_documented": "Escalating sophistication from manual to military-scale automation"
+    }
+  },
+  "financial_summary": {
+    "phase_1_shift_extraction": {
+      "realized": "$740,000+",
+      "method": "Insider pre-positioning + fabricated contest",
+      "key_evidence": "13-minute pre-announcement buy"
+    },
+    "phase_2_crm_december": {
+      "realized": "$2,231",
+      "mega_dump_proceeds": "$2,200",
+      "unrealized_position_loaded": "~37.4M CRM at $0 cost",
+      "method": "Birth suppression mega-dump + reload"
+    },
+    "phase_3_crm_march": {
+      "realized": "$861",
+      "operational_cost": "<$0.013",
+      "roi": "66,000%+",
+      "method": "Coordinated dump + 970-wallet automation"
+    },
+    "total_network_control": {
+      "amount": "305,235,356 CRM",
+      "percentage": "30.52%",
+      "value_at_current_prices": "~$58,300",
+      "cost_basis": "$0 (allocation/dust transfers)",
+      "weaponized_as": "Stability bomb"
+    },
+    "total_realized": "$743,092+",
+    "total_position": "$801,392+"
+  },
+  "timeline": [
+    {
+      "date": "2025-04-21",
+      "event": "SHIFT AI 'Contest Winner' Pre-Positioning",
+      "details": "AvZHExxq2 purchased 2.29M SHIFT 13 minutes BEFORE public announcement",
+      "blockchain_proof": "Transaction at 00:13 UTC, announcement at 00:26 UTC",
+      "significance": "No voting contract existed - winner pre-selected unilaterally"
+    },
+    {
+      "date": "2025-04-21",
+      "event": "Coordinated Pre-Positioning",
+      "details": "Synchronized buys at 00:16:05 UTC by operator wallets",
+      "evidence": "F1eSPc1FN and 7ACsEkYS6 - later received PBTC/EPIK rewards June 8"
+    },
+    {
+      "date": "2025-06-08",
+      "event": "Operator Rewards Distribution",
+      "details": "PBTC/EPIK 'rewards' distributed to confirmed operator wallets",
+      "significance": "Confirms coordinated operation, not random participants - Payroll evidence"
+    },
+    {
+      "date": "2025-08-25",
+      "event": "CRM Token Launch",
+      "details": "CRM launches at $0.000191 - Supply: 999,917,025 (fixed, mintAuthority disabled)",
+      "significance": "Token later infiltrated by SOSANA criminal enterprise"
+    },
+    {
+      "date": "2025-09-19T00:00:00Z",
+      "phase": "Phase 2b: SOSANA Mass Victimization",
+      "event": "2,005 wallet airdrop attack using shared automation infrastructure",
+      "amount_usd": null,
+      "evidence_confidence": "HIGH",
+      "verified_signatures": [],
+      "related_tokens": [
+        "SOSANA"
+      ],
+      "criminal_significance": "Mass victimization through fraudulent airdrop - same infrastructure later deployed against CRM",
+      "operator_confession": "Running that scam sosana now too - David Track"
+    },
+    {
+      "date": "2025-11-27",
+      "event": "CRM Free Allocation - BKLBtcJQJ2",
+      "details": "36,675,895 CRM received via free allocation",
+      "significance": "Zero-cost acquisition - used for Dec 8 mega-dump"
+    },
+    {
+      "date": "2025-12-06",
+      "event": "Pre-Mega-Dump Liquidity Test",
+      "details": "BKLBtcJQJ2 sells 90,253 CRM for ~$9 - Testing liquidity",
+      "significance": "Pre-operation testing before main manipulation"
+    },
+    {
+      "date": "2025-12-08",
+      "event": "THE MEGA-DUMP: CRM Birth Suppression",
+      "details": "BKLBtcJQJ2 dumps 41,089,529 CRM for $2,200 at 09:36 UTC",
+      "price_impact": "Crashed chart to new low - Prevented organic discovery",
+      "significance": "Original price suppression - CRM never ran properly"
+    },
+    {
+      "date": "2025-12-08",
+      "event": "CRASH AND LOAD - Coordinated Reload",
+      "details": "HPVUJGJwJ receives 17.4M CRM 67 minutes later at 10:43 UTC",
+      "significance": "ARM A dumps \u2192 ARM B reloads - Textbook wash trading"
+    },
+    {
+      "date": "2025-12-28",
+      "event": "HLnpSz9h Loading Operation Begins",
+      "details": "Free-loading 8eVZa7 with ~20M CRM via 30+ dust transfers",
+      "significance": "Zero-cost positioning for March 2026 extraction"
+    },
+    {
+      "date": "2025-12-31",
+      "event": "Victim Whale Loaded",
+      "details": "8eVZa7 \u2192 7abBmGf4H: 1M CRM loaded",
+      "significance": "Compromised wallet used as field operative"
+    },
+    {
+      "date": "2026-01-05",
+      "event": "Staging Operation",
+      "details": "CNSob1L simultaneous send to dump infrastructure",
+      "significance": "Routing CRM to extraction infrastructure"
+    },
+    {
+      "date": "2026-01-07",
+      "event": "Routing to Dump Infrastructure",
+      "details": "EQ2E92SS routing 9M CRM to dump wallets",
+      "significance": "Active staging for March extraction"
+    },
+    {
+      "date": "2026-02-01",
+      "event": "CRM Coordination Period",
+      "details": "HxyXAE1PH executes 19 CRM transactions",
+      "significance": "Active coordination of extraction infrastructure"
+    },
+    {
+      "date": "2026-03-05",
+      "event": "Batch Testing - March 5",
+      "details": "8eVZa7 executes 15 parallel batch transactions",
+      "significance": "Script validation for 970-wallet operation"
+    },
+    {
+      "date": "2026-03-08",
+      "event": "Batch Testing - March 8",
+      "details": "8eVZa7 second wave testing - 13 transactions",
+      "significance": "Continued script validation"
+    },
+    {
+      "date": "2026-03-11",
+      "event": "Batch Testing - March 11",
+      "details": "8eVZa7 final validation - 14 transactions",
+      "significance": "Testing complete - Operation imminent"
+    },
+    {
+      "date": "2026-03-18",
+      "event": "CyhJT3o8 Weaponized",
+      "details": "HLnpSz9h loads 12.1M CRM via 20 automated transfers (4-7 sec intervals)",
+      "significance": "LOADED WEAPON - 9+ days dormant before activation"
+    },
+    {
+      "date": "2026-03-19",
+      "event": "AFXigaYu Test Batch 1",
+      "details": "16 wallets seeded including AvZHExxq2",
+      "significance": "Prelude to 970-wallet operation"
+    },
+    {
+      "date": "2026-03-20",
+      "event": "AFXigaYu Test Batch 2",
+      "details": "12 additional wallets seeded",
+      "significance": "Scaling up validation"
+    },
+    {
+      "date": "2026-03-22",
+      "event": "Evidence Destruction",
+      "details": "Fake voting contract deleted (claimed: technical upgrade)",
+      "significance": "Obstruction of Justice - Destroy voting fabrication evidence"
+    },
+    {
+      "date": "2026-03-26",
+      "event": "Coordinated CRM Dump",
+      "details": "8-wallet coordinated dump: ~2.7M CRM extracted for ~$499",
+      "significance": "Coordinated extraction maintaining price suppression"
+    },
+    {
+      "date": "2026-03-26",
+      "event": "MILITARY-SCALE AUTOMATION DEPLOYED",
+      "details": "970 wallets seeded in 7 seconds at 138/second by AFXigaYu",
+      "cost": "<$0.013 for 1000-wallet operation",
+      "significance": "KILL SHOT - Physically impossible for humans"
+    }
+  ],
+  "evidence_index": {
+    "timeline_files": {
+      "description": "Comprehensive chronological forensic analysis",
+      "files": [
+        {
+          "filename": "master_timeline.json",
+          "path": "case_files/timeline/master_timeline.json",
+          "type": "json",
+          "description": "Complete 33-event timeline April 2025 - April 2026",
+          "total_events": 33,
+          "phases": 8
+        },
+        {
+          "filename": "december_2025_manipulation_detailed.json",
+          "path": "case_files/timeline/december_2025_manipulation_detailed.json",
+          "type": "json",
+          "description": "Day-by-day December 2025 manipulation reconstruction",
+          "critical_event": "Dec 8 Mega-Dump + 67-min Reload",
+          "supply_control": "30.52%"
+        },
+        {
+          "filename": "march_2026_coordinated_dump_detailed.json",
+          "path": "case_files/timeline/march_2026_coordinated_dump_detailed.json",
+          "type": "json",
+          "description": "Complete March 2026 execution documentation",
+          "critical_event": "970 wallets in 7 seconds",
+          "automation_rate": "138/sec"
+        },
+        {
+          "filename": "prebonding_through_crm_manipulation_analysis.json",
+          "path": "case_files/timeline/prebonding_through_crm_manipulation_analysis.json",
+          "type": "json",
+          "description": "Complete manipulation analysis: Prebonding \u2192 CRM",
+          "phases_analyzed": 7,
+          "pattern": "Manual \u2192 Military-scale automation escalation"
+        }
+      ]
+    },
+    "wallet_files": {
+      "description": "Detailed wallet analysis by tier",
+      "files": [
+        {
+          "filename": "tier_0_cns_ob1l_forensic_reconstruction.json",
+          "path": "case_files/wallets/tier_0_cns_ob1l_forensic_reconstruction.json",
+          "wallet": "CNSob1LwXvDRmjioxyjm78tDb2S7nzFK6K8t3VmuhKpn",
+          "status": "WIPED - Forensic reconstruction from cross-references",
+          "crm_outflow_documented": "6,998,750 CRM"
+        },
+        {
+          "filename": "tier_1_master.json",
+          "path": "case_files/wallets/tier_1_master.json",
+          "wallet": "F4HGHWyaMAkQH7Q2YJfAyGmPoo5aRs6R6VuSPia3JM3U"
+        },
+        {
+          "filename": "tier_2_bridge.json",
+          "path": "case_files/wallets/tier_2_bridge.json",
+          "wallet": "DojAziGhpZVn8rKNCmPXpDoaMbUNpTjJjSWVLTYzhbqY"
+        },
+        {
+          "filename": "tier_3_feeder_hlnpsz9h_forensic_reconstruction.json",
+          "path": "case_files/wallets/tier_3_feeder_hlnpsz9h_forensic_reconstruction.json",
+          "wallet": "HLnpSz9h2S4hiLQ43rnSD9XkcUThA7B8hQMKmDaiTLcC",
+          "status": "COMPLETE - Full transaction history (1,100 tx)",
+          "crm_volume": "43,500+ CRM cycled",
+          "significance": "Primary feeder between Tier 0 Treasury and Tier 2 Bridge"
+        },
+        {
+          "filename": "tier_3_coordination.json",
+          "path": "case_files/wallets/tier_3_coordination.json",
+          "wallet": "HxyXAE1PHQsh6iLj3t8MagpFovmR7yk76PEADmTKeVfi"
+        },
+        {
+          "filename": "tier_4_distribution.json",
+          "path": "case_files/wallets/tier_4_distribution.json",
+          "wallet": "8eVZa7bEBnd6MA6JJkNdABRN4S3LbVLRnCZNJAUeuwQj"
+        },
+        {
+          "filename": "tier_5_victim_whale.json",
+          "path": "case_files/wallets/tier_5_victim_whale.json",
+          "wallet": "7abBmGf4HNu3UXsanJc7WwAPW2PgkEb9hwrFKwCySvyL"
+        },
+        {
+          "filename": "deleted_bridge_wallet.json",
+          "path": "case_files/wallets/deleted_bridge_wallet.json",
+          "wallet": "BmZY862D62TKv6pTujodRYrFfypPWyML94ZMAQim9ySE"
+        },
+        {
+          "filename": "shift_early_buyer.json",
+          "path": "case_files/wallets/shift_early_buyer.json",
+          "wallet": "AvZHExxq2BaPrq17cKq1KMN3PWoCwqZRppV882JHY5sN"
+        },
+        {
+          "filename": "shift_systematic_dumper.json",
+          "path": "case_files/wallets/shift_systematic_dumper.json",
+          "wallet": "F1eSPc1FNBTKH3fMiwkNLDY6qJXYZv8ZvUs34YJRX6HE"
+        }
+      ]
+    },
+    "blockchain_data": {
+      "description": "On-chain transaction records and holder data",
+      "files": [
+        {
+          "filename": "crm_holders_march_2026.json",
+          "path": "evidence/blockchain_data/crm_holders_march_2026.json",
+          "type": "json",
+          "description": "Complete CRM token holder amounts (5,407 holders)",
+          "date_created": "2026-03-30"
+        }
+      ]
+    },
+    "transaction_csvs": {
+      "description": "Exported blockchain transaction data",
+      "count": 10,
+      "key_files": [
+        "export_transfer_AFXigaYuRKYmvd9HZQCobtZ98FNAwnwpsnjvJRztUGb6_1774583934937.csv",
+        "export_balance_change_8eVZa7bEBnd6MA6JJkNdABRN4S3LbVLRnCZNJAUeuwQj_1774640450464.csv"
+      ]
+    },
+    "communications": {
+      "description": "Telegram chat exports and messaging evidence",
+      "count": 67,
+      "participants": [
+        "Kimi",
+        "Marcus Aurelius",
+        "Amaro De Abreu",
+        "sk1000497",
+        "$CRM Chat",
+        "$CRM - WHALES"
+      ],
+      "date_range": "2024-04-26 to 2026-03-27"
+    },
+    "forensic_reports": {
+      "description": "Formal forensic analysis and legal documentation",
+      "count": 7,
+      "key_files": [
+        "complete_forensic_report.txt",
+        "Forensic_Orchestration_and_RICO_Case_Reconstruction.pdf",
+        "Crypto_Scam_Forensic_Report_Generation.pdf"
+      ]
+    },
+    "configuration_files": {
+      "description": "Service account credentials and infrastructure configs",
+      "risk_level": "CRITICAL",
+      "files": [
+        "google_service_account_crm_check.json",
+        "google_service_account_cryptorugmunch.json"
+      ]
+    },
+    "photos_screenshots": {
+      "description": "Visual evidence and screenshots",
+      "count": 70,
+      "date_range": "2025-08-12 to 2025-12-12"
+    }
+  },
+  "kill_shot_evidence": [
+    {
+      "item": "SHIFT Pre-Positioning",
+      "evidence": "13-minute pre-announcement buy by AvZHExxq2",
+      "significance": "Proves winner pre-selected, not voted"
+    },
+    {
+      "item": "No Voting Contract",
+      "evidence": "No contract existed during 'contest' period",
+      "significance": "Contest was fabricated"
+    },
+    {
+      "item": "Operator Payroll",
+      "evidence": "PBTC/EPIK rewards to confirmed operators June 8",
+      "significance": "Confirms coordinated operation"
+    },
+    {
+      "item": "67-Minute Reload",
+      "evidence": "HPVUJGJwJ receives 17.4M CRM 67 min after BKLBtcJQJ2 dump",
+      "significance": "Textbook wash trading - same operator"
+    },
+    {
+      "item": "970 Wallets / 7 Seconds",
+      "evidence": "Military-scale automation deployment",
+      "significance": "Physically impossible for humans"
+    },
+    {
+      "item": "Evidence Destruction",
+      "evidence": "March 22 contract deletion after investigator contact",
+      "significance": "Consciousness of guilt"
+    },
+    {
+      "item": "30.52% Supply Control",
+      "evidence": "305M CRM at $0 cost basis",
+      "significance": "Weaponized stability bomb"
+    }
+  ],
+  "legal_framework": {
+    "applicable_statutes": [
+      {
+        "statute": "RICO (18 U.S.C. \u00a7 1962)",
+        "application": "Pattern of racketeering activity across multiple tokens",
+        "elements_met": [
+          "Enterprise exists (5-tier hierarchy confirmed)",
+          "Pattern of racketeering (7 phases, 8+ predicate acts)",
+          "Multiple victims ($743,092+ extraction)",
+          "Wire fraud (internet-based coordination)",
+          "Securities fraud (material misrepresentations)"
+        ]
+      },
+      {
+        "statute": "Securities Fraud (15 U.S.C. \u00a7 78j)",
+        "application": "Material misrepresentations about voting, governance, contest",
+        "key_misrepresentations": [
+          "No voting contract existed during 'contest'",
+          "'Community winner' selected unilaterally",
+          "False claims of democratic governance"
+        ]
+      },
+      {
+        "statute": "Wire Fraud (18 U.S.C. \u00a7 1343)",
+        "application": "Use of electronic communications to execute scheme",
+        "evidence": "Telegram coordination, automated wallet deployment"
+      },
+      {
+        "statute": "Market Manipulation (15 U.S.C. \u00a7 78i)",
+        "application": "Coordinated price suppression and pump schemes",
+        "evidence": "Dec 8 mega-dump, 67-min reload, coordinated extraction"
+      },
+      {
+        "statute": "Computer Fraud (18 U.S.C. \u00a7 1030)",
+        "application": "Military-scale automation deployment",
+        "evidence": "970 wallets in 7 seconds (138/sec) - humanly impossible"
+      },
+      {
+        "statute": "Obstruction of Justice (18 U.S.C. \u00a7 1503)",
+        "application": "Evidence destruction after investigation contact",
+        "evidence": "March 22 contract deletion - consciousness of guilt"
+      },
+      {
+        "statute": "Money Laundering (18 U.S.C. \u00a7 1956)",
+        "application": "Cross-token proceeds layering",
+        "mechanism": "SHIFT extraction \u2192 CRM infiltration (modular laundering)"
+      }
+    ],
+    "recommended_charges": [
+      "RICO Act Violations (18 U.S.C. \u00a7 1962)",
+      "Conspiracy to Commit Securities Fraud",
+      "Conspiracy to Commit Wire Fraud",
+      "Market Manipulation (15 U.S.C. \u00a7 78i)",
+      "Computer Fraud (18 U.S.C. \u00a7 1030)",
+      "Obstruction of Justice (18 U.S.C. \u00a7 1503)",
+      "Money Laundering (18 U.S.C. \u00a7 1956)"
+    ]
+  },
+  "victim_analysis": {
+    "confirmed_victim_wallets": 970,
+    "total_financial_impact_usd": 801392,
+    "realized_extraction": 743092,
+    "unrealized_position": 58300,
+    "primary_victim_whales": [
+      {
+        "wallet": "7abBmGf4HNu3UXsanJc7WwAPW2PgkEb9hwrFKwCySvyL",
+        "crm_received": "1,000,000",
+        "cost_basis": "$0 (free-loaded)",
+        "status": "COMPROMISED - Used as field operative"
+      },
+      {
+        "wallet": "9WH4oeujdfiwTPZhpK4B79H1vYda8hiEcRjcHAfsGP2W",
+        "crm_amount": "31,971,154",
+        "status": "#1 HOLDER"
+      }
+    ],
+    "victim_categories": [
+      "Retail investors (primary targets)",
+      "Community members (governance participants)",
+      "Early adopters (pump phase participants)",
+      "Whale holders (extraction targets)"
+    ]
+  },
+  "investigation_status": {
+    "status": "ACTIVE",
+    "current_phase": "Comprehensive documentation complete",
+    "next_steps": [
+      "Continue monitoring CyhJT3o8 (12.1M CRM loaded, dormant 9+ days)",
+      "Track HLnpSz9h movements (primary feeder)",
+      "Monitor AFXigaYu for additional automation",
+      "Watch F4HGHWya treasury for new funding",
+      "Prepare law enforcement submission package"
+    ]
+  },
+  "investigation_tools": {
+    "blockchain_analysis": [
+      "Solscan API",
+      "Helius API",
+      "QuickNode RPC"
+    ],
+    "data_visualization": [
+      "D3.js",
+      "Chart.js",
+      "Graphviz"
+    ],
+    "evidence_management": "Custom frontend dashboard",
+    "wallet_tracking": "Real-time balance monitoring"
+  },
+  "last_updated": "2026-04-13T21:32:46.321226"
+}

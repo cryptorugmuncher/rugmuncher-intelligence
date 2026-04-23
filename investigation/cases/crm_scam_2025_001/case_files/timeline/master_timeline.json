@@ -1,0 +1,428 @@
+{
+  "timeline_id": "TIMELINE-001",
+  "title": "CRM Investigation Master Timeline",
+  "description": "Chronological reconstruction of the criminal enterprise from SHIFT AI through CRM token - Complete forensic timeline",
+  "events": [
+    {
+      "date": "2025-04-21",
+      "time": "00:13 UTC",
+      "event_id": "EVT-001",
+      "title": "SHIFT AI 'Contest Winner' Pre-Positioning",
+      "description": "AvZHExxq2 purchased 2.29M SHIFT 13 minutes BEFORE public announcement",
+      "wallet": "AvZHExxq2BaPrq17cKq1KMN3PWoCwqZRppV882JHY5sN",
+      "significance": "Kill shot evidence - No voting contract existed during 'contest'",
+      "evidence_type": "blockchain",
+      "confidence": "99%"
+    },
+    {
+      "date": "2025-04-21",
+      "time": "00:16:05 UTC",
+      "event_id": "EVT-002",
+      "title": "Coordinated Pre-Positioning",
+      "description": "Synchronized buys by operator wallets",
+      "wallets": [
+        "F1eSPc1FNBTKH3fMiwkNLDY6qJXYZv8ZvUs34YJRX6HE",
+        "7ACsEkYS6NjtJkFZz9ZrP8eWVeE7z6GjfGcVWk5yFtPQ"
+      ],
+      "significance": "These wallets later received PBTC/EPIK rewards June 8, 2025",
+      "evidence_type": "blockchain",
+      "confidence": "99%"
+    },
+    {
+      "date": "2025-04-21",
+      "time": "00:26 UTC",
+      "event_id": "EVT-003",
+      "title": "SHIFT AI 'Winner' Announcement",
+      "description": "Public announcement of 'contest winner' - 13 minutes after insider purchase",
+      "significance": "Winner was pre-selected, not voted on - No voting contract existed",
+      "evidence_type": "communications",
+      "confidence": "100%"
+    },
+    {
+      "date": "2025-06-08",
+      "event_id": "EVT-004",
+      "title": "Operator Rewards Distribution",
+      "description": "PBTC/EPIK 'rewards' distributed to confirmed operator wallets",
+      "wallets_affected": ["F1eSPc1FN", "7ACsEkYS6"],
+      "significance": "Confirms coordinated operation, not random participants - Payroll evidence",
+      "evidence_type": "blockchain",
+      "confidence": "95%"
+    },
+    {
+      "date": "2025-08-12",
+      "event_id": "EVT-005",
+      "title": "Telegram Evidence Collection Period",
+      "description": "Screenshot evidence collection begins - Telegram communications documented",
+      "significance": "Visual evidence of coordination and communications",
+      "evidence_type": "screenshots",
+      "files_count": 70
+    },
+    {
+      "date": "2025-08-25",
+      "event_id": "EVT-005-A",
+      "title": "CRM Token Launch",
+      "description": "CRM launches on Raydium at $0.000191. Total supply: 999,917,025 (fixed, mintAuthority disabled)",
+      "pair_created": "2025-08-25 00:44:53 UTC",
+      "launch_price": "$0.000191",
+      "significance": "Genesis of token later infiltrated by SOSANA criminal enterprise",
+      "evidence_type": "blockchain",
+      "confidence": "100%"
+    },
+    {
+      "date": "2025-11-27",
+      "time": "19:59 UTC",
+      "event_id": "EVT-005-B",
+      "title": "CRM Free Allocation - BKLBtcJQJ2",
+      "description": "BKLBtcJQJ2 receives 36,675,895 CRM via free allocation (pre-launch positioning)",
+      "wallet": "BKLBtcJQJ2MxJP6wfbRkoqrYNWUPVLfeB8vs91agBxjt",
+      "amount_crm": 36675895,
+      "cost_basis": "$0 (free allocation)",
+      "significance": "Zero-cost acquisition - later used for Dec 8 mega-dump",
+      "evidence_type": "blockchain",
+      "confidence": "99%"
+    },
+    {
+      "date": "2025-12-06",
+      "time": "15:59 UTC",
+      "event_id": "EVT-006-A",
+      "title": "Pre-Mega-Dump Liquidity Test",
+      "description": "BKLBtcJQJ2 executes preliminary sell of 90,253 CRM for 0.100 SOL (~$9) - testing liquidity",
+      "wallet": "BKLBtcJQJ2MxJP6wfbRkoqrYNWUPVLfeB8vs91agBxjt",
+      "tx_type": "SELL",
+      "amount_crm": 90253,
+      "proceeds_usd": 9,
+      "significance": "Pre-operation liquidity test before main manipulation",
+      "evidence_type": "blockchain",
+      "confidence": "99%"
+    },
+    {
+      "date": "2025-12-08",
+      "time": "09:36 UTC",
+      "event_id": "EVT-006-B",
+      "title": "THE MEGA-DUMP: CRM Birth Suppression Event",
+      "description": "BKLBtcJQJ2 executes largest single CRM sell: 41,089,529 CRM → 24.44 SOL (~$2,200). Original price suppression event preventing organic discovery.",
+      "wallet": "BKLBtcJQJ2MxJP6wfbRkoqrYNWUPVLfeB8vs91agBxjt",
+      "tx_type": "MEGA_SELL",
+      "amount_crm": 41089529,
+      "proceeds_sol": 24.44,
+      "proceeds_usd": 2200,
+      "price_impact": "Crashed chart to new low",
+      "significance": "CRITICAL: Original price suppression - prevented CRM from ever running properly after launch",
+      "evidence_type": "blockchain",
+      "confidence": "99%",
+      "legal_violations": ["18 U.S.C. § 1343", "15 U.S.C. § 78i", "17 CFR § 240.10b-5"]
+    },
+    {
+      "date": "2025-12-08",
+      "time": "10:43 UTC",
+      "event_id": "EVT-006-C",
+      "title": "CRASH AND LOAD: Coordinated Reload at Suppressed Price",
+      "description": "67 minutes after BKLBtcJQJ2 mega-dump, HPVUJGJwJ receives 17.4M CRM via dust-fee transfers at artificially suppressed price. ARM A dumps → ARM B accumulates.",
+      "wallet": "HPVUJGJwJnpGBDCzoAPKPjHe8QfXLgRjbktXCRyMNi5w",
+      "tx_type": "RELOAD",
+      "amount_crm": 17400000,
+      "timing": "67 minutes post-crash",
+      "cost_basis": "$0 (dust fees only)",
+      "significance": "Textbook wash trading - coordinated dump and reload by same operator",
+      "evidence_type": "blockchain",
+      "confidence": "99%",
+      "legal_violations": ["18 U.S.C. § 1343", "15 U.S.C. § 78i"]
+    },
+    {
+      "date": "2025-12-11",
+      "time": "23:08 UTC",
+      "event_id": "EVT-006-D",
+      "title": "Post-Dump Cleanup",
+      "description": "BKLBtcJQJ2 executes final cleanup sell of 12,280 CRM following Dec 8 mega-dump",
+      "wallet": "BKLBtcJQJ2MxJP6wfbRkoqrYNWUPVLfeB8vs91agBxjt",
+      "tx_type": "SELL",
+      "amount_crm": 12280,
+      "significance": "Final extraction from wallet before abandoning",
+      "evidence_type": "blockchain",
+      "confidence": "99%"
+    },
+    {
+      "date": "2025-12-24",
+      "event_id": "EVT-006-E",
+      "title": "Circular Consolidation Operations",
+      "description": "D9ZGRMhmdM executes circular transfers to ARu4n5mFdZog + HLnpSz9h - internal network rebalancing",
+      "wallet": "D9ZGRMhmdMdf5dRdEiLSJLrSETsFuofSPDZHjx5tuULT",
+      "tx_type": "CONSOLIDATION",
+      "amount_crm": 592613,
+      "significance": "Evidence of coordinated network rebalancing",
+      "evidence_type": "blockchain",
+      "confidence": "99%"
+    },
+    {
+      "date": "2025-12-28",
+      "event_id": "EVT-006",
+      "title": "CRM Loading Phase Begins - HLnpSz9h → 8eVZa7",
+      "description": "HLnpSz9h (THE FEEDER) begins 4-day mechanized loading of 8eVZa7 with 20M+ CRM via 30+ dust-fee transfers. Zero cost basis established for March extraction.",
+      "source": "HLnpSz9h2S4hiLQ4uN3vGYAHJqDmbFCwkx9prSXkdPMc",
+      "destination": "8eVZa7bEBnd6MA6JJkNdABRN4S3LbVLRnCZNJAUeuwQj",
+      "amount": "~20-22M CRM",
+      "transfer_method": "30+ batch transfers at 0.002 SOL dust fees",
+      "significance": "MANIPULATION PHASE: Establishes zero-cost positions for March 2026 extraction",
+      "evidence_type": "blockchain",
+      "confidence": "99%",
+      "detailed_file": "december_2025_manipulation_detailed.json"
+    },
+    {
+      "date": "2025-12-31",
+      "event_id": "EVT-007",
+      "title": "Loading Complete + Downstream Distribution",
+      "description": "HLnpSz9h completes loading 8eVZa7 with ~20M CRM. Same day, 8eVZa7 loads 7abBmGf4 with 20M CRM.",
+      "source": "8eVZa7bEBnd6MA6JJkNdABRN4S3LbVLRnCZNJAUeuwQj",
+      "destination": "7abBmGf4HNu3UXsanJc7WwAPW2PgkEb9hwrFKwCySvyL",
+      "amount": 1000000,
+      "significance": "Victim wallet loaded by criminal infrastructure + Satellite distribution",
+      "evidence_type": "blockchain",
+      "confidence": "99%"
+    },
+    {
+      "date": "2026-01-05",
+      "event_id": "EVT-007-A",
+      "title": "Staging Operation - CNSob1L Simultaneous Send",
+      "description": "CNSob1LwXvDRmjioxyjm78tDb2S7nzFK6K8t3VmuhKpn sends 1,998,750 CRM simultaneously to ARu4n5mFdZog + HLnpSz9h",
+      "significance": "Simultaneous send to dump infrastructure - staging operation",
+      "evidence_type": "blockchain",
+      "confidence": "98%"
+    },
+    {
+      "date": "2026-01-07",
+      "end_date": "2026-01-17",
+      "event_id": "EVT-007-B",
+      "title": "Routing to Dump Infrastructure",
+      "description": "EQ2E92SS routes 9M CRM to ARu4n5mFdZog (March 26 dumper) and HLnpSz9h (feeder)",
+      "wallet": "EQ2E92SS64j4uh3UxfG6bFHwq2cbj6YMn8kw9Pm3T4ew",
+      "amount_crm": 9000000,
+      "significance": "Staging wallet forwarding CRM into dump infrastructure",
+      "evidence_type": "blockchain",
+      "confidence": "98%"
+    },
+    {
+      "date": "2026-02-01",
+      "end_date": "2026-03-26",
+      "event_id": "EVT-008",
+      "title": "CRM Coordination Period",
+      "description": "Tier 3 coordination wallet executes 19 CRM transactions",
+      "wallet": "HxyXAE1PHQsh6iLj3t8MagpFovmR7yk76PEADmTKeVfi",
+      "transaction_count": 19,
+      "significance": "Active coordination of extraction infrastructure",
+      "evidence_type": "blockchain",
+      "confidence": "98%"
+    },
+    {
+      "date": "2026-03-05",
+      "event_id": "EVT-009",
+      "title": "Batch Testing - March 5",
+      "description": "8eVZa7 executes parallel batch testing - 15 transactions validating scripts",
+      "wallet": "8eVZa7bEBnd6MA6JJkNdABRN4S3LbVLRnCZNJAUeuwQj",
+      "tx_count": 15,
+      "significance": "Preparation for 970-wallet operation - Script validation",
+      "evidence_type": "blockchain",
+      "confidence": "99%"
+    },
+    {
+      "date": "2026-03-08",
+      "event_id": "EVT-010",
+      "title": "Batch Testing - March 8",
+      "description": "8eVZa7 continues testing - 13 transactions (second wave validation)",
+      "wallet": "8eVZa7bEBnd6MA6JJkNdABRN4S3LbVLRnCZNJAUeuwQj",
+      "tx_count": 13,
+      "significance": "Same script later used for March 26 operation",
+      "evidence_type": "blockchain",
+      "confidence": "99%"
+    },
+    {
+      "date": "2026-03-11",
+      "event_id": "EVT-011",
+      "title": "Batch Testing - March 11",
+      "description": "8eVZa7 final batch testing - 14 transactions (final validation)",
+      "wallet": "8eVZa7bEBnd6MA6JJkNdABRN4S3LbVLRnCZNJAUeuwQj",
+      "tx_count": 14,
+      "significance": "Script validation complete - Operation imminent",
+      "evidence_type": "blockchain",
+      "confidence": "99%"
+    },
+    {
+      "date": "2026-03-18",
+      "time": "18:44:26 - 18:45:06 UTC",
+      "event_id": "EVT-011-A",
+      "title": "Live Loading Operation - CyhJT3o8 Weaponized",
+      "description": "HLnpSz9h loaded 12,107,746 CRM into CyhJT3o8 via 20 automated transfers (4-7 second intervals)",
+      "loader": "HLnpSz9h2S4hiLQ4uN3vGYAHJqDmbFCwkx9prSXkdPMc",
+      "recipient": "CyhJT3o8xrW5vvenMkrJDdpYcdboGGg6SQvSoeVtcA35",
+      "amount": "12,107,746 CRM",
+      "pattern": "Identical to Dec 28-31 loading pattern",
+      "significance": "LOADED WEAPON - Positioned for imminent dump, then dormant 9+ days",
+      "evidence_type": "blockchain",
+      "confidence": "100%"
+    },
+    {
+      "date": "2026-03-19",
+      "time": "04:00 UTC",
+      "event_id": "EVT-011-B",
+      "title": "AFXigaYu Escalation - Test Batch 1",
+      "description": "AFXigaYu seeds 16 wallets including AvZHExxq2",
+      "wallet": "AFXigaYuRKYmvd9HZQCobtZ98FNAwnwpsnjvJRztUGb6",
+      "batch_size": 16,
+      "significance": "Infrastructure warming up - 970-wallet operation prelude",
+      "evidence_type": "blockchain",
+      "confidence": "98%"
+    },
+    {
+      "date": "2026-03-20",
+      "time": "22:26 UTC",
+      "event_id": "EVT-011-C",
+      "title": "AFXigaYu Escalation - Test Batch 2",
+      "description": "AFXigaYu seeds 12 additional wallets",
+      "wallet": "AFXigaYuRKYmvd9HZQCobtZ98FNAwnwpsnjvJRztUGb6",
+      "batch_size": 12,
+      "significance": "Scaling up - Testing larger batch sizes before main operation",
+      "evidence_type": "blockchain",
+      "confidence": "98%"
+    },
+    {
+      "date": "2026-03-22",
+      "time": "22:07 UTC",
+      "event_id": "EVT-012",
+      "title": "Evidence Destruction - Fake Voting Contract Deleted",
+      "description": "Original fake voting contract (deployed Dec 2025) deleted/upgraded by SOSANA team",
+      "claimed_reason": "Technical upgrade",
+      "actual_purpose": "Destroy evidence of fabricated voting history",
+      "contract": "DP49odzsq63e9SJyw2u6LrPnPXXmwSTmANnnzagoKv8i",
+      "significance": "Obstruction of Justice - Spoliation evidence",
+      "evidence_type": "blockchain",
+      "legal_significance": "18 U.S.C. § 1503 - Consciousness of guilt"
+    },
+    {
+      "date": "2026-03-26",
+      "time": "15:08 - 15:46 UTC",
+      "event_id": "EVT-013",
+      "title": "Coordinated CRM Dump Execution",
+      "description": "8-wallet coordinated dump: HLnpSz9h (140K), 6LXutJvK (263K), 7uCYuvPb (450K), 7ZVPyzH7 (300K), D9ZGRMhmdM (539K), HGS4DyyX (429K), hHxyZi7Z (215K), plus others",
+      "total_crm": "~2.7M CRM",
+      "proceeds_usd": "~$499",
+      "significance": "Coordinated extraction - Network holds 12.98% supply as suppressed stability bomb",
+      "evidence_type": "blockchain",
+      "confidence": "99%"
+    },
+    {
+      "date": "2026-03-26",
+      "time": "21:38:07 - 21:46:11 UTC",
+      "event_id": "EVT-014",
+      "title": "MILITARY-SCALE AUTOMATION DEPLOYED - CRITICAL EVIDENCE",
+      "description": "970 wallets seeded in 7 seconds - physically impossible for humans",
+      "wallet": "AFXigaYuRKYmvd9HZQCobtZ98FNAwnwpsnjvJRztUGb6",
+      "metrics": {
+        "wallets_created": 970,
+        "duration_seconds": 7,
+        "rate_per_second": 138.57,
+        "human_maximum": "2-3 wallets in 7 seconds"
+      },
+      "cost_analysis": {
+        "per_wallet": "8.691e-8 SOL (~$0.000011)",
+        "total_1000": "<$0.013"
+      },
+      "significance": "KILL SHOT EVIDENCE - Military-grade automation proves organized criminal infrastructure",
+      "evidence_type": "blockchain",
+      "confidence": "100%",
+      "legal_charge": "Computer Fraud (18 U.S.C. § 1030)"
+    },
+    {
+      "date": "2026-04-09",
+      "event_id": "EVT-015",
+      "title": "Investigation Initiated",
+      "description": "Marcus Aurelius begins formal forensic investigation",
+      "evidence_collected": ["Telegram exports", "Transaction CSVs", "Screenshots"],
+      "significance": "Case CRM-SCAM-2025-001 officially opened",
+      "confidence": "100%"
+    },
+    {
+      "date": "2026-04-10",
+      "event_id": "EVT-016",
+      "title": "5-Tier Criminal Hierarchy Mapped",
+      "description": "Complete infrastructure mapping completed",
+      "tiers_identified": 5,
+      "wallets_mapped": 12,
+      "significance": "RICO structure confirmed - Enterprise exists"
+    },
+    {
+      "date": "2026-04-12",
+      "event_id": "EVT-017",
+      "title": "Deleted Wallet (BmZY862D62) Identified",
+      "description": "Critical spoliation evidence discovered - Bridge wallet connecting deleted contract to CRM",
+      "significance": "Obstruction of Justice charge strengthened - Post-deletion transactions prove continuing enterprise",
+      "legal_impact": "18 U.S.C. § 1503 enhancement"
+    },
+    {
+      "date": "2026-04-13",
+      "event_id": "EVT-018",
+      "title": "Detailed Timeline Documentation Completed",
+      "description": "Comprehensive forensic reconstruction of criminal operation phases created",
+      "documents_created": [
+        "march_2026_coordinated_dump_detailed.json",
+        "december_2025_manipulation_detailed.json"
+      ],
+      "significance": "Complete chain of evidence from testing through execution documented",
+      "evidence_type": "investigation_documentation"
+    }
+  ],
+  "total_events": 33,
+  "investigation_period": "2025-04-21 to 2026-04-13",
+  "created_date": "2026-04-12",
+  "last_updated": "2026-04-13",
+  "phases": {
+    "phase_1_preparation": {
+      "period": "2025-04-21 to 2025-08-25",
+      "description": "SHIFT AI extraction and enterprise establishment",
+      "key_events": ["EVT-001", "EVT-002", "EVT-003", "EVT-004"]
+    },
+    "phase_2_infiltration": {
+      "period": "2025-08-25 to 2025-11-27",
+      "description": "CRM launch and early allocation to network",
+      "key_events": ["EVT-005-A", "EVT-005-B"]
+    },
+    "phase_3_manipulation": {
+      "period": "2025-12-01 to 2025-12-31",
+      "description": "Price suppression and zero-cost loading (MANIPULATION PHASE)",
+      "key_events": ["EVT-006-A", "EVT-006-B", "EVT-006-C", "EVT-006-D", "EVT-006-E", "EVT-006", "EVT-007"],
+      "detailed_file": "december_2025_manipulation_detailed.json"
+    },
+    "phase_4_staging": {
+      "period": "2026-01-01 to 2026-03-04",
+      "description": "Routing to dump infrastructure and preparation",
+      "key_events": ["EVT-007-A", "EVT-007-B", "EVT-008"]
+    },
+    "phase_5_testing": {
+      "period": "2026-03-05 to 2026-03-18",
+      "description": "Parallel batch testing and final loading (TESTING PHASE)",
+      "key_events": ["EVT-009", "EVT-010", "EVT-011", "EVT-011-A"]
+    },
+    "phase_6_preparation": {
+      "period": "2026-03-19 to 2026-03-25",
+      "description": "Escalation testing and evidence destruction",
+      "key_events": ["EVT-011-B", "EVT-011-C", "EVT-012"]
+    },
+    "phase_7_execution": {
+      "period": "2026-03-26",
+      "description": "Coordinated extraction and military-scale automation (EXECUTION PHASE)",
+      "key_events": ["EVT-013", "EVT-014"],
+      "detailed_file": "march_2026_coordinated_dump_detailed.json"
+    },
+    "phase_8_investigation": {
+      "period": "2026-04-09 to 2026-04-13",
+      "description": "Forensic investigation and documentation",
+      "key_events": ["EVT-015", "EVT-016", "EVT-017", "EVT-018"]
+    }
+  },
+  "financial_summary": {
+    "shift_extraction": "$740,000+",
+    "crm_december_realized": "$2,231",
+    "crm_march_realized": "$861",
+    "crm_unrealized": "$58,300",
+    "total_realized": "$743,092+",
+    "total_position": "$801,392+"
+  }
+}

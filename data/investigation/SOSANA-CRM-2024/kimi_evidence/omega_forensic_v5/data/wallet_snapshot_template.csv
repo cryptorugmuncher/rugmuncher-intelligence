@@ -1,0 +1,8 @@
+address,balance_sol,balance_crm,balance_usdc,balance_usdt,created_at,first_transaction,last_transaction,total_transactions,notes
+# Add your wallet snapshot data below
+# Format: one wallet per row
+# Example:
+# 8eVZa7bEBnd6MA6JJkNdABRN4S3LbVLRnCZNJAUeuwQj,45.0,19700000.0,0.0,0.0,2025-08-25,2025-08-25,2026-03-28,150,SMOKING GUN - Bridge wallet
+# HLnpSz9h2S4hiLQ4uN3vGYAHJqDmbFCwkx9prSXkdPMc,0.0,79700000.0,0.0,0.0,2025-08-20,2025-08-20,2026-03-28,500,ACTIVE DUMP WALLET
+# 
+# Paste your snapshot data starting from the next line:

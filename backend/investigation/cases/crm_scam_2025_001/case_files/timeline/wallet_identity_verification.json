@@ -1,0 +1,135 @@
+{
+  "verification_id": "WALLET-IDENTITY-CHECK-2026",
+  "title": "Wallet Identity Verification - Protocol vs Individual",
+  "generated_at": "2026-04-13T19:57:05.759269",
+  "purpose": "Verify if suspicious wallets are Meteora/Raydium/Protocol addresses",
+  "executive_summary": {
+    "wallets_checked": 5,
+    "protocol_wallets_found": 0,
+    "individual_wallets": 2,
+    "unknown_type": 3,
+    "corrections_needed": []
+  },
+  "wallet_analysis": {
+    "PETER_DLHnb1yt": {
+      "name": "DLHnb1yt (PETER)",
+      "corrected_address": "LZcXJY4TT6T4q63RRZjsWHHS7ByV5RL4rxMAxGmiUFE",
+      "original_address": "DLHnb1yt6DMx9j5yg8y0jmtobDd2Pi5pMThdFtk8L36Y",
+      "identified_as": "PETER",
+      "identity_source": "User identification",
+      "correction_date": "2026-04-13",
+      "correction_reason": "Original address was invalid/non-existent per CSV verification",
+      "token_account_address": "DLHnb1yt6DMx2q3qoU2i8coMtnzD5y99eJ4EjhdZgLVh",
+      "verified_crm_holding": 28668823.52,
+      "wallet_type": "INDIVIDUAL_OWNER",
+      "is_program": false,
+      "is_executable": false,
+      "is_pda": false,
+      "is_token_account": false,
+      "owner_program": null,
+      "lamports": 0,
+      "data_size": 0,
+      "crm_token_account": "DLHnb1yt6DMx2q3qoU2i8coMtnzD5y99eJ4EjhdZgLVh",
+      "risk_assessment": "HIGH_SUSPICION",
+      "notes": [
+        "CORRECTED: Original analysis used invalid address",
+        "Verified owner via token holders CSV: 28.67M CRM",
+        "Token account: DLHnb1yt6DMx2q3... holds the actual CRM",
+        "NOT a Meteora/Raydium protocol address",
+        "IDENTIFIED AS: PETER - Real person mapped"
+      ]
+    },
+    "HLnpSz9h": {
+      "name": "HLnpSz9h",
+      "address": "HLnpSz9h2S4hiLQ43rnSD9XkcUThA7B8hQMKmDaiTLcC",
+      "wallet_type": "UNKNOWN",
+      "is_program": false,
+      "is_executable": false,
+      "is_pda": false,
+      "is_token_account": false,
+      "owner_program": null,
+      "lamports": 107130978770,
+      "data_size": 0,
+      "crm_token_account": null,
+      "risk_assessment": "UNKNOWN",
+      "notes": []
+    },
+    "8eVZa7": {
+      "name": "8eVZa7",
+      "address": "8eVZa7bEBnd6MA6JJkNdABRN4S3LbVLRnCZNJAUeuwQj",
+      "wallet_type": "UNKNOWN",
+      "is_program": false,
+      "is_executable": false,
+      "is_pda": false,
+      "is_token_account": false,
+      "owner_program": null,
+      "lamports": 177259395,
+      "data_size": 0,
+      "crm_token_account": null,
+      "risk_assessment": "UNKNOWN",
+      "notes": [
+        "Holds 0.00 CRM in token account"
+      ],
+      "crm_balance": 0.0
+    },
+    "BKLBtcJQJ2": {
+      "name": "BKLBtcJQJ2",
+      "address": "BKLBtcJQJ2gB6Bz9sUPf2r4DR7yXGo3MQH3UjSncEpLz",
+      "wallet_type": "TOKEN_ACCOUNT (not owner)",
+      "is_program": false,
+      "is_executable": false,
+      "is_pda": false,
+      "is_token_account": true,
+      "owner_program": null,
+      "lamports": 0,
+      "data_size": 0,
+      "crm_token_account": null,
+      "risk_assessment": "UNKNOWN",
+      "notes": [
+        "Not found as owner account - may be token account address"
+      ]
+    },
+    "AFXigaYu": {
+      "name": "AFXigaYu",
+      "address": "AFXigaYuRKYmvd9HZQCobtZ98FNAwnwpsnjvJRztUGb6",
+      "wallet_type": "TOKEN_ACCOUNT (not owner)",
+      "is_program": false,
+      "is_executable": false,
+      "is_pda": false,
+      "is_token_account": true,
+      "owner_program": null,
+      "lamports": 0,
+      "data_size": 0,
+      "crm_token_account": null,
+      "risk_assessment": "UNKNOWN",
+      "notes": [
+        "Not found as owner account - may be token account address"
+      ]
+    }
+  },
+  "known_programs_reference": {
+    "Meteora DLMM": "LBUZKhRxPF3XUpBCjp4YzTKgLccjZhTSDM9YuVaPyo",
+    "Meteora Pools": "MERLuDFBMmsHnsBPZw2sDQZHv2gXzQNL4KZJQ5UWMa",
+    "Raydium AMM": "675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8",
+    "Raydium CLMM": "CAMMCzo5YL8w4VFF8KVHrK22GGUspNngaCPi2yNTPQ8",
+    "Raydium CP Swap": "CPMMoo8L9FYgPRs361ajuEj7ARU1LKY2d2KJHrfp5mYj",
+    "Jupiter Aggregator": "JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4",
+    "Orca Whirlpool": "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGbb3XQucDr",
+    "Token Program": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "Associated Token": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+    "System Program": "11111111111111111111111111111111"
+  },
+  "key_questions_answered": {
+    "is_dlhnb1yt_meteora": "RESOLVED NO - LZcXJY4 is individual wallet, not protocol",
+    "is_hlnp_protocol": "VERIFICATION NEEDED - Check on-chain",
+    "are_these_user_wallets": "PARTIALLY VERIFIED - LZcXJY4 confirmed individual wallet"
+  },
+  "correction_summary": {
+    "date": "2026-04-13",
+    "issue": "DLHnb1yt address discrepancy resolved",
+    "original_address": "DLHnb1yt6DMx9j5yg8y0jmtobDd2Pi5pMThdFtk8L36Y",
+    "corrected_address": "LZcXJY4TT6T4q63RRZjsWHHS7ByV5RL4rxMAxGmiUFE",
+    "evidence": "CSV token holders export verification",
+    "holding_corrected": "104.6M → 28.67M CRM"
+  }
+}

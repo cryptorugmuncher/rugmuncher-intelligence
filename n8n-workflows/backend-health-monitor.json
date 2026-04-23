@@ -1,0 +1,113 @@
+{
+  "name": "Backend Health Monitor",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "backend-alert",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-node",
+      "name": "Health Alert Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [250, 300],
+      "webhookId": "backend-alert"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Process backend health alert\nconst data = $input.first().json.body;\n\nconst alertTypes = {\n  'error': { emoji: '🔴', priority: 'HIGH' },\n  'warning': { emoji: '🟡', priority: 'MEDIUM' },\n  'info': { emoji: '🔵', priority: 'LOW' },\n  'system_down': { emoji: '🚨', priority: 'CRITICAL' },\n  'webhook_fail': { emoji: '⚠️', priority: 'HIGH' },\n  'db_error': { emoji: '💾', priority: 'CRITICAL' }\n};\n\nconst type = data.alert_type || 'info';\nconst style = alertTypes[type] || alertTypes['info'];\n\nconst message = `${style.emoji} <b>Backend Alert</b> [${style.priority}]\n\n<b>Type:</b> ${type.replace('_', ' ').toUpperCase()}\n<b>Service:</b> ${data.service || 'Unknown'}\n<b>Time:</b> ${new Date().toISOString()}\n\n${data.message || data.error || 'No details provided'}\n\n${data.action_required ? `<b>Action Required:</b> ${data.action_required}` : ''}`;\n\nreturn {\n  status: 'success',\n  message: message,\n  alert_type: type,\n  priority: style.priority\n};"
+      },
+      "id": "format-node",
+      "name": "Format Alert",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "chatId": "-1003991061445",
+        "text": "={{ $json.message }}",
+        "additionalFields": {
+          "parse_mode": "HTML"
+        }
+      },
+      "id": "telegram-node",
+      "name": "Alert Admins",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.1,
+      "position": [650, 300],
+      "credentials": {
+        "telegramApi": {
+          "id": "telegram-bot-credentials",
+          "name": "Rug Munch Bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "options": {},
+        "responseBody": "={{ JSON.stringify({ received: true, priority: $json.priority }) }}"
+      },
+      "id": "respond-node",
+      "name": "Acknowledge",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [850, 300]
+    }
+  ],
+  "connections": {
+    "Health Alert Webhook": {
+      "main": [
+        [
+          {
+            "node": "Format Alert",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Alert": {
+      "main": [
+        [
+          {
+            "node": "Alert Admins",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Alert Admins": {
+      "main": [
+        [
+          {
+            "node": "Acknowledge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveExecutionProgress": true,
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "name": "Monitoring",
+      "color": "#ff6b6b"
+    },
+    {
+      "name": "Admin",
+      "color": "#4ecdc4"
+    }
+  ]
+}

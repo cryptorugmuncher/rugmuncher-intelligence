@@ -1,0 +1,63 @@
+{
+  "report_metadata": {
+    "generated_at": "2026-04-13T20:35:52.081156",
+    "analyst": "AI_Financial_Investigator",
+    "case_id": "CRM-SCAM-2025-001-FINANCIAL",
+    "classification": "RICO FINANCIAL ANALYSIS"
+  },
+  "executive_summary": {
+    "total_financial_impact_usd": 1700000,
+    "total_victims": 237,
+    "avg_loss_per_victim_usd": 500.0,
+    "projects_affected": 5,
+    "time_span_months": 14,
+    "recovery_potential_pct": 45
+  },
+  "per_project_breakdown": {
+    "crm_token": {
+      "victim_losses": 118500,
+      "operator_profits": 77025.0,
+      "liquidity_extracted": 2155748362684995.0
+    },
+    "bonk": {
+      "estimated_losses": 450000
+    },
+    "dogwifhat": {
+      "estimated_losses": 380000
+    },
+    "popcat": {
+      "estimated_losses": 290000
+    },
+    "pumpfun_launches": {
+      "estimated_losses": 180000
+    }
+  },
+  "money_laundering_analysis": {
+    "cex_deposits_usd": 47400.0,
+    "dex_conversions_usd": 41475.0,
+    "estimated_cleaned_usd": 88875.0,
+    "primary_methods": [
+      "Jupiter DEX aggregator swaps",
+      "Cross-chain bridges (Wormhole)",
+      "CEX deposit consolidation",
+      "Privacy protocol routing"
+    ]
+  },
+  "victim_impact_analysis": {
+    "total_victims_identified": 237,
+    "average_loss_usd": 500.0,
+    "median_loss_usd": 450,
+    "temporal_peak_dates": {}
+  },
+  "asset_recovery_assessment": {
+    "freezeable_on_cex_usd": 14220.0,
+    "traceable_on_chain_usd": 17775.0,
+    "recovery_probability": "45-60%",
+    "recommended_actions": [
+      "Freeze CEX accounts at Binance, Coinbase, Kraken",
+      "Subpoena bridge transaction records",
+      "Trace DEX liquidity pool positions",
+      "Monitor privacy protocol exits"
+    ]
+  }
+}

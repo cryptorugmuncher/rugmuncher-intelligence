@@ -1,0 +1,229 @@
+{
+  "name": "Badge Unlock Notifications",
+  "nodes": [
+    {
+      "parameters": {
+        "listenTo": "public",
+        "table": {
+          "value": "user_badges",
+          "mode": "list"
+        },
+        "event": [
+          "insert"
+        ],
+        "options": {}
+      },
+      "id": "trigger-node",
+      "name": "Badge Earned Trigger",
+      "type": "n8n-nodes-base.postgresTrigger",
+      "typeVersion": 1,
+      "position": [
+        250,
+        300
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "postgres-creds",
+          "name": "PostgreSQL"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "value": "badges",
+          "mode": "list"
+        },
+        "where": {
+          "conditions": [
+            {
+              "column": "id",
+              "value": "={{ $json.badge_id }}",
+              "condition": "equals"
+            }
+          ]
+        }
+      },
+      "id": "lookup-badge",
+      "name": "Get Badge Details",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.2,
+      "position": [
+        450,
+        300
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "postgres-creds",
+          "name": "PostgreSQL"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "value": "users",
+          "mode": "list"
+        },
+        "where": {
+          "conditions": [
+            {
+              "column": "id",
+              "value": "={{ $json.user_id }}",
+              "condition": "equals"
+            }
+          ]
+        }
+      },
+      "id": "lookup-user",
+      "name": "Get User Details",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.2,
+      "position": [
+        650,
+        300
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "postgres-creds",
+          "name": "PostgreSQL"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "condition-1",
+              "leftValue": "={{ $('Get Badge Details').first().json.rarity }}",
+              "rightValue": "rare",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "or"
+        }
+      },
+      "id": "if-rare",
+      "name": "Rare+ Badge?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        250,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "content": "\ud83c\udfc6 NEW BADGE UNLOCKED!\n\nUser: {{ $('Get User Details').first().json.username || 'Anonymous' }}\nBadge: {{ $('Get Badge Details').first().json.emoji }} {{ $('Get Badge Details').first().json.name }}\nRarity: {{ $('Get Badge Details').first().json.rarity.toUpperCase() }}\n\n{{ $('Get Badge Details').first().json.description }}\n\nThe Trenches - Where legends are made",
+        "additionalFields": {}
+      },
+      "id": "twitter-announce",
+      "name": "Announce on X",
+      "type": "n8n-nodes-base.twitter",
+      "typeVersion": 2,
+      "position": [
+        450,
+        500
+      ],
+      "credentials": {
+        "twitterOAuth2Api": {
+          "id": "twitter-creds",
+          "name": "Twitter OAuth2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendOptions": {},
+        "options": {}
+      },
+      "id": "discord-webhook",
+      "name": "Notify Discord",
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 2,
+      "position": [
+        650,
+        500
+      ],
+      "credentials": {
+        "discordWebhook": {
+          "id": "discord-creds",
+          "name": "Discord Webhook"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Badge Earned Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get Badge Details",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Get User Details",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Badge Details": {
+      "main": [
+        [
+          {
+            "node": "Rare+ Badge?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Rare+ Badge?": {
+      "main": [
+        [
+          {
+            "node": "Announce on X",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Notify Discord",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveExecutionProgress": true,
+    "saveManualExecutions": true
+  },
+  "tags": [
+    {
+      "name": "Badges",
+      "id": "tag-badges"
+    },
+    {
+      "name": "Notifications",
+      "id": "tag-notifications"
+    }
+  ],
+  "id": "9d2e1002-dd82-4b3f-a525-70a45a621538",
+  "active": false
+}

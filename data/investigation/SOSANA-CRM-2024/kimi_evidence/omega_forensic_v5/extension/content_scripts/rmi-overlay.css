@@ -1,0 +1,540 @@
+/**
+ * RMI Extension - Overlay Styles
+ * Styles for risk badges, tooltips, and warnings
+ */
+
+/* ===== Risk Badge ===== */
+.rmi-badge-container {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  z-index: 1000;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.rmi-risk-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  border: 1px solid transparent;
+}
+
+.rmi-risk-badge:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.rmi-risk-critical {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: #fff;
+  border-color: #b91c1c;
+}
+
+.rmi-risk-high {
+  background: linear-gradient(135deg, #f97316, #ea580c);
+  color: #fff;
+  border-color: #c2410c;
+}
+
+.rmi-risk-medium {
+  background: linear-gradient(135deg, #eab308, #ca8a04);
+  color: #000;
+  border-color: #a16207;
+}
+
+.rmi-risk-low {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #fff;
+  border-color: #15803d;
+}
+
+.rmi-risk-safe {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: #fff;
+  border-color: #047857;
+}
+
+.rmi-risk-unknown {
+  background: linear-gradient(135deg, #6b7280, #4b5563);
+  color: #fff;
+  border-color: #374151;
+}
+
+.rmi-badge-icon {
+  font-size: 12px;
+}
+
+.rmi-badge-text {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.rmi-badge-label {
+  font-size: 9px;
+  opacity: 0.9;
+}
+
+/* ===== Tooltip ===== */
+.rmi-tooltip {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 8px;
+  width: 320px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border: 1px solid #00d4ff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.2s ease;
+  z-index: 1001;
+}
+
+.rmi-badge-container:hover .rmi-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.rmi-tooltip-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #333;
+}
+
+.rmi-tooltip-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #00d4ff;
+}
+
+.rmi-tooltip-score {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.rmi-score-critical { background: #ef4444; color: #fff; }
+.rmi-score-high { background: #f97316; color: #fff; }
+.rmi-score-medium { background: #eab308; color: #000; }
+.rmi-score-low { background: #22c55e; color: #fff; }
+.rmi-score-safe { background: #10b981; color: #fff; }
+.rmi-score-unknown { background: #6b7280; color: #fff; }
+
+.rmi-tooltip-content {
+  font-size: 12px;
+  line-height: 1.6;
+  color: #ccc;
+}
+
+.rmi-tooltip-content ul {
+  margin: 8px 0;
+  padding-left: 16px;
+}
+
+.rmi-tooltip-content li {
+  margin: 4px 0;
+}
+
+.rmi-flags-red { color: #ef4444; }
+.rmi-flags-yellow { color: #eab308; }
+.rmi-flags-green { color: #22c55e; }
+
+.rmi-tooltip-footer {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #333;
+  text-align: right;
+}
+
+.rmi-tooltip-link {
+  color: #00d4ff;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.rmi-tooltip-link:hover {
+  text-decoration: underline;
+}
+
+/* ===== Detail Page Warning ===== */
+.rmi-detail-warning {
+  margin: 16px 0;
+  padding: 16px;
+  border-radius: 12px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.rmi-warning-critical {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.15), rgba(220, 38, 38, 0.1));
+  border: 1px solid #ef4444;
+}
+
+.rmi-warning-high {
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.15), rgba(234, 88, 12, 0.1));
+  border: 1px solid #f97316;
+}
+
+.rmi-warning-medium {
+  background: linear-gradient(135deg, rgba(234, 179, 8, 0.15), rgba(202, 138, 4, 0.1));
+  border: 1px solid #eab308;
+}
+
+.rmi-warning-low {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(22, 163, 74, 0.1));
+  border: 1px solid #22c55e;
+}
+
+.rmi-warning-safe {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(5, 150, 105, 0.1));
+  border: 1px solid #10b981;
+}
+
+.rmi-warning-unknown {
+  background: linear-gradient(135deg, rgba(107, 114, 128, 0.15), rgba(75, 85, 99, 0.1));
+  border: 1px solid #6b7280;
+}
+
+.rmi-warning-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.rmi-warning-icon {
+  font-size: 24px;
+}
+
+.rmi-warning-title {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.rmi-warning-title strong {
+  font-size: 16px;
+  color: #fff;
+}
+
+.rmi-warning-level {
+  font-size: 12px;
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+.rmi-warning-toggle {
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  color: #fff;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.rmi-warning-toggle:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.rmi-warning-details {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ===== Detail Grid ===== */
+.rmi-detail-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.rmi-detail-section h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #00d4ff;
+  margin: 0 0 12px 0;
+}
+
+.rmi-score-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.rmi-score-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.rmi-score-label {
+  width: 100px;
+  font-size: 11px;
+  color: #aaa;
+  text-transform: uppercase;
+}
+
+.rmi-score-bar-bg {
+  flex: 1;
+  height: 8px;
+  background: #333;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.rmi-score-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.rmi-score-value {
+  width: 30px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #fff;
+  text-align: right;
+}
+
+.rmi-detail-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* ===== Modal ===== */
+.rmi-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rmi-modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(4px);
+}
+
+.rmi-modal-content {
+  position: relative;
+  width: 90%;
+  max-width: 600px;
+  max-height: 80vh;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border: 1px solid #00d4ff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  animation: rmi-modal-in 0.3s ease-out;
+}
+
+@keyframes rmi-modal-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.rmi-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #333;
+}
+
+.rmi-modal-header h2 {
+  margin: 0;
+  font-size: 18px;
+  color: #00d4ff;
+}
+
+.rmi-modal-close {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.rmi-modal-close:hover {
+  background: rgba(239, 68, 68, 0.3);
+}
+
+.rmi-modal-body {
+  padding: 20px;
+  overflow-y: auto;
+  max-height: calc(80vh - 80px);
+}
+
+/* ===== Buttons ===== */
+.rmi-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+
+.rmi-btn-primary {
+  background: linear-gradient(90deg, #00d4ff, #0099cc);
+  color: #000;
+}
+
+.rmi-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 212, 255, 0.4);
+}
+
+.rmi-btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.rmi-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ===== Mini Badge (for lists) ===== */
+.rmi-mini-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+/* ===== Scan Button ===== */
+.rmi-scan-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00d4ff, #0099cc);
+  border: none;
+  box-shadow: 0 4px 20px rgba(0, 212, 255, 0.4);
+  cursor: pointer;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  transition: all 0.2s;
+}
+
+.rmi-scan-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 30px rgba(0, 212, 255, 0.6);
+}
+
+/* ===== Loading Spinner ===== */
+.rmi-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(0, 212, 255, 0.3);
+  border-top-color: #00d4ff;
+  border-radius: 50%;
+  animation: rmi-spin 0.8s linear infinite;
+}
+
+@keyframes rmi-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ===== Pulse Animation for Critical ===== */
+.rmi-risk-critical {
+  animation: rmi-pulse-danger 2s ease-in-out infinite;
+}
+
+@keyframes rmi-pulse-danger {
+  0%, 100% { box-shadow: 0 2px 8px rgba(239, 68, 68, 0.4); }
+  50% { box-shadow: 0 2px 16px rgba(239, 68, 68, 0.8); }
+}
+
+/* ===== Scrollbar ===== */
+.rmi-modal-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.rmi-modal-body::-webkit-scrollbar-track {
+  background: #1a1a2e;
+}
+
+.rmi-modal-body::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+.rmi-modal-body::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 640px) {
+  .rmi-tooltip {
+    width: 280px;
+    right: -20px;
+  }
+  
+  .rmi-modal-content {
+    width: 95%;
+    max-height: 90vh;
+  }
+  
+  .rmi-modal-body {
+    max-height: calc(90vh - 80px);
+  }
+  
+  .rmi-detail-actions {
+    flex-direction: column;
+  }
+}

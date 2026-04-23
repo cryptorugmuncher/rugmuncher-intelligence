@@ -1,0 +1,18 @@
+{
+  "addresses_found": [
+    "DLHnb1yt6DMx9j5yg8y0jmtobDd2Pi5pMThdFtk8L36Y",
+    "DLHnb1ytcR7p7F5zM5L8QQJdKJScFvx8y5v4J2Cmjcqf",
+    "DLHnb1yt6DMx2q3qoU2i8coMtnzD5y99eJ4EjhdZgLVh"
+  ],
+  "script_address": "DLHnb1yt6DMx9j5yg8y0jmtobDd2Pi5pMThdFtk8L36Y",
+  "csv_token_account": "DLHnb1yt6DMx2q3qoU2i8coMtnzD5y99eJ4EjhdZgLVh",
+  "csv_owner": "LZcXJY4TT6T4q63RRZjsWHHS7ByV5RL4rxMAxGmiUFE",
+  "discrepancy": "ADDRESSES ARE DIFFERENT",
+  "impact": "Analysis may be tracking wrong wallet",
+  "real_crm_holder": {
+    "token_account": "DLHnb1yt6DMx2q3qoU2i8coMtnzD5y99eJ4EjhdZgLVh",
+    "owner": "LZcXJY4TT6T4q63RRZjsWHHS7ByV5RL4rxMAxGmiUFE",
+    "amount": 28668823.52,
+    "percent": 2.87
+  }
+}

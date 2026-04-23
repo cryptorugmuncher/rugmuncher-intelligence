@@ -1,0 +1,147 @@
+{
+  "name": "RMI Scam Alert Automation",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "scam-alert",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-scam-alert",
+      "name": "Scam Alert Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [250, 300],
+      "webhookId": "scam-alert"
+    },
+    {
+      "parameters": {
+        "options": {},
+        "content": "🚨 **SCAM ALERT** 🚨\n\n**Token/Project:** {{ $json.body.token_name }}\n**Chain:** {{ $json.body.chain }}\n**Risk Score:** {{ $json.body.risk_score }}/100\n\n**Red Flags Detected:**\n{{ $json.body.red_flags.join('\\n') }}\n\n**Analysis:**\n{{ $json.body.analysis }}",
+        "otherOptions": {}
+      },
+      "id": "format-telegram",
+      "name": "Format Telegram Message",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [450, 200]
+    },
+    {
+      "parameters": {
+        "options": {},
+        "content": "🚨 SCAM ALERT: {{ $json.body.token_name }}\n\nRisk Score: {{ $json.body.risk_score }}/100\n\n{{ $json.body.short_description }}\n\n#ScamAlert #{{ $json.body.chain }} #CryptoSafety",
+        "otherOptions": {}
+      },
+      "id": "format-twitter",
+      "name": "Format Twitter Post",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [450, 400]
+    },
+    {
+      "parameters": {
+        "chatId": "{{ $env.TELEGRAM_CHAT_ID }}",
+        "text": "={{ $json.content }}",
+        "additionalFields": {}
+      },
+      "id": "send-telegram",
+      "name": "Send Telegram Alert",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.1,
+      "position": [650, 200],
+      "credentials": {
+        "telegramApi": {
+          "id": "telegram-bot-credentials",
+          "name": "RMI Telegram Bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "document": {
+          "ca": "{{ $json.body.token_address }}",
+          "chain": "{{ $json.body.chain }}",
+          "risk_score": "{{ $json.body.risk_score }}",
+          "red_flags": "{{ $json.body.red_flags }}",
+          "analysis": "{{ $json.body.analysis }}",
+          "timestamp": "={{ new Date().toISOString() }}",
+          "source": "n8n_automation"
+        },
+        "options": {}
+      },
+      "id": "save-to-supabase",
+      "name": "Save to Supabase",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [850, 300],
+      "credentials": {
+        "supabaseApi": {
+          "id": "supabase-credentials",
+          "name": "RMI Supabase"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Format scam alert data\nconst body = $input.first().json.body;\n\nreturn {\n  ...body,\n  formatted_time: new Date().toLocaleString(),\n  alert_id: 'alert_' + Date.now()\n};"
+      },
+      "id": "process-data",
+      "name": "Process Alert Data",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [450, 300]
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": ["RMI", "automation", "scam-alerts"],
+  "connections": {
+    "Scam Alert Webhook": {
+      "main": [
+        [
+          {
+            "node": "Process Alert Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Process Alert Data": {
+      "main": [
+        [
+          {
+            "node": "Format Telegram Message",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Format Twitter Post",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Save to Supabase",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Telegram Message": {
+      "main": [
+        [
+          {
+            "node": "Send Telegram Alert",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}

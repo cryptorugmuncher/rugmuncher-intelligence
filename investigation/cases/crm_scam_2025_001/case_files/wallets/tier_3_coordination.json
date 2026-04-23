@@ -1,0 +1,34 @@
+{
+  "wallet_id": "WALLET-T3-001",
+  "address": "HxyXAE1PHQsh6iLj3t8MagpFovmR7yk76PEADmTKeVfi",
+  "tier": 3,
+  "classification": "suspect",
+  "function": "CRM transaction coordination and field operations",
+  "status": "ACTIVE",
+  "evidence": "19 CRM transactions (February-March 2026), $36.55 USDC operational float",
+  "risk_score": 0.90,
+  "operational_float": {
+    "amount_usd": 36.55,
+    "token": "USDC",
+    "purpose": "Transaction coordination fees"
+  },
+  "transaction_period": {
+    "start": "2026-02-01",
+    "end": "2026-03-26",
+    "count": 19,
+    "purpose": "Active coordination of extraction infrastructure"
+  },
+  "batch_testing": [
+    {"date": "2026-03-05", "activity": "Parallel batch testing"},
+    {"date": "2026-03-08", "activity": "Continued testing"},
+    {"date": "2026-03-11", "activity": "Final batch testing before main operation"}
+  ],
+  "related_wallets": [
+    "BMq4XUa3rJJNkjXbJDpMFdSmPjvz5f9w4TvYFGADVkX5",
+    "8eVZa7bEBnd6MA6JJkNdABRN4S3LbVLRnCZNJAUeuwQj"
+  ],
+  "significance": "Same script used for March 5/8/11 testing later deployed for 970-wallet March 26 operation",
+  "legal_significance": "Coordination node - Proves premeditated criminal operation",
+  "added_date": "2026-04-09",
+  "last_updated": "2026-04-12"
+}

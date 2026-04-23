@@ -1,0 +1,30 @@
+{
+  "wallet_id": "WALLET-SHIFT-002",
+  "address": "7GsFEUPC9ZWMRb3wXsyrW33MP3Q6Jb8MpMjf2y1exC9y",
+  "tier": "SHIFT Operation",
+  "classification": "suspect",
+  "function": "Systematic dumper - Coordinated extraction from SHIFT AI",
+  "status": "ACTIVE - Extraction complete",
+  "evidence": "17 coordinated sells at 6-second intervals - systematic extraction pattern",
+  "risk_score": 0.9,
+  "extraction_pattern": {
+    "sells": 17,
+    "interval_seconds": 6,
+    "total_extracted_usd": 740000,
+    "price_impact": "-99.91% (SHIFT collapsed)"
+  },
+  "connection_to_root": "Linked to AFXigaYu (Tier 1) through AvZHExxq2 coordination",
+  "related_wallets": [
+    "AvZHExxq2BaPrq17cKq1KMN3PWoCwqZRppV882JHY5sN",
+    "F1eSPc1FNBTKH3fMiwkNLDY6qJXYZv8ZvUs34YJRX6HE",
+    "7ACsEkYS6NjtJkFZz9ZrP8eWVeE7z6GjfGcVWk5yFtPQ"
+  ],
+  "reward_received": {
+    "date": "2025-06-08",
+    "tokens": ["PBTC", "EPIK"],
+    "significance": "Payroll distribution confirms operator status"
+  },
+  "legal_significance": "Primary extraction mechanism - Market manipulation and securities fraud",
+  "added_date": "2026-04-09",
+  "last_updated": "2026-04-12"
+}

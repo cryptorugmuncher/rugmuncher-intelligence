@@ -1,0 +1,175 @@
+{
+  "nodes": [
+    {
+      "id": "CNSob1LwXvDRmjioxyjm78tDb2S7nzFK6K8t3VmuhKpn",
+      "label": "CNSob1Lw...",
+      "tier": 0,
+      "role": "Predecessor treasury - Staging CRM for March 26 operation",
+      "risk": 1.0
+    },
+    {
+      "id": "F4HGHWyaMAkQH7Q2YJfAyGmPoo5aRs6R6VuSPia3JM3U",
+      "label": "F4HGHWya...",
+      "tier": 1,
+      "role": "Treasury - Root of all operations",
+      "risk": 1.0
+    },
+    {
+      "id": "DojAziGhpZVn8rKNCmPXpDoaMbUNpTjJjSWVLTYzhbqY",
+      "label": "DojAziGh...",
+      "tier": 2,
+      "role": "Processor - Handles 'rewards' distribution",
+      "risk": 0.95
+    },
+    {
+      "id": "HxyXAE1PHQsh6iLj3t8MagpFovmR7yk76PEADmTKeVfi",
+      "label": "HxyXAE1P...",
+      "tier": 3,
+      "role": "CRM coordination - 19 transactions",
+      "risk": 0.9
+    },
+    {
+      "id": "AFXigaYuRKYmvd9HZQCobtZ98FNAwnwpsnjvJRztUGb6",
+      "label": "AFXigaYu...",
+      "tier": 4,
+      "role": "Master routing - seeds 970 wallets",
+      "risk": 1.0
+    },
+    {
+      "id": "8eVZa7bEBnd6MA6JJkNdABRN4S3LbVLRnCZNJAUeuwQj",
+      "label": "8eVZa7bE...",
+      "tier": 4,
+      "role": "Distribution - 20M CRM loaded",
+      "risk": 0.95
+    },
+    {
+      "id": "BKLBtcJQJ2MxJP6wfbRkoqrYNWUPVLfeB8vs91agBxjt",
+      "label": "BKLBtcJQ...",
+      "tier": 4,
+      "role": "Field Ops",
+      "risk": 0.85
+    },
+    {
+      "id": "HPVUJGJwJnpGBDCzoAPKPjHe8QfXLgRjbktXCRyMNi5w",
+      "label": "HPVUJGJw...",
+      "tier": 4,
+      "role": "Field Ops",
+      "risk": 0.85
+    },
+    {
+      "id": "HLnpSz9h2S4hiLQ4uN3vGYAHJqDmbFCwkx9prSXkdPMc",
+      "label": "HLnpSz9h...",
+      "tier": 4,
+      "role": "Field Ops",
+      "risk": 0.85
+    },
+    {
+      "id": "BMq4XUa3rJJNkjXbJDpMFdSmPjvz5f9w4TvYFGADVkX5",
+      "label": "BMq4XUa3...",
+      "tier": 2,
+      "role": "SHIFT\u2192CRM bridge connection",
+      "risk": 0.6
+    },
+    {
+      "id": "7abBmGf4HNu3UXsanJc7WwAPW2PgkEb9hwrFKwCySvyL",
+      "label": "7abBmGf4...",
+      "tier": 5,
+      "role": "Execution - victim whale position",
+      "risk": 0.5
+    },
+    {
+      "id": "disposable_pool",
+      "label": "Disposable Pool (970 wallets)",
+      "tier": 5,
+      "role": "Distributed Extraction",
+      "risk": 0.7
+    }
+  ],
+  "edges": [
+    {
+      "source": "CNSob1LwXvDRmjioxyjm78tDb2S7nzFK6K8t3VmuhKpn",
+      "target": "F4HGHWyaMAkQH7Q2YJfAyGmPoo5aRs6R6VuSPia3JM3U",
+      "type": "funds",
+      "strength": 1.0
+    },
+    {
+      "source": "F4HGHWyaMAkQH7Q2YJfAyGmPoo5aRs6R6VuSPia3JM3U",
+      "target": "DojAziGhpZVn8rKNCmPXpDoaMbUNpTjJjSWVLTYzhbqY",
+      "type": "funds",
+      "strength": 0.9
+    },
+    {
+      "source": "DojAziGhpZVn8rKNCmPXpDoaMbUNpTjJjSWVLTYzhbqY",
+      "target": "HxyXAE1PHQsh6iLj3t8MagpFovmR7yk76PEADmTKeVfi",
+      "type": "funds",
+      "strength": 0.85
+    },
+    {
+      "source": "HxyXAE1PHQsh6iLj3t8MagpFovmR7yk76PEADmTKeVfi",
+      "target": "AFXigaYuRKYmvd9HZQCobtZ98FNAwnwpsnjvJRztUGb6",
+      "type": "command",
+      "strength": 0.8
+    },
+    {
+      "source": "HxyXAE1PHQsh6iLj3t8MagpFovmR7yk76PEADmTKeVfi",
+      "target": "8eVZa7bEBnd6MA6JJkNdABRN4S3LbVLRnCZNJAUeuwQj",
+      "type": "command",
+      "strength": 0.8
+    },
+    {
+      "source": "HxyXAE1PHQsh6iLj3t8MagpFovmR7yk76PEADmTKeVfi",
+      "target": "BKLBtcJQJ2MxJP6wfbRkoqrYNWUPVLfeB8vs91agBxjt",
+      "type": "command",
+      "strength": 0.8
+    },
+    {
+      "source": "HxyXAE1PHQsh6iLj3t8MagpFovmR7yk76PEADmTKeVfi",
+      "target": "HPVUJGJwJnpGBDCzoAPKPjHe8QfXLgRjbktXCRyMNi5w",
+      "type": "command",
+      "strength": 0.8
+    },
+    {
+      "source": "HxyXAE1PHQsh6iLj3t8MagpFovmR7yk76PEADmTKeVfi",
+      "target": "HLnpSz9h2S4hiLQ4uN3vGYAHJqDmbFCwkx9prSXkdPMc",
+      "type": "command",
+      "strength": 0.8
+    },
+    {
+      "source": "AFXigaYuRKYmvd9HZQCobtZ98FNAwnwpsnjvJRztUGb6",
+      "target": "disposable_pool",
+      "type": "extraction",
+      "strength": 0.6
+    },
+    {
+      "source": "8eVZa7bEBnd6MA6JJkNdABRN4S3LbVLRnCZNJAUeuwQj",
+      "target": "disposable_pool",
+      "type": "extraction",
+      "strength": 0.6
+    },
+    {
+      "source": "BKLBtcJQJ2MxJP6wfbRkoqrYNWUPVLfeB8vs91agBxjt",
+      "target": "disposable_pool",
+      "type": "extraction",
+      "strength": 0.6
+    },
+    {
+      "source": "HPVUJGJwJnpGBDCzoAPKPjHe8QfXLgRjbktXCRyMNi5w",
+      "target": "disposable_pool",
+      "type": "extraction",
+      "strength": 0.6
+    },
+    {
+      "source": "HLnpSz9h2S4hiLQ4uN3vGYAHJqDmbFCwkx9prSXkdPMc",
+      "target": "disposable_pool",
+      "type": "extraction",
+      "strength": 0.6
+    }
+  ],
+  "metadata": {
+    "case_id": "CRM-SCAM-2025-001",
+    "node_count": 12,
+    "edge_count": 13,
+    "tiers": 5,
+    "generated_at": "2026-04-23T08:00:00Z"
+  }
+}

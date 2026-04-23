@@ -1,0 +1,7 @@
+{"type": "metadata", "protocol_version": "1.8"}
+{"timestamp": 1775831937.552795, "message": {"type": "TurnBegin", "payload": {"user_input": [{"type": "text", "text": "test"}]}}}
+{"timestamp": 1775831937.5669014, "message": {"type": "StepBegin", "payload": {"n": 1}}}
+{"timestamp": 1775831940.8609211, "message": {"type": "ContentPart", "payload": {"type": "think", "think": "The user just typed \"test\" - this is a simple greeting or test message. I should respond directly without needing to use any tools.", "encrypted": null}}}
+{"timestamp": 1775831941.7605522, "message": {"type": "ContentPart", "payload": {"type": "text", "text": "Hello! I'm Kimi Code CLI, your AI assistant for software engineering tasks. I'm ready to help you with this project.\n\nWhat would you like to do today?"}}}
+{"timestamp": 1775831941.7813728, "message": {"type": "StatusUpdate", "payload": {"context_usage": 0.048248291015625, "context_tokens": 12648, "max_context_tokens": 262144, "token_usage": {"input_other": 3688, "output": 64, "input_cache_read": 8960, "input_cache_creation": 0}, "message_id": "chatcmpl-6t2eTgLCb4D3xv7ZIzarfiJi", "plan_mode": false, "mcp_status": null}}}
+{"timestamp": 1775831941.9187007, "message": {"type": "TurnEnd", "payload": {}}}

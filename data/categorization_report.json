@@ -1,0 +1,1162 @@
+{
+  "total_files": 237,
+  "categorized_at": "2026-04-09T11:16:01.327806",
+  "categories": {
+    "telegram_chats": {
+      "count": 68,
+      "priority": "critical",
+      "total_size_mb": 51.765045166015625,
+      "sosana_related": 68,
+      "files": [
+        {
+          "filename": "20260409_080050_d13accef_messages55.html",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_080050_d13accef_messages55.html",
+          "size": 1075325,
+          "extension": ".html",
+          "category": "telegram_chats",
+          "tags": [],
+          "sosana_related": true,
+          "wallets_found": [
+            "3Gdx9LmKZJyciSz3mbge3YKLqskiMG71m1iDMPAwpump",
+            "3Gdx9LmKZJyciSz3mbge3YKLqskiMG71m1iDMPAwpump",
+            "DZiZcqLXfxuGkxWXVX5kj8YTUXy5V99VYoNEvSVEwppV",
+            "3Gdx9LmKZJyciSz3mbge3YKLqskiMG71m1iDMPAwpump",
+            "3Gdx9LmKZJyciSz3mbge3YKLqskiMG71m1iDMPAwpump",
+            "3Gdx9LmKZJyciSz3mbge3YKLqskiMG71m1i",
+            "3Gdx9LmKZJyciSz3mbge3YKLqskiMG71m1i",
+            "3Gdx9LmKZJyciSz3mbge3YKLqskiMG71m1i",
+            "3Gdx9LmKZJyciSz3mbge3YKLqskiMG71m1i",
+            "3Gdx9LmKZJyciSz3mbge3YKLqskiMG71m1i"
+          ]
+        },
+        {
+          "filename": "20260409_080202_04c3cd0a_messages24.html",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_080202_04c3cd0a_messages24.html",
+          "size": 676794,
+          "extension": ".html",
+          "category": "telegram_chats",
+          "tags": [],
+          "sosana_related": true,
+          "wallets_found": [
+            "2XbHzfsxL2dSX7jqVcLXKZ2y8oVHLxkUbtbJ6ppNpump",
+            "AgDNMAi8r2QS1FQEeTHLsZSmkQKCK7xXP2bR7jQ2pump",
+            "pepo1CFNU2RXf7yXX7HNXazXwxsq8WrPvDHpHriwoLY",
+            "EKRBZrcu3rKiT1T5kUGRe9S7aCLq3GFYqsqkin9Qpump",
+            "EKRBZrcu3rKiT1T5kUGRe9S7aCLq3GFYqsqkin9Qpump",
+            "1FQEeTHLsZSmkQKCK7xXP2bR7jQ2pump",
+            "1CFNU2RXf7yXX7HNXazXwxsq8WrPvDHpHri",
+            "3rKiT1T5kUGRe9S7aCLq3GFYqsqkin9Qpum",
+            "3rKiT1T5kUGRe9S7aCLq3GFYqsqkin9Qpum",
+            "3rKiT1T5kUGRe9S7aCLq3GFYqsqkin9Qpum"
+          ]
+        },
+        {
+          "filename": "20260409_080254_26b459a1_messages3.html",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_080254_26b459a1_messages3.html",
+          "size": 547008,
+          "extension": ".html",
+          "category": "telegram_chats",
+          "tags": [],
+          "sosana_related": true,
+          "wallets_found": [
+            "8wZvGcGePvWEa8tKQUYctMXFSkqS39scozVU9xBVrUjY",
+            "FKtyCitA4fjUxQEGxC1voXx9F8bLTuNkPGRbxwoq9VwC",
+            "FKtyCitA4fjUxQEGxC1voXx9F8bLTuNkPGRbxwoq9VwC",
+            "984GBL7PhceChtN64NWLdBb49rSQXX7ozpdkEbR1pump",
+            "AKHSnnGogF9iaErDJa1pVup9dE2WhXfUjAyMRX9jmSmn",
+            "0x9e18d5bab2fa94a6a95f509ecb38f8f68322abd3",
+            "0x8D7EA1De9A711Df6D55FE0c58d47e838C567F6Ff",
+            "0x8D7EA1De9A711Df6D55FE0c58d47e838C567F6Ff",
+            "1voXx9F8bLTuNkPGRbxwoq9VwC",
+            "1voXx9F8bLTuNkPGRbxwoq9VwC"
+          ]
+        },
+        {
+          "filename": "20260409_080101_6e3a0c9b_messages51.html",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_080101_6e3a0c9b_messages51.html",
+          "size": 1132088,
+          "extension": ".html",
+          "category": "telegram_chats",
+          "tags": [],
+          "sosana_related": true,
+          "wallets_found": [
+            "3QrGcwFSKXiKetD5ixzZa7H4zHPuTg8grrH7s5Mzpump",
+            "EQkTBRbV9TcxzpQD38F4dNsD9nAR7hmJcwPwHtR1QmX7",
+            "3QrGcwFSKXiKetD5ixzZa7H4zHPuTg8grrH7s5Mzpump",
+            "3QrGcwFSKXiKetD5ixzZa7H4zHPuTg8grrH7s5Mzpump",
+            "3QrGcwFSKXiKetD5ixzZa7H4zHPuTg8grrH7s5Mzpump",
+            "0x1B69115a976859F950fc0B04EAF3FdF64f94EF81",
+            "3QrGcwFSKXiKetD5ixzZa7H4zHPuTg8grrH",
+            "38F4dNsD9nAR7hmJcwPwHtR1QmX7",
+            "3QrGcwFSKXiKetD5ixzZa7H4zHPuTg8grrH",
+            "3QrGcwFSKXiKetD5ixzZa7H4zHPuTg8grrH"
+          ]
+        },
+        {
+          "filename": "20260409_080242_99a7c540_messages8.html",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_080242_99a7c540_messages8.html",
+          "size": 540766,
+          "extension": ".html",
+          "category": "telegram_chats",
+          "tags": [],
+          "sosana_related": true,
+          "wallets_found": [
+            "27h7yQKgC8UEoYp3aAh4uJv6Q6ik8Ntm3bkVMWn1pump",
+            "59rtqwaK82FZBE3D9WGmUzcFVUoGqYZwCxA97NkPpump",
+            "2ru87k7yAZnDRsnqVpgJYETFgqVApuBcwB2xDb19pump",
+            "8JYoL2wYWkkYzJ4VLpzPieFGfLcKfz2HRrm8J6sdmsvX",
+            "dHadSsY2dvsoEDwDRP7rgq7EVYRZZ17qvpwkwsQpump",
+            "3aAh4uJv6Q6ik8Ntm3bkVMWn1pump",
+            "3D9WGmUzcFVUoGqYZwCxA97NkPpump"
+          ]
+        },
+        {
+          "filename": "20260409_080151_00c62a74_messages29.html",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_080151_00c62a74_messages29.html",
+          "size": 640189,
+          "extension": ".html",
+          "category": "telegram_chats",
+          "tags": [],
+          "sosana_related": true,
+          "wallets_found": [
+            "9gyfbPVwwZx4y1hotNSLcqXCQNpNqqz6ZRvo8yTLpump",
+            "9gyfbPVwwZx4y1hotNSLcqXCQNpNqqz6ZRvo8yTLpump",
+            "9gyfbPVwwZx4y1hotNSLcqXCQNpNqqz6ZRvo8yTLpump",
+            "9gyfbPVwwZx4y1hotNSLcqXCQNpNqqz6ZRvo8yTLpump",
+            "AHgDvg7hoZDjgUnUDzgTk4L2AuHyUEgGuQWiXDvW1xQc",
+            "1hotNSLcqXCQNpNqqz6ZRvo8yTLpump",
+            "1hotNSLcqXCQNpNqqz6ZRvo8yTLpump",
+            "1hotNSLcqXCQNpNqqz6ZRvo8yTLpump",
+            "1hotNSLcqXCQNpNqqz6ZRvo8yTLpump",
+            "3PL1TskdcfdvWeYmbbfVCs5pzdnBZy3VLfs"
+          ]
+        },
+        {
+          "filename": "20260409_080209_3da5e1bc_messages23.html",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_080209_3da5e1bc_messages23.html",
+          "size": 619071,
+          "extension": ".html",
+          "category": "telegram_chats",
+          "tags": [],
+          "sosana_related": true,
+          "wallets_found": [
+            "DVZrNS9fctrrDmhZUZAu6p63xU6d9cqYxRRhJbtJ4z8G",
+            "3MyaQBG7y3SHLQZa282Jh2xtB2TZKHGzNp1CuZ4Cpump",
+            "3MyaQBG7y3SHLQZa282Jh2xtB2TZKHGzNp1CuZ4Cpump",
+            "FsTc9VgMQoHAc5o8DdeAFv1RphgNjb4kZTxx8JQSpump",
+            "A4JXWVPmSZPLfkU11sTGe6eQv7VbXuaiTPfYZCAHpump",
+            "3MyaQBG7y3SHLQZa282Jh2xtB2TZKHGzNp1",
+            "3MyaQBG7y3SHLQZa282Jh2xtB2TZKHGzNp1",
+            "11sTGe6eQv7VbXuaiTPfYZCAHpump",
+            "112vEf6cnyzj5vWJjFkZwfxXxjmtHfCHpum",
+            "35pkYWae5PYQDZXSpuQb3QDyW31pump"
+          ]
+        },
+        {
+          "filename": "20260409_080058_888cbd26_messages52.html",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_080058_888cbd26_messages52.html",
+          "size": 1726113,
+          "extension": ".html",
+          "category": "telegram_chats",
+          "tags": [],
+          "sosana_related": true,
+          "wallets_found": [
+            "Eme5T2s2HB7B8W4YgLG1eReQpnadEVUnQBRjaKTdBAGS",
+            "Eme5T2s2HB7B8W4YgLG1eReQpnadEVUnQBRjaKTdBAGS",
+            "9B6FJ6jZJukPwMrXeCntCJXqdzgKFPaTupsoqVct6Hhf",
+            "E3DFpZeQxWnr1u2CBB6SKPNUYpxKmebxZevkMNPkvGd1",
+            "6Sj92ez55AEsjUpuzNW2Dmsks28d4Y9xtL9JsPAHi2Cj",
+            "3DFpZeQxWnr1u2CBB6SKPNUYpxKmebxZevk",
+            "3rnSD9XkcUThA7B8hQMKmDaiTLcC",
+            "18nCdDvWoRgTo6osQs9MUd8JXEsspWR",
+            "18nCdDvWoRgTo6osQs9MUd8JXEsspWR",
+            "18nCdDvWoRgTo6osQs9MUd8JXEsspWR"
+          ]
+        },
+        {
+          "filename": "20260409_080259_fc310328_messages.html",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_080259_fc310328_messages.html",
+          "size": 487834,
+          "extension": ".html",
+          "category": "telegram_chats",
+          "tags": [],
+          "sosana_related": true,
+          "wallets_found": [
+            "CntNrj51w8fBd42ZW3xN5xHfufQ6bkyMjXhtR9toifW2",
+            "CntNrj51w8fBd42ZW3xN5xHfufQ6bkyMjXhtR9toifW2",
+            "ELduBN61jRmJ48ywF5wdWPzGhGAu7aeZJvhLt6XmLCmP",
+            "ELduBN61jRmJ48ywF5wdWPzGhGAu7aeZJvhLt6XmLCmP",
+            "CntNrj51w8fBd42ZW3xN5xHfufQ6bkyMjXhtR9toifW2",
+            "1w8fBd42ZW3xN5xHfufQ6bkyMjXhtR9toif",
+            "1w8fBd42ZW3xN5xHfufQ6bkyMjXhtR9toif",
+            "1jRmJ48ywF5wdWPzGhGAu7aeZJvhLt6XmLC",
+            "1jRmJ48ywF5wdWPzGhGAu7aeZJvhLt6XmLC",
+            "1w8fBd42ZW3xN5xHfufQ6bkyMjXhtR9toif"
+          ]
+        },
+        {
+          "filename": "20260409_080231_c7b89f19_messages12.html",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_080231_c7b89f19_messages12.html",
+          "size": 595315,
+          "extension": ".html",
+          "category": "telegram_chats",
+          "tags": [],
+          "sosana_related": true,
+          "wallets_found": [
+            "2ru7VX6NnaZ78znCtgGmYs2PdcAQRCr3UaPfRkDUpump",
+            "HKWbhZGu6n1pLt9CUEX7KbeaKrr2tKQAhMxApzDfpump",
+            "3vJenGaGsuKG5shPhi7rjnuy3MV6xjmBTGjYqYzXpump",
+            "5xc3o7sWTVxERGRzxskhh8uz1FeEiotQLvBiPs9dpump",
+            "HKWbhZGu6n1pLt9CUEX7KbeaKrr2tKQAhMxApzDfpump",
+            "1pLt9CUEX7KbeaKrr2tKQAhMxApzDfpump",
+            "3vJenGaGsuKG5shPhi7rjnuy3MV6xjmBTGj",
+            "3o7sWTVxERGRzxskhh8uz1FeEiotQLvBiPs",
+            "1pLt9CUEX7KbeaKrr2tKQAhMxApzDfpump",
+            "3vJenGaGsuKG5shPhi7rjnuy3MV6xjmBTGj"
+          ]
+        }
+      ]
+    },
+    "wallet_data": {
+      "count": 14,
+      "priority": "critical",
+      "total_size_mb": 2.4663000106811523,
+      "sosana_related": 6,
+      "files": [
+        {
+          "filename": "20260409_075808_4b5ad991_crm-holders-3-30-2026-527am.txt",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_075808_4b5ad991_crm-holders-3-30-2026-527am.txt",
+          "size": 49663,
+          "extension": ".txt",
+          "category": "wallet_data",
+          "tags": [
+            "crm",
+            "wallets"
+          ],
+          "sosana_related": true,
+          "wallets_found": [
+            "D9ZGRMhmdMdf5dRdEiLSJLrSETsFuofSPDZHjx5tuULT",
+            "DLHnb1yt6DMx2q3qoU2i8coMtnzD5y99eJ4EjhdZgLVh",
+            "8pyiqMctEzfUZvegKH5jHenHTBkQ5W37WSAitieYZz3m",
+            "HPVUJGJwJnpGBDCzoAPKPjHe8QfXLgRjbktXCRyMNi5w",
+            "J3V68JvjXFArRBb86NAX8mCoYgFce7MmZjs9ziz74RzT",
+            "1yt6DMx2q3qoU2i8coMtnzD5y99eJ4EjhdZ",
+            "3V68JvjXFArRBb86NAX8mCoYgFce7MmZjs9",
+            "3UXsanJc7WwAPW2PgkEb9hwrFKwCySvyL",
+            "3bm7i4xxp5U9ErEFsQp3meesdsF",
+            "3o8xrW5vvenMkrJDdpYcdboGGg6SQvSoeVt"
+          ]
+        },
+        {
+          "filename": "20260409_075820_e02cd7aa_export_transfer_Cx5qTEtnp3arFVBuusMXHafoRzLCLuigtz2AiQAFmq2Q_1774814590984.csv",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_075820_e02cd7aa_export_transfer_Cx5qTEtnp3arFVBuusMXHafoRzLCLuigtz2AiQAFmq2Q_1774814590984.csv",
+          "size": 270237,
+          "extension": ".csv",
+          "category": "wallet_data",
+          "tags": [
+            "wallets",
+            "export_data"
+          ],
+          "sosana_related": false,
+          "wallets_found": [
+            "2ozZTNqnStaiPVwBiCjT2ZxdsMpVauW4ewA5RCea5C4P",
+            "6UD13dmTQveUhB3djjkHDwXDKHm638aQr3Ct48CUnC3o",
+            "Cx5qTEtnp3arFVBuusMXHafoRzLCLuigtz2AiQAFmq2Q",
+            "Cx5qTEtnp3arFVBuusMXHafoRzLCLuigtz2AiQAFmq2Q",
+            "4cQrvdPV91saH79geZMPdpteCXxVGS4ivSnLhPQ3bXmz",
+            "13dmTQveUhB3djjkHDwXDKHm638aQr3Ct48",
+            "3arFVBuusMXHafoRzLCLuigtz2AiQAFmq2Q",
+            "3arFVBuusMXHafoRzLCLuigtz2AiQAFmq2Q",
+            "1saH79geZMPdpteCXxVGS4ivSnLhPQ3bXmz",
+            "3QXMFXGdQYw9Aq1RdYcKgtwrG1to5EkGyes"
+          ]
+        },
+        {
+          "filename": "20260409_075815_049ce1d9_export_token_holders_Eme5T2s2HB7B8W4YgLG1eReQpnadEVUnQBRjaKTdBAGS_1774822765256.csv",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_075815_049ce1d9_export_token_holders_Eme5T2s2HB7B8W4YgLG1eReQpnadEVUnQBRjaKTdBAGS_1774822765256.csv",
+          "size": 108929,
+          "extension": ".csv",
+          "category": "wallet_data",
+          "tags": [
+            "wallets",
+            "export_data"
+          ],
+          "sosana_related": true,
+          "wallets_found": [
+            "HLnpSz9h2S4hiLQ43rnSD9XkcUThA7B8hQMKmDaiTLcC",
+            "Hqhs9UmqA4M6rbMBa8ttZK8NdL46Rd185ztEy6dXYkqm",
+            "D9ZGRMhmdMdf5dRdEiLSJLrSETsFuofSPDZHjx5tuULT",
+            "9WH4oeujdfiwTPZhpK4B79H1vYda8hiEcRjcHAfsGP2W",
+            "DLHnb1yt6DMx2q3qoU2i8coMtnzD5y99eJ4EjhdZgLVh",
+            "3rnSD9XkcUThA7B8hQMKmDaiTLcC",
+            "1yt6DMx2q3qoU2i8coMtnzD5y99eJ4EjhdZ",
+            "3RRZjsWHHS7ByV5RL4rxMAxGmiUFE",
+            "3TJuVf2S5Xy6ntNump5vs9YQrfTSz1Vc",
+            "3V68JvjXFArRBb86NAX8mCoYgFce7MmZjs9"
+          ]
+        },
+        {
+          "filename": "20260409_075818_a810fd66_export_transfer_Cx5qTEtnp3arFVBuusMXHafoRzLCLuigtz2AiQAFmq2Q_1774815044202.csv",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_075818_a810fd66_export_transfer_Cx5qTEtnp3arFVBuusMXHafoRzLCLuigtz2AiQAFmq2Q_1774815044202.csv",
+          "size": 270237,
+          "extension": ".csv",
+          "category": "wallet_data",
+          "tags": [
+            "wallets",
+            "export_data"
+          ],
+          "sosana_related": false,
+          "wallets_found": [
+            "2ozZTNqnStaiPVwBiCjT2ZxdsMpVauW4ewA5RCea5C4P",
+            "6UD13dmTQveUhB3djjkHDwXDKHm638aQr3Ct48CUnC3o",
+            "Cx5qTEtnp3arFVBuusMXHafoRzLCLuigtz2AiQAFmq2Q",
+            "Cx5qTEtnp3arFVBuusMXHafoRzLCLuigtz2AiQAFmq2Q",
+            "4cQrvdPV91saH79geZMPdpteCXxVGS4ivSnLhPQ3bXmz",
+            "13dmTQveUhB3djjkHDwXDKHm638aQr3Ct48",
+            "3arFVBuusMXHafoRzLCLuigtz2AiQAFmq2Q",
+            "3arFVBuusMXHafoRzLCLuigtz2AiQAFmq2Q",
+            "1saH79geZMPdpteCXxVGS4ivSnLhPQ3bXmz",
+            "3QXMFXGdQYw9Aq1RdYcKgtwrG1to5EkGyes"
+          ]
+        },
+        {
+          "filename": "20260409_075737_c6738844_crms-holders-amounts-3-30-2026-528am.txt",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_075737_c6738844_crms-holders-amounts-3-30-2026-528am.txt",
+          "size": 194006,
+          "extension": ".txt",
+          "category": "wallet_data",
+          "tags": [
+            "crm",
+            "wallets"
+          ],
+          "sosana_related": true,
+          "wallets_found": [
+            "9WH4oeujdfiwTPZhpK4B79H1vYda8hiEcRjcHAfsGP2W",
+            "D9ZGRMhmdMdf5dRdEiLSJLrSETsFuofSPDZHjx5tuULT",
+            "LZcXJY4TT6T4q63RRZjsWHHS7ByV5RL4rxMAxGmiUFE",
+            "DLHnb1yt6DMx2q3qoU2i8coMtnzD5y99eJ4EjhdZgLVh",
+            "2YCacLhz4a8e3TJuVf2S5Xy6ntNump5vs9YQrfTSz1Vc",
+            "3RRZjsWHHS7ByV5RL4rxMAxGmiUFE",
+            "1yt6DMx2q3qoU2i8coMtnzD5y99eJ4EjhdZ",
+            "3TJuVf2S5Xy6ntNump5vs9YQrfTSz1Vc",
+            "3gvMTYLN8kNLMEBiH1zsLKKhdYF",
+            "3V68JvjXFArRBb86NAX8mCoYgFce7MmZjs9"
+          ]
+        },
+        {
+          "filename": "20260409_075835_fe7a884f_export_balance_change_8eVZa7bEBnd6MA6JJkNdABRN4S3LbVLRnCZNJAUeuwQj_1774640450464.csv",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_075835_fe7a884f_export_balance_change_8eVZa7bEBnd6MA6JJkNdABRN4S3LbVLRnCZNJAUeuwQj_1774640450464.csv",
+          "size": 105273,
+          "extension": ".csv",
+          "category": "wallet_data",
+          "tags": [
+            "export_data"
+          ],
+          "sosana_related": true,
+          "wallets_found": [
+            "5Gpbxi9zv2np2owvQfFMnMfpRQc4wEtrTRuYCkALJr6o",
+            "658zxKTMUjdTKedDQpySz1CH4Y6QoDH6aR8sYTn2ceEw",
+            "CVnypywsgFRmdrhbHPzyMKi2KHhid3CUt76LX5bYccvN",
+            "HfMbPyDdZH6QMaDDUokjYCkHxzjoGBMpgaUvpLWGbF5p",
+            "54NBx2H99okRXEPKtZBhfrAdPtuUAmSBQL6drBLsvVEG",
+            "1SVdDnvj11UNdsC1ewfrjdXtur5hU",
+            "1WGLpZSL8xpasPR1byhvxpVuWvJoEMMSnXM",
+            "3nqaXKzcu8QaoTM9NiYSYsUvpqU",
+            "1QToSUzj1tep5X2zuzDWyFJ9ysmSGFkpDf6",
+            "3z5RTL5Q9cseuPshC5redMDsTqiy3ucALbL"
+          ]
+        },
+        {
+          "filename": "20260409_075817_784c1046_export_transfer_Cx5qTEtnp3arFVBuusMXHafoRzLCLuigtz2AiQAFmq2Q_1774818739484.csv",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_075817_784c1046_export_transfer_Cx5qTEtnp3arFVBuusMXHafoRzLCLuigtz2AiQAFmq2Q_1774818739484.csv",
+          "size": 270237,
+          "extension": ".csv",
+          "category": "wallet_data",
+          "tags": [
+            "wallets",
+            "export_data"
+          ],
+          "sosana_related": false,
+          "wallets_found": [
+            "2ozZTNqnStaiPVwBiCjT2ZxdsMpVauW4ewA5RCea5C4P",
+            "6UD13dmTQveUhB3djjkHDwXDKHm638aQr3Ct48CUnC3o",
+            "Cx5qTEtnp3arFVBuusMXHafoRzLCLuigtz2AiQAFmq2Q",
+            "Cx5qTEtnp3arFVBuusMXHafoRzLCLuigtz2AiQAFmq2Q",
+            "4cQrvdPV91saH79geZMPdpteCXxVGS4ivSnLhPQ3bXmz",
+            "13dmTQveUhB3djjkHDwXDKHm638aQr3Ct48",
+            "3arFVBuusMXHafoRzLCLuigtz2AiQAFmq2Q",
+            "3arFVBuusMXHafoRzLCLuigtz2AiQAFmq2Q",
+            "1saH79geZMPdpteCXxVGS4ivSnLhPQ3bXmz",
+            "3QXMFXGdQYw9Aq1RdYcKgtwrG1to5EkGyes"
+          ]
+        },
+        {
+          "filename": "20260409_075807_d86546f5_crms-holders-amounts-3-30-2026-528am_-_Copy.txt",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_075807_d86546f5_crms-holders-amounts-3-30-2026-528am_-_Copy.txt",
+          "size": 194006,
+          "extension": ".txt",
+          "category": "wallet_data",
+          "tags": [
+            "crm",
+            "wallets"
+          ],
+          "sosana_related": true,
+          "wallets_found": [
+            "9WH4oeujdfiwTPZhpK4B79H1vYda8hiEcRjcHAfsGP2W",
+            "D9ZGRMhmdMdf5dRdEiLSJLrSETsFuofSPDZHjx5tuULT",
+            "LZcXJY4TT6T4q63RRZjsWHHS7ByV5RL4rxMAxGmiUFE",
+            "DLHnb1yt6DMx2q3qoU2i8coMtnzD5y99eJ4EjhdZgLVh",
+            "2YCacLhz4a8e3TJuVf2S5Xy6ntNump5vs9YQrfTSz1Vc",
+            "3RRZjsWHHS7ByV5RL4rxMAxGmiUFE",
+            "1yt6DMx2q3qoU2i8coMtnzD5y99eJ4EjhdZ",
+            "3TJuVf2S5Xy6ntNump5vs9YQrfTSz1Vc",
+            "3gvMTYLN8kNLMEBiH1zsLKKhdYF",
+            "3V68JvjXFArRBb86NAX8mCoYgFce7MmZjs9"
+          ]
+        },
+        {
+          "filename": "20260409_075845_a5b6e51e_export_transfer_AFXigaYuRKYmvd9HZQCobtZ98FNAwnwpsnjvJRztUGb6_1774583934937.csv",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_075845_a5b6e51e_export_transfer_AFXigaYuRKYmvd9HZQCobtZ98FNAwnwpsnjvJRztUGb6_1774583934937.csv",
+          "size": 248886,
+          "extension": ".csv",
+          "category": "wallet_data",
+          "tags": [
+            "wallets",
+            "export_data"
+          ],
+          "sosana_related": false,
+          "wallets_found": [
+            "4yTRMD8uGtc81MzkYuaBLMxRsgDcC4HrxZcao6TN7eWp",
+            "wwLDAvHZCM4XMJHRRdwJvQkL8DSFykA9Wc3rHcnaUsfu",
+            "AFXigaYuRKYmvd9HZQCobtZ98FNAwnwpsnjvJRztUGb6",
+            "5xdhoYv8iRah7NMEq7pdPajg3ahjPHeWvvoUbzXTucu3",
+            "4yTRMD8uGtc81MzkYuaBLMxRsgDcC4HrxZcao6TN7eWp",
+            "1MzkYuaBLMxRsgDcC4HrxZcao6TN7eWpwwL",
+            "1MzkYuaBLMxRsgDcC4HrxZcao6TN7eWpwwL",
+            "3xHH36QfGd1Q1g8aU5fWUURBDUHQiJrUaon",
+            "1MzkYuaBLMxRsgDcC4HrxZcao6TN7eWpwwL",
+            "1MzkYuaBLMxRsgDcC4HrxZcao6TN7eWpwwL"
+          ]
+        },
+        {
+          "filename": "20260409_075813_c366d60a_holders.csv",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_075813_c366d60a_holders.csv",
+          "size": 49663,
+          "extension": ".csv",
+          "category": "wallet_data",
+          "tags": [
+            "wallets"
+          ],
+          "sosana_related": true,
+          "wallets_found": [
+            "D9ZGRMhmdMdf5dRdEiLSJLrSETsFuofSPDZHjx5tuULT",
+            "DLHnb1yt6DMx2q3qoU2i8coMtnzD5y99eJ4EjhdZgLVh",
+            "8pyiqMctEzfUZvegKH5jHenHTBkQ5W37WSAitieYZz3m",
+            "HPVUJGJwJnpGBDCzoAPKPjHe8QfXLgRjbktXCRyMNi5w",
+            "J3V68JvjXFArRBb86NAX8mCoYgFce7MmZjs9ziz74RzT",
+            "1yt6DMx2q3qoU2i8coMtnzD5y99eJ4EjhdZ",
+            "3V68JvjXFArRBb86NAX8mCoYgFce7MmZjs9",
+            "3UXsanJc7WwAPW2PgkEb9hwrFKwCySvyL",
+            "3bm7i4xxp5U9ErEFsQp3meesdsF",
+            "3o8xrW5vvenMkrJDdpYcdboGGg6SQvSoeVt"
+          ]
+        }
+      ]
+    },
+    "visual_evidence": {
+      "count": 78,
+      "priority": "high",
+      "total_size_mb": 7.598381042480469,
+      "sosana_related": 0,
+      "files": [
+        {
+          "filename": "20260409_075938_1f95c3ac_photo_2312-12-2025_15-34-32.jpg",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_075938_1f95c3ac_photo_2312-12-2025_15-34-32.jpg",
+          "size": 91643,
+          "extension": ".jpg",
+          "category": "visual_evidence",
+          "tags": [
+            "screenshot",
+            "date_2312-12-20"
+          ],
+          "sosana_related": false,
+          "wallets_found": []
+        },
+        {
+          "filename": "20260409_075828_25c55a3e_Screenshot_2026-03-30_020116.png",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_075828_25c55a3e_Screenshot_2026-03-30_020116.png",
+          "size": 162975,
+          "extension": ".png",
+          "category": "visual_evidence",
+          "tags": [
+            "screenshot",
+            "date_2026-03-30"
+          ],
+          "sosana_related": false,
+          "wallets_found": []
+        },
+        {
+          "filename": "20260409_075917_380192f8_photo_1108-12-2025_17-24-47_thumb.jpg",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_075917_380192f8_photo_1108-12-2025_17-24-47_thumb.jpg",
+          "size": 56979,
+          "extension": ".jpg",
+          "category": "visual_evidence",
+          "tags": [
+            "screenshot",
+            "date_1108-12-20"
+          ],
+          "sosana_related": false,
+          "wallets_found": []
+        },
+        {
+          "filename": "20260409_075856_cc19dd11_photo_2209-12-2025_10-10-00_thumb.jpg",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_075856_cc19dd11_photo_2209-12-2025_10-10-00_thumb.jpg",
+          "size": 50461,
+          "extension": ".jpg",
+          "category": "visual_evidence",
+          "tags": [
+            "screenshot",
+            "date_2209-12-20"
+          ],
+          "sosana_related": false,
+          "wallets_found": []
+        },
+        {
+          "filename": "20260409_075956_3a87354d_photo_908-12-2025_17-24-47.jpg",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_075956_3a87354d_photo_908-12-2025_17-24-47.jpg",
+          "size": 199472,
+          "extension": ".jpg",
+          "category": "visual_evidence",
+          "tags": [
+            "screenshot"
+          ],
+          "sosana_related": false,
+          "wallets_found": []
+        },
+        {
+          "filename": "20260409_075913_36fc536d_photo_708-12-2025_17-24-47_thumb.jpg",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_075913_36fc536d_photo_708-12-2025_17-24-47_thumb.jpg",
+          "size": 40943,
+          "extension": ".jpg",
+          "category": "visual_evidence",
+          "tags": [
+            "screenshot"
+          ],
+          "sosana_related": false,
+          "wallets_found": []
+        },
+        {
+          "filename": "20260409_075855_7f3c0dd4_photo_2108-12-2025_17-24-59_thumb.jpg",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_075855_7f3c0dd4_photo_2108-12-2025_17-24-59_thumb.jpg",
+          "size": 65720,
+          "extension": ".jpg",
+          "category": "visual_evidence",
+          "tags": [
+            "screenshot",
+            "date_2108-12-20"
+          ],
+          "sosana_related": false,
+          "wallets_found": []
+        },
+        {
+          "filename": "20260409_075937_84b1b78b_photo_2412-12-2025_15-34-32.jpg",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_075937_84b1b78b_photo_2412-12-2025_15-34-32.jpg",
+          "size": 154416,
+          "extension": ".jpg",
+          "category": "visual_evidence",
+          "tags": [
+            "screenshot",
+            "date_2412-12-20"
+          ],
+          "sosana_related": false,
+          "wallets_found": []
+        },
+        {
+          "filename": "20260409_075925_3b4ce93e_photo_3412-12-2025_15-34-38.jpg",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_075925_3b4ce93e_photo_3412-12-2025_15-34-38.jpg",
+          "size": 144052,
+          "extension": ".jpg",
+          "category": "visual_evidence",
+          "tags": [
+            "screenshot",
+            "date_3412-12-20"
+          ],
+          "sosana_related": false,
+          "wallets_found": []
+        },
+        {
+          "filename": "20260409_075857_6501bf50_photo_2312-12-2025_15-34-32_thumb.jpg",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_075857_6501bf50_photo_2312-12-2025_15-34-32_thumb.jpg",
+          "size": 27778,
+          "extension": ".jpg",
+          "category": "visual_evidence",
+          "tags": [
+            "screenshot",
+            "date_2312-12-20"
+          ],
+          "sosana_related": false,
+          "wallets_found": []
+        }
+      ]
+    },
+    "forensic_reports": {
+      "count": 43,
+      "priority": "critical",
+      "total_size_mb": 13.073490142822266,
+      "sosana_related": 42,
+      "files": [
+        {
+          "filename": "20260409_084332_5d91d900_testst.txt",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_084332_5d91d900_testst.txt",
+          "size": 273583,
+          "extension": ".txt",
+          "category": "forensic_reports",
+          "tags": [],
+          "sosana_related": true,
+          "wallets_found": [
+            "BKLBtcJQJ2MxJP6wfbRkoqrYNWUPVLfeB8vs91agBxjt",
+            "HLnpSz9h2S4hiLQ4uN3vGYAHJqDmbFCwkx9prSXkdPMc",
+            "8eVZa7bEBnd6MA6JJkNdABRN4S3LbVLRnCZNJAUeuwQj",
+            "BKLBtcJQJ2MxJP6wfbRkoqrYNWUPVLfeB8vs91agBxjt",
+            "HLnpSz9h2S4hiLQ4uN3vGYAHJqDmbFCwkx9prSXkdPMc",
+            "3vGYAHJqDmbFCwkx9prSXkdPMc",
+            "3vGYAHJqDmbFCwkx9prSXkdPMc",
+            "3vGYAHJqDmbFCwkx9prSXkdPMc",
+            "3vGYAHJqDmbFCwkx9prSXkdPMc",
+            "3vGYAHJqDmbFCwkx9prSXkdPMc"
+          ]
+        },
+        {
+          "filename": "20260409_075734_853dac0d_crmni.txt",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_075734_853dac0d_crmni.txt",
+          "size": 134,
+          "extension": ".txt",
+          "category": "forensic_reports",
+          "tags": [
+            "crm"
+          ],
+          "sosana_related": false,
+          "wallets_found": []
+        },
+        {
+          "filename": "20260409_084407_a84ee3a7_rico3.txt",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_084407_a84ee3a7_rico3.txt",
+          "size": 726894,
+          "extension": ".txt",
+          "category": "forensic_reports",
+          "tags": [],
+          "sosana_related": true,
+          "wallets_found": [
+            "A9AgntJYrTUBSTARtLBQdyATaYMtyCywun6qr7LFym6K",
+            "A9AgntJYrTUBSTARtLBQdyATaYMtyCywun6qr7LFym6K",
+            "Mihso7kXXNPb7GUZ71H7MedYrpW88MTQFdLKrtAnDvj",
+            "8eVZa7bEBnd6MA6JJkNdABRN4S3LbVLRnCZNJAUeuwQj",
+            "H8sMJSCQxfKiFTCfDR3DUMLPwcRbM61LGFJ8N4dK3WjS",
+            "1H7MedYrpW88MTQFdLKrtAnDvj",
+            "3DUMLPwcRbM61LGFJ8N4dK3WjS",
+            "1H7MedYrpW88MTQFdLKrtAnDvj",
+            "1H7MedYrpW88MTQFdLKrtAnDvj",
+            "3UXsanJc7WwAPW2PgkEb9hwrFKwCySvyL"
+          ]
+        },
+        {
+          "filename": "20260409_075749_753d7f01_bignest.txt",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_075749_753d7f01_bignest.txt",
+          "size": 448493,
+          "extension": ".txt",
+          "category": "forensic_reports",
+          "tags": [],
+          "sosana_related": true,
+          "wallets_found": [
+            "investorsforanunregisteredprivatep",
+            "conspiratorsmisappropriatedover1",
+            "Forensicaccountingprovedhepocketed773",
+            "investorsforanunregisteredprivatep",
+            "conspiratorsmisappropriatedover1"
+          ]
+        },
+        {
+          "filename": "20260409_084350_a9bd3ddf_evidence.txt",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_084350_a9bd3ddf_evidence.txt",
+          "size": 67706,
+          "extension": ".txt",
+          "category": "forensic_reports",
+          "tags": [],
+          "sosana_related": true,
+          "wallets_found": [
+            "AFXigaYuRKYmvd9HZQCobtZ98FNAwnwpsnjvJRztUGb6",
+            "BMq4XUa3rJJNkjXbJDpMFdSmPjvz5f9w4TvYFGADVkX5",
+            "HxyXAE1PHQsh6iLj3t8MagpFovmR7yk76PEADmTKeVfi",
+            "8eVZa7bEBnd6MA6JJkNdABRN4S3LbVLRnCZNJAUeuwQj",
+            "7abBmGf4HNu3UXsanJc7WwAPW2PgkEb9hwrFKwCySvyL",
+            "3rJJNkjXbJDpMFdSmPjvz5f9w4TvYFGADVk",
+            "1PHQsh6iLj3t8MagpFovmR7yk76PEADmTKe",
+            "3UXsanJc7WwAPW2PgkEb9hwrFKwCySvyL",
+            "17cKq1KMN3PWoCwqZRppV882JHY5sN",
+            "3hbEAb2P15h5jGAVW2vu2fuTYi"
+          ]
+        },
+        {
+          "filename": "20260409_084345_95f9d286_news2.txt",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_084345_95f9d286_news2.txt",
+          "size": 147658,
+          "extension": ".txt",
+          "category": "forensic_reports",
+          "tags": [],
+          "sosana_related": true,
+          "wallets_found": [
+            "0x93c4f6f8a14a255e78de0273d6490719d8538e17",
+            "0x93c4f6f8a14a255e78de0273d6490719d8538e17"
+          ]
+        },
+        {
+          "filename": "20260409_084416_fd17cc4f_more.txt",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_084416_fd17cc4f_more.txt",
+          "size": 24973,
+          "extension": ".txt",
+          "category": "forensic_reports",
+          "tags": [],
+          "sosana_related": true,
+          "wallets_found": [
+            "8eVZa7bEBnd6MA6JJkNdABRN4S3LbVLRnCZNJAUeuwQj",
+            "CVyTE4qXUj7wbuvvwoEZ1JsducRdqaGMawZ8vx75TgM6",
+            "HLnpSz9h2S4hiLQ43rnSD9XkcUThA7B8hQMKmDaiTLcC",
+            "HLnpSz9h2S4hiLQ43rnSD9XkcUThA7B8hQMKmDaiTLcC",
+            "3rnSD9XkcUThA7B8hQMKmDaiTLcC",
+            "3rnSD9XkcUThA7B8hQMKmDaiTLcC"
+          ]
+        },
+        {
+          "filename": "20260409_075839_bd9e37ba_Kimi.txt",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_075839_bd9e37ba_Kimi.txt",
+          "size": 817611,
+          "extension": ".txt",
+          "category": "forensic_reports",
+          "tags": [],
+          "sosana_related": true,
+          "wallets_found": [
+            "8eVZa7bEBnd6MA6JJkNdABRN4S3LbVLRnCZNJAUeuwQj",
+            "F4HGHWyaCvDkUF88svvCHhSMpR9YzHCYSNmojaKQtRSB",
+            "DojAziGhpLddzSPTCsCvp577wkP9N6AtVc87HJqihcZd",
+            "AFXigaYuRKYmvd9HZQCobtZ98FNAwnwpsnjvJRztUGb6",
+            "8Jw48ELRycmWZpDZ3WrTjgCbmz5u1vSK65a8kJvKKq2M",
+            "3WrTjgCbmz5u1vSK65a8kJvKKq2M",
+            "17cKq1KMN3PWoCwqZRppV882JHY5sN",
+            "1eSPc1xhWikUiGv4jSUcXE7Vbm5iLwSK5dv",
+            "3Pt6Ytf2df6Hg4WByjDQpRJshuxAs6p3",
+            "1yt6DMx2PCEuTniiTPfoM4EuTfuTqT8jRfd"
+          ]
+        },
+        {
+          "filename": "20260409_075841_51ed255a_sos2.txt",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_075841_51ed255a_sos2.txt",
+          "size": 66867,
+          "extension": ".txt",
+          "category": "forensic_reports",
+          "tags": [],
+          "sosana_related": true,
+          "wallets_found": [
+            "AFXigaYuRKYmvd9HZQCobtZ98FNAwnwpsnjvJRztUGb6",
+            "BMq4XUa3rJJNkjXbJDpMFdSmPjvz5f9w4TvYFGADVkX5",
+            "HxyXAE1PHQsh6iLj3t8MagpFovmR7yk76PEADmTKeVfi",
+            "8eVZa7bEBnd6MA6JJkNdABRN4S3LbVLRnCZNJAUeuwQj",
+            "7abBmGf4HNu3UXsanJc7WwAPW2PgkEb9hwrFKwCySvyL",
+            "3rJJNkjXbJDpMFdSmPjvz5f9w4TvYFGADVk",
+            "1PHQsh6iLj3t8MagpFovmR7yk76PEADmTKe",
+            "3UXsanJc7WwAPW2PgkEb9hwrFKwCySvyL",
+            "17cKq1KMN3PWoCwqZRppV882JHY5sN",
+            "3hbEAb2P15h5jGAVW2vu2fuTYi"
+          ]
+        },
+        {
+          "filename": "20260409_075750_b036a525_newone5.txt",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_075750_b036a525_newone5.txt",
+          "size": 2909,
+          "extension": ".txt",
+          "category": "forensic_reports",
+          "tags": [],
+          "sosana_related": true,
+          "wallets_found": [
+            "D9ZGRMhmdMdf5dRdEiLSJLrSETsFuofSPDZHjx5tuULT",
+            "HPVUJGJwJnpGBDCzoAPKPjHe8QfXLgRjbktXCRyMNi5w",
+            "J3V68JvjXFArRBb86NAX8mCoYgFce7MmZjs9ziz74RzT",
+            "7abBmGf4HNu3UXsanJc7WwAPW2PgkEb9hwrFKwCySvyL",
+            "8eVZa7bEBnd6MA6JJkNdABRN4S3LbVLRnCZNJAUeuwQj",
+            "3V68JvjXFArRBb86NAX8mCoYgFce7MmZjs9",
+            "3UXsanJc7WwAPW2PgkEb9hwrFKwCySvyL",
+            "3o8xrW5vvenMkrJDdpYcdboGGg6SQvSoeVt"
+          ]
+        }
+      ]
+    },
+    "architecture_docs": {
+      "count": 9,
+      "priority": "medium",
+      "total_size_mb": 3.684048652648926,
+      "sosana_related": 6,
+      "files": [
+        {
+          "filename": "20260409_075729_c90a46b0_Free_NVIDIA_AI_Build_Plan.docx",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_075729_c90a46b0_Free_NVIDIA_AI_Build_Plan.docx",
+          "size": 69605,
+          "extension": ".docx",
+          "category": "architecture_docs",
+          "tags": [],
+          "sosana_related": false,
+          "wallets_found": []
+        },
+        {
+          "filename": "20260409_075719_ecaacd35_appbuild1.txt",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_075719_ecaacd35_appbuild1.txt",
+          "size": 360410,
+          "extension": ".txt",
+          "category": "architecture_docs",
+          "tags": [],
+          "sosana_related": true,
+          "wallets_found": []
+        },
+        {
+          "filename": "20260409_075831_b9cbb1a9_app.txt",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_075831_b9cbb1a9_app.txt",
+          "size": 556312,
+          "extension": ".txt",
+          "category": "architecture_docs",
+          "tags": [],
+          "sosana_related": true,
+          "wallets_found": [
+            "FtqwxCsMZPeb49aA8Up3HwZTkr5mRwWwa831xgs5dbxz",
+            "6PJtsiCmxsr8VMDdU4F3sAt5gUhaFVfV2CUsXUYu5AH8",
+            "5LHwXWtEsfjZDiZbE8Avi6k2J8pReYRiF3WfSX2zm43B",
+            "8TTqhX139fukWrcQ1LTddUBKP9kpf8Cb3aDpgPPrrBGX",
+            "8n14noSmrybuumFDKmcFC63NTDmt1oxmY5T3TJHTmn28",
+            "139fukWrcQ1LTddUBKP9kpf8Cb3aDpgPPrr",
+            "14noSmrybuumFDKmcFC63NTDmt1oxmY5T3T",
+            "1U4DwqEdwKCtMECKeb2W3Dihzpvikqx4UQ3",
+            "373VNdM6EXwiFoaRnhheqywA9VKUHV7eEob",
+            "3dVEpqDBF5N869WeqaJNvNjck9SxD2"
+          ]
+        },
+        {
+          "filename": "20260409_075722_afe010f3_build2.docx",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_075722_afe010f3_build2.docx",
+          "size": 133920,
+          "extension": ".docx",
+          "category": "architecture_docs",
+          "tags": [],
+          "sosana_related": false,
+          "wallets_found": []
+        },
+        {
+          "filename": "20260409_075720_388bc38b_API.docx",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_075720_388bc38b_API.docx",
+          "size": 173559,
+          "extension": ".docx",
+          "category": "architecture_docs",
+          "tags": [],
+          "sosana_related": false,
+          "wallets_found": []
+        },
+        {
+          "filename": "20260409_075717_4f1c9b53_appbuild2.txt",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_075717_4f1c9b53_appbuild2.txt",
+          "size": 1158753,
+          "extension": ".txt",
+          "category": "architecture_docs",
+          "tags": [],
+          "sosana_related": true,
+          "wallets_found": [
+            "7abBmGf4HNu3UXsanJc7WwAPW2PgkEb9hwrFKwCySvyL",
+            "HxyXAE1PHQsh6iLj3t8MagpFovmR7yk76PEADmTKeVfi",
+            "8eVZa7bEBnd6MA6JJkNdABRN4S3LbVLRnCZNJAUeuwQj",
+            "AFXigaYuRKYmvd9HZQCobtZ98FNAwnwpsnjvJRztUGb6",
+            "ASTyfSima4LLAdDgoFGkgqoKowG1LZFDr9fAQrg7iaJZ",
+            "3UXsanJc7WwAPW2PgkEb9hwrFKwCySvyL",
+            "1PHQsh6iLj3t8MagpFovmR7yk76PEADmTKe",
+            "3DUMLPwcRbM61LGFJ8N4dK3WjS",
+            "3UXsanJc7WwAPW2PgkEb9hwrFKwCySvyL",
+            "1PHQsh6iLj3t8MagpFovmR7yk76PEADmTKe"
+          ]
+        },
+        {
+          "filename": "20260409_084416_b244a96f_apps.txt",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_084416_b244a96f_apps.txt",
+          "size": 360453,
+          "extension": ".txt",
+          "category": "architecture_docs",
+          "tags": [],
+          "sosana_related": true,
+          "wallets_found": []
+        },
+        {
+          "filename": "20260409_075714_f4f4b7cb_systembig.txt",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_075714_f4f4b7cb_systembig.txt",
+          "size": 144953,
+          "extension": ".txt",
+          "category": "architecture_docs",
+          "tags": [],
+          "sosana_related": true,
+          "wallets_found": [
+            "A9AgntJYrTUBSTARtLBQdyATaYMtyCywun6qr7LFym6K",
+            "A9AgntJYrTUBSTARtLBQdyATaYMtyCywun6qr7LFym6K",
+            "Mihso7kXXNPb7GUZ71H7MedYrpW88MTQFdLKrtAnDvj",
+            "8eVZa7bEBnd6MA6JJkNdABRN4S3LbVLRnCZNJAUeuwQj",
+            "H8sMJSCQxfKiFTCfDR3DUMLPwcRbM61LGFJ8N4dK3WjS",
+            "1H7MedYrpW88MTQFdLKrtAnDvj",
+            "3DUMLPwcRbM61LGFJ8N4dK3WjS",
+            "1H7MedYrpW88MTQFdLKrtAnDvj",
+            "1H7MedYrpW88MTQFdLKrtAnDvj",
+            "3UXsanJc7WwAPW2PgkEb9hwrFKwCySvyL"
+          ]
+        },
+        {
+          "filename": "20260409_075731_e0dbc797_build.txt",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_075731_e0dbc797_build.txt",
+          "size": 905040,
+          "extension": ".txt",
+          "category": "architecture_docs",
+          "tags": [],
+          "sosana_related": true,
+          "wallets_found": [
+            "A9AgntJYrTUBSTARtLBQdyATaYMtyCywun6qr7LFym6K",
+            "A9AgntJYrTUBSTARtLBQdyATaYMtyCywun6qr7LFym6K",
+            "F4HGHWyaCvDkUF88svvCHhSMpR9YzHCYSNmojaKQtRSB",
+            "DojAziGhpLddzSPTCsCvp577wkP9N6AtVc87HJqihcZd",
+            "AFXigaYuRKYmvd9HZQCobtZ98FNAwnwpsnjvJRztUGb6",
+            "1PHQsh6iLj3t8MagpFovmR7yk76PEADmTKe",
+            "3UXsanJc7WwAPW2PgkEb9hwrFKwCySvyL",
+            "3e9SJyw2u6LrPnPXXmwSTmANnnzagoKv8i",
+            "3vhCmKJgcNq5bR6WEB9Lzg8RncHyjR2NqYG",
+            "3fJqnEZto4dSj9VcbF6rrQrmP5wkDQjB1Jc"
+          ]
+        }
+      ]
+    },
+    "compressed_archives": {
+      "count": 5,
+      "priority": "high",
+      "total_size_mb": 40.970791816711426,
+      "sosana_related": 0,
+      "files": [
+        {
+          "filename": "20260409_080014_d09b115f_docs-rag-example.zip",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_080014_d09b115f_docs-rag-example.zip",
+          "size": 371882,
+          "extension": ".zip",
+          "category": "compressed_archives",
+          "tags": [],
+          "sosana_related": false,
+          "wallets_found": []
+        },
+        {
+          "filename": "20260409_080017_3fc541bb_assets.zip",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_080017_3fc541bb_assets.zip",
+          "size": 146793,
+          "extension": ".zip",
+          "category": "compressed_archives",
+          "tags": [],
+          "sosana_related": false,
+          "wallets_found": []
+        },
+        {
+          "filename": "20260409_075410_395d1b0b_Kimi_Agent_Evidence_LLM_System_1.zip",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_075410_395d1b0b_Kimi_Agent_Evidence_LLM_System_1.zip",
+          "size": 14147438,
+          "extension": ".zip",
+          "category": "compressed_archives",
+          "tags": [],
+          "sosana_related": false,
+          "wallets_found": []
+        },
+        {
+          "filename": "20260409_075426_d19004d5_Kimi_Agent_Evidence_LLM_System_1.zip",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_075426_d19004d5_Kimi_Agent_Evidence_LLM_System_1.zip",
+          "size": 14147438,
+          "extension": ".zip",
+          "category": "compressed_archives",
+          "tags": [],
+          "sosana_related": false,
+          "wallets_found": []
+        },
+        {
+          "filename": "20260409_075709_f6ed4fbf_Kimi_Agent_Evidence_LLM_System_1.zip",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_075709_f6ed4fbf_Kimi_Agent_Evidence_LLM_System_1.zip",
+          "size": 14147438,
+          "extension": ".zip",
+          "category": "compressed_archives",
+          "tags": [],
+          "sosana_related": false,
+          "wallets_found": []
+        }
+      ]
+    },
+    "uncategorized": {
+      "count": 20,
+      "priority": "low",
+      "total_size_mb": 6.145881652832031,
+      "sosana_related": 7,
+      "files": [
+        {
+          "filename": "20260409_080011_037a4d99_contacts.html",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_080011_037a4d99_contacts.html",
+          "size": 108603,
+          "extension": ".html",
+          "category": "uncategorized",
+          "tags": [],
+          "sosana_related": true,
+          "wallets_found": []
+        },
+        {
+          "filename": "20260409_075710_a9c09a98_nb8_to_Supabase_autoscaling.docx",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_075710_a9c09a98_nb8_to_Supabase_autoscaling.docx",
+          "size": 236359,
+          "extension": ".docx",
+          "category": "uncategorized",
+          "tags": [],
+          "sosana_related": false,
+          "wallets_found": []
+        },
+        {
+          "filename": "20260409_084422_161343a3_Crypto_Scam_Forensic_Report_Generation_1.pdf",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_084422_161343a3_Crypto_Scam_Forensic_Report_Generation_1.pdf",
+          "size": 293643,
+          "extension": ".pdf",
+          "category": "uncategorized",
+          "tags": [],
+          "sosana_related": true,
+          "wallets_found": []
+        },
+        {
+          "filename": "20260409_075734_3f159aa8_crn-go.txt",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_075734_3f159aa8_crn-go.txt",
+          "size": 53,
+          "extension": ".txt",
+          "category": "uncategorized",
+          "tags": [],
+          "sosana_related": false,
+          "wallets_found": []
+        },
+        {
+          "filename": "20260409_080019_122d59f4_SOSANA_Litepaper_v2.0.pdf",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_080019_122d59f4_SOSANA_Litepaper_v2.0.pdf",
+          "size": 681947,
+          "extension": ".pdf",
+          "category": "uncategorized",
+          "tags": [
+            "sosana"
+          ],
+          "sosana_related": true,
+          "wallets_found": []
+        },
+        {
+          "filename": "20260409_084404_6ca6649e_Strategic_Architecture_and_Implementation_of_Model_Context_Protocol_MCP_Servers_for_Autonomous_Crypto_Intelligence_Bots.pdf",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_084404_6ca6649e_Strategic_Architecture_and_Implementation_of_Model_Context_Protocol_MCP_Servers_for_Autonomous_Crypto_Intelligence_Bots.pdf",
+          "size": 133908,
+          "extension": ".pdf",
+          "category": "uncategorized",
+          "tags": [],
+          "sosana_related": false,
+          "wallets_found": []
+        },
+        {
+          "filename": "20260409_080021_f3b0c275_Litepaper_-_2.0_The_Relaunch.pdf",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_080021_f3b0c275_Litepaper_-_2.0_The_Relaunch.pdf",
+          "size": 902148,
+          "extension": ".pdf",
+          "category": "uncategorized",
+          "tags": [],
+          "sosana_related": false,
+          "wallets_found": []
+        },
+        {
+          "filename": "20260409_080012_2ed86fa8_frequent.html",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_080012_2ed86fa8_frequent.html",
+          "size": 17096,
+          "extension": ".html",
+          "category": "uncategorized",
+          "tags": [],
+          "sosana_related": true,
+          "wallets_found": []
+        },
+        {
+          "filename": "20260409_075724_4b11102c_NVIDIA_Credit_Plan_1.docx",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_075724_4b11102c_NVIDIA_Credit_Plan_1.docx",
+          "size": 78606,
+          "extension": ".docx",
+          "category": "uncategorized",
+          "tags": [],
+          "sosana_related": false,
+          "wallets_found": []
+        },
+        {
+          "filename": "20260409_075711_3783f31f_RMI_Platform_Outline.docx",
+          "path": "/root/dumps/investigation-20260409/mixed/20260409_075711_3783f31f_RMI_Platform_Outline.docx",
+          "size": 75926,
+          "extension": ".docx",
+          "category": "uncategorized",
+          "tags": [],
+          "sosana_related": false,
+          "wallets_found": []
+        }
+      ]
+    }
+  },
+  "summary": {
+    "sosana_related_files": 129,
+    "unique_wallets_found": 5883,
+    "critical_evidence": 125,
+    "high_priority": 83,
+    "medium_priority": 9
+  },
+  "unique_wallets": [
+    "AonUbZPi6q5fTAVjaJAPtK4cddxE1vTaP7aie29kXHqt",
+    "7ACsEkYS6NjtJkFZz9ZrP8eWVeE7z6GjfGcVWk5yFtPQ",
+    "FoDAoQXmyQTEaGkaAG5gMMY2rdD24Z1edGZAe6wFDm31",
+    "cN8ehVVCvQkCHHD734EQiNnz2id88K7y4JUTxmQWynZ1",
+    "wLp41pkepif2fhj8pM8SRvjY8umVAYFUTte1i6iu7G9",
+    "ChgkHpdD7afx25VGAYYpt7VuFhQ4PtfVdyqPFzzq4GDY",
+    "4VQJwr3Lcw2mrpvwu2ADpbbmUGUBMfn3zjcgLqSsXjSa",
+    "FWMeLxpK8Zp79Hzsj9rB89AuEXJHJyawg3L94tgtkan1",
+    "9m37vdiCsSWuzHx6du5Wx8S8KCAD5xKNoetxvcLpump",
+    "37Uc4uAUYeEGjq1fD9WaYfS59GubkspvmrT",
+    "3dVqHLFCJgzBzaPCDYpY5eX8e8b6J8Y8i",
+    "B4MgXQJpCf9uz4exkEYPrDvCFU8TF9nCZFkn6mH39Sk4",
+    "HDuhdhCuYEwuwY6paPXKJ8sfEfoMEQ1zEHgAA63ZgXPr",
+    "DGagMywvLG3DwffZHX4eWWE6svnoJpiod3dSNBDwpump",
+    "0x611a9f25fed0d82ddf3c514147373072b12a56ee",
+    "Lj75u9qoSjdG4qsEB69PZT8tuTNiLbHQ7ARdFKdxg2BT",
+    "8JSAsDBjoEgPJ5rHrARbTnRtHpCtEsDG2VbyYFmpxZTM",
+    "9gyfbPVwwZx4y1hotNSLcqXCQNpNqqz6ZRvo8yTLpump",
+    "CapuXNQoDviLvU1PxFiizLgPNQCxrsag1uMeyk6zLVps",
+    "HDit5ykDkngcy194QnCk2yaEKCvpDMVQ15pevzhQ68C6",
+    "9hV8jBC6ACuhSChpzJvhp31tv97uuwzXGs174wDndAev",
+    "C4kPNkv2HMtD5H96jDAp1iwyYEDEe4qwUP7vsX25EnVH",
+    "5t5xGKwiKQ45av16WgQqMJLJ7ADKLMKut5q3LuxZRudW",
+    "C4ngpLQL19hYbc5XUtuhzjBpnrvp7vS2QkhgAkTf87JU",
+    "3VK93xz4ra3h8R5TEaVZBq881Ac88",
+    "3fhqQ6tQHgmQTiZhb6Gqo52K1ujaUyYe77wZvzjMs2w6",
+    "3aYrHXxUUmBL6P5uMQDfZ3AcGa1o1ziJgiw",
+    "EHmXnJMaGZy2k9LuSJWR9UX3TsmveHpPp5CUzj1zKH8B",
+    "FqYgBAduxyjiyD8vf76Dvr1wED1fA12ePUAUqrtFgGag",
+    "3tx37ur6MPJG2La5i8SwqXVHNo1fiPQZd9H",
+    "tT49c6KHJLNP6ptmF4Yv7pQk7RZskiWaM7P7XBc9qY9",
+    "ivhZ4uqUY7QuC5zipnPPm7tL7rT8rFsgUYAEAs2EoPzm",
+    "GFSNg1mjoLSgiVnr9csrmNRGZfQfBsBhXHoYZLDhxZgF",
+    "pLeq43RVh14ftkyZFNKZWksdfcR5F6gZa86oGJpySNG",
+    "6m8YXUUTRWostzUmc21whBTHp8dNZk55mdN8LksjcN76",
+    "HHDKTw3jC8xiXTHGaPJxHhUuEszAYsw3eQ3aXu4f3KgH",
+    "2CayGU3xxhfKbZgKWdSqb9GgKV9ZAZWW7LWhRGtcEGK2",
+    "F4HGHWya2Q94nLVHkj3hbEAb2P15h5jGAVW2vu2fuTYi",
+    "0xba7e0d4eb6b92692b2641dce9c22ae5a64b336e0",
+    "3b4nPXo3YJhxB4StHX4QwyUUdcKSPurda76",
+    "71DHc4JLRR7g6SgdxahLMSNctdFNgNcRDc4vYaepWSKu",
+    "4oh34aSUr5RsryDvG8LXCZhfVxyMxR9bvf6hqiPqVw6c",
+    "1gWicoBnqwvdKtaHSV9CKnJZ8VNfFJ6cHnT",
+    "FAgMh1nJQMyodXphzABSWGTSrmEoLBLuc6fTsnpmrDHn",
+    "8FdbC2DkDoEdcMMWN6uJi6iCTBiZmSchfUKG28BuAwB3",
+    "4n4fu3L2M38B1FameTuQ64872qGS3HoSsXQoDzc37YJV",
+    "BFh6SnHZoMkYDKqpXnaD5ioe9XwZvmJ55sEcryY3FMaJ",
+    "1nJQMyodXphzABSWGTSrmEoLBLuc6fTsnpm",
+    "EFY8GToe4HrmpYrRpfRUgNEPmfVnUbZrsUhd2mJQpump",
+    "1rrCWvNPMpo8RFveux5GtdYZd8aA"
+  ]
+}

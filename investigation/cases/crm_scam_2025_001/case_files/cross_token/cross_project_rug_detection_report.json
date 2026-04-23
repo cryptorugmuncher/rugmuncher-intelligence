@@ -1,0 +1,71 @@
+{
+  "investigation_id": "CROSS-PROJECT-RUG-DETECTION-001",
+  "timestamp": "2026-04-13T20:30:38.728714",
+  "target_wallets_analyzed": 6,
+  "total_findings": 0,
+  "high_confidence_findings": 0,
+  "wallet_results": {
+    "F4HGHWyaMAkQH7Q2YJfAyGmPoo5aRs6R6VuSPia3JM3U": {
+      "info": {
+        "tier": "TIER_0_TREASURY",
+        "role": "11,344 SOL distributed to network",
+        "crm_supply": "305M+ (30.52%)"
+      },
+      "findings_count": 0,
+      "findings": []
+    },
+    "AFXigaYuRKYmvd9HZQCobtZ98FNAwnwpsnjvJRztUGb6": {
+      "info": {
+        "tier": "TIER_1_AUTOMATION",
+        "role": "Military-grade automation (138 wallets/sec)",
+        "crm_supply": "970-wallet coordination"
+      },
+      "findings_count": 0,
+      "findings": []
+    },
+    "DojAziGhpZVn8rKNCmPXpDoaMbUNpTjJjSWVLTYzhbqY": {
+      "info": {
+        "tier": "TIER_2_REWARDS",
+        "role": "PBTC/EPIK reward distribution",
+        "crm_supply": "Cross-project payroll"
+      },
+      "findings_count": 0,
+      "findings": []
+    },
+    "HxyXAE1PHQsh6iLj3t8MagpFovmR7yk76PEADmTKeVfi": {
+      "info": {
+        "tier": "TIER_3_COORDINATION",
+        "role": "Transaction management & testing",
+        "crm_supply": "19 CRM transactions"
+      },
+      "findings_count": 0,
+      "findings": []
+    },
+    "8eVZa7bEBnd6MA6JJkNdABRN4S3LbVLRnCZNJAUeuwQj": {
+      "info": {
+        "tier": "TIER_4_FEEDER",
+        "role": "20M CRM loaded, victim compromise",
+        "crm_supply": "PBTC holdings: $7,770"
+      },
+      "findings_count": 0,
+      "findings": []
+    },
+    "HLnpSz9h2S4hiLQ43rnSD9XkcUThA7B8hQMKmDaiTLcC": {
+      "info": {
+        "tier": "TIER_1_FEEDER",
+        "role": "CNSob1L treasury \u2192 dump infrastructure",
+        "crm_supply": "6.64% (999,375 CRM from wiped treasury)"
+      },
+      "findings_count": 0,
+      "findings": []
+    }
+  },
+  "patterns_detected": [],
+  "suspicious_tokens_involved": [],
+  "recommended_next_steps": [
+    "Export full transaction histories for tokens with findings",
+    "Cross-reference timing with known rug pull events",
+    "Analyze counterparties for network expansion",
+    "Map full token lifecycle (launch \u2192 dump \u2192 exit)"
+  ]
+}

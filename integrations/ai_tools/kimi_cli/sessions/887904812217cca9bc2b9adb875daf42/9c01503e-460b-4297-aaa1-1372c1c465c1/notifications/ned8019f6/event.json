@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "id": "ned8019f6",
+  "category": "task",
+  "type": "task.timed_out",
+  "source_kind": "background_task",
+  "source_id": "bash-oyn2556m",
+  "title": "Background task timed out: Start file dump server",
+  "body": "Task ID: bash-oyn2556m\nStatus: failed\nDescription: Start file dump server\nTerminal reason: timed_out\nExit code: -15\nFailure reason: Command timed out after 60s",
+  "severity": "error",
+  "created_at": 1775685426.9991813,
+  "payload": {
+    "task_id": "bash-oyn2556m",
+    "task_kind": "bash",
+    "status": "failed",
+    "description": "Start file dump server",
+    "exit_code": -15,
+    "interrupted": true,
+    "timed_out": true,
+    "terminal_reason": "timed_out",
+    "failure_reason": "Command timed out after 60s"
+  },
+  "targets": [
+    "llm",
+    "wire",
+    "shell"
+  ],
+  "dedupe_key": "background_task:bash-oyn2556m:timed_out"
+}

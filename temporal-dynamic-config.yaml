@@ -1,0 +1,20 @@
+system.forceSearchAttributes:
+  - value: true
+limit.maxIDLength:
+  - value: 255
+  - constraints: {}
+frontend.keepAliveMaxConnectionAge:
+  - value: 5m
+  - constraints: {}
+frontend.enableUpdateWorkflowExecution:
+  - value: true
+  - constraints: {}
+history.timerProcessorEnableMultiCursor:
+  - value: true
+  - constraints: {}
+history.transferProcessorEnableMultiCursor:
+  - value: true
+  - constraints: {}
+history.visibilityProcessorEnableMultiCursor:
+  - value: true
+  - constraints: {}

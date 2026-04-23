@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "id": "bash-u39c0edi",
+  "kind": "bash",
+  "session_id": "1133e35e-eecb-4f5e-a699-96aefd295ee9",
+  "description": "Install Python dependencies in venv",
+  "tool_call_id": "tool_5TCPJ1oe6KZRfCSIWviPTL1W",
+  "owner_role": "root",
+  "created_at": 1775755318.7807956,
+  "command": "cd /root/rmi/backend && source venv/bin/activate && pip install --upgrade pip && pip install -r requirements.txt 2>&1",
+  "shell_name": "bash",
+  "shell_path": "/bin/bash",
+  "cwd": "/root",
+  "timeout_s": 300,
+  "kind_payload": null
+}

@@ -1,0 +1,174 @@
+{
+  "phases": [
+    {
+      "id": "phase_1",
+      "name": "Evidence Collection",
+      "items": [
+        {
+          "id": "evidence_1",
+          "task": "Collect all wallet addresses from Telegram",
+          "status": "completed",
+          "priority": "high"
+        },
+        {
+          "id": "evidence_2",
+          "task": "Download transaction histories from Helius",
+          "status": "completed",
+          "priority": "high"
+        },
+        {
+          "id": "evidence_3",
+          "task": "Gather social media posts and screenshots",
+          "status": "completed",
+          "priority": "medium"
+        },
+        {
+          "id": "evidence_4",
+          "task": "Extract Discord chat logs",
+          "status": "in_progress",
+          "priority": "medium"
+        },
+        {
+          "id": "evidence_5",
+          "task": "OCR processing of all images",
+          "status": "pending",
+          "priority": "low"
+        }
+      ]
+    },
+    {
+      "id": "phase_2",
+      "name": "Blockchain Analysis",
+      "items": [
+        {
+          "id": "analysis_1",
+          "task": "Map 5-tier criminal hierarchy",
+          "status": "completed",
+          "priority": "high"
+        },
+        {
+          "id": "analysis_2",
+          "task": "Trace fund flows between wallets",
+          "status": "completed",
+          "priority": "high"
+        },
+        {
+          "id": "analysis_3",
+          "task": "Identify exchange deposits",
+          "status": "in_progress",
+          "priority": "high"
+        },
+        {
+          "id": "analysis_4",
+          "task": "Cross-reference with known scammers",
+          "status": "pending",
+          "priority": "medium"
+        },
+        {
+          "id": "analysis_5",
+          "task": "Analyze token distribution patterns",
+          "status": "completed",
+          "priority": "medium"
+        }
+      ]
+    },
+    {
+      "id": "phase_3",
+      "name": "Legal Preparation",
+      "items": [
+        {
+          "id": "legal_1",
+          "task": "Draft RICO narrative",
+          "status": "in_progress",
+          "priority": "high"
+        },
+        {
+          "id": "legal_2",
+          "task": "Prepare evidence package",
+          "status": "pending",
+          "priority": "high"
+        },
+        {
+          "id": "legal_3",
+          "task": "Consult with legal counsel",
+          "status": "pending",
+          "priority": "high"
+        },
+        {
+          "id": "legal_4",
+          "task": "File reports with authorities",
+          "status": "pending",
+          "priority": "medium"
+        }
+      ]
+    },
+    {
+      "id": "phase_4",
+      "name": "Community Action",
+      "items": [
+        {
+          "id": "community_1",
+          "task": "Publish initial findings",
+          "status": "completed",
+          "priority": "high"
+        },
+        {
+          "id": "community_2",
+          "task": "Alert other communities",
+          "status": "completed",
+          "priority": "high"
+        },
+        {
+          "id": "community_3",
+          "task": "Create public investigation page",
+          "status": "completed",
+          "priority": "medium"
+        },
+        {
+          "id": "community_4",
+          "task": "Launch airdrop checker for victims",
+          "status": "in_progress",
+          "priority": "high"
+        }
+      ]
+    },
+    {
+      "id": "phase_5",
+      "name": "Final Report",
+      "items": [
+        {
+          "id": "final_1",
+          "task": "Compile all evidence into report",
+          "status": "pending",
+          "priority": "high"
+        },
+        {
+          "id": "final_2",
+          "task": "Review and verify all claims",
+          "status": "pending",
+          "priority": "high"
+        },
+        {
+          "id": "final_3",
+          "task": "Legal review of report",
+          "status": "pending",
+          "priority": "high"
+        },
+        {
+          "id": "final_4",
+          "task": "Publish interactive report",
+          "status": "pending",
+          "priority": "high"
+        },
+        {
+          "id": "final_5",
+          "task": "Archive case materials",
+          "status": "pending",
+          "priority": "low"
+        }
+      ]
+    }
+  ],
+  "notes": "",
+  "last_updated": "2026-04-12T15:51:36.118494"
+}

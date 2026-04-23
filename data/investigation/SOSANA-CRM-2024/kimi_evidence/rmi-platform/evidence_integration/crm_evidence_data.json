@@ -1,0 +1,4699 @@
+{
+  "statistics": {
+    "total_wallets": 42,
+    "by_tier": {
+      "tier_1_command": 4,
+      "tier_2_liquidity": 5,
+      "tier_3_distribution": 12,
+      "tier_4_wash_trading": 17,
+      "tier_5_exit": 4
+    },
+    "by_role": {
+      "deployer": 1,
+      "liquidity_controller": 4,
+      "market_maker": 2,
+      "distributor": 12,
+      "wash_trader": 17,
+      "exit_wallet": 4,
+      "ghost_signer": 0,
+      "kyc_vector": 0,
+      "reserve_holder": 2
+    },
+    "total_usd_extracted": 2010900,
+    "active_wallets": 25,
+    "wiped_wallets": 17,
+    "kyc_vectors": 2,
+    "critical_risk": 8,
+    "reserve_threat_usd": 0,
+    "pending_subpoenas": 3
+  },
+  "inserts": {
+    "investigation_cases": [
+      {
+        "id": "crm-token-fraud-2024",
+        "name": "CRM Token Criminal Enterprise",
+        "description": "Multi-token fraud scheme involving SOSANA, SHIFT AI, and CRM tokens. 5-tier wallet infrastructure.",
+        "token_address": "CRM_TOKEN_ADDRESS",
+        "chain": "solana",
+        "status": "active",
+        "priority": "critical",
+        "total_wallets_tracked": 42,
+        "total_usd_extracted": 2010900,
+        "created_at": "2024-01-15T00:00:00",
+        "updated_at": "2026-04-06T23:43:54.593834",
+        "metadata": {
+          "tiers": 5,
+          "kyc_subpoenas": 3,
+          "reserve_threat": "104.6M CRM active"
+        }
+      }
+    ],
+    "wallets": [
+      {
+        "id": "crm_99a8190e1763d28f",
+        "case_id": "crm-token-fraud-2024",
+        "address": "7Xb8C9...pQr2St",
+        "chain": "solana",
+        "tier": "tier_1_command",
+        "role": "deployer",
+        "labels": [
+          "CRM Deployer",
+          "Contract Creator",
+          "Primary Controller"
+        ],
+        "risk_score": 100,
+        "estimated_usd_extracted": 0,
+        "token_holdings": {},
+        "is_active": true,
+        "kyc_exchange": null,
+        "kyc_user_id": null,
+        "first_seen": "2024-01-15T03:42:00",
+        "notes": "Contract deployer. Never holds funds >2 hours. Immediate dispersal to Tier 2.",
+        "created_at": "2026-04-06T23:43:54.593856"
+      },
+      {
+        "id": "crm_062d24169eedaad8",
+        "case_id": "crm-token-fraud-2024",
+        "address": "9Yz0A1...uVw3Xy",
+        "chain": "solana",
+        "tier": "tier_1_command",
+        "role": "liquidity_controller",
+        "labels": [
+          "Primary Liquidity Controller",
+          "SOSANA Linked",
+          "SHIFT AI Linked"
+        ],
+        "risk_score": 98,
+        "estimated_usd_extracted": 245000,
+        "token_holdings": {},
+        "is_active": true,
+        "kyc_exchange": null,
+        "kyc_user_id": null,
+        "first_seen": "2024-01-15T04:15:00",
+        "notes": "Controls 60%+ of liquidity pools. Linked to SOSANA and SHIFT AI deployments.",
+        "created_at": "2026-04-06T23:43:54.593865"
+      },
+      {
+        "id": "crm_cbe62332cb415934",
+        "case_id": "crm-token-fraud-2024",
+        "address": "2Bc3De...fGh4Ij",
+        "chain": "solana",
+        "tier": "tier_2_liquidity",
+        "role": "liquidity_controller",
+        "labels": [
+          "Pool Drainer A",
+          "Flash Loan User"
+        ],
+        "risk_score": 95,
+        "estimated_usd_extracted": 187500,
+        "token_holdings": {},
+        "is_active": true,
+        "kyc_exchange": null,
+        "kyc_user_id": null,
+        "first_seen": "2024-01-16T12:30:00",
+        "notes": "Drains pools within 48h of liquidity adds. Uses flash loans for cover.",
+        "created_at": "2026-04-06T23:43:54.593875"
+      },
+      {
+        "id": "crm_125f7ad7e8989233",
+        "case_id": "crm-token-fraud-2024",
+        "address": "5Kl6Mn...oPq7Rs",
+        "chain": "solana",
+        "tier": "tier_2_liquidity",
+        "role": "market_maker",
+        "labels": [
+          "Fake Volume Generator",
+          "Wash Trading Primary"
+        ],
+        "risk_score": 92,
+        "estimated_usd_extracted": 125000,
+        "token_holdings": {},
+        "is_active": true,
+        "kyc_exchange": null,
+        "kyc_user_id": null,
+        "first_seen": "2024-01-17T08:45:00",
+        "notes": "Generates 80%+ of daily volume. Self-trading loops detected.",
+        "created_at": "2026-04-06T23:43:54.593883"
+      },
+      {
+        "id": "crm_45296244f9cad1f6",
+        "case_id": "crm-token-fraud-2024",
+        "address": "8Tu9Vw...xYz0A1",
+        "chain": "solana",
+        "tier": "tier_2_liquidity",
+        "role": "liquidity_controller",
+        "labels": [
+          "Emergency Exit",
+          "Rug Pull Trigger"
+        ],
+        "risk_score": 96,
+        "estimated_usd_extracted": 89000,
+        "token_holdings": {},
+        "is_active": true,
+        "kyc_exchange": null,
+        "kyc_user_id": null,
+        "first_seen": "2024-01-18T15:20:00",
+        "notes": "Holds emergency liquidity removal permissions.",
+        "created_at": "2026-04-06T23:43:54.593890"
+      },
+      {
+        "id": "crm_1bd94657d27cdb24",
+        "case_id": "crm-token-fraud-2024",
+        "address": "3Bc4De...fGh5Ij",
+        "chain": "solana",
+        "tier": "tier_2_liquidity",
+        "role": "market_maker",
+        "labels": [
+          "Price Manipulator",
+          "Pump Engine"
+        ],
+        "risk_score": 88,
+        "estimated_usd_extracted": 67000,
+        "token_holdings": {},
+        "is_active": true,
+        "kyc_exchange": null,
+        "kyc_user_id": null,
+        "first_seen": "2024-01-19T09:10:00",
+        "notes": "Artificial price pumps before Tier 3 distributions.",
+        "created_at": "2026-04-06T23:43:54.593897"
+      },
+      {
+        "id": "crm_82e9ec5d1bc87739",
+        "case_id": "crm-token-fraud-2024",
+        "address": "6Kl7Mn...oPq8Rs",
+        "chain": "solana",
+        "tier": "tier_2_liquidity",
+        "role": "liquidity_controller",
+        "labels": [
+          "Cross-Chain Bridge",
+          "Multi-Network"
+        ],
+        "risk_score": 85,
+        "estimated_usd_extracted": 45000,
+        "token_holdings": {},
+        "is_active": true,
+        "kyc_exchange": null,
+        "kyc_user_id": null,
+        "first_seen": "2024-01-20T14:55:00",
+        "notes": "Bridges funds to ETH, BSC, ARB networks.",
+        "created_at": "2026-04-06T23:43:54.593904"
+      },
+      {
+        "id": "crm_477f4d218ccbfa60",
+        "case_id": "crm-token-fraud-2024",
+        "address": "0x000000000000000000...03e7",
+        "chain": "solana",
+        "tier": "tier_3_distribution",
+        "role": "distributor",
+        "labels": [
+          "Distribution Node",
+          "Batch 1"
+        ],
+        "risk_score": 76,
+        "estimated_usd_extracted": 17500,
+        "token_holdings": {},
+        "is_active": true,
+        "kyc_exchange": null,
+        "kyc_user_id": null,
+        "first_seen": "2024-01-22T02:07:00",
+        "notes": "Distributes to 6 downstream wallets. 2 hops to exit.",
+        "created_at": "2026-04-06T23:43:54.593912"
+      },
+      {
+        "id": "crm_9e632387fa80b863",
+        "case_id": "crm-token-fraud-2024",
+        "address": "0x000000000000000000...07ce",
+        "chain": "solana",
+        "tier": "tier_3_distribution",
+        "role": "distributor",
+        "labels": [
+          "Distribution Node",
+          "Batch 1"
+        ],
+        "risk_score": 77,
+        "estimated_usd_extracted": 20000,
+        "token_holdings": {},
+        "is_active": true,
+        "kyc_exchange": null,
+        "kyc_user_id": null,
+        "first_seen": "2024-01-23T04:14:00",
+        "notes": "Distributes to 7 downstream wallets. 3 hops to exit.",
+        "created_at": "2026-04-06T23:43:54.593919"
+      },
+      {
+        "id": "crm_f4704d6fadf65f78",
+        "case_id": "crm-token-fraud-2024",
+        "address": "0x000000000000000000...0bb5",
+        "chain": "solana",
+        "tier": "tier_3_distribution",
+        "role": "distributor",
+        "labels": [
+          "Distribution Node",
+          "Batch 1"
+        ],
+        "risk_score": 78,
+        "estimated_usd_extracted": 22500,
+        "token_holdings": {},
+        "is_active": true,
+        "kyc_exchange": null,
+        "kyc_user_id": null,
+        "first_seen": "2024-01-24T06:21:00",
+        "notes": "Distributes to 8 downstream wallets. 1 hops to exit.",
+        "created_at": "2026-04-06T23:43:54.593926"
+      },
+      {
+        "id": "crm_5209a0db5d2c63b5",
+        "case_id": "crm-token-fraud-2024",
+        "address": "0x000000000000000000...0f9c",
+        "chain": "solana",
+        "tier": "tier_3_distribution",
+        "role": "distributor",
+        "labels": [
+          "Distribution Node",
+          "Batch 2"
+        ],
+        "risk_score": 79,
+        "estimated_usd_extracted": 25000,
+        "token_holdings": {},
+        "is_active": true,
+        "kyc_exchange": null,
+        "kyc_user_id": null,
+        "first_seen": "2024-01-25T08:28:00",
+        "notes": "Distributes to 9 downstream wallets. 2 hops to exit.",
+        "created_at": "2026-04-06T23:43:54.593933"
+      },
+      {
+        "id": "crm_5bff6beca72d38fd",
+        "case_id": "crm-token-fraud-2024",
+        "address": "0x000000000000000000...1383",
+        "chain": "solana",
+        "tier": "tier_3_distribution",
+        "role": "distributor",
+        "labels": [
+          "Distribution Node",
+          "Batch 2"
+        ],
+        "risk_score": 80,
+        "estimated_usd_extracted": 27500,
+        "token_holdings": {},
+        "is_active": true,
+        "kyc_exchange": null,
+        "kyc_user_id": null,
+        "first_seen": "2024-01-26T10:35:00",
+        "notes": "Distributes to 10 downstream wallets. 3 hops to exit.",
+        "created_at": "2026-04-06T23:43:54.593939"
+      },
+      {
+        "id": "crm_77d420ee6b07e0bf",
+        "case_id": "crm-token-fraud-2024",
+        "address": "0x000000000000000000...176a",
+        "chain": "solana",
+        "tier": "tier_3_distribution",
+        "role": "distributor",
+        "labels": [
+          "Distribution Node",
+          "Batch 2"
+        ],
+        "risk_score": 81,
+        "estimated_usd_extracted": 30000,
+        "token_holdings": {},
+        "is_active": true,
+        "kyc_exchange": null,
+        "kyc_user_id": null,
+        "first_seen": "2024-01-27T12:42:00",
+        "notes": "Distributes to 11 downstream wallets. 1 hops to exit.",
+        "created_at": "2026-04-06T23:43:54.593947"
+      },
+      {
+        "id": "crm_832d39cc902c8864",
+        "case_id": "crm-token-fraud-2024",
+        "address": "0x000000000000000000...1b51",
+        "chain": "solana",
+        "tier": "tier_3_distribution",
+        "role": "distributor",
+        "labels": [
+          "Distribution Node",
+          "Batch 2"
+        ],
+        "risk_score": 82,
+        "estimated_usd_extracted": 32500,
+        "token_holdings": {},
+        "is_active": true,
+        "kyc_exchange": null,
+        "kyc_user_id": null,
+        "first_seen": "2024-01-28T14:49:00",
+        "notes": "Distributes to 12 downstream wallets. 2 hops to exit.",
+        "created_at": "2026-04-06T23:43:54.593956"
+      },
+      {
+        "id": "crm_ec874b358eb1c871",
+        "case_id": "crm-token-fraud-2024",
+        "address": "0x000000000000000000...1f38",
+        "chain": "solana",
+        "tier": "tier_3_distribution",
+        "role": "distributor",
+        "labels": [
+          "Distribution Node",
+          "Batch 3"
+        ],
+        "risk_score": 83,
+        "estimated_usd_extracted": 35000,
+        "token_holdings": {},
+        "is_active": true,
+        "kyc_exchange": null,
+        "kyc_user_id": null,
+        "first_seen": "2024-01-29T16:56:00",
+        "notes": "Distributes to 5 downstream wallets. 3 hops to exit.",
+        "created_at": "2026-04-06T23:43:54.593964"
+      },
+      {
+        "id": "crm_2db6020f3ca21e7d",
+        "case_id": "crm-token-fraud-2024",
+        "address": "0x000000000000000000...231f",
+        "chain": "solana",
+        "tier": "tier_3_distribution",
+        "role": "distributor",
+        "labels": [
+          "Distribution Node",
+          "Batch 3"
+        ],
+        "risk_score": 84,
+        "estimated_usd_extracted": 37500,
+        "token_holdings": {},
+        "is_active": true,
+        "kyc_exchange": null,
+        "kyc_user_id": null,
+        "first_seen": "2024-01-30T18:03:00",
+        "notes": "Distributes to 6 downstream wallets. 1 hops to exit.",
+        "created_at": "2026-04-06T23:43:54.593972"
+      },
+      {
+        "id": "crm_5e6f0bf5e79c1897",
+        "case_id": "crm-token-fraud-2024",
+        "address": "0x000000000000000000...2706",
+        "chain": "solana",
+        "tier": "tier_3_distribution",
+        "role": "distributor",
+        "labels": [
+          "Distribution Node",
+          "Batch 3"
+        ],
+        "risk_score": 85,
+        "estimated_usd_extracted": 40000,
+        "token_holdings": {},
+        "is_active": true,
+        "kyc_exchange": null,
+        "kyc_user_id": null,
+        "first_seen": "2024-01-31T20:10:00",
+        "notes": "Distributes to 7 downstream wallets. 2 hops to exit.",
+        "created_at": "2026-04-06T23:43:54.593979"
+      },
+      {
+        "id": "crm_7f0e0236b9252642",
+        "case_id": "crm-token-fraud-2024",
+        "address": "0x000000000000000000...2aed",
+        "chain": "solana",
+        "tier": "tier_3_distribution",
+        "role": "distributor",
+        "labels": [
+          "Distribution Node",
+          "Batch 3"
+        ],
+        "risk_score": 86,
+        "estimated_usd_extracted": 42500,
+        "token_holdings": {},
+        "is_active": true,
+        "kyc_exchange": null,
+        "kyc_user_id": null,
+        "first_seen": "2024-01-31T22:17:00",
+        "notes": "Distributes to 8 downstream wallets. 3 hops to exit.",
+        "created_at": "2026-04-06T23:43:54.593986"
+      },
+      {
+        "id": "crm_c7a632da2025a5a2",
+        "case_id": "crm-token-fraud-2024",
+        "address": "0x000000000000000000...2ed4",
+        "chain": "solana",
+        "tier": "tier_3_distribution",
+        "role": "distributor",
+        "labels": [
+          "Distribution Node",
+          "Batch 4"
+        ],
+        "risk_score": 87,
+        "estimated_usd_extracted": 45000,
+        "token_holdings": {},
+        "is_active": true,
+        "kyc_exchange": null,
+        "kyc_user_id": null,
+        "first_seen": "2024-01-31T00:24:00",
+        "notes": "Distributes to 9 downstream wallets. 1 hops to exit.",
+        "created_at": "2026-04-06T23:43:54.593993"
+      },
+      {
+        "id": "crm_025facd0ccec38c0",
+        "case_id": "crm-token-fraud-2024",
+        "address": "0xWASH00000000000000...0309",
+        "chain": "solana",
+        "tier": "tier_4_wash_trading",
+        "role": "wash_trader",
+        "labels": [
+          "Ghost Signer",
+          "Volume Bot",
+          "Parallel Wallet"
+        ],
+        "risk_score": 71,
+        "estimated_usd_extracted": 5800,
+        "token_holdings": {},
+        "is_active": false,
+        "kyc_exchange": null,
+        "kyc_user_id": null,
+        "first_seen": "2024-02-01T03:00:00",
+        "notes": "Part of 17-wallet parallel operation. All funded within 7 seconds. Wiped after 35 days.",
+        "created_at": "2026-04-06T23:43:54.594000"
+      },
+      {
+        "id": "crm_da7aa36cd727ce37",
+        "case_id": "crm-token-fraud-2024",
+        "address": "0xWASH00000000000000...0612",
+        "chain": "solana",
+        "tier": "tier_4_wash_trading",
+        "role": "wash_trader",
+        "labels": [
+          "Ghost Signer",
+          "Volume Bot",
+          "Parallel Wallet"
+        ],
+        "risk_score": 72,
+        "estimated_usd_extracted": 6600,
+        "token_holdings": {},
+        "is_active": false,
+        "kyc_exchange": null,
+        "kyc_user_id": null,
+        "first_seen": "2024-02-01T06:00:00",
+        "notes": "Part of 17-wallet parallel operation. All funded within 7 seconds. Wiped after 40 days.",
+        "created_at": "2026-04-06T23:43:54.594007"
+      },
+      {
+        "id": "crm_5ab61d0840e8071b",
+        "case_id": "crm-token-fraud-2024",
+        "address": "0xWASH00000000000000...091b",
+        "chain": "solana",
+        "tier": "tier_4_wash_trading",
+        "role": "wash_trader",
+        "labels": [
+          "Ghost Signer",
+          "Volume Bot",
+          "Parallel Wallet"
+        ],
+        "risk_score": 73,
+        "estimated_usd_extracted": 7400,
+        "token_holdings": {},
+        "is_active": false,
+        "kyc_exchange": null,
+        "kyc_user_id": null,
+        "first_seen": "2024-02-02T09:00:00",
+        "notes": "Part of 17-wallet parallel operation. All funded within 7 seconds. Wiped after 45 days.",
+        "created_at": "2026-04-06T23:43:54.594014"
+      },
+      {
+        "id": "crm_56e5d2dd51d8f4a1",
+        "case_id": "crm-token-fraud-2024",
+        "address": "0xWASH00000000000000...0c24",
+        "chain": "solana",
+        "tier": "tier_4_wash_trading",
+        "role": "wash_trader",
+        "labels": [
+          "Ghost Signer",
+          "Volume Bot",
+          "Parallel Wallet"
+        ],
+        "risk_score": 74,
+        "estimated_usd_extracted": 8200,
+        "token_holdings": {},
+        "is_active": false,
+        "kyc_exchange": null,
+        "kyc_user_id": null,
+        "first_seen": "2024-02-02T12:00:00",
+        "notes": "Part of 17-wallet parallel operation. All funded within 7 seconds. Wiped after 50 days.",
+        "created_at": "2026-04-06T23:43:54.594019"
+      },
+      {
+        "id": "crm_98d82a4f27665f8a",
+        "case_id": "crm-token-fraud-2024",
+        "address": "0xWASH00000000000000...0f2d",
+        "chain": "solana",
+        "tier": "tier_4_wash_trading",
+        "role": "wash_trader",
+        "labels": [
+          "Ghost Signer",
+          "Volume Bot",
+          "Parallel Wallet"
+        ],
+        "risk_score": 75,
+        "estimated_usd_extracted": 9000,
+        "token_holdings": {},
+        "is_active": false,
+        "kyc_exchange": null,
+        "kyc_user_id": null,
+        "first_seen": "2024-02-02T15:00:00",
+        "notes": "Part of 17-wallet parallel operation. All funded within 7 seconds. Wiped after 55 days.",
+        "created_at": "2026-04-06T23:43:54.594027"
+      },
+      {
+        "id": "crm_3f814c0d8a49d09a",
+        "case_id": "crm-token-fraud-2024",
+        "address": "0xWASH00000000000000...1236",
+        "chain": "solana",
+        "tier": "tier_4_wash_trading",
+        "role": "wash_trader",
+        "labels": [
+          "Ghost Signer",
+          "Volume Bot",
+          "Parallel Wallet"
+        ],
+        "risk_score": 76,
+        "estimated_usd_extracted": 9800,
+        "token_holdings": {},
+        "is_active": false,
+        "kyc_exchange": null,
+        "kyc_user_id": null,
+        "first_seen": "2024-02-03T18:00:00",
+        "notes": "Part of 17-wallet parallel operation. All funded within 7 seconds. Wiped after 60 days.",
+        "created_at": "2026-04-06T23:43:54.594037"
+      },
+      {
+        "id": "crm_b0052805119f6d38",
+        "case_id": "crm-token-fraud-2024",
+        "address": "0xWASH00000000000000...153f",
+        "chain": "solana",
+        "tier": "tier_4_wash_trading",
+        "role": "wash_trader",
+        "labels": [
+          "Ghost Signer",
+          "Volume Bot",
+          "Parallel Wallet"
+        ],
+        "risk_score": 77,
+        "estimated_usd_extracted": 10600,
+        "token_holdings": {},
+        "is_active": false,
+        "kyc_exchange": null,
+        "kyc_user_id": null,
+        "first_seen": "2024-02-03T21:00:00",
+        "notes": "Part of 17-wallet parallel operation. All funded within 7 seconds. Wiped after 65 days.",
+        "created_at": "2026-04-06T23:43:54.594044"
+      },
+      {
+        "id": "crm_7e2aff378733340e",
+        "case_id": "crm-token-fraud-2024",
+        "address": "0xWASH00000000000000...1848",
+        "chain": "solana",
+        "tier": "tier_4_wash_trading",
+        "role": "wash_trader",
+        "labels": [
+          "Ghost Signer",
+          "Volume Bot",
+          "Parallel Wallet"
+        ],
+        "risk_score": 78,
+        "estimated_usd_extracted": 11400,
+        "token_holdings": {},
+        "is_active": false,
+        "kyc_exchange": null,
+        "kyc_user_id": null,
+        "first_seen": "2024-02-03T00:00:00",
+        "notes": "Part of 17-wallet parallel operation. All funded within 7 seconds. Wiped after 70 days.",
+        "created_at": "2026-04-06T23:43:54.594051"
+      },
+      {
+        "id": "crm_41f094fe48550331",
+        "case_id": "crm-token-fraud-2024",
+        "address": "0xWASH00000000000000...1b51",
+        "chain": "solana",
+        "tier": "tier_4_wash_trading",
+        "role": "wash_trader",
+        "labels": [
+          "Ghost Signer",
+          "Volume Bot",
+          "Parallel Wallet"
+        ],
+        "risk_score": 79,
+        "estimated_usd_extracted": 12200,
+        "token_holdings": {},
+        "is_active": false,
+        "kyc_exchange": null,
+        "kyc_user_id": null,
+        "first_seen": "2024-02-04T03:00:00",
+        "notes": "Part of 17-wallet parallel operation. All funded within 7 seconds. Wiped after 75 days.",
+        "created_at": "2026-04-06T23:43:54.594058"
+      },
+      {
+        "id": "crm_22917fd67a899da3",
+        "case_id": "crm-token-fraud-2024",
+        "address": "0xWASH00000000000000...1e5a",
+        "chain": "solana",
+        "tier": "tier_4_wash_trading",
+        "role": "wash_trader",
+        "labels": [
+          "Ghost Signer",
+          "Volume Bot",
+          "Parallel Wallet"
+        ],
+        "risk_score": 80,
+        "estimated_usd_extracted": 13000,
+        "token_holdings": {},
+        "is_active": false,
+        "kyc_exchange": null,
+        "kyc_user_id": null,
+        "first_seen": "2024-02-04T06:00:00",
+        "notes": "Part of 17-wallet parallel operation. All funded within 7 seconds. Wiped after 80 days.",
+        "created_at": "2026-04-06T23:43:54.594065"
+      },
+      {
+        "id": "crm_a5aab87790256668",
+        "case_id": "crm-token-fraud-2024",
+        "address": "0xWASH00000000000000...2163",
+        "chain": "solana",
+        "tier": "tier_4_wash_trading",
+        "role": "wash_trader",
+        "labels": [
+          "Ghost Signer",
+          "Volume Bot",
+          "Parallel Wallet"
+        ],
+        "risk_score": 81,
+        "estimated_usd_extracted": 13800,
+        "token_holdings": {},
+        "is_active": false,
+        "kyc_exchange": null,
+        "kyc_user_id": null,
+        "first_seen": "2024-02-04T09:00:00",
+        "notes": "Part of 17-wallet parallel operation. All funded within 7 seconds. Wiped after 85 days.",
+        "created_at": "2026-04-06T23:43:54.594072"
+      },
+      {
+        "id": "crm_b080997c40bf2f02",
+        "case_id": "crm-token-fraud-2024",
+        "address": "0xWASH00000000000000...246c",
+        "chain": "solana",
+        "tier": "tier_4_wash_trading",
+        "role": "wash_trader",
+        "labels": [
+          "Ghost Signer",
+          "Volume Bot",
+          "Parallel Wallet"
+        ],
+        "risk_score": 82,
+        "estimated_usd_extracted": 14600,
+        "token_holdings": {},
+        "is_active": false,
+        "kyc_exchange": null,
+        "kyc_user_id": null,
+        "first_seen": "2024-02-05T12:00:00",
+        "notes": "Part of 17-wallet parallel operation. All funded within 7 seconds. Wiped after 90 days.",
+        "created_at": "2026-04-06T23:43:54.594079"
+      },
+      {
+        "id": "crm_120b1624b649f079",
+        "case_id": "crm-token-fraud-2024",
+        "address": "0xWASH00000000000000...2775",
+        "chain": "solana",
+        "tier": "tier_4_wash_trading",
+        "role": "wash_trader",
+        "labels": [
+          "Ghost Signer",
+          "Volume Bot",
+          "Parallel Wallet"
+        ],
+        "risk_score": 83,
+        "estimated_usd_extracted": 15400,
+        "token_holdings": {},
+        "is_active": false,
+        "kyc_exchange": null,
+        "kyc_user_id": null,
+        "first_seen": "2024-02-05T15:00:00",
+        "notes": "Part of 17-wallet parallel operation. All funded within 7 seconds. Wiped after 95 days.",
+        "created_at": "2026-04-06T23:43:54.594086"
+      },
+      {
+        "id": "crm_6b6e5a1fe84db5d3",
+        "case_id": "crm-token-fraud-2024",
+        "address": "0xWASH00000000000000...2a7e",
+        "chain": "solana",
+        "tier": "tier_4_wash_trading",
+        "role": "wash_trader",
+        "labels": [
+          "Ghost Signer",
+          "Volume Bot",
+          "Parallel Wallet"
+        ],
+        "risk_score": 84,
+        "estimated_usd_extracted": 16200,
+        "token_holdings": {},
+        "is_active": false,
+        "kyc_exchange": null,
+        "kyc_user_id": null,
+        "first_seen": "2024-02-05T18:00:00",
+        "notes": "Part of 17-wallet parallel operation. All funded within 7 seconds. Wiped after 100 days.",
+        "created_at": "2026-04-06T23:43:54.594094"
+      },
+      {
+        "id": "crm_94fba8c2c6f98089",
+        "case_id": "crm-token-fraud-2024",
+        "address": "0xWASH00000000000000...2d87",
+        "chain": "solana",
+        "tier": "tier_4_wash_trading",
+        "role": "wash_trader",
+        "labels": [
+          "Ghost Signer",
+          "Volume Bot",
+          "Parallel Wallet"
+        ],
+        "risk_score": 85,
+        "estimated_usd_extracted": 17000,
+        "token_holdings": {},
+        "is_active": false,
+        "kyc_exchange": null,
+        "kyc_user_id": null,
+        "first_seen": "2024-02-06T21:00:00",
+        "notes": "Part of 17-wallet parallel operation. All funded within 7 seconds. Wiped after 105 days.",
+        "created_at": "2026-04-06T23:43:54.594099"
+      },
+      {
+        "id": "crm_e5f0f561a0f77644",
+        "case_id": "crm-token-fraud-2024",
+        "address": "0xWASH00000000000000...3090",
+        "chain": "solana",
+        "tier": "tier_4_wash_trading",
+        "role": "wash_trader",
+        "labels": [
+          "Ghost Signer",
+          "Volume Bot",
+          "Parallel Wallet"
+        ],
+        "risk_score": 86,
+        "estimated_usd_extracted": 17800,
+        "token_holdings": {},
+        "is_active": false,
+        "kyc_exchange": null,
+        "kyc_user_id": null,
+        "first_seen": "2024-02-06T00:00:00",
+        "notes": "Part of 17-wallet parallel operation. All funded within 7 seconds. Wiped after 110 days.",
+        "created_at": "2026-04-06T23:43:54.594106"
+      },
+      {
+        "id": "crm_681c835348f12c5e",
+        "case_id": "crm-token-fraud-2024",
+        "address": "0xWASH00000000000000...3399",
+        "chain": "solana",
+        "tier": "tier_4_wash_trading",
+        "role": "wash_trader",
+        "labels": [
+          "Ghost Signer",
+          "Volume Bot",
+          "Parallel Wallet"
+        ],
+        "risk_score": 87,
+        "estimated_usd_extracted": 18600,
+        "token_holdings": {},
+        "is_active": false,
+        "kyc_exchange": null,
+        "kyc_user_id": null,
+        "first_seen": "2024-02-06T03:00:00",
+        "notes": "Part of 17-wallet parallel operation. All funded within 7 seconds. Wiped after 115 days.",
+        "created_at": "2026-04-06T23:43:54.594115"
+      },
+      {
+        "id": "crm_20043826289bfb73",
+        "case_id": "crm-token-fraud-2024",
+        "address": "0xEXIT...GATE01",
+        "chain": "solana",
+        "tier": "tier_5_exit",
+        "role": "exit_wallet",
+        "labels": [
+          "Gate.io Exit",
+          "KYC Vector",
+          "Primary Cash-out"
+        ],
+        "risk_score": 90,
+        "estimated_usd_extracted": 320000,
+        "token_holdings": {},
+        "is_active": true,
+        "kyc_exchange": "Gate.io",
+        "kyc_user_id": "GATE_USER_8847291",
+        "first_seen": "2024-01-25T10:00:00",
+        "notes": "Primary exit to Gate.io. $320K+ deposited. KYC subpoena priority #1.",
+        "created_at": "2026-04-06T23:43:54.594123"
+      },
+      {
+        "id": "crm_cf977c1dcfeb3f14",
+        "case_id": "crm-token-fraud-2024",
+        "address": "0xEXIT...COIN01",
+        "chain": "solana",
+        "tier": "tier_5_exit",
+        "role": "exit_wallet",
+        "labels": [
+          "Coinbase Exit",
+          "KYC Vector",
+          "Secondary Cash-out"
+        ],
+        "risk_score": 88,
+        "estimated_usd_extracted": 185000,
+        "token_holdings": {},
+        "is_active": true,
+        "kyc_exchange": "Coinbase",
+        "kyc_user_id": "CB_USER_5521847",
+        "first_seen": "2024-02-05T14:30:00",
+        "notes": "Secondary exit to Coinbase. $185K+ deposited. KYC subpoena priority #2.",
+        "created_at": "2026-04-06T23:43:54.594130"
+      },
+      {
+        "id": "crm_ed04fa900c208cf8",
+        "case_id": "crm-token-fraud-2024",
+        "address": "0xEXIT...OTC001",
+        "chain": "solana",
+        "tier": "tier_5_exit",
+        "role": "exit_wallet",
+        "labels": [
+          "OTC Desk",
+          "P2P Exchange",
+          "Tertiary Cash-out"
+        ],
+        "risk_score": 82,
+        "estimated_usd_extracted": 95000,
+        "token_holdings": {},
+        "is_active": true,
+        "kyc_exchange": null,
+        "kyc_user_id": null,
+        "first_seen": "2024-02-10T09:15:00",
+        "notes": "OTC/P2P exchanges. Harder trace but patterns detected.",
+        "created_at": "2026-04-06T23:43:54.594137"
+      },
+      {
+        "id": "crm_32512ccb5eadcb5a",
+        "case_id": "crm-token-fraud-2024",
+        "address": "0xEXIT...MIX001",
+        "chain": "solana",
+        "tier": "tier_5_exit",
+        "role": "exit_wallet",
+        "labels": [
+          "Mixer User",
+          "Tornado Cash",
+          "Privacy Protocol"
+        ],
+        "risk_score": 95,
+        "estimated_usd_extracted": 70000,
+        "token_holdings": {},
+        "is_active": true,
+        "kyc_exchange": null,
+        "kyc_user_id": null,
+        "first_seen": "2024-02-15T18:45:00",
+        "notes": "Uses Tornado Cash and similar mixers. $70K+ obfuscated.",
+        "created_at": "2026-04-06T23:43:54.594144"
+      },
+      {
+        "id": "crm_3efbd5b111dcf617",
+        "case_id": "crm-token-fraud-2024",
+        "address": "0xRESERVE...ALPHA1",
+        "chain": "solana",
+        "tier": "tier_1_command",
+        "role": "reserve_holder",
+        "labels": [
+          "Reserve Holder",
+          "104.6M CRM",
+          "Active Threat"
+        ],
+        "risk_score": 100,
+        "estimated_usd_extracted": 0,
+        "token_holdings": {
+          "CRM": 104600000
+        },
+        "is_active": true,
+        "kyc_exchange": null,
+        "kyc_user_id": null,
+        "first_seen": "2024-03-01T00:00:00",
+        "notes": "HOLDS 104.6M CRM (10.46% supply). Active threat for further extraction.",
+        "created_at": "2026-04-06T23:43:54.594152"
+      },
+      {
+        "id": "crm_c57ac77a1cbcf744",
+        "case_id": "crm-token-fraud-2024",
+        "address": "0xRESERVE...BETA01",
+        "chain": "solana",
+        "tier": "tier_1_command",
+        "role": "reserve_holder",
+        "labels": [
+          "Secondary Reserve",
+          "23.8M CRM",
+          "Dormant"
+        ],
+        "risk_score": 85,
+        "estimated_usd_extracted": 0,
+        "token_holdings": {
+          "CRM": 23800000
+        },
+        "is_active": true,
+        "kyc_exchange": null,
+        "kyc_user_id": null,
+        "first_seen": "2024-03-05T12:00:00",
+        "notes": "Secondary reserve. Dormant since March 2024. May reactivate.",
+        "created_at": "2026-04-06T23:43:54.594159"
+      }
+    ],
+    "wallet_relationships": [
+      {
+        "id": "rel_99a8190e1763d28f_cbe62332cb415934",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "7Xb8C9...pQr2St",
+        "target_wallet": "2Bc3De...fGh4Ij",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594165"
+      },
+      {
+        "id": "rel_99a8190e1763d28f_125f7ad7e8989233",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "7Xb8C9...pQr2St",
+        "target_wallet": "5Kl6Mn...oPq7Rs",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594171"
+      },
+      {
+        "id": "rel_99a8190e1763d28f_45296244f9cad1f6",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "7Xb8C9...pQr2St",
+        "target_wallet": "8Tu9Vw...xYz0A1",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594176"
+      },
+      {
+        "id": "rel_062d24169eedaad8_cbe62332cb415934",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "9Yz0A1...uVw3Xy",
+        "target_wallet": "2Bc3De...fGh4Ij",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594180"
+      },
+      {
+        "id": "rel_062d24169eedaad8_125f7ad7e8989233",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "9Yz0A1...uVw3Xy",
+        "target_wallet": "5Kl6Mn...oPq7Rs",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594184"
+      },
+      {
+        "id": "rel_062d24169eedaad8_45296244f9cad1f6",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "9Yz0A1...uVw3Xy",
+        "target_wallet": "8Tu9Vw...xYz0A1",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594190"
+      },
+      {
+        "id": "rel_cbe62332cb415934_99a8190e1763d28f",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "2Bc3De...fGh4Ij",
+        "target_wallet": "7Xb8C9...pQr2St",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594198"
+      },
+      {
+        "id": "rel_cbe62332cb415934_062d24169eedaad8",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "2Bc3De...fGh4Ij",
+        "target_wallet": "9Yz0A1...uVw3Xy",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594203"
+      },
+      {
+        "id": "rel_cbe62332cb415934_e5806516d24b5798",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "2Bc3De...fGh4Ij",
+        "target_wallet": "DIST_01",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594208"
+      },
+      {
+        "id": "rel_cbe62332cb415934_ef110dea27763b36",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "2Bc3De...fGh4Ij",
+        "target_wallet": "DIST_02",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594213"
+      },
+      {
+        "id": "rel_cbe62332cb415934_b2724cfec237f15b",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "2Bc3De...fGh4Ij",
+        "target_wallet": "DIST_03",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594217"
+      },
+      {
+        "id": "rel_cbe62332cb415934_47b2d2a154ad1fa5",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "2Bc3De...fGh4Ij",
+        "target_wallet": "DIST_04",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594222"
+      },
+      {
+        "id": "rel_cbe62332cb415934_7b55914947844fab",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "2Bc3De...fGh4Ij",
+        "target_wallet": "DIST_05",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594227"
+      },
+      {
+        "id": "rel_125f7ad7e8989233_99a8190e1763d28f",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "5Kl6Mn...oPq7Rs",
+        "target_wallet": "7Xb8C9...pQr2St",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594233"
+      },
+      {
+        "id": "rel_125f7ad7e8989233_062d24169eedaad8",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "5Kl6Mn...oPq7Rs",
+        "target_wallet": "9Yz0A1...uVw3Xy",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594238"
+      },
+      {
+        "id": "rel_125f7ad7e8989233_e5806516d24b5798",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "5Kl6Mn...oPq7Rs",
+        "target_wallet": "DIST_01",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594242"
+      },
+      {
+        "id": "rel_125f7ad7e8989233_ef110dea27763b36",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "5Kl6Mn...oPq7Rs",
+        "target_wallet": "DIST_02",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594247"
+      },
+      {
+        "id": "rel_125f7ad7e8989233_b2724cfec237f15b",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "5Kl6Mn...oPq7Rs",
+        "target_wallet": "DIST_03",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594252"
+      },
+      {
+        "id": "rel_125f7ad7e8989233_47b2d2a154ad1fa5",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "5Kl6Mn...oPq7Rs",
+        "target_wallet": "DIST_04",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594257"
+      },
+      {
+        "id": "rel_125f7ad7e8989233_7b55914947844fab",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "5Kl6Mn...oPq7Rs",
+        "target_wallet": "DIST_05",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594260"
+      },
+      {
+        "id": "rel_45296244f9cad1f6_99a8190e1763d28f",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "8Tu9Vw...xYz0A1",
+        "target_wallet": "7Xb8C9...pQr2St",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594265"
+      },
+      {
+        "id": "rel_45296244f9cad1f6_062d24169eedaad8",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "8Tu9Vw...xYz0A1",
+        "target_wallet": "9Yz0A1...uVw3Xy",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594270"
+      },
+      {
+        "id": "rel_45296244f9cad1f6_e5806516d24b5798",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "8Tu9Vw...xYz0A1",
+        "target_wallet": "DIST_01",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594277"
+      },
+      {
+        "id": "rel_45296244f9cad1f6_ef110dea27763b36",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "8Tu9Vw...xYz0A1",
+        "target_wallet": "DIST_02",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594282"
+      },
+      {
+        "id": "rel_45296244f9cad1f6_b2724cfec237f15b",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "8Tu9Vw...xYz0A1",
+        "target_wallet": "DIST_03",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594287"
+      },
+      {
+        "id": "rel_45296244f9cad1f6_47b2d2a154ad1fa5",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "8Tu9Vw...xYz0A1",
+        "target_wallet": "DIST_04",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594292"
+      },
+      {
+        "id": "rel_45296244f9cad1f6_7b55914947844fab",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "8Tu9Vw...xYz0A1",
+        "target_wallet": "DIST_05",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594297"
+      },
+      {
+        "id": "rel_1bd94657d27cdb24_99a8190e1763d28f",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "3Bc4De...fGh5Ij",
+        "target_wallet": "7Xb8C9...pQr2St",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594303"
+      },
+      {
+        "id": "rel_1bd94657d27cdb24_062d24169eedaad8",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "3Bc4De...fGh5Ij",
+        "target_wallet": "9Yz0A1...uVw3Xy",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594307"
+      },
+      {
+        "id": "rel_1bd94657d27cdb24_e5806516d24b5798",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "3Bc4De...fGh5Ij",
+        "target_wallet": "DIST_01",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594312"
+      },
+      {
+        "id": "rel_1bd94657d27cdb24_ef110dea27763b36",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "3Bc4De...fGh5Ij",
+        "target_wallet": "DIST_02",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594317"
+      },
+      {
+        "id": "rel_1bd94657d27cdb24_b2724cfec237f15b",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "3Bc4De...fGh5Ij",
+        "target_wallet": "DIST_03",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594322"
+      },
+      {
+        "id": "rel_1bd94657d27cdb24_47b2d2a154ad1fa5",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "3Bc4De...fGh5Ij",
+        "target_wallet": "DIST_04",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594326"
+      },
+      {
+        "id": "rel_1bd94657d27cdb24_7b55914947844fab",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "3Bc4De...fGh5Ij",
+        "target_wallet": "DIST_05",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594331"
+      },
+      {
+        "id": "rel_82e9ec5d1bc87739_99a8190e1763d28f",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "6Kl7Mn...oPq8Rs",
+        "target_wallet": "7Xb8C9...pQr2St",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594337"
+      },
+      {
+        "id": "rel_82e9ec5d1bc87739_062d24169eedaad8",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "6Kl7Mn...oPq8Rs",
+        "target_wallet": "9Yz0A1...uVw3Xy",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594341"
+      },
+      {
+        "id": "rel_82e9ec5d1bc87739_e5806516d24b5798",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "6Kl7Mn...oPq8Rs",
+        "target_wallet": "DIST_01",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594344"
+      },
+      {
+        "id": "rel_82e9ec5d1bc87739_ef110dea27763b36",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "6Kl7Mn...oPq8Rs",
+        "target_wallet": "DIST_02",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594349"
+      },
+      {
+        "id": "rel_82e9ec5d1bc87739_b2724cfec237f15b",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "6Kl7Mn...oPq8Rs",
+        "target_wallet": "DIST_03",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594355"
+      },
+      {
+        "id": "rel_82e9ec5d1bc87739_47b2d2a154ad1fa5",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "6Kl7Mn...oPq8Rs",
+        "target_wallet": "DIST_04",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594362"
+      },
+      {
+        "id": "rel_82e9ec5d1bc87739_7b55914947844fab",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "6Kl7Mn...oPq8Rs",
+        "target_wallet": "DIST_05",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594366"
+      },
+      {
+        "id": "rel_477f4d218ccbfa60_ef110dea27763b36",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0x000000000000000000...03e7",
+        "target_wallet": "DIST_02",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594373"
+      },
+      {
+        "id": "rel_477f4d218ccbfa60_b2724cfec237f15b",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0x000000000000000000...03e7",
+        "target_wallet": "DIST_03",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594377"
+      },
+      {
+        "id": "rel_477f4d218ccbfa60_47b2d2a154ad1fa5",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0x000000000000000000...03e7",
+        "target_wallet": "DIST_04",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594382"
+      },
+      {
+        "id": "rel_9e632387fa80b863_e5806516d24b5798",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0x000000000000000000...07ce",
+        "target_wallet": "DIST_01",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594388"
+      },
+      {
+        "id": "rel_9e632387fa80b863_b2724cfec237f15b",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0x000000000000000000...07ce",
+        "target_wallet": "DIST_03",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594393"
+      },
+      {
+        "id": "rel_9e632387fa80b863_47b2d2a154ad1fa5",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0x000000000000000000...07ce",
+        "target_wallet": "DIST_04",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594398"
+      },
+      {
+        "id": "rel_f4704d6fadf65f78_e5806516d24b5798",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0x000000000000000000...0bb5",
+        "target_wallet": "DIST_01",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594404"
+      },
+      {
+        "id": "rel_f4704d6fadf65f78_ef110dea27763b36",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0x000000000000000000...0bb5",
+        "target_wallet": "DIST_02",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594409"
+      },
+      {
+        "id": "rel_f4704d6fadf65f78_47b2d2a154ad1fa5",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0x000000000000000000...0bb5",
+        "target_wallet": "DIST_04",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594414"
+      },
+      {
+        "id": "rel_5209a0db5d2c63b5_e5806516d24b5798",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0x000000000000000000...0f9c",
+        "target_wallet": "DIST_01",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594420"
+      },
+      {
+        "id": "rel_5209a0db5d2c63b5_ef110dea27763b36",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0x000000000000000000...0f9c",
+        "target_wallet": "DIST_02",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594423"
+      },
+      {
+        "id": "rel_5209a0db5d2c63b5_b2724cfec237f15b",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0x000000000000000000...0f9c",
+        "target_wallet": "DIST_03",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594427"
+      },
+      {
+        "id": "rel_5bff6beca72d38fd_e5806516d24b5798",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0x000000000000000000...1383",
+        "target_wallet": "DIST_01",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594434"
+      },
+      {
+        "id": "rel_5bff6beca72d38fd_ef110dea27763b36",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0x000000000000000000...1383",
+        "target_wallet": "DIST_02",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594450"
+      },
+      {
+        "id": "rel_5bff6beca72d38fd_b2724cfec237f15b",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0x000000000000000000...1383",
+        "target_wallet": "DIST_03",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594457"
+      },
+      {
+        "id": "rel_77d420ee6b07e0bf_e5806516d24b5798",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0x000000000000000000...176a",
+        "target_wallet": "DIST_01",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594464"
+      },
+      {
+        "id": "rel_77d420ee6b07e0bf_ef110dea27763b36",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0x000000000000000000...176a",
+        "target_wallet": "DIST_02",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594469"
+      },
+      {
+        "id": "rel_77d420ee6b07e0bf_b2724cfec237f15b",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0x000000000000000000...176a",
+        "target_wallet": "DIST_03",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594474"
+      },
+      {
+        "id": "rel_832d39cc902c8864_e5806516d24b5798",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0x000000000000000000...1b51",
+        "target_wallet": "DIST_01",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594480"
+      },
+      {
+        "id": "rel_832d39cc902c8864_ef110dea27763b36",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0x000000000000000000...1b51",
+        "target_wallet": "DIST_02",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594484"
+      },
+      {
+        "id": "rel_832d39cc902c8864_b2724cfec237f15b",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0x000000000000000000...1b51",
+        "target_wallet": "DIST_03",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594489"
+      },
+      {
+        "id": "rel_ec874b358eb1c871_e5806516d24b5798",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0x000000000000000000...1f38",
+        "target_wallet": "DIST_01",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594495"
+      },
+      {
+        "id": "rel_ec874b358eb1c871_ef110dea27763b36",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0x000000000000000000...1f38",
+        "target_wallet": "DIST_02",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594500"
+      },
+      {
+        "id": "rel_ec874b358eb1c871_b2724cfec237f15b",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0x000000000000000000...1f38",
+        "target_wallet": "DIST_03",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594504"
+      },
+      {
+        "id": "rel_2db6020f3ca21e7d_e5806516d24b5798",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0x000000000000000000...231f",
+        "target_wallet": "DIST_01",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594511"
+      },
+      {
+        "id": "rel_2db6020f3ca21e7d_ef110dea27763b36",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0x000000000000000000...231f",
+        "target_wallet": "DIST_02",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594518"
+      },
+      {
+        "id": "rel_2db6020f3ca21e7d_b2724cfec237f15b",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0x000000000000000000...231f",
+        "target_wallet": "DIST_03",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594523"
+      },
+      {
+        "id": "rel_5e6f0bf5e79c1897_e5806516d24b5798",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0x000000000000000000...2706",
+        "target_wallet": "DIST_01",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594529"
+      },
+      {
+        "id": "rel_5e6f0bf5e79c1897_ef110dea27763b36",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0x000000000000000000...2706",
+        "target_wallet": "DIST_02",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594534"
+      },
+      {
+        "id": "rel_5e6f0bf5e79c1897_b2724cfec237f15b",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0x000000000000000000...2706",
+        "target_wallet": "DIST_03",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594539"
+      },
+      {
+        "id": "rel_7f0e0236b9252642_e5806516d24b5798",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0x000000000000000000...2aed",
+        "target_wallet": "DIST_01",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594545"
+      },
+      {
+        "id": "rel_7f0e0236b9252642_ef110dea27763b36",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0x000000000000000000...2aed",
+        "target_wallet": "DIST_02",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594549"
+      },
+      {
+        "id": "rel_7f0e0236b9252642_b2724cfec237f15b",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0x000000000000000000...2aed",
+        "target_wallet": "DIST_03",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594554"
+      },
+      {
+        "id": "rel_c7a632da2025a5a2_e5806516d24b5798",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0x000000000000000000...2ed4",
+        "target_wallet": "DIST_01",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594560"
+      },
+      {
+        "id": "rel_c7a632da2025a5a2_ef110dea27763b36",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0x000000000000000000...2ed4",
+        "target_wallet": "DIST_02",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594565"
+      },
+      {
+        "id": "rel_c7a632da2025a5a2_b2724cfec237f15b",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0x000000000000000000...2ed4",
+        "target_wallet": "DIST_03",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594570"
+      },
+      {
+        "id": "rel_025facd0ccec38c0_4f3cc3a8dfe48452",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...0309",
+        "target_wallet": "WASH_02",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594577"
+      },
+      {
+        "id": "rel_025facd0ccec38c0_69ea981082c7797f",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...0309",
+        "target_wallet": "WASH_03",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594581"
+      },
+      {
+        "id": "rel_025facd0ccec38c0_83c4dd5a17b1a077",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...0309",
+        "target_wallet": "WASH_04",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594584"
+      },
+      {
+        "id": "rel_025facd0ccec38c0_5a8c44daa1c94dc6",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...0309",
+        "target_wallet": "WASH_05",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594588"
+      },
+      {
+        "id": "rel_025facd0ccec38c0_96d9b9069ad460dc",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...0309",
+        "target_wallet": "WASH_06",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594595"
+      },
+      {
+        "id": "rel_da7aa36cd727ce37_0d8f848a9bef1229",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...0612",
+        "target_wallet": "WASH_01",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594602"
+      },
+      {
+        "id": "rel_da7aa36cd727ce37_69ea981082c7797f",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...0612",
+        "target_wallet": "WASH_03",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594607"
+      },
+      {
+        "id": "rel_da7aa36cd727ce37_83c4dd5a17b1a077",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...0612",
+        "target_wallet": "WASH_04",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594612"
+      },
+      {
+        "id": "rel_da7aa36cd727ce37_5a8c44daa1c94dc6",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...0612",
+        "target_wallet": "WASH_05",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594617"
+      },
+      {
+        "id": "rel_da7aa36cd727ce37_96d9b9069ad460dc",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...0612",
+        "target_wallet": "WASH_06",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594621"
+      },
+      {
+        "id": "rel_5ab61d0840e8071b_0d8f848a9bef1229",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...091b",
+        "target_wallet": "WASH_01",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594627"
+      },
+      {
+        "id": "rel_5ab61d0840e8071b_4f3cc3a8dfe48452",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...091b",
+        "target_wallet": "WASH_02",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594632"
+      },
+      {
+        "id": "rel_5ab61d0840e8071b_83c4dd5a17b1a077",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...091b",
+        "target_wallet": "WASH_04",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594637"
+      },
+      {
+        "id": "rel_5ab61d0840e8071b_5a8c44daa1c94dc6",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...091b",
+        "target_wallet": "WASH_05",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594641"
+      },
+      {
+        "id": "rel_5ab61d0840e8071b_96d9b9069ad460dc",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...091b",
+        "target_wallet": "WASH_06",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594646"
+      },
+      {
+        "id": "rel_56e5d2dd51d8f4a1_0d8f848a9bef1229",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...0c24",
+        "target_wallet": "WASH_01",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594652"
+      },
+      {
+        "id": "rel_56e5d2dd51d8f4a1_4f3cc3a8dfe48452",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...0c24",
+        "target_wallet": "WASH_02",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594658"
+      },
+      {
+        "id": "rel_56e5d2dd51d8f4a1_69ea981082c7797f",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...0c24",
+        "target_wallet": "WASH_03",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594661"
+      },
+      {
+        "id": "rel_56e5d2dd51d8f4a1_5a8c44daa1c94dc6",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...0c24",
+        "target_wallet": "WASH_05",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594664"
+      },
+      {
+        "id": "rel_56e5d2dd51d8f4a1_96d9b9069ad460dc",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...0c24",
+        "target_wallet": "WASH_06",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594669"
+      },
+      {
+        "id": "rel_98d82a4f27665f8a_0d8f848a9bef1229",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...0f2d",
+        "target_wallet": "WASH_01",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594677"
+      },
+      {
+        "id": "rel_98d82a4f27665f8a_4f3cc3a8dfe48452",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...0f2d",
+        "target_wallet": "WASH_02",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594683"
+      },
+      {
+        "id": "rel_98d82a4f27665f8a_69ea981082c7797f",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...0f2d",
+        "target_wallet": "WASH_03",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594688"
+      },
+      {
+        "id": "rel_98d82a4f27665f8a_83c4dd5a17b1a077",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...0f2d",
+        "target_wallet": "WASH_04",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594692"
+      },
+      {
+        "id": "rel_98d82a4f27665f8a_96d9b9069ad460dc",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...0f2d",
+        "target_wallet": "WASH_06",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594697"
+      },
+      {
+        "id": "rel_3f814c0d8a49d09a_0d8f848a9bef1229",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...1236",
+        "target_wallet": "WASH_01",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594703"
+      },
+      {
+        "id": "rel_3f814c0d8a49d09a_4f3cc3a8dfe48452",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...1236",
+        "target_wallet": "WASH_02",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594708"
+      },
+      {
+        "id": "rel_3f814c0d8a49d09a_69ea981082c7797f",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...1236",
+        "target_wallet": "WASH_03",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594712"
+      },
+      {
+        "id": "rel_3f814c0d8a49d09a_83c4dd5a17b1a077",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...1236",
+        "target_wallet": "WASH_04",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594717"
+      },
+      {
+        "id": "rel_3f814c0d8a49d09a_5a8c44daa1c94dc6",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...1236",
+        "target_wallet": "WASH_05",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594722"
+      },
+      {
+        "id": "rel_b0052805119f6d38_0d8f848a9bef1229",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...153f",
+        "target_wallet": "WASH_01",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594728"
+      },
+      {
+        "id": "rel_b0052805119f6d38_4f3cc3a8dfe48452",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...153f",
+        "target_wallet": "WASH_02",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594732"
+      },
+      {
+        "id": "rel_b0052805119f6d38_69ea981082c7797f",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...153f",
+        "target_wallet": "WASH_03",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594738"
+      },
+      {
+        "id": "rel_b0052805119f6d38_83c4dd5a17b1a077",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...153f",
+        "target_wallet": "WASH_04",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594741"
+      },
+      {
+        "id": "rel_b0052805119f6d38_5a8c44daa1c94dc6",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...153f",
+        "target_wallet": "WASH_05",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594744"
+      },
+      {
+        "id": "rel_7e2aff378733340e_0d8f848a9bef1229",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...1848",
+        "target_wallet": "WASH_01",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594752"
+      },
+      {
+        "id": "rel_7e2aff378733340e_4f3cc3a8dfe48452",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...1848",
+        "target_wallet": "WASH_02",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594758"
+      },
+      {
+        "id": "rel_7e2aff378733340e_69ea981082c7797f",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...1848",
+        "target_wallet": "WASH_03",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594773"
+      },
+      {
+        "id": "rel_7e2aff378733340e_83c4dd5a17b1a077",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...1848",
+        "target_wallet": "WASH_04",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594778"
+      },
+      {
+        "id": "rel_7e2aff378733340e_5a8c44daa1c94dc6",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...1848",
+        "target_wallet": "WASH_05",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594783"
+      },
+      {
+        "id": "rel_41f094fe48550331_0d8f848a9bef1229",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...1b51",
+        "target_wallet": "WASH_01",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594789"
+      },
+      {
+        "id": "rel_41f094fe48550331_4f3cc3a8dfe48452",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...1b51",
+        "target_wallet": "WASH_02",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594794"
+      },
+      {
+        "id": "rel_41f094fe48550331_69ea981082c7797f",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...1b51",
+        "target_wallet": "WASH_03",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594799"
+      },
+      {
+        "id": "rel_41f094fe48550331_83c4dd5a17b1a077",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...1b51",
+        "target_wallet": "WASH_04",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594803"
+      },
+      {
+        "id": "rel_41f094fe48550331_5a8c44daa1c94dc6",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...1b51",
+        "target_wallet": "WASH_05",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594808"
+      },
+      {
+        "id": "rel_22917fd67a899da3_0d8f848a9bef1229",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...1e5a",
+        "target_wallet": "WASH_01",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594814"
+      },
+      {
+        "id": "rel_22917fd67a899da3_4f3cc3a8dfe48452",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...1e5a",
+        "target_wallet": "WASH_02",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594818"
+      },
+      {
+        "id": "rel_22917fd67a899da3_69ea981082c7797f",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...1e5a",
+        "target_wallet": "WASH_03",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594821"
+      },
+      {
+        "id": "rel_22917fd67a899da3_83c4dd5a17b1a077",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...1e5a",
+        "target_wallet": "WASH_04",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594824"
+      },
+      {
+        "id": "rel_22917fd67a899da3_5a8c44daa1c94dc6",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...1e5a",
+        "target_wallet": "WASH_05",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594830"
+      },
+      {
+        "id": "rel_a5aab87790256668_0d8f848a9bef1229",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...2163",
+        "target_wallet": "WASH_01",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594839"
+      },
+      {
+        "id": "rel_a5aab87790256668_4f3cc3a8dfe48452",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...2163",
+        "target_wallet": "WASH_02",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594844"
+      },
+      {
+        "id": "rel_a5aab87790256668_69ea981082c7797f",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...2163",
+        "target_wallet": "WASH_03",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594849"
+      },
+      {
+        "id": "rel_a5aab87790256668_83c4dd5a17b1a077",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...2163",
+        "target_wallet": "WASH_04",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594853"
+      },
+      {
+        "id": "rel_a5aab87790256668_5a8c44daa1c94dc6",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...2163",
+        "target_wallet": "WASH_05",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594858"
+      },
+      {
+        "id": "rel_b080997c40bf2f02_0d8f848a9bef1229",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...246c",
+        "target_wallet": "WASH_01",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594864"
+      },
+      {
+        "id": "rel_b080997c40bf2f02_4f3cc3a8dfe48452",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...246c",
+        "target_wallet": "WASH_02",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594869"
+      },
+      {
+        "id": "rel_b080997c40bf2f02_69ea981082c7797f",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...246c",
+        "target_wallet": "WASH_03",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594873"
+      },
+      {
+        "id": "rel_b080997c40bf2f02_83c4dd5a17b1a077",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...246c",
+        "target_wallet": "WASH_04",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594878"
+      },
+      {
+        "id": "rel_b080997c40bf2f02_5a8c44daa1c94dc6",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...246c",
+        "target_wallet": "WASH_05",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594883"
+      },
+      {
+        "id": "rel_120b1624b649f079_0d8f848a9bef1229",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...2775",
+        "target_wallet": "WASH_01",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594889"
+      },
+      {
+        "id": "rel_120b1624b649f079_4f3cc3a8dfe48452",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...2775",
+        "target_wallet": "WASH_02",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594893"
+      },
+      {
+        "id": "rel_120b1624b649f079_69ea981082c7797f",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...2775",
+        "target_wallet": "WASH_03",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594898"
+      },
+      {
+        "id": "rel_120b1624b649f079_83c4dd5a17b1a077",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...2775",
+        "target_wallet": "WASH_04",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594901"
+      },
+      {
+        "id": "rel_120b1624b649f079_5a8c44daa1c94dc6",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...2775",
+        "target_wallet": "WASH_05",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594905"
+      },
+      {
+        "id": "rel_6b6e5a1fe84db5d3_0d8f848a9bef1229",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...2a7e",
+        "target_wallet": "WASH_01",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594912"
+      },
+      {
+        "id": "rel_6b6e5a1fe84db5d3_4f3cc3a8dfe48452",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...2a7e",
+        "target_wallet": "WASH_02",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594919"
+      },
+      {
+        "id": "rel_6b6e5a1fe84db5d3_69ea981082c7797f",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...2a7e",
+        "target_wallet": "WASH_03",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594924"
+      },
+      {
+        "id": "rel_6b6e5a1fe84db5d3_83c4dd5a17b1a077",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...2a7e",
+        "target_wallet": "WASH_04",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594928"
+      },
+      {
+        "id": "rel_6b6e5a1fe84db5d3_5a8c44daa1c94dc6",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...2a7e",
+        "target_wallet": "WASH_05",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594933"
+      },
+      {
+        "id": "rel_94fba8c2c6f98089_0d8f848a9bef1229",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...2d87",
+        "target_wallet": "WASH_01",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594939"
+      },
+      {
+        "id": "rel_94fba8c2c6f98089_4f3cc3a8dfe48452",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...2d87",
+        "target_wallet": "WASH_02",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594944"
+      },
+      {
+        "id": "rel_94fba8c2c6f98089_69ea981082c7797f",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...2d87",
+        "target_wallet": "WASH_03",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594949"
+      },
+      {
+        "id": "rel_94fba8c2c6f98089_83c4dd5a17b1a077",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...2d87",
+        "target_wallet": "WASH_04",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594954"
+      },
+      {
+        "id": "rel_94fba8c2c6f98089_5a8c44daa1c94dc6",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...2d87",
+        "target_wallet": "WASH_05",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594958"
+      },
+      {
+        "id": "rel_e5f0f561a0f77644_0d8f848a9bef1229",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...3090",
+        "target_wallet": "WASH_01",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594964"
+      },
+      {
+        "id": "rel_e5f0f561a0f77644_4f3cc3a8dfe48452",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...3090",
+        "target_wallet": "WASH_02",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594969"
+      },
+      {
+        "id": "rel_e5f0f561a0f77644_69ea981082c7797f",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...3090",
+        "target_wallet": "WASH_03",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594974"
+      },
+      {
+        "id": "rel_e5f0f561a0f77644_83c4dd5a17b1a077",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...3090",
+        "target_wallet": "WASH_04",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594978"
+      },
+      {
+        "id": "rel_e5f0f561a0f77644_5a8c44daa1c94dc6",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...3090",
+        "target_wallet": "WASH_05",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594981"
+      },
+      {
+        "id": "rel_681c835348f12c5e_0d8f848a9bef1229",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...3399",
+        "target_wallet": "WASH_01",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594987"
+      },
+      {
+        "id": "rel_681c835348f12c5e_4f3cc3a8dfe48452",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...3399",
+        "target_wallet": "WASH_02",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594993"
+      },
+      {
+        "id": "rel_681c835348f12c5e_69ea981082c7797f",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...3399",
+        "target_wallet": "WASH_03",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.594999"
+      },
+      {
+        "id": "rel_681c835348f12c5e_83c4dd5a17b1a077",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...3399",
+        "target_wallet": "WASH_04",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.595004"
+      },
+      {
+        "id": "rel_681c835348f12c5e_5a8c44daa1c94dc6",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xWASH00000000000000...3399",
+        "target_wallet": "WASH_05",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.595009"
+      },
+      {
+        "id": "rel_20043826289bfb73_e5806516d24b5798",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xEXIT...GATE01",
+        "target_wallet": "DIST_01",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.595015"
+      },
+      {
+        "id": "rel_20043826289bfb73_ef110dea27763b36",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xEXIT...GATE01",
+        "target_wallet": "DIST_02",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.595020"
+      },
+      {
+        "id": "rel_20043826289bfb73_b2724cfec237f15b",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xEXIT...GATE01",
+        "target_wallet": "DIST_03",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.595024"
+      },
+      {
+        "id": "rel_20043826289bfb73_47b2d2a154ad1fa5",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xEXIT...GATE01",
+        "target_wallet": "DIST_04",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.595029"
+      },
+      {
+        "id": "rel_20043826289bfb73_7b55914947844fab",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xEXIT...GATE01",
+        "target_wallet": "DIST_05",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.595034"
+      },
+      {
+        "id": "rel_cf977c1dcfeb3f14_e5806516d24b5798",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xEXIT...COIN01",
+        "target_wallet": "DIST_01",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.595040"
+      },
+      {
+        "id": "rel_cf977c1dcfeb3f14_ef110dea27763b36",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xEXIT...COIN01",
+        "target_wallet": "DIST_02",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.595044"
+      },
+      {
+        "id": "rel_cf977c1dcfeb3f14_b2724cfec237f15b",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xEXIT...COIN01",
+        "target_wallet": "DIST_03",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.595049"
+      },
+      {
+        "id": "rel_cf977c1dcfeb3f14_47b2d2a154ad1fa5",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xEXIT...COIN01",
+        "target_wallet": "DIST_04",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.595054"
+      },
+      {
+        "id": "rel_cf977c1dcfeb3f14_7b55914947844fab",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xEXIT...COIN01",
+        "target_wallet": "DIST_05",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.595058"
+      },
+      {
+        "id": "rel_ed04fa900c208cf8_e5806516d24b5798",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xEXIT...OTC001",
+        "target_wallet": "DIST_01",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.595062"
+      },
+      {
+        "id": "rel_ed04fa900c208cf8_ef110dea27763b36",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xEXIT...OTC001",
+        "target_wallet": "DIST_02",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.595067"
+      },
+      {
+        "id": "rel_ed04fa900c208cf8_b2724cfec237f15b",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xEXIT...OTC001",
+        "target_wallet": "DIST_03",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.595073"
+      },
+      {
+        "id": "rel_ed04fa900c208cf8_47b2d2a154ad1fa5",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xEXIT...OTC001",
+        "target_wallet": "DIST_04",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.595080"
+      },
+      {
+        "id": "rel_ed04fa900c208cf8_7b55914947844fab",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xEXIT...OTC001",
+        "target_wallet": "DIST_05",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.595084"
+      },
+      {
+        "id": "rel_32512ccb5eadcb5a_e5806516d24b5798",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xEXIT...MIX001",
+        "target_wallet": "DIST_01",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.595091"
+      },
+      {
+        "id": "rel_32512ccb5eadcb5a_ef110dea27763b36",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xEXIT...MIX001",
+        "target_wallet": "DIST_02",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.595095"
+      },
+      {
+        "id": "rel_32512ccb5eadcb5a_b2724cfec237f15b",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xEXIT...MIX001",
+        "target_wallet": "DIST_03",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.595100"
+      },
+      {
+        "id": "rel_32512ccb5eadcb5a_47b2d2a154ad1fa5",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xEXIT...MIX001",
+        "target_wallet": "DIST_04",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.595105"
+      },
+      {
+        "id": "rel_32512ccb5eadcb5a_7b55914947844fab",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xEXIT...MIX001",
+        "target_wallet": "DIST_05",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.595109"
+      },
+      {
+        "id": "rel_3efbd5b111dcf617_5385699178ff13c3",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xRESERVE...ALPHA1",
+        "target_wallet": "EXIT_GATE_01",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.595116"
+      },
+      {
+        "id": "rel_3efbd5b111dcf617_594e32ae954fc950",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xRESERVE...ALPHA1",
+        "target_wallet": "EXIT_COIN_01",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.595121"
+      },
+      {
+        "id": "rel_3efbd5b111dcf617_71100d475ff2e747",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xRESERVE...ALPHA1",
+        "target_wallet": "EXIT_OTC_01",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.595125"
+      },
+      {
+        "id": "rel_3efbd5b111dcf617_01f2946a79878cfa",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xRESERVE...ALPHA1",
+        "target_wallet": "EXIT_MIX_01",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.595130"
+      },
+      {
+        "id": "rel_c57ac77a1cbcf744_5385699178ff13c3",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xRESERVE...BETA01",
+        "target_wallet": "EXIT_GATE_01",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.595136"
+      },
+      {
+        "id": "rel_c57ac77a1cbcf744_594e32ae954fc950",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xRESERVE...BETA01",
+        "target_wallet": "EXIT_COIN_01",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.595140"
+      },
+      {
+        "id": "rel_c57ac77a1cbcf744_71100d475ff2e747",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xRESERVE...BETA01",
+        "target_wallet": "EXIT_OTC_01",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.595143"
+      },
+      {
+        "id": "rel_c57ac77a1cbcf744_01f2946a79878cfa",
+        "case_id": "crm-token-fraud-2024",
+        "source_wallet": "0xRESERVE...BETA01",
+        "target_wallet": "EXIT_MIX_01",
+        "relationship_type": "associated",
+        "confidence": 0.85,
+        "evidence": [
+          "transaction_pattern",
+          "temporal_proximity"
+        ],
+        "created_at": "2026-04-06T23:43:54.595148"
+      }
+    ],
+    "kyc_subpoenas": [
+      {
+        "id": "kyc_gate.io_GATE_USER_8847291",
+        "case_id": "crm-token-fraud-2024",
+        "exchange": "Gate.io",
+        "user_id": "GATE_USER_8847291",
+        "wallet_addresses": [
+          "0xEXIT...GATE01"
+        ],
+        "estimated_funds": 320000,
+        "priority": "critical",
+        "legal_basis": "18 USC 2703(d) - Stored Communications Act",
+        "status": "pending",
+        "date_submitted": null,
+        "date_response": null,
+        "notes": "Primary exit vector. $320K+ traced. Identity will expose Tier 1 controller.",
+        "created_at": "2026-04-06T23:43:54.595155"
+      },
+      {
+        "id": "kyc_coinbase_CB_USER_5521847",
+        "case_id": "crm-token-fraud-2024",
+        "exchange": "Coinbase",
+        "user_id": "CB_USER_5521847",
+        "wallet_addresses": [
+          "0xEXIT...COIN01"
+        ],
+        "estimated_funds": 185000,
+        "priority": "critical",
+        "legal_basis": "18 USC 2703(d) - Stored Communications Act",
+        "status": "pending",
+        "date_submitted": null,
+        "date_response": null,
+        "notes": "Secondary exit. US-based exchange = faster response.",
+        "created_at": "2026-04-06T23:43:54.595160"
+      },
+      {
+        "id": "kyc_binance_UNKNOWN",
+        "case_id": "crm-token-fraud-2024",
+        "exchange": "Binance",
+        "user_id": "UNKNOWN",
+        "wallet_addresses": [
+          "0xEXIT...OTC001"
+        ],
+        "estimated_funds": 95000,
+        "priority": "high",
+        "legal_basis": "Mutual Legal Assistance Treaty (MLAT)",
+        "status": "pending",
+        "date_submitted": null,
+        "date_response": null,
+        "notes": "OTC desk usage. Requires international cooperation.",
+        "created_at": "2026-04-06T23:43:54.595165"
+      }
+    ],
+    "monitoring_alerts": [
+      {
+        "id": "alert_99a8190e1763d28f",
+        "case_id": "crm-token-fraud-2024",
+        "wallet_address": "7Xb8C9...pQr2St",
+        "alert_type": "high_risk_activity",
+        "conditions": {
+          "outflow_threshold_usd": 1000,
+          "token_swap_detected": true,
+          "exchange_deposit": true
+        },
+        "notification_channels": [
+          "telegram",
+          "email",
+          "webhook"
+        ],
+        "is_active": true,
+        "created_at": "2026-04-06T23:43:54.595171"
+      },
+      {
+        "id": "alert_062d24169eedaad8",
+        "case_id": "crm-token-fraud-2024",
+        "wallet_address": "9Yz0A1...uVw3Xy",
+        "alert_type": "high_risk_activity",
+        "conditions": {
+          "outflow_threshold_usd": 1000,
+          "token_swap_detected": true,
+          "exchange_deposit": true
+        },
+        "notification_channels": [
+          "telegram",
+          "email",
+          "webhook"
+        ],
+        "is_active": true,
+        "created_at": "2026-04-06T23:43:54.595177"
+      },
+      {
+        "id": "alert_cbe62332cb415934",
+        "case_id": "crm-token-fraud-2024",
+        "wallet_address": "2Bc3De...fGh4Ij",
+        "alert_type": "high_risk_activity",
+        "conditions": {
+          "outflow_threshold_usd": 1000,
+          "token_swap_detected": true,
+          "exchange_deposit": true
+        },
+        "notification_channels": [
+          "telegram",
+          "email",
+          "webhook"
+        ],
+        "is_active": true,
+        "created_at": "2026-04-06T23:43:54.595182"
+      },
+      {
+        "id": "alert_125f7ad7e8989233",
+        "case_id": "crm-token-fraud-2024",
+        "wallet_address": "5Kl6Mn...oPq7Rs",
+        "alert_type": "high_risk_activity",
+        "conditions": {
+          "outflow_threshold_usd": 1000,
+          "token_swap_detected": true,
+          "exchange_deposit": true
+        },
+        "notification_channels": [
+          "telegram",
+          "email",
+          "webhook"
+        ],
+        "is_active": true,
+        "created_at": "2026-04-06T23:43:54.595187"
+      },
+      {
+        "id": "alert_45296244f9cad1f6",
+        "case_id": "crm-token-fraud-2024",
+        "wallet_address": "8Tu9Vw...xYz0A1",
+        "alert_type": "high_risk_activity",
+        "conditions": {
+          "outflow_threshold_usd": 1000,
+          "token_swap_detected": true,
+          "exchange_deposit": true
+        },
+        "notification_channels": [
+          "telegram",
+          "email",
+          "webhook"
+        ],
+        "is_active": true,
+        "created_at": "2026-04-06T23:43:54.595192"
+      },
+      {
+        "id": "alert_20043826289bfb73",
+        "case_id": "crm-token-fraud-2024",
+        "wallet_address": "0xEXIT...GATE01",
+        "alert_type": "high_risk_activity",
+        "conditions": {
+          "outflow_threshold_usd": 1000,
+          "token_swap_detected": true,
+          "exchange_deposit": true
+        },
+        "notification_channels": [
+          "telegram",
+          "email",
+          "webhook"
+        ],
+        "is_active": true,
+        "created_at": "2026-04-06T23:43:54.595198"
+      },
+      {
+        "id": "alert_32512ccb5eadcb5a",
+        "case_id": "crm-token-fraud-2024",
+        "wallet_address": "0xEXIT...MIX001",
+        "alert_type": "high_risk_activity",
+        "conditions": {
+          "outflow_threshold_usd": 1000,
+          "token_swap_detected": true,
+          "exchange_deposit": true
+        },
+        "notification_channels": [
+          "telegram",
+          "email",
+          "webhook"
+        ],
+        "is_active": true,
+        "created_at": "2026-04-06T23:43:54.595203"
+      },
+      {
+        "id": "alert_3efbd5b111dcf617",
+        "case_id": "crm-token-fraud-2024",
+        "wallet_address": "0xRESERVE...ALPHA1",
+        "alert_type": "high_risk_activity",
+        "conditions": {
+          "outflow_threshold_usd": 1000,
+          "token_swap_detected": true,
+          "exchange_deposit": true
+        },
+        "notification_channels": [
+          "telegram",
+          "email",
+          "webhook"
+        ],
+        "is_active": true,
+        "created_at": "2026-04-06T23:43:54.595208"
+      }
+    ]
+  },
+  "wallets": [
+    {
+      "address": "7Xb8C9...pQr2St",
+      "tier": "tier_1_command",
+      "role": "deployer",
+      "labels": [
+        "CRM Deployer",
+        "Contract Creator",
+        "Primary Controller"
+      ],
+      "first_seen": "2024-01-15T03:42:00",
+      "related_wallets": [
+        "2Bc3De...fGh4Ij",
+        "5Kl6Mn...oPq7Rs",
+        "8Tu9Vw...xYz0A1"
+      ],
+      "risk_score": 100,
+      "estimated_usd_extracted": 0,
+      "token_holdings": {},
+      "is_active": true,
+      "kyc_exchange": null,
+      "kyc_user_id": null,
+      "notes": "Contract deployer. Never holds funds >2 hours. Immediate dispersal to Tier 2."
+    },
+    {
+      "address": "9Yz0A1...uVw3Xy",
+      "tier": "tier_1_command",
+      "role": "liquidity_controller",
+      "labels": [
+        "Primary Liquidity Controller",
+        "SOSANA Linked",
+        "SHIFT AI Linked"
+      ],
+      "first_seen": "2024-01-15T04:15:00",
+      "related_wallets": [
+        "2Bc3De...fGh4Ij",
+        "5Kl6Mn...oPq7Rs",
+        "8Tu9Vw...xYz0A1"
+      ],
+      "risk_score": 98,
+      "estimated_usd_extracted": 245000,
+      "token_holdings": {},
+      "is_active": true,
+      "kyc_exchange": null,
+      "kyc_user_id": null,
+      "notes": "Controls 60%+ of liquidity pools. Linked to SOSANA and SHIFT AI deployments."
+    },
+    {
+      "address": "2Bc3De...fGh4Ij",
+      "tier": "tier_2_liquidity",
+      "role": "liquidity_controller",
+      "labels": [
+        "Pool Drainer A",
+        "Flash Loan User"
+      ],
+      "first_seen": "2024-01-16T12:30:00",
+      "related_wallets": [
+        "7Xb8C9...pQr2St",
+        "9Yz0A1...uVw3Xy",
+        "DIST_01",
+        "DIST_02",
+        "DIST_03",
+        "DIST_04",
+        "DIST_05"
+      ],
+      "risk_score": 95,
+      "estimated_usd_extracted": 187500,
+      "token_holdings": {},
+      "is_active": true,
+      "kyc_exchange": null,
+      "kyc_user_id": null,
+      "notes": "Drains pools within 48h of liquidity adds. Uses flash loans for cover."
+    },
+    {
+      "address": "5Kl6Mn...oPq7Rs",
+      "tier": "tier_2_liquidity",
+      "role": "market_maker",
+      "labels": [
+        "Fake Volume Generator",
+        "Wash Trading Primary"
+      ],
+      "first_seen": "2024-01-17T08:45:00",
+      "related_wallets": [
+        "7Xb8C9...pQr2St",
+        "9Yz0A1...uVw3Xy",
+        "DIST_01",
+        "DIST_02",
+        "DIST_03",
+        "DIST_04",
+        "DIST_05"
+      ],
+      "risk_score": 92,
+      "estimated_usd_extracted": 125000,
+      "token_holdings": {},
+      "is_active": true,
+      "kyc_exchange": null,
+      "kyc_user_id": null,
+      "notes": "Generates 80%+ of daily volume. Self-trading loops detected."
+    },
+    {
+      "address": "8Tu9Vw...xYz0A1",
+      "tier": "tier_2_liquidity",
+      "role": "liquidity_controller",
+      "labels": [
+        "Emergency Exit",
+        "Rug Pull Trigger"
+      ],
+      "first_seen": "2024-01-18T15:20:00",
+      "related_wallets": [
+        "7Xb8C9...pQr2St",
+        "9Yz0A1...uVw3Xy",
+        "DIST_01",
+        "DIST_02",
+        "DIST_03",
+        "DIST_04",
+        "DIST_05"
+      ],
+      "risk_score": 96,
+      "estimated_usd_extracted": 89000,
+      "token_holdings": {},
+      "is_active": true,
+      "kyc_exchange": null,
+      "kyc_user_id": null,
+      "notes": "Holds emergency liquidity removal permissions."
+    },
+    {
+      "address": "3Bc4De...fGh5Ij",
+      "tier": "tier_2_liquidity",
+      "role": "market_maker",
+      "labels": [
+        "Price Manipulator",
+        "Pump Engine"
+      ],
+      "first_seen": "2024-01-19T09:10:00",
+      "related_wallets": [
+        "7Xb8C9...pQr2St",
+        "9Yz0A1...uVw3Xy",
+        "DIST_01",
+        "DIST_02",
+        "DIST_03",
+        "DIST_04",
+        "DIST_05"
+      ],
+      "risk_score": 88,
+      "estimated_usd_extracted": 67000,
+      "token_holdings": {},
+      "is_active": true,
+      "kyc_exchange": null,
+      "kyc_user_id": null,
+      "notes": "Artificial price pumps before Tier 3 distributions."
+    },
+    {
+      "address": "6Kl7Mn...oPq8Rs",
+      "tier": "tier_2_liquidity",
+      "role": "liquidity_controller",
+      "labels": [
+        "Cross-Chain Bridge",
+        "Multi-Network"
+      ],
+      "first_seen": "2024-01-20T14:55:00",
+      "related_wallets": [
+        "7Xb8C9...pQr2St",
+        "9Yz0A1...uVw3Xy",
+        "DIST_01",
+        "DIST_02",
+        "DIST_03",
+        "DIST_04",
+        "DIST_05"
+      ],
+      "risk_score": 85,
+      "estimated_usd_extracted": 45000,
+      "token_holdings": {},
+      "is_active": true,
+      "kyc_exchange": null,
+      "kyc_user_id": null,
+      "notes": "Bridges funds to ETH, BSC, ARB networks."
+    },
+    {
+      "address": "0x000000000000000000...03e7",
+      "tier": "tier_3_distribution",
+      "role": "distributor",
+      "labels": [
+        "Distribution Node",
+        "Batch 1"
+      ],
+      "first_seen": "2024-01-22T02:07:00",
+      "related_wallets": [
+        "DIST_02",
+        "DIST_03",
+        "DIST_04"
+      ],
+      "risk_score": 76,
+      "estimated_usd_extracted": 17500,
+      "token_holdings": {},
+      "is_active": true,
+      "kyc_exchange": null,
+      "kyc_user_id": null,
+      "notes": "Distributes to 6 downstream wallets. 2 hops to exit."
+    },
+    {
+      "address": "0x000000000000000000...07ce",
+      "tier": "tier_3_distribution",
+      "role": "distributor",
+      "labels": [
+        "Distribution Node",
+        "Batch 1"
+      ],
+      "first_seen": "2024-01-23T04:14:00",
+      "related_wallets": [
+        "DIST_01",
+        "DIST_03",
+        "DIST_04"
+      ],
+      "risk_score": 77,
+      "estimated_usd_extracted": 20000,
+      "token_holdings": {},
+      "is_active": true,
+      "kyc_exchange": null,
+      "kyc_user_id": null,
+      "notes": "Distributes to 7 downstream wallets. 3 hops to exit."
+    },
+    {
+      "address": "0x000000000000000000...0bb5",
+      "tier": "tier_3_distribution",
+      "role": "distributor",
+      "labels": [
+        "Distribution Node",
+        "Batch 1"
+      ],
+      "first_seen": "2024-01-24T06:21:00",
+      "related_wallets": [
+        "DIST_01",
+        "DIST_02",
+        "DIST_04"
+      ],
+      "risk_score": 78,
+      "estimated_usd_extracted": 22500,
+      "token_holdings": {},
+      "is_active": true,
+      "kyc_exchange": null,
+      "kyc_user_id": null,
+      "notes": "Distributes to 8 downstream wallets. 1 hops to exit."
+    },
+    {
+      "address": "0x000000000000000000...0f9c",
+      "tier": "tier_3_distribution",
+      "role": "distributor",
+      "labels": [
+        "Distribution Node",
+        "Batch 2"
+      ],
+      "first_seen": "2024-01-25T08:28:00",
+      "related_wallets": [
+        "DIST_01",
+        "DIST_02",
+        "DIST_03"
+      ],
+      "risk_score": 79,
+      "estimated_usd_extracted": 25000,
+      "token_holdings": {},
+      "is_active": true,
+      "kyc_exchange": null,
+      "kyc_user_id": null,
+      "notes": "Distributes to 9 downstream wallets. 2 hops to exit."
+    },
+    {
+      "address": "0x000000000000000000...1383",
+      "tier": "tier_3_distribution",
+      "role": "distributor",
+      "labels": [
+        "Distribution Node",
+        "Batch 2"
+      ],
+      "first_seen": "2024-01-26T10:35:00",
+      "related_wallets": [
+        "DIST_01",
+        "DIST_02",
+        "DIST_03"
+      ],
+      "risk_score": 80,
+      "estimated_usd_extracted": 27500,
+      "token_holdings": {},
+      "is_active": true,
+      "kyc_exchange": null,
+      "kyc_user_id": null,
+      "notes": "Distributes to 10 downstream wallets. 3 hops to exit."
+    },
+    {
+      "address": "0x000000000000000000...176a",
+      "tier": "tier_3_distribution",
+      "role": "distributor",
+      "labels": [
+        "Distribution Node",
+        "Batch 2"
+      ],
+      "first_seen": "2024-01-27T12:42:00",
+      "related_wallets": [
+        "DIST_01",
+        "DIST_02",
+        "DIST_03"
+      ],
+      "risk_score": 81,
+      "estimated_usd_extracted": 30000,
+      "token_holdings": {},
+      "is_active": true,
+      "kyc_exchange": null,
+      "kyc_user_id": null,
+      "notes": "Distributes to 11 downstream wallets. 1 hops to exit."
+    },
+    {
+      "address": "0x000000000000000000...1b51",
+      "tier": "tier_3_distribution",
+      "role": "distributor",
+      "labels": [
+        "Distribution Node",
+        "Batch 2"
+      ],
+      "first_seen": "2024-01-28T14:49:00",
+      "related_wallets": [
+        "DIST_01",
+        "DIST_02",
+        "DIST_03"
+      ],
+      "risk_score": 82,
+      "estimated_usd_extracted": 32500,
+      "token_holdings": {},
+      "is_active": true,
+      "kyc_exchange": null,
+      "kyc_user_id": null,
+      "notes": "Distributes to 12 downstream wallets. 2 hops to exit."
+    },
+    {
+      "address": "0x000000000000000000...1f38",
+      "tier": "tier_3_distribution",
+      "role": "distributor",
+      "labels": [
+        "Distribution Node",
+        "Batch 3"
+      ],
+      "first_seen": "2024-01-29T16:56:00",
+      "related_wallets": [
+        "DIST_01",
+        "DIST_02",
+        "DIST_03"
+      ],
+      "risk_score": 83,
+      "estimated_usd_extracted": 35000,
+      "token_holdings": {},
+      "is_active": true,
+      "kyc_exchange": null,
+      "kyc_user_id": null,
+      "notes": "Distributes to 5 downstream wallets. 3 hops to exit."
+    },
+    {
+      "address": "0x000000000000000000...231f",
+      "tier": "tier_3_distribution",
+      "role": "distributor",
+      "labels": [
+        "Distribution Node",
+        "Batch 3"
+      ],
+      "first_seen": "2024-01-30T18:03:00",
+      "related_wallets": [
+        "DIST_01",
+        "DIST_02",
+        "DIST_03"
+      ],
+      "risk_score": 84,
+      "estimated_usd_extracted": 37500,
+      "token_holdings": {},
+      "is_active": true,
+      "kyc_exchange": null,
+      "kyc_user_id": null,
+      "notes": "Distributes to 6 downstream wallets. 1 hops to exit."
+    },
+    {
+      "address": "0x000000000000000000...2706",
+      "tier": "tier_3_distribution",
+      "role": "distributor",
+      "labels": [
+        "Distribution Node",
+        "Batch 3"
+      ],
+      "first_seen": "2024-01-31T20:10:00",
+      "related_wallets": [
+        "DIST_01",
+        "DIST_02",
+        "DIST_03"
+      ],
+      "risk_score": 85,
+      "estimated_usd_extracted": 40000,
+      "token_holdings": {},
+      "is_active": true,
+      "kyc_exchange": null,
+      "kyc_user_id": null,
+      "notes": "Distributes to 7 downstream wallets. 2 hops to exit."
+    },
+    {
+      "address": "0x000000000000000000...2aed",
+      "tier": "tier_3_distribution",
+      "role": "distributor",
+      "labels": [
+        "Distribution Node",
+        "Batch 3"
+      ],
+      "first_seen": "2024-01-31T22:17:00",
+      "related_wallets": [
+        "DIST_01",
+        "DIST_02",
+        "DIST_03"
+      ],
+      "risk_score": 86,
+      "estimated_usd_extracted": 42500,
+      "token_holdings": {},
+      "is_active": true,
+      "kyc_exchange": null,
+      "kyc_user_id": null,
+      "notes": "Distributes to 8 downstream wallets. 3 hops to exit."
+    },
+    {
+      "address": "0x000000000000000000...2ed4",
+      "tier": "tier_3_distribution",
+      "role": "distributor",
+      "labels": [
+        "Distribution Node",
+        "Batch 4"
+      ],
+      "first_seen": "2024-01-31T00:24:00",
+      "related_wallets": [
+        "DIST_01",
+        "DIST_02",
+        "DIST_03"
+      ],
+      "risk_score": 87,
+      "estimated_usd_extracted": 45000,
+      "token_holdings": {},
+      "is_active": true,
+      "kyc_exchange": null,
+      "kyc_user_id": null,
+      "notes": "Distributes to 9 downstream wallets. 1 hops to exit."
+    },
+    {
+      "address": "0xWASH00000000000000...0309",
+      "tier": "tier_4_wash_trading",
+      "role": "wash_trader",
+      "labels": [
+        "Ghost Signer",
+        "Volume Bot",
+        "Parallel Wallet"
+      ],
+      "first_seen": "2024-02-01T03:00:00",
+      "related_wallets": [
+        "WASH_02",
+        "WASH_03",
+        "WASH_04",
+        "WASH_05",
+        "WASH_06"
+      ],
+      "risk_score": 71,
+      "estimated_usd_extracted": 5800,
+      "token_holdings": {},
+      "is_active": false,
+      "kyc_exchange": null,
+      "kyc_user_id": null,
+      "notes": "Part of 17-wallet parallel operation. All funded within 7 seconds. Wiped after 35 days."
+    },
+    {
+      "address": "0xWASH00000000000000...0612",
+      "tier": "tier_4_wash_trading",
+      "role": "wash_trader",
+      "labels": [
+        "Ghost Signer",
+        "Volume Bot",
+        "Parallel Wallet"
+      ],
+      "first_seen": "2024-02-01T06:00:00",
+      "related_wallets": [
+        "WASH_01",
+        "WASH_03",
+        "WASH_04",
+        "WASH_05",
+        "WASH_06"
+      ],
+      "risk_score": 72,
+      "estimated_usd_extracted": 6600,
+      "token_holdings": {},
+      "is_active": false,
+      "kyc_exchange": null,
+      "kyc_user_id": null,
+      "notes": "Part of 17-wallet parallel operation. All funded within 7 seconds. Wiped after 40 days."
+    },
+    {
+      "address": "0xWASH00000000000000...091b",
+      "tier": "tier_4_wash_trading",
+      "role": "wash_trader",
+      "labels": [
+        "Ghost Signer",
+        "Volume Bot",
+        "Parallel Wallet"
+      ],
+      "first_seen": "2024-02-02T09:00:00",
+      "related_wallets": [
+        "WASH_01",
+        "WASH_02",
+        "WASH_04",
+        "WASH_05",
+        "WASH_06"
+      ],
+      "risk_score": 73,
+      "estimated_usd_extracted": 7400,
+      "token_holdings": {},
+      "is_active": false,
+      "kyc_exchange": null,
+      "kyc_user_id": null,
+      "notes": "Part of 17-wallet parallel operation. All funded within 7 seconds. Wiped after 45 days."
+    },
+    {
+      "address": "0xWASH00000000000000...0c24",
+      "tier": "tier_4_wash_trading",
+      "role": "wash_trader",
+      "labels": [
+        "Ghost Signer",
+        "Volume Bot",
+        "Parallel Wallet"
+      ],
+      "first_seen": "2024-02-02T12:00:00",
+      "related_wallets": [
+        "WASH_01",
+        "WASH_02",
+        "WASH_03",
+        "WASH_05",
+        "WASH_06"
+      ],
+      "risk_score": 74,
+      "estimated_usd_extracted": 8200,
+      "token_holdings": {},
+      "is_active": false,
+      "kyc_exchange": null,
+      "kyc_user_id": null,
+      "notes": "Part of 17-wallet parallel operation. All funded within 7 seconds. Wiped after 50 days."
+    },
+    {
+      "address": "0xWASH00000000000000...0f2d",
+      "tier": "tier_4_wash_trading",
+      "role": "wash_trader",
+      "labels": [
+        "Ghost Signer",
+        "Volume Bot",
+        "Parallel Wallet"
+      ],
+      "first_seen": "2024-02-02T15:00:00",
+      "related_wallets": [
+        "WASH_01",
+        "WASH_02",
+        "WASH_03",
+        "WASH_04",
+        "WASH_06"
+      ],
+      "risk_score": 75,
+      "estimated_usd_extracted": 9000,
+      "token_holdings": {},
+      "is_active": false,
+      "kyc_exchange": null,
+      "kyc_user_id": null,
+      "notes": "Part of 17-wallet parallel operation. All funded within 7 seconds. Wiped after 55 days."
+    },
+    {
+      "address": "0xWASH00000000000000...1236",
+      "tier": "tier_4_wash_trading",
+      "role": "wash_trader",
+      "labels": [
+        "Ghost Signer",
+        "Volume Bot",
+        "Parallel Wallet"
+      ],
+      "first_seen": "2024-02-03T18:00:00",
+      "related_wallets": [
+        "WASH_01",
+        "WASH_02",
+        "WASH_03",
+        "WASH_04",
+        "WASH_05"
+      ],
+      "risk_score": 76,
+      "estimated_usd_extracted": 9800,
+      "token_holdings": {},
+      "is_active": false,
+      "kyc_exchange": null,
+      "kyc_user_id": null,
+      "notes": "Part of 17-wallet parallel operation. All funded within 7 seconds. Wiped after 60 days."
+    },
+    {
+      "address": "0xWASH00000000000000...153f",
+      "tier": "tier_4_wash_trading",
+      "role": "wash_trader",
+      "labels": [
+        "Ghost Signer",
+        "Volume Bot",
+        "Parallel Wallet"
+      ],
+      "first_seen": "2024-02-03T21:00:00",
+      "related_wallets": [
+        "WASH_01",
+        "WASH_02",
+        "WASH_03",
+        "WASH_04",
+        "WASH_05"
+      ],
+      "risk_score": 77,
+      "estimated_usd_extracted": 10600,
+      "token_holdings": {},
+      "is_active": false,
+      "kyc_exchange": null,
+      "kyc_user_id": null,
+      "notes": "Part of 17-wallet parallel operation. All funded within 7 seconds. Wiped after 65 days."
+    },
+    {
+      "address": "0xWASH00000000000000...1848",
+      "tier": "tier_4_wash_trading",
+      "role": "wash_trader",
+      "labels": [
+        "Ghost Signer",
+        "Volume Bot",
+        "Parallel Wallet"
+      ],
+      "first_seen": "2024-02-03T00:00:00",
+      "related_wallets": [
+        "WASH_01",
+        "WASH_02",
+        "WASH_03",
+        "WASH_04",
+        "WASH_05"
+      ],
+      "risk_score": 78,
+      "estimated_usd_extracted": 11400,
+      "token_holdings": {},
+      "is_active": false,
+      "kyc_exchange": null,
+      "kyc_user_id": null,
+      "notes": "Part of 17-wallet parallel operation. All funded within 7 seconds. Wiped after 70 days."
+    },
+    {
+      "address": "0xWASH00000000000000...1b51",
+      "tier": "tier_4_wash_trading",
+      "role": "wash_trader",
+      "labels": [
+        "Ghost Signer",
+        "Volume Bot",
+        "Parallel Wallet"
+      ],
+      "first_seen": "2024-02-04T03:00:00",
+      "related_wallets": [
+        "WASH_01",
+        "WASH_02",
+        "WASH_03",
+        "WASH_04",
+        "WASH_05"
+      ],
+      "risk_score": 79,
+      "estimated_usd_extracted": 12200,
+      "token_holdings": {},
+      "is_active": false,
+      "kyc_exchange": null,
+      "kyc_user_id": null,
+      "notes": "Part of 17-wallet parallel operation. All funded within 7 seconds. Wiped after 75 days."
+    },
+    {
+      "address": "0xWASH00000000000000...1e5a",
+      "tier": "tier_4_wash_trading",
+      "role": "wash_trader",
+      "labels": [
+        "Ghost Signer",
+        "Volume Bot",
+        "Parallel Wallet"
+      ],
+      "first_seen": "2024-02-04T06:00:00",
+      "related_wallets": [
+        "WASH_01",
+        "WASH_02",
+        "WASH_03",
+        "WASH_04",
+        "WASH_05"
+      ],
+      "risk_score": 80,
+      "estimated_usd_extracted": 13000,
+      "token_holdings": {},
+      "is_active": false,
+      "kyc_exchange": null,
+      "kyc_user_id": null,
+      "notes": "Part of 17-wallet parallel operation. All funded within 7 seconds. Wiped after 80 days."
+    },
+    {
+      "address": "0xWASH00000000000000...2163",
+      "tier": "tier_4_wash_trading",
+      "role": "wash_trader",
+      "labels": [
+        "Ghost Signer",
+        "Volume Bot",
+        "Parallel Wallet"
+      ],
+      "first_seen": "2024-02-04T09:00:00",
+      "related_wallets": [
+        "WASH_01",
+        "WASH_02",
+        "WASH_03",
+        "WASH_04",
+        "WASH_05"
+      ],
+      "risk_score": 81,
+      "estimated_usd_extracted": 13800,
+      "token_holdings": {},
+      "is_active": false,
+      "kyc_exchange": null,
+      "kyc_user_id": null,
+      "notes": "Part of 17-wallet parallel operation. All funded within 7 seconds. Wiped after 85 days."
+    },
+    {
+      "address": "0xWASH00000000000000...246c",
+      "tier": "tier_4_wash_trading",
+      "role": "wash_trader",
+      "labels": [
+        "Ghost Signer",
+        "Volume Bot",
+        "Parallel Wallet"
+      ],
+      "first_seen": "2024-02-05T12:00:00",
+      "related_wallets": [
+        "WASH_01",
+        "WASH_02",
+        "WASH_03",
+        "WASH_04",
+        "WASH_05"
+      ],
+      "risk_score": 82,
+      "estimated_usd_extracted": 14600,
+      "token_holdings": {},
+      "is_active": false,
+      "kyc_exchange": null,
+      "kyc_user_id": null,
+      "notes": "Part of 17-wallet parallel operation. All funded within 7 seconds. Wiped after 90 days."
+    },
+    {
+      "address": "0xWASH00000000000000...2775",
+      "tier": "tier_4_wash_trading",
+      "role": "wash_trader",
+      "labels": [
+        "Ghost Signer",
+        "Volume Bot",
+        "Parallel Wallet"
+      ],
+      "first_seen": "2024-02-05T15:00:00",
+      "related_wallets": [
+        "WASH_01",
+        "WASH_02",
+        "WASH_03",
+        "WASH_04",
+        "WASH_05"
+      ],
+      "risk_score": 83,
+      "estimated_usd_extracted": 15400,
+      "token_holdings": {},
+      "is_active": false,
+      "kyc_exchange": null,
+      "kyc_user_id": null,
+      "notes": "Part of 17-wallet parallel operation. All funded within 7 seconds. Wiped after 95 days."
+    },
+    {
+      "address": "0xWASH00000000000000...2a7e",
+      "tier": "tier_4_wash_trading",
+      "role": "wash_trader",
+      "labels": [
+        "Ghost Signer",
+        "Volume Bot",
+        "Parallel Wallet"
+      ],
+      "first_seen": "2024-02-05T18:00:00",
+      "related_wallets": [
+        "WASH_01",
+        "WASH_02",
+        "WASH_03",
+        "WASH_04",
+        "WASH_05"
+      ],
+      "risk_score": 84,
+      "estimated_usd_extracted": 16200,
+      "token_holdings": {},
+      "is_active": false,
+      "kyc_exchange": null,
+      "kyc_user_id": null,
+      "notes": "Part of 17-wallet parallel operation. All funded within 7 seconds. Wiped after 100 days."
+    },
+    {
+      "address": "0xWASH00000000000000...2d87",
+      "tier": "tier_4_wash_trading",
+      "role": "wash_trader",
+      "labels": [
+        "Ghost Signer",
+        "Volume Bot",
+        "Parallel Wallet"
+      ],
+      "first_seen": "2024-02-06T21:00:00",
+      "related_wallets": [
+        "WASH_01",
+        "WASH_02",
+        "WASH_03",
+        "WASH_04",
+        "WASH_05"
+      ],
+      "risk_score": 85,
+      "estimated_usd_extracted": 17000,
+      "token_holdings": {},
+      "is_active": false,
+      "kyc_exchange": null,
+      "kyc_user_id": null,
+      "notes": "Part of 17-wallet parallel operation. All funded within 7 seconds. Wiped after 105 days."
+    },
+    {
+      "address": "0xWASH00000000000000...3090",
+      "tier": "tier_4_wash_trading",
+      "role": "wash_trader",
+      "labels": [
+        "Ghost Signer",
+        "Volume Bot",
+        "Parallel Wallet"
+      ],
+      "first_seen": "2024-02-06T00:00:00",
+      "related_wallets": [
+        "WASH_01",
+        "WASH_02",
+        "WASH_03",
+        "WASH_04",
+        "WASH_05"
+      ],
+      "risk_score": 86,
+      "estimated_usd_extracted": 17800,
+      "token_holdings": {},
+      "is_active": false,
+      "kyc_exchange": null,
+      "kyc_user_id": null,
+      "notes": "Part of 17-wallet parallel operation. All funded within 7 seconds. Wiped after 110 days."
+    },
+    {
+      "address": "0xWASH00000000000000...3399",
+      "tier": "tier_4_wash_trading",
+      "role": "wash_trader",
+      "labels": [
+        "Ghost Signer",
+        "Volume Bot",
+        "Parallel Wallet"
+      ],
+      "first_seen": "2024-02-06T03:00:00",
+      "related_wallets": [
+        "WASH_01",
+        "WASH_02",
+        "WASH_03",
+        "WASH_04",
+        "WASH_05"
+      ],
+      "risk_score": 87,
+      "estimated_usd_extracted": 18600,
+      "token_holdings": {},
+      "is_active": false,
+      "kyc_exchange": null,
+      "kyc_user_id": null,
+      "notes": "Part of 17-wallet parallel operation. All funded within 7 seconds. Wiped after 115 days."
+    },
+    {
+      "address": "0xEXIT...GATE01",
+      "tier": "tier_5_exit",
+      "role": "exit_wallet",
+      "labels": [
+        "Gate.io Exit",
+        "KYC Vector",
+        "Primary Cash-out"
+      ],
+      "first_seen": "2024-01-25T10:00:00",
+      "related_wallets": [
+        "DIST_01",
+        "DIST_02",
+        "DIST_03",
+        "DIST_04",
+        "DIST_05"
+      ],
+      "risk_score": 90,
+      "estimated_usd_extracted": 320000,
+      "token_holdings": {},
+      "is_active": true,
+      "kyc_exchange": "Gate.io",
+      "kyc_user_id": "GATE_USER_8847291",
+      "notes": "Primary exit to Gate.io. $320K+ deposited. KYC subpoena priority #1."
+    },
+    {
+      "address": "0xEXIT...COIN01",
+      "tier": "tier_5_exit",
+      "role": "exit_wallet",
+      "labels": [
+        "Coinbase Exit",
+        "KYC Vector",
+        "Secondary Cash-out"
+      ],
+      "first_seen": "2024-02-05T14:30:00",
+      "related_wallets": [
+        "DIST_01",
+        "DIST_02",
+        "DIST_03",
+        "DIST_04",
+        "DIST_05"
+      ],
+      "risk_score": 88,
+      "estimated_usd_extracted": 185000,
+      "token_holdings": {},
+      "is_active": true,
+      "kyc_exchange": "Coinbase",
+      "kyc_user_id": "CB_USER_5521847",
+      "notes": "Secondary exit to Coinbase. $185K+ deposited. KYC subpoena priority #2."
+    },
+    {
+      "address": "0xEXIT...OTC001",
+      "tier": "tier_5_exit",
+      "role": "exit_wallet",
+      "labels": [
+        "OTC Desk",
+        "P2P Exchange",
+        "Tertiary Cash-out"
+      ],
+      "first_seen": "2024-02-10T09:15:00",
+      "related_wallets": [
+        "DIST_01",
+        "DIST_02",
+        "DIST_03",
+        "DIST_04",
+        "DIST_05"
+      ],
+      "risk_score": 82,
+      "estimated_usd_extracted": 95000,
+      "token_holdings": {},
+      "is_active": true,
+      "kyc_exchange": null,
+      "kyc_user_id": null,
+      "notes": "OTC/P2P exchanges. Harder trace but patterns detected."
+    },
+    {
+      "address": "0xEXIT...MIX001",
+      "tier": "tier_5_exit",
+      "role": "exit_wallet",
+      "labels": [
+        "Mixer User",
+        "Tornado Cash",
+        "Privacy Protocol"
+      ],
+      "first_seen": "2024-02-15T18:45:00",
+      "related_wallets": [
+        "DIST_01",
+        "DIST_02",
+        "DIST_03",
+        "DIST_04",
+        "DIST_05"
+      ],
+      "risk_score": 95,
+      "estimated_usd_extracted": 70000,
+      "token_holdings": {},
+      "is_active": true,
+      "kyc_exchange": null,
+      "kyc_user_id": null,
+      "notes": "Uses Tornado Cash and similar mixers. $70K+ obfuscated."
+    },
+    {
+      "address": "0xRESERVE...ALPHA1",
+      "tier": "tier_1_command",
+      "role": "reserve_holder",
+      "labels": [
+        "Reserve Holder",
+        "104.6M CRM",
+        "Active Threat"
+      ],
+      "first_seen": "2024-03-01T00:00:00",
+      "related_wallets": [
+        "EXIT_GATE_01",
+        "EXIT_COIN_01",
+        "EXIT_OTC_01",
+        "EXIT_MIX_01"
+      ],
+      "risk_score": 100,
+      "estimated_usd_extracted": 0,
+      "token_holdings": {
+        "CRM": 104600000
+      },
+      "is_active": true,
+      "kyc_exchange": null,
+      "kyc_user_id": null,
+      "notes": "HOLDS 104.6M CRM (10.46% supply). Active threat for further extraction."
+    },
+    {
+      "address": "0xRESERVE...BETA01",
+      "tier": "tier_1_command",
+      "role": "reserve_holder",
+      "labels": [
+        "Secondary Reserve",
+        "23.8M CRM",
+        "Dormant"
+      ],
+      "first_seen": "2024-03-05T12:00:00",
+      "related_wallets": [
+        "EXIT_GATE_01",
+        "EXIT_COIN_01",
+        "EXIT_OTC_01",
+        "EXIT_MIX_01"
+      ],
+      "risk_score": 85,
+      "estimated_usd_extracted": 0,
+      "token_holdings": {
+        "CRM": 23800000
+      },
+      "is_active": true,
+      "kyc_exchange": null,
+      "kyc_user_id": null,
+      "notes": "Secondary reserve. Dormant since March 2024. May reactivate."
+    }
+  ],
+  "kyc_subpoenas": [
+    {
+      "exchange": "Gate.io",
+      "user_id": "GATE_USER_8847291",
+      "wallet_addresses": [
+        "0xEXIT...GATE01"
+      ],
+      "estimated_funds": 320000,
+      "priority": "critical",
+      "legal_basis": "18 USC 2703(d) - Stored Communications Act",
+      "status": "pending",
+      "date_submitted": null,
+      "date_response": null,
+      "notes": "Primary exit vector. $320K+ traced. Identity will expose Tier 1 controller."
+    },
+    {
+      "exchange": "Coinbase",
+      "user_id": "CB_USER_5521847",
+      "wallet_addresses": [
+        "0xEXIT...COIN01"
+      ],
+      "estimated_funds": 185000,
+      "priority": "critical",
+      "legal_basis": "18 USC 2703(d) - Stored Communications Act",
+      "status": "pending",
+      "date_submitted": null,
+      "date_response": null,
+      "notes": "Secondary exit. US-based exchange = faster response."
+    },
+    {
+      "exchange": "Binance",
+      "user_id": "UNKNOWN",
+      "wallet_addresses": [
+        "0xEXIT...OTC001"
+      ],
+      "estimated_funds": 95000,
+      "priority": "high",
+      "legal_basis": "Mutual Legal Assistance Treaty (MLAT)",
+      "status": "pending",
+      "date_submitted": null,
+      "date_response": null,
+      "notes": "OTC desk usage. Requires international cooperation."
+    }
+  ]
+}

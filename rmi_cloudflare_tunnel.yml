@@ -1,0 +1,72 @@
+# Cloudflare Tunnel Configuration — RMI Intelligence Platform
+# Manages all services under rugmunch.io domain
+#
+# Services routed:
+#   api.rugmunch.io      → Backend API (port 8000)
+#   app.rugmunch.io      → Frontend dashboard (port 8080/nginx)
+#   n8n.rugmunch.io      → Workflow automation (port 5678)
+#   bot.rugmunch.io      → Telegram bot webhook receiver
+#   ws.rugmunch.io       → WebSocket upgrades for real-time
+#   helius.rugmunch.io   → Webhook receiver for Helius events
+#   status.rugmunch.io   → Health check + status page
+#
+# Tunnel: Created via `cloudflared tunnel login` then `cloudflared tunnel create rmi`
+
+tunnel: <TUNNEL_ID>
+credentials-file: /root/.cloudflared/<TUNNEL_ID>.json
+
+# Auto-update and metrics
+metrics: 0.0.0.0:45678
+
+# Ingress rules — processed top-to-bottom
+ingress:
+  # ─── API — Backend FastAPI ──────────────────────────────────────────
+  - hostname: api.rugmunch.io
+    service: http://rmi_backend:8000
+    originRequest:
+      connectTimeout: 30s
+      noTLSVerify: true
+
+  # ─── FRONTEND — React Dashboard ─────────────────────────────────────
+  - hostname: app.rugmunch.io
+    service: http://localhost:8080
+    originRequest:
+      connectTimeout: 10s
+
+  # ─── N8N — Workflow Automation ──────────────────────────────────────
+  - hostname: n8n.rugmunch.io
+    service: http://rmi_n8n:5678
+    originRequest:
+      connectTimeout: 10s
+
+  # ─── HELIUS WEBHOOK — On-chain events ──────────────────────────────
+  - hostname: helius.rugmunch.io
+    service: http://rmi_backend:8000
+    path: /webhook/helius
+    originRequest:
+      connectTimeout: 30s
+
+  # ─── TELEGRAM WEBHOOK — Bot updates ───────────────────────────────
+  - hostname: bot.rugmunch.io
+    service: http://rmi-telegram-bot:8080
+    path: /webhook/telegram
+    originRequest:
+      connectTimeout: 10s
+
+  # ─── STATUS — Health + metrics ─────────────────────────────────────
+  - hostname: status.rugmunch.io
+    service: http://rmi_backend:8000
+    path: /health
+    originRequest:
+      connectTimeout: 5s
+
+  # ─── WS — WebSocket for real-time data ─────────────────────────────
+  - hostname: ws.rugmunch.io
+    service: http://rmi_backend:8000
+    originRequest:
+      connectTimeout: 30s
+      noTLSVerify: true
+      httpUpgrade: true
+
+  # ─── Fallback — Catch-all ──────────────────────────────────────────
+  - service: http_status:404

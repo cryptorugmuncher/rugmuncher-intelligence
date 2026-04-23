@@ -1,0 +1,150 @@
+{
+  "investigation_id": "CRM-SCAM-2025-001-SOSANA",
+  "threat_status": "\ud83d\udea8 ACTIVE - ONGOING CRIMINAL OPERATIONS",
+  "classification": "LAW ENFORCEMENT SENSITIVE - IMMEDIATE ACTION REQUIRED",
+  "generated_at": "2026-04-13T21:32:40.088143",
+  "token_info": {
+    "mint": "73Po46QL35dF9sY5Q7rAD2AsvaEsqM1XCSWDEWLTWYL7",
+    "name": "SOSANA",
+    "creator": "GDhATBcfjnt5mFofu1zG2Y1v6xUvR4KXewZH43NR5oN",
+    "verification_urls": {
+      "solana_fm": "https://solana.fm/address/73Po46QL35dF9sY5Q7rAD2AsvaEsqM1XCSWDEWLTWYL7",
+      "solscan": "https://solscan.io/token/73Po46QL35dF9sY5Q7rAD2AsvaEsqM1XCSWDEWLTWYL7",
+      "dexscreener": "https://dexscreener.com/solana/73Po46QL35dF9sY5Q7rAD2AsvaEsqM1XCSWDEWLTWYL7"
+    }
+  },
+  "criminal_infrastructure": {
+    "shared_with_crm": true,
+    "tier_1_wallet": "AFXigaYuRKYmvd9HZQCobtZ98FNAwnwpsnjvJRztUGb6",
+    "tier_2_wallet": "BMq4XUa3rJJNkjXbJDpMFdSmPjvz5f9w4TvYFGADVkX5",
+    "automation_confirmed": true,
+    "cross_token_pattern": "SAME 5-TIER STRUCTURE"
+  },
+  "critical_evidence": {
+    "operator_admission": {
+      "quote": "Running that scam sosana now too",
+      "source": "David Track (Operator)",
+      "significance": "Direct confession of ongoing criminal activity",
+      "legal_value": "Admission against interest - hearsay exception"
+    },
+    "destruction_of_evidence": {
+      "event": "SOSANA voting contract deleted",
+      "date": "March 22, 2026",
+      "wallet": "BmZY862D62L1ZMK8DUpXbr4AqRzy8A3Bdki8qVtaBWxT",
+      "significance": "Obstruction of Justice - 18 U.S.C. \u00a7 1503",
+      "timing_significance": "4 days before March 26 CRM dump - coordinated cover-up"
+    },
+    "airdrop_attack": {
+      "date": "September 19, 2025",
+      "victims": "2,005 wallets",
+      "significance": "Mass victimization through fraudulent airdrop",
+      "pattern": "Same as CRM 970-wallet automation"
+    }
+  },
+  "timeline": {
+    "phase_1_establishment": {
+      "period": "Mid-2025",
+      "activity": "SOSANA token creation and team positioning",
+      "evidence_status": "Requires deeper blockchain analysis"
+    },
+    "phase_2_mass_victimization": {
+      "date": "September 19, 2025",
+      "activity": "2,005 wallet airdrop",
+      "significance": "Mass fraud deployment",
+      "pattern": "Precursor to CRM 970-wallet automation"
+    },
+    "phase_3_contest_manipulation": {
+      "period": "November 2025 - March 2026",
+      "activity": "Voting contest with treasury manipulation",
+      "evidence_destroyed": "March 22, 2026",
+      "legal_charge": "Obstruction of Justice"
+    },
+    "phase_4_active_continuation": {
+      "status": "ONGOING",
+      "operator_confession": "Running that scam sosana now too",
+      "current_activity": "Unknown - requires immediate investigation"
+    }
+  },
+  "legal_framework": {
+    "confirmed_charges": [
+      {
+        "charge": "RICO - Continuing Criminal Enterprise",
+        "code": "18 U.S.C. \u00a7 1962",
+        "evidence": "Pattern across SHIFT/SOSANA/CRM/BONK/WIF/POPCAT"
+      },
+      {
+        "charge": "Computer Fraud",
+        "code": "18 U.S.C. \u00a7 1030",
+        "evidence": "Military-scale automation (970 wallets/7 seconds)"
+      },
+      {
+        "charge": "Obstruction of Justice",
+        "code": "18 U.S.C. \u00a7 1503",
+        "evidence": "Voting contract deletion March 22, 2026"
+      },
+      {
+        "charge": "Securities Fraud",
+        "code": "15 U.S.C. \u00a7 78j",
+        "evidence": "Market manipulation through coordinated dumps"
+      },
+      {
+        "charge": "Wire Fraud",
+        "code": "18 U.S.C. \u00a7 1343",
+        "evidence": "Electronic transactions for fraud"
+      }
+    ],
+    "operator_confession_significance": "Admission against interest - exception to hearsay rule under Federal Rules of Evidence 804(b)(3)"
+  },
+  "investigation_priorities": [
+    {
+      "priority": 1,
+      "task": "Export SOSANA blockchain transaction history",
+      "urgency": "CRITICAL",
+      "action": "Use SolanaFM API or Helius to pull all transactions"
+    },
+    {
+      "priority": 2,
+      "task": "Identify SOSANA team wallet cluster",
+      "urgency": "CRITICAL",
+      "action": "Trace creator wallet and associated addresses"
+    },
+    {
+      "priority": 3,
+      "task": "Document treasury manipulation patterns",
+      "urgency": "HIGH",
+      "action": "Analyze token movements from team wallets"
+    },
+    {
+      "priority": 4,
+      "task": "Map victim wallet patterns",
+      "urgency": "HIGH",
+      "action": "Analyze the 2,005 airdrop recipients"
+    },
+    {
+      "priority": 5,
+      "task": "Monitor active transactions in real-time",
+      "urgency": "CRITICAL",
+      "action": "Set up alerts for tier 1-5 wallet activity"
+    }
+  ],
+  "victim_impact": {
+    "confirmed_victims": "2,005+ (SOSANA airdrop)",
+    "potential_victims": "Unknown - requires investigation",
+    "financial_impact": "Unknown - requires transaction analysis",
+    "ongoing_harm": "ACTIVE - Criminal operation continuing"
+  },
+  "law_enforcement_actions": {
+    "recommended_immediate": [
+      "File emergency TRO on shared infrastructure wallets",
+      "Seize blockchain evidence before further destruction",
+      "Issue preservation orders to exchanges",
+      "Coordinate with international law enforcement"
+    ],
+    "evidence_preservation": [
+      "SOSANA token mint: 73Po46QL35dF9sY5Q7rAD2AsvaEsqM1XCSWDEWLTWYL7",
+      "Creator wallet: GDhATBcfjnt5mFofu1zG2Y1v6xUvR4KXewZH43NR5oN",
+      "Deleted voting contract: BmZY862D62L1ZMK8DUpXbr4AqRzy8A3Bdki8qVtaBWxT",
+      "Operator confession: David Track admission"
+    ]
+  }
+}
