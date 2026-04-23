@@ -7,7 +7,7 @@ import { useAppStore } from '../store/appStore';
 import { api } from '../services/api';
 import {
   User, Shield, Award, ScanLine, Settings, Edit2, Check, X,
-  Copy, ExternalLink, Wallet, Mail, MessageCircle, Globe, Twitter
+  Copy, ExternalLink, Wallet, Mail, MessageCircle, Globe, AtSign
 } from 'lucide-react';
 
 interface ProfileData {

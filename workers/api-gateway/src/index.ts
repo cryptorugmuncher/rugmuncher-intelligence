@@ -1,17 +1,20 @@
 /**
  * RugMuncher API Gateway Worker
- * Edge-caches API responses, adds security headers, and routes traffic.
+ * Edge-caches API responses, adds security headers, routes traffic,
+ * and integrates Cloudflare Workers AI + AI Gateway.
  */
 
 export interface Env {
   API_ORIGIN: string;
   CACHE_TTL_SECONDS: string;
+  AI: any; // Workers AI binding
 }
 
 const CACHEABLE_PATHS = [
   '/api/v1/health',
   '/api/v1/email/business-emails',
   '/api/v1/status',
+  '/api/v1/rag/namespaces',
 ];
 
 const CACHEABLE_PREFIXES = [
@@ -32,10 +35,152 @@ function getCacheTTL(path: string): number {
   return 30;
 }
 
+// ═══════════════════════════════════════════════════════════
+// WORKERS AI — Edge Inference
+// ═══════════════════════════════════════════════════════════
+
+async function handleWorkersAI(request: Request, env: Env): Promise<Response> {
+  const url = new URL(request.url);
+  const pathParts = url.pathname.split('/').filter(Boolean);
+
+  // /ai/chat → text generation
+  if (pathParts[1] === 'chat' && request.method === 'POST') {
+    const body = await request.json<{ messages: any[]; model?: string }>();
+    const model = body.model || '@cf/meta/llama-3.1-8b-instruct';
+    const response = await env.AI.run(model, {
+      messages: body.messages,
+      stream: false,
+    });
+    return new Response(JSON.stringify(response), {
+      headers: { 'Content-Type': 'application/json', 'X-Edge-AI': 'workers-ai' },
+    });
+  }
+
+  // /ai/embeddings → edge embeddings
+  if (pathParts[1] === 'embeddings' && request.method === 'POST') {
+    const body = await request.json<{ text: string | string[]; model?: string }>();
+    const model = body.model || '@cf/baai/bge-base-en-v1.5';
+    const texts = Array.isArray(body.text) ? body.text : [body.text];
+    const response = await env.AI.run(model, { text: texts });
+    return new Response(JSON.stringify(response), {
+      headers: { 'Content-Type': 'application/json', 'X-Edge-AI': 'workers-ai' },
+    });
+  }
+
+  return new Response('Not Found', { status: 404 });
+}
+
+// ═══════════════════════════════════════════════════════════
+// AI GATEWAY — Unified AI Provider Proxy with Caching
+// ═══════════════════════════════════════════════════════════
+
+const AI_PROVIDER_CONFIG: Record<string, { baseUrl: string; headerName: string }> = {
+  openai: { baseUrl: 'https://api.openai.com/v1', headerName: 'Authorization' },
+  anthropic: { baseUrl: 'https://api.anthropic.com/v1', headerName: 'x-api-key' },
+  groq: { baseUrl: 'https://api.groq.com/openai/v1', headerName: 'Authorization' },
+  openrouter: { baseUrl: 'https://openrouter.ai/api/v1', headerName: 'Authorization' },
+  deepseek: { baseUrl: 'https://api.deepseek.com/v1', headerName: 'Authorization' },
+};
+
+async function handleAIGateway(request: Request): Promise<Response> {
+  const url = new URL(request.url);
+  const pathParts = url.pathname.split('/').filter(Boolean);
+  const provider = pathParts[2];
+  const config = AI_PROVIDER_CONFIG[provider];
+
+  if (!config) {
+    return new Response(JSON.stringify({ error: 'Unknown provider', available: Object.keys(AI_PROVIDER_CONFIG) }), {
+      status: 400,
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
+
+  // Get API key from request header
+  const apiKey = request.headers.get('X-AI-Key');
+  if (!apiKey) {
+    return new Response(JSON.stringify({ error: 'Missing X-AI-Key header' }), {
+      status: 401,
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
+
+  // Build target URL
+  const targetPath = '/' + pathParts.slice(3).join('/');
+  const targetUrl = config.baseUrl + targetPath + url.search;
+
+  // Check cache for identical requests
+  const cache = caches.default;
+  if (request.method === 'POST') {
+    const cacheKey = new Request(request.url + '?_hash=' + await hashRequestBody(request.clone()), { method: 'GET' });
+    const cached = await cache.match(cacheKey);
+    if (cached) {
+      return new Response(cached.body, {
+        status: cached.status,
+        headers: { ...Object.fromEntries(cached.headers), 'X-AI-Gateway-Cache': 'HIT' },
+      });
+    }
+  }
+
+  // Forward to provider
+  const originRequest = new Request(targetUrl, {
+    method: request.method,
+    headers: {
+      ...Object.fromEntries(request.headers),
+      [config.headerName]: config.headerName === 'x-api-key' ? apiKey : `Bearer ${apiKey}`,
+      'Content-Type': 'application/json',
+    },
+    body: request.body,
+  });
+
+  const response = await fetch(originRequest);
+
+  // Cache successful completions
+  if (request.method === 'POST' && response.status === 200 && targetPath.includes('/chat/completions')) {
+    const responseClone = response.clone();
+    const cacheKey = new Request(request.url + '?_hash=' + await hashRequestBody(request.clone()), { method: 'GET' });
+    const cacheResponse = new Response(responseClone.body, {
+      status: responseClone.status,
+      headers: { ...Object.fromEntries(responseClone.headers), 'Cache-Control': 'public, max-age=300' },
+    });
+    await cache.put(cacheKey, cacheResponse);
+  }
+
+  return new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers: {
+      ...Object.fromEntries(response.headers),
+      'X-AI-Gateway': provider,
+      'X-AI-Gateway-Cache': 'MISS',
+    },
+  });
+}
+
+async function hashRequestBody(request: Request): Promise<string> {
+  const body = await request.text();
+  const encoder = new TextEncoder();
+  const data = encoder.encode(body);
+  const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  return hashArray.map((b) => b.toString(16).padStart(2, '0')).join('').slice(0, 16);
+}
+
+// ═══════════════════════════════════════════════════════════
+// MAIN HANDLER
+// ═══════════════════════════════════════════════════════════
+
 export default {
   async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     const url = new URL(request.url);
     const origin = env.API_ORIGIN || 'https://api.rugmunch.io';
+
+    // Route Workers AI requests
+    if (url.pathname.startsWith('/ai/')) {
+      if (url.pathname.startsWith('/ai/gateway/')) {
+        return handleAIGateway(request);
+      }
+      return handleWorkersAI(request, env);
+    }
 
     // Security: block common bot patterns
     const ua = (request.headers.get('User-Agent') || '').toLowerCase();
@@ -57,14 +202,13 @@ export default {
     if (isCacheable(request)) {
       const cached = await cache.match(request);
       if (cached) {
-        const resp = new Response(cached.body, {
+        return new Response(cached.body, {
           status: cached.status,
           headers: {
             ...Object.fromEntries(cached.headers),
             'X-Cache': 'HIT',
           },
         });
-        return resp;
       }
     }
 
@@ -79,7 +223,6 @@ export default {
       });
     }
 
-    // Clone for cache
     const responseClone = response.clone();
 
     // Add security headers
