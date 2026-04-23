@@ -493,3 +493,290 @@ async def admin_stats(request: Request, _=Depends(_verify_admin)):
     except Exception as e:
         logger.error(f"[Admin] Stats error: {e}")
         raise HTTPException(status_code=500, detail=str(e))
+
+
+# ═══════════════════════════════════════════════════════════════
+# CONTENT MANAGEMENT
+# ═══════════════════════════════════════════════════════════════
+
+@router.get("/content/posts")
+async def admin_content_posts(
+    request: Request,
+    limit: int = 50,
+    status: Optional[str] = None,
+    _=Depends(_verify_admin)
+):
+    """Get content posts from Supabase (trenches_posts and mirror articles)."""
+    try:
+        db = get_db()
+        query = db.db.client.table("trenches_posts").select("*").order("created_at", desc=True).limit(limit)
+        if status:
+            query = query.eq("status", status)
+        resp = await query.execute()
+        return {"posts": resp.data if hasattr(resp, "data") else [], "total": len(resp.data) if hasattr(resp, "data") else 0}
+    except Exception as e:
+        logger.error(f"[Admin] Content posts error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+class ContentModerationRequest(BaseModel):
+    post_id: str
+    action: str = Field(..., description="approve, reject, feature, delete")
+    reason: Optional[str] = None
+
+@router.post("/content/moderate")
+async def admin_moderate_content(
+    req: ContentModerationRequest,
+    request: Request,
+    _=Depends(_verify_admin)
+):
+    """Moderate a content post."""
+    try:
+        db = get_db()
+        if req.action == "delete":
+            await db.db.client.table("trenches_posts").delete().eq("id", req.post_id).execute()
+            return {"post_id": req.post_id, "action": "deleted", "status": "ok"}
+        else:
+            await db.db.client.table("trenches_posts").update({
+                "status": req.action,
+                "moderation_reason": req.reason,
+                "moderated_at": datetime.utcnow().isoformat(),
+            }).eq("id", req.post_id).execute()
+            return {"post_id": req.post_id, "action": req.action, "status": "updated"}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+# ═══════════════════════════════════════════════════════════════
+# TRENCHES MANAGEMENT
+# ═══════════════════════════════════════════════════════════════
+
+@router.get("/trenches/posts")
+async def admin_trenches_posts(
+    request: Request,
+    limit: int = 50,
+    _=Depends(_verify_admin)
+):
+    """Get all trenches posts with analytics."""
+    try:
+        db = get_db()
+        resp = await db.db.client.table("trenches_posts").select("*").order("created_at", desc=True).limit(limit).execute()
+        posts = resp.data if hasattr(resp, "data") else []
+        return {
+            "posts": posts,
+            "total": len(posts),
+            "featured": sum(1 for p in posts if p.get("status") == "featured"),
+            "pending": sum(1 for p in posts if p.get("status") == "pending"),
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+class TrenchesActionRequest(BaseModel):
+    action: str = Field(..., description="pin, unpin, delete, ban_author")
+    reason: Optional[str] = None
+
+@router.post("/trenches/posts/{post_id}/action")
+async def admin_trenches_action(
+    post_id: str,
+    req: TrenchesActionRequest,
+    request: Request,
+    _=Depends(_verify_admin)
+):
+    """Perform moderation action on a trenches post."""
+    try:
+        db = get_db()
+        if req.action == "delete":
+            await db.db.client.table("trenches_posts").delete().eq("id", post_id).execute()
+        elif req.action in ("pin", "unpin"):
+            await db.db.client.table("trenches_posts").update({
+                "pinned": req.action == "pin",
+                "pinned_at": datetime.utcnow().isoformat() if req.action == "pin" else None,
+            }).eq("id", post_id).execute()
+        elif req.action == "ban_author":
+            post = await db.db.client.table("trenches_posts").select("author_id").eq("id", post_id).single().execute()
+            author_id = post.data.get("author_id") if hasattr(post, "data") else None
+            if author_id:
+                await db.db.client.table("profiles").update({"banned": True, "ban_reason": req.reason}).eq("id", author_id).execute()
+        return {"post_id": post_id, "action": req.action, "status": "ok"}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+# ═══════════════════════════════════════════════════════════════
+# USER MANAGEMENT
+# ═══════════════════════════════════════════════════════════════
+
+@router.get("/users")
+async def admin_users(
+    request: Request,
+    limit: int = 50,
+    offset: int = 0,
+    role: Optional[str] = None,
+    tier: Optional[str] = None,
+    _=Depends(_verify_admin)
+):
+    """List users/profiles with filtering."""
+    try:
+        db = get_db()
+        query = db.db.client.table("profiles").select("*").range(offset, offset + limit - 1)
+        if role:
+            query = query.eq("role", role)
+        if tier:
+            query = query.eq("tier", tier)
+        resp = await query.execute()
+        users = resp.data if hasattr(resp, "data") else []
+        # Mask sensitive fields
+        for u in users:
+            u["wallet_address"] = u.get("wallet_address", "")[:6] + "..." + u.get("wallet_address", "")[-4:] if u.get("wallet_address") else None
+        return {"users": users, "total": len(users), "limit": limit, "offset": offset}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+class UserActionRequest(BaseModel):
+    action: str = Field(..., description="ban, unban, promote, demote, set_tier")
+    value: Optional[str] = None
+    reason: Optional[str] = None
+
+@router.post("/users/{user_id}/action")
+async def admin_user_action(
+    user_id: str,
+    req: UserActionRequest,
+    request: Request,
+    _=Depends(_verify_admin)
+):
+    """Perform admin action on a user."""
+    try:
+        db = get_db()
+        updates: Dict[str, Any] = {}
+        if req.action == "ban":
+            updates = {"banned": True, "ban_reason": req.reason, "banned_at": datetime.utcnow().isoformat()}
+        elif req.action == "unban":
+            updates = {"banned": False, "ban_reason": None, "banned_at": None}
+        elif req.action == "promote":
+            updates = {"role": "ADMIN"}
+        elif req.action == "demote":
+            updates = {"role": "USER"}
+        elif req.action == "set_tier":
+            updates = {"tier": req.value or "FREE"}
+        else:
+            raise HTTPException(status_code=400, detail="Unknown action")
+        await db.db.client.table("profiles").update(updates).eq("id", user_id).execute()
+        return {"user_id": user_id, "action": req.action, "updates": updates, "status": "ok"}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+# ═══════════════════════════════════════════════════════════════
+# N8N WORKFLOW MANAGEMENT
+# ═══════════════════════════════════════════════════════════════
+
+@router.get("/n8n/workflows")
+async def admin_n8n_workflows(request: Request, _=Depends(_verify_admin)):
+    """List N8N workflows via API if credentials available."""
+    n8n_base = os.getenv("N8N_BASE_URL", "http://127.0.0.1:5678")
+    n8n_api_key = os.getenv("N8N_API_KEY", "")
+    try:
+        async with httpx.AsyncClient(timeout=10.0) as client:
+            headers = {"X-N8N-API-KEY": n8n_api_key} if n8n_api_key else {}
+            resp = await client.get(f"{n8n_base}/api/v1/workflows", headers=headers)
+            if resp.status_code == 200:
+                return {"workflows": resp.json().get("data", []), "source": n8n_base}
+            else:
+                return {"workflows": [], "source": n8n_base, "error": f"Status {resp.status_code}"}
+    except Exception as e:
+        return {"workflows": [], "source": n8n_base, "error": str(e)}
+
+
+class N8nActionRequest(BaseModel):
+    action: str = Field(..., description="activate, deactivate, execute")
+
+@router.post("/n8n/workflows/{workflow_id}/action")
+async def admin_n8n_workflow_action(
+    workflow_id: str,
+    req: N8nActionRequest,
+    request: Request,
+    _=Depends(_verify_admin)
+):
+    """Control an N8N workflow."""
+    n8n_base = os.getenv("N8N_BASE_URL", "http://127.0.0.1:5678")
+    n8n_api_key = os.getenv("N8N_API_KEY", "")
+    try:
+        async with httpx.AsyncClient(timeout=10.0) as client:
+            headers = {"X-N8N-API-KEY": n8n_api_key} if n8n_api_key else {}
+            if req.action == "activate":
+                resp = await client.post(f"{n8n_base}/api/v1/workflows/{workflow_id}/activate", headers=headers)
+            elif req.action == "deactivate":
+                resp = await client.post(f"{n8n_base}/api/v1/workflows/{workflow_id}/deactivate", headers=headers)
+            elif req.action == "execute":
+                resp = await client.post(f"{n8n_base}/api/v1/workflows/{workflow_id}/execute", headers=headers)
+            else:
+                raise HTTPException(status_code=400, detail="Unknown action")
+            return {"workflow_id": workflow_id, "action": req.action, "status": resp.status_code, "data": resp.json() if resp.status_code < 300 else None}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+# ═══════════════════════════════════════════════════════════════
+# CLOUD & INFRASTRUCTURE
+# ═══════════════════════════════════════════════════════════════
+
+@router.get("/infrastructure")
+async def admin_infrastructure(request: Request, _=Depends(_verify_admin)):
+    """Get cloud/infrastructure overview."""
+    try:
+        from main import get_redis
+        r = await get_redis()
+        infra = {
+            "timestamp": datetime.utcnow().isoformat(),
+            "servers": [],
+            "databases": [],
+            "caches": [],
+            "queues": [],
+        }
+        # Redis info
+        try:
+            redis_info = await r.info()
+            infra["caches"].append({
+                "name": "Dragonfly/Redis",
+                "type": "cache",
+                "status": "online",
+                "version": redis_info.get("redis_version", "unknown"),
+                "used_memory_mb": round(float(redis_info.get("used_memory", 0)) / (1024*1024), 2),
+                "connected_clients": redis_info.get("connected_clients", 0),
+                "uptime_seconds": redis_info.get("uptime_in_seconds", 0),
+            })
+        except Exception:
+            infra["caches"].append({"name": "Dragonfly/Redis", "status": "offline"})
+
+        # Supabase status
+        try:
+            db = get_db()
+            await db.db.client.table("profiles").select("id", count="exact").limit(1).execute()
+            infra["databases"].append({"name": "Supabase PostgreSQL", "type": "database", "status": "online"})
+        except Exception:
+            infra["databases"].append({"name": "Supabase PostgreSQL", "type": "database", "status": "offline"})
+
+        # Check local services
+        for svc_id, cfg in SERVICES.items():
+            online = _check_port("127.0.0.1", cfg["port"])
+            infra["servers"].append({
+                "id": svc_id,
+                "name": cfg["name"],
+                "type": "service",
+                "status": "running" if online else "stopped",
+                "port": cfg["port"],
+            })
+
+        # Queue depth
+        try:
+            queue_len = await r.llen("rmi:queue:system")
+            infra["queues"].append({"name": "system", "depth": queue_len})
+        except Exception:
+            infra["queues"].append({"name": "system", "depth": 0})
+
+        return infra
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+

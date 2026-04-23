@@ -800,7 +800,8 @@ class ApiClient {
   }
 
 
-  // ═══════════ BACKEND CONTROL (ADMIN) ═══════════
+
+  // ═══════════ BACKEND CONTROL (ADMIN) — EXPANDED ═══════════
   async getSystemStats(adminKey: string): Promise<any> {
     const response = await this.client.get('/api/v1/admin/system', {
       headers: { 'X-Admin-Key': adminKey },
@@ -879,6 +880,84 @@ class ApiClient {
     return response.data;
   }
 
+  // Content Management
+  async getAdminContentPosts(adminKey: string, limit: number = 50, status?: string): Promise<any> {
+    const response = await this.client.get('/api/v1/admin/content/posts', {
+      headers: { 'X-Admin-Key': adminKey },
+      params: { limit, status },
+    });
+    return response.data;
+  }
+
+  async moderateContent(adminKey: string, postId: string, action: string, reason?: string): Promise<any> {
+    const response = await this.client.post('/api/v1/admin/content/moderate', {
+      post_id: postId, action, reason,
+    }, {
+      headers: { 'X-Admin-Key': adminKey },
+    });
+    return response.data;
+  }
+
+  // Trenches Management
+  async getAdminTrenchesPosts(adminKey: string, limit: number = 50): Promise<any> {
+    const response = await this.client.get('/api/v1/admin/trenches/posts', {
+      headers: { 'X-Admin-Key': adminKey },
+      params: { limit },
+    });
+    return response.data;
+  }
+
+  async trenchesAction(adminKey: string, postId: string, action: string, reason?: string): Promise<any> {
+    const response = await this.client.post(`/api/v1/admin/trenches/posts/${postId}/action`, {
+      action, reason,
+    }, {
+      headers: { 'X-Admin-Key': adminKey },
+    });
+    return response.data;
+  }
+
+  // User Management
+  async getAdminUsers(adminKey: string, limit: number = 50, offset: number = 0, role?: string, tier?: string): Promise<any> {
+    const response = await this.client.get('/api/v1/admin/users', {
+      headers: { 'X-Admin-Key': adminKey },
+      params: { limit, offset, role, tier },
+    });
+    return response.data;
+  }
+
+  async userAction(adminKey: string, userId: string, action: string, value?: string, reason?: string): Promise<any> {
+    const response = await this.client.post(`/api/v1/admin/users/${userId}/action`, {
+      action, value, reason,
+    }, {
+      headers: { 'X-Admin-Key': adminKey },
+    });
+    return response.data;
+  }
+
+  // N8N Workflows
+  async getN8nWorkflows(adminKey: string): Promise<any> {
+    const response = await this.client.get('/api/v1/admin/n8n/workflows', {
+      headers: { 'X-Admin-Key': adminKey },
+    });
+    return response.data;
+  }
+
+  async n8nWorkflowAction(adminKey: string, workflowId: string, action: string): Promise<any> {
+    const response = await this.client.post(`/api/v1/admin/n8n/workflows/${workflowId}/action`, {
+      action,
+    }, {
+      headers: { 'X-Admin-Key': adminKey },
+    });
+    return response.data;
+  }
+
+  // Infrastructure
+  async getInfrastructure(adminKey: string): Promise<any> {
+    const response = await this.client.get('/api/v1/admin/infrastructure', {
+      headers: { 'X-Admin-Key': adminKey },
+    });
+    return response.data;
+  }
   // ═══════════ MIRROR.XYZ ═══════════
   async publishToMirror(title: string, body: string, tags?: string[]): Promise<any> {
     const response = await this.client.post('/api/v1/newsletter/mirror/publish', {

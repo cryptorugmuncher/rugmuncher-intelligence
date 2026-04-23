@@ -74,12 +74,18 @@ async function handleWorkersAI(request: Request, env: Env): Promise<Response> {
 // AI GATEWAY — Unified AI Provider Proxy with Caching
 // ═══════════════════════════════════════════════════════════
 
-const AI_PROVIDER_CONFIG: Record<string, { baseUrl: string; headerName: string }> = {
+const AI_PROVIDER_CONFIG: Record<string, { baseUrl: string; headerName: string; queryParam?: string }> = {
   openai: { baseUrl: 'https://api.openai.com/v1', headerName: 'Authorization' },
   anthropic: { baseUrl: 'https://api.anthropic.com/v1', headerName: 'x-api-key' },
   groq: { baseUrl: 'https://api.groq.com/openai/v1', headerName: 'Authorization' },
   openrouter: { baseUrl: 'https://openrouter.ai/api/v1', headerName: 'Authorization' },
   deepseek: { baseUrl: 'https://api.deepseek.com/v1', headerName: 'Authorization' },
+  fireworks: { baseUrl: 'https://api.fireworks.ai/inference/v1', headerName: 'Authorization' },
+  gemini: { baseUrl: 'https://generativelanguage.googleapis.com/v1beta/models', headerName: 'Authorization', queryParam: 'key' },
+  mistral: { baseUrl: 'https://api.mistral.ai/v1', headerName: 'Authorization' },
+  nvidia: { baseUrl: 'https://integrate.api.nvidia.com/v1', headerName: 'Authorization' },
+  kimi: { baseUrl: 'https://api.moonshot.cn/v1', headerName: 'Authorization' },
+  together: { baseUrl: 'https://api.together.xyz/v1', headerName: 'Authorization' },
 };
 
 async function handleAIGateway(request: Request): Promise<Response> {
