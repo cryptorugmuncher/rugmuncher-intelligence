@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "id": "ncb2c7d5b",
+  "category": "task",
+  "type": "task.timed_out",
+  "source_kind": "background_task",
+  "source_id": "bash-zerzc70s",
+  "title": "Background task timed out: Start Rug Muncher File Dump server",
+  "body": "Task ID: bash-zerzc70s\nStatus: failed\nDescription: Start Rug Muncher File Dump server\nTerminal reason: timed_out\nExit code: -15\nFailure reason: Command timed out after 60s",
+  "severity": "error",
+  "created_at": 1775712283.971655,
+  "payload": {
+    "task_id": "bash-zerzc70s",
+    "task_kind": "bash",
+    "status": "failed",
+    "description": "Start Rug Muncher File Dump server",
+    "exit_code": -15,
+    "interrupted": true,
+    "timed_out": true,
+    "terminal_reason": "timed_out",
+    "failure_reason": "Command timed out after 60s"
+  },
+  "targets": [
+    "llm",
+    "wire",
+    "shell"
+  ],
+  "dedupe_key": "background_task:bash-zerzc70s:timed_out"
+}

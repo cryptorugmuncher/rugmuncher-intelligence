@@ -1,0 +1,31 @@
+import '@react-three/fiber'
+
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      instancedMesh: any
+      mesh: any
+      geometry: any
+      bufferGeometry: any
+      sphereGeometry: any
+      boxGeometry: any
+      material: any
+      meshStandardMaterial: any
+      meshBasicMaterial: any
+      lineBasicMaterial: any
+      ambientLight: any
+      directionalLight: any
+      pointLight: any
+      spotLight: any
+      hemisphereLight: any
+      gridHelper: any
+      axesHelper: any
+      perspectiveCamera: any
+      orthographicCamera: any
+      scene: any
+      group: any
+    }
+  }
+}
+
+export {}

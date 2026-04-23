@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "id": "nb9d02810",
+  "category": "task",
+  "type": "task.failed",
+  "source_kind": "background_task",
+  "source_id": "bash-m4bv8m04",
+  "title": "Background task failed: Install Python dependencies (fixed conflicts)",
+  "body": "Task ID: bash-m4bv8m04\nStatus: failed\nDescription: Install Python dependencies (fixed conflicts)\nExit code: 1\nFailure reason: Command failed with exit code 1",
+  "severity": "error",
+  "created_at": 1775755456.9853146,
+  "payload": {
+    "task_id": "bash-m4bv8m04",
+    "task_kind": "bash",
+    "status": "failed",
+    "description": "Install Python dependencies (fixed conflicts)",
+    "exit_code": 1,
+    "interrupted": false,
+    "timed_out": false,
+    "terminal_reason": "failed",
+    "failure_reason": "Command failed with exit code 1"
+  },
+  "targets": [
+    "llm",
+    "wire",
+    "shell"
+  ],
+  "dedupe_key": "background_task:bash-m4bv8m04:failed"
+}

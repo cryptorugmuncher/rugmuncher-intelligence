@@ -1,0 +1,91 @@
+{
+  "audit_date": "2026-04-13",
+  "status": "RESOLVED",
+  "finding": "CRITICAL ADDRESS DISCREPANCY IN INVESTIGATION SCRIPTS",
+  "summary": "Investigation scripts were using incorrect DLHnb1yt wallet address. Corrected via CSV verification.",
+  "addresses_involved": {
+    "incorrect_script_address": {
+      "address": "DLHnb1yt6DMx9j5yg8y0jmtobDd2Pi5pMThdFtk8L36Y",
+      "status": "INVALID/NON-EXISTENT",
+      "used_in": [
+        "multi_api_timeline_builder.py",
+        "helius_arkham_timeline_builder.py", 
+        "cost_free_acquisition_forensics.py",
+        "wallet_identity_verification.py",
+        "crm_wallet_analyses.json",
+        "crm_acquisition_analyses.json"
+      ],
+      "claimed_holding": "104,599,706.76 CRM (10.46%)",
+      "actual_holding": "0 or non-existent"
+    },
+    "verified_token_account": {
+      "address": "DLHnb1yt6DMx2q3qoU2i8coMtnzD5y99eJ4EjhdZgLVh",
+      "status": "VALID ATA (Associated Token Account)",
+      "source": "CSV token holders export",
+      "verified_holding": "28,668,823.52 CRM (2.87%)"
+    },
+    "verified_owner_wallet": {
+      "address": "LZcXJY4TT6T4q63RRZjsWHHS7ByV5RL4rxMAxGmiUFE",
+      "status": "VALID INDIVIDUAL WALLET",
+      "type": "Regular wallet (not DEX protocol)",
+      "source": "CSV token holders export",
+      "controls_via_ata": "DLHnb1yt6DMx2q3qoU2i8coMtnzD5y99eJ4EjhdZgLVh",
+      "total_crm": "28,668,823.52 CRM (2.87% supply)",
+      "meteora_verified": "NO - Not a protocol address",
+      "raydium_verified": "NO - Not an LP pool"
+    }
+  },
+  "holding_discrepancy_explained": {
+    "original_claim": "104.6M CRM (DLHnb1yt cluster)",
+    "corrected_amount": "28.67M CRM (LZcXJY4 owner wallet)",
+    "discrepancy": "75.93M CRM difference",
+    "explanation": "The 104.6M figure appears to be erroneous. Only 28.67M found in verified holder data. No other DLHnb1yt-related accounts found in top 1000 holders.",
+    "network_total_corrected": "~132.63M CRM (13.26% supply) - still critical threat level"
+  },
+  "files_updated": [
+    {
+      "file": "multi_api_timeline_builder.py",
+      "change": "KEY_WALLETS['DLHnb1yt'] now points to LZcXJY4... (verified owner)",
+      "old_address": "DLHnb1yt6DMx9j5yg8y0jmtobDd2Pi5pMThdFtk8L36Y",
+      "new_address": "LZcXJY4TT6T4q63RRZjsWHHS7ByV5RL4rxMAxGmiUFE"
+    },
+    {
+      "file": "helius_arkham_timeline_builder.py",
+      "change": "KEY_WALLETS['DLHnb1yt'] now points to LZcXJY4... (verified owner)",
+      "old_address": "DLHnb1yt6DMx9j5yg8y0jmtobDd2Pi5pMThdFtk8L36Y",
+      "new_address": "LZcXJY4TT6T4q63RRZjsWHHS7ByV5RL4rxMAxGmiUFE"
+    },
+    {
+      "file": "wallet_identity_verification.py",
+      "change": "WALLETS['DLHnb1yt'] now points to LZcXJY4... (verified owner)",
+      "old_address": "DLHnb1yt6DMx9j5yg8y0jmtobDd2Pi5pMThdFtk8L36Y",
+      "new_address": "LZcXJY4TT6T4q63RRZjsWHHS7ByV5RL4rxMAxGmiUFE"
+    },
+    {
+      "file": "cost_free_acquisition_forensics.py",
+      "change": "INVESTIGATION_TARGETS['DLHnb1yt_cluster'] updated with corrected address and holding",
+      "old_address": "DLHnb1yt6DMx9j5yg8y0jmtobDd2Pi5pMThdFtk8L36Y",
+      "new_address": "LZcXJY4TT6T4q63RRZjsWHHS7ByV5RL4rxMAxGmiUFE",
+      "old_holding": 104599706.76,
+      "new_holding": 28668823.52
+    }
+  ],
+  "files_requiring_manual_update": [
+    "crm_wallet_analyses.json",
+    "crm_acquisition_analyses.json", 
+    "crm_complete_multi_api_timeline.json",
+    "wallet_identity_verification.json",
+    "FINAL_CASE_SUMMARY.md"
+  ],
+  "investigation_validity": {
+    "methodology": "VALID",
+    "threat_assessment": "VALID - Network still controls ~13% of supply",
+    "individual_wallet_analysis": "VALID - LZcXJY4 is an individual wallet, not DEX",
+    "quantitative_claims": "CORRECTED - Holdings reduced from 104.6M to 28.67M CRM"
+  },
+  "key_evidence": {
+    "csv_source": "evidence/transaction_csvs/20260409_075815_049ce1d9_export_token_holders_Eme5T2s2HB7B8W4YgLG1eReQpnadEVUnQBRjaKTdBAGS_1774822765256.csv",
+    "csv_line": "DLHnb1yt6DMx2q3qoU2i8coMtnzD5y99eJ4EjhdZgLVh,LZcXJY4TT6T4q63RRZjsWHHS7ByV5RL4rxMAxGmiUFE,28668823.524003334,2.87",
+    "csv_note": "Column headers appear reversed - 'Account' is actually token account, 'Token Account' is owner"
+  }
+}

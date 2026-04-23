@@ -1,0 +1,234 @@
+{
+  "name": "Scam Alert System",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "scam-alert",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-node",
+      "name": "Scam Alert Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        250,
+        300
+      ],
+      "webhookId": "scam-alert"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Validate and process scam alert\nconst alert = $input.first().json.body;\n\n// Validate required fields\nif (!alert.token_address && !alert.contract_address) {\n  return [{\n    json: {\n      success: false,\n      error: 'Missing token or contract address'\n    }\n  }];\n}\n\n// Calculate risk score\nlet riskScore = alert.risk_score || 0;\nif (alert.honeypot_detected) riskScore += 30;\nif (alert.ownership_renounced === false) riskScore += 20;\nif (alert.mint_function) riskScore += 25;\nif (alert.sell_tax > 10) riskScore += 15;\n\nreturn [{\n  json: {\n    ...alert,\n    risk_score: Math.min(100, riskScore),\n    processed_at: new Date().toISOString(),\n    alert_level: riskScore >= 80 ? 'critical' : riskScore >= 60 ? 'high' : riskScore >= 40 ? 'medium' : 'low'\n  }\n}];"
+      },
+      "id": "process-node",
+      "name": "Process Alert",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        450,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "condition-1",
+              "leftValue": "={{ $json.risk_score }}",
+              "rightValue": "80",
+              "operator": {
+                "type": "number",
+                "operation": "gt"
+              }
+            }
+          ],
+          "combinator": "and"
+        }
+      },
+      "id": "if-node",
+      "name": "High Risk?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        650,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "content": "\ud83d\udea8 CRITICAL SCAM ALERT \ud83d\udea8\n\nToken: {{ $json.token_name || 'Unknown' }}\nContract: {{ $json.token_address || $json.contract_address }}\n\nRisk Score: {{ $json.risk_score }}/100\nAlert Level: {{ $json.alert_level.toUpperCase() }}\n\n\u26a0\ufe0f Detected Issues:\n{{ $json.honeypot_detected ? '\u2022 Honeypot detected\\n' : '' }}{{ $json.mint_function ? '\u2022 Mint function enabled\\n' : '' }}{{ $json.ownership_renounced === false ? '\u2022 Ownership not renounced\\n' : '' }}{{ $json.sell_tax ? `\u2022 High sell tax: ${$json.sell_tax}%\\n` : '' }}\n\nProtect yourself - AVOID this token!\n\nReported via The Trenches",
+        "additionalFields": {}
+      },
+      "id": "twitter-node",
+      "name": "Post to X",
+      "type": "n8n-nodes-base.twitter",
+      "typeVersion": 2,
+      "position": [
+        250,
+        500
+      ],
+      "credentials": {
+        "twitterOAuth2Api": {
+          "id": "twitter-creds",
+          "name": "Twitter OAuth2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "insert",
+        "table": {
+          "value": "security_alerts",
+          "mode": "list"
+        },
+        "columns": {
+          "mapping": [
+            {
+              "column": "token_address",
+              "value": "={{ $json.token_address || $json.contract_address }}"
+            },
+            {
+              "column": "token_name",
+              "value": "={{ $json.token_name }}"
+            },
+            {
+              "column": "risk_score",
+              "value": "={{ $json.risk_score }}"
+            },
+            {
+              "column": "alert_level",
+              "value": "={{ $json.alert_level }}"
+            },
+            {
+              "column": "detected_issues",
+              "value": "={{ JSON.stringify($json) }}"
+            },
+            {
+              "column": "reported_at",
+              "value": "={{ $now }}"
+            }
+          ]
+        }
+      },
+      "id": "postgres-node",
+      "name": "Save to Database",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.2,
+      "position": [
+        450,
+        500
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "postgres-creds",
+          "name": "PostgreSQL"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "respond-node",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        650,
+        500
+      ]
+    }
+  ],
+  "connections": {
+    "Scam Alert Webhook": {
+      "main": [
+        [
+          {
+            "node": "Process Alert",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Process Alert": {
+      "main": [
+        [
+          {
+            "node": "High Risk?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "High Risk?": {
+      "main": [
+        [
+          {
+            "node": "Post to X",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Save to Database",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Save to Database",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Post to X": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save to Database": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveExecutionProgress": true,
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "name": "Security",
+      "id": "tag-security"
+    }
+  ],
+  "id": "1bb0c16d-d458-4827-ae96-9324f55deab2",
+  "active": false
+}

@@ -1,0 +1,66 @@
+{
+  "HLnpSz9h": {
+    "address": "HLnpSz9h2S4hiLQ43rnSD9XkcUThA7B8hQMKmDaiTLcC",
+    "name": "HLnpSz9h",
+    "crm_balance": 0.0,
+    "sol_balance": 0.0,
+    "transaction_count": 100,
+    "first_active": "2026-04-13T17:52:06+00:00",
+    "last_active": "2026-04-13T17:52:06+00:00",
+    "arkham_entity": null,
+    "risk_score": 1.0,
+    "known_connections": []
+  },
+  "8eVZa7": {
+    "address": "8eVZa7bEBnd6MA6JJkNdABRN4S3LbVLRnCZNJAUeuwQj",
+    "name": "8eVZa7",
+    "crm_balance": 0.0,
+    "sol_balance": 0.0,
+    "transaction_count": 100,
+    "first_active": "2026-01-27T11:49:53+00:00",
+    "last_active": "2026-03-30T02:22:53+00:00",
+    "arkham_entity": null,
+    "risk_score": 1.0,
+    "known_connections": []
+  },
+  "AFXigaYu": {
+    "address": "AFXigaYuRKYmvd9HZQCobtZ98FNAwnwpsnjvJRztUGb6",
+    "name": "AFXigaYu",
+    "crm_balance": 0.0,
+    "sol_balance": 0.0,
+    "transaction_count": 100,
+    "first_active": "2026-03-26T21:41:55+00:00",
+    "last_active": "2026-03-27T20:31:00+00:00",
+    "arkham_entity": null,
+    "risk_score": 1.0,
+    "known_connections": []
+  },
+  "DLHnb1yt": {
+    "address": "LZcXJY4TT6T4q63RRZjsWHHS7ByV5RL4rxMAxGmiUFE",
+    "name": "PETER (DLHnb1yt)",
+    "identified_as": "PETER",
+    "identity_source": "User identification",
+    "crm_balance": 28668823.52,
+    "sol_balance": 0.0,
+    "transaction_count": 0,
+    "first_active": null,
+    "last_active": null,
+    "arkham_entity": null,
+    "risk_score": 0.9,
+    "known_connections": [],
+    "note": "ADDRESS CORRECTED: Was DLHnb1yt6DMx9j5... (invalid). Now LZcXJY4... (verified owner of DLHnb1yt6DMx2q3... ATA with 28.67M CRM). Identified as PETER.",
+    "token_account": "DLHnb1yt6DMx2q3qoU2i8coMtnzD5y99eJ4EjhdZgLVh"
+  },
+  "CaTWE2N": {
+    "address": "CaTWE2NPewVt1WLrQZeQGvUiMYexyV3YBaWhEDQ33kDh",
+    "name": "CaTWE2N",
+    "crm_balance": 0.0,
+    "sol_balance": 0.0,
+    "transaction_count": 100,
+    "first_active": "2025-10-02T23:21:06+00:00",
+    "last_active": "2025-11-13T18:29:37+00:00",
+    "arkham_entity": null,
+    "risk_score": 0.2,
+    "known_connections": []
+  }
+}

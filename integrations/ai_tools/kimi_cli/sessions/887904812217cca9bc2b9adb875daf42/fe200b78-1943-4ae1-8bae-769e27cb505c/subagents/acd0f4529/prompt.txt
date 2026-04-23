@@ -1,0 +1,8 @@
+Do a thorough exploration of the codebase at /root to understand:
+1. What are the main components/modules?
+2. What is the overall architecture?
+3. What are the key Python files and their purposes?
+4. Are there any configuration files, requirements, or entry points?
+5. Look for any TODO comments, FIXME markers, or obvious issues
+
+Give me a comprehensive summary of what exists and any red flags you notice.

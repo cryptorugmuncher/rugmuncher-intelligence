@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: Arial, sans-serif; background: #0a0a0a; color: #fff; padding: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 15px; text-align: left; border-bottom: 1px solid #333; }
+        th { background: #1a1a2e; color: #ff0000; text-transform: uppercase; }
+        tr:hover { background: #1a1a2e; }
+        .tier-1 { border-left: 4px solid #ff0000; }
+        .tier-2 { border-left: 4px solid #ff6600; }
+        .tier-3 { border-left: 4px solid #ffcc00; }
+        .tier-4 { border-left: 4px solid #ff99cc; }
+        .tier-5 { border-left: 4px solid #9900ff; }
+        .usd { color: #00ff00; font-weight: bold; }
+        .risk-high { color: #ff0000; }
+        .risk-medium { color: #ffcc00; }
+        .risk-low { color: #00ff00; }
+    </style>
+</head>
+<body>
+    <h1>CRM Criminal Enterprise - Tier Analysis</h1>
+    <table>
+        <tr>
+            <th>Tier</th>
+            <th>Description</th>
+            <th>Wallet Count</th>
+            <th>Active</th>
+            <th>Wiped</th>
+            <th>Total USD Extracted</th>
+            <th>Avg Risk Score</th>
+        </tr>
+        <tr class="tier-1">
+            <td><strong>Tier 1</strong></td>
+            <td>Command & Control - Deployers and primary controllers</td>
+            <td>4</td>
+            <td>4</td>
+            <td>0</td>
+            <td class="usd">$887,000</td>
+            <td class="risk-high">95.8</td>
+        </tr>
+        <tr class="tier-2">
+            <td><strong>Tier 2</strong></td>
+            <td>Liquidity Manipulation - Pool drainers and volume fakers</td>
+            <td>5</td>
+            <td>5</td>
+            <td>0</td>
+            <td class="usd">$513,500</td>
+            <td class="risk-high">91.0</td>
+        </tr>
+        <tr class="tier-3">
+            <td><strong>Tier 3</strong></td>
+            <td>Distribution Network - Fund dispersal to downstream</td>
+            <td>12</td>
+            <td>12</td>
+            <td>0</td>
+            <td class="usd">$345,000</td>
+            <td class="risk-medium">80.5</td>
+        </tr>
+        <tr class="tier-4">
+            <td><strong>Tier 4</strong></td>
+            <td>Wash Trading Army - Ghost signers and fake volume</td>
+            <td>17</td>
+            <td>0</td>
+            <td>17</td>
+            <td class="usd">$193,800</td>
+            <td class="risk-medium">78.0</td>
+        </tr>
+        <tr class="tier-5">
+            <td><strong>Tier 5</strong></td>
+            <td>Exit Wallets - KYC exchanges and cash-out points</td>
+            <td>4</td>
+            <td>4</td>
+            <td>0</td>
+            <td class="usd">$670,000</td>
+            <td class="risk-medium">88.0</td>
+        </tr>
+    </table>
+</body>
+</html>

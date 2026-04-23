@@ -1,0 +1,121 @@
+{
+  "name": "X to Telegram Auto-Post",
+  "nodes": [
+    {
+      "parameters": {
+        "auth": "oAuth2",
+        "rules": {
+          "usernames": [
+            "CryptoRugMunch"
+          ]
+        }
+      },
+      "id": "x-trigger-node",
+      "name": "X (Twitter) Trigger",
+      "type": "n8n-nodes-base.twitterTrigger",
+      "typeVersion": 2,
+      "position": [250, 300],
+      "credentials": {
+        "twitterOAuth2Api": {
+          "id": "twitter-credentials",
+          "name": "Twitter API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Process X tweet data\nconst tweet = $input.first().json;\n\n// Skip replies and retweets (optional)\nif (tweet.in_reply_to_status_id || tweet.retweeted_status) {\n  return { skip: true };\n}\n\n// Format message for Telegram\nconst text = tweet.text || tweet.full_text || '';\nconst tweetUrl = `https://twitter.com/${tweet.user.screen_name}/status/${tweet.id_str}`;\n\n// Add emoji based on content\nlet emoji = '📢';\nif (text.toLowerCase().includes('rug')) emoji = '🚨';\nif (text.toLowerCase().includes('alpha')) emoji = '💎';\nif (text.toLowerCase().includes('whale')) emoji = '🐋';\nif (text.toLowerCase().includes('scam')) emoji = '⚠️';\n\nconst formattedMessage = `${emoji} <b>${tweet.user.name}</b>\n\n${text}\n\n<a href=\"${tweetUrl}\">View on X</a>`;\n\nreturn {\n  skip: false,\n  message: formattedMessage,\n  tweet_id: tweet.id_str,\n  created_at: tweet.created_at\n};"
+      },
+      "id": "format-node",
+      "name": "Format for Telegram",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "chatId": "-1002056885429",
+        "text": "={{ $json.message }}",
+        "additionalFields": {
+          "parse_mode": "HTML",
+          "disable_web_page_preview": false
+        }
+      },
+      "id": "telegram-node",
+      "name": "Post to Main Channel",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.1,
+      "position": [650, 300],
+      "credentials": {
+        "telegramApi": {
+          "id": "telegram-bot-credentials",
+          "name": "Rug Munch Bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "options": {},
+        "responseBody": "={{ JSON.stringify({ success: true, posted: !$json.skip, tweet_id: $json.tweet_id }) }}"
+      },
+      "id": "respond-success",
+      "name": "Log Success",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [850, 300]
+    }
+  ],
+  "connections": {
+    "X (Twitter) Trigger": {
+      "main": [
+        [
+          {
+            "node": "Format for Telegram",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format for Telegram": {
+      "main": [
+        [
+          {
+            "node": "Post to Main Channel",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Post to Main Channel": {
+      "main": [
+        [
+          {
+            "node": "Log Success",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveExecutionProgress": true,
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "name": "Social Media",
+      "color": "#00d4ff"
+    },
+    {
+      "name": "Automation",
+      "color": "#e94560"
+    }
+  ]
+}

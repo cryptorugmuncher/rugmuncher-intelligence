@@ -1,0 +1,158 @@
+{
+  "wallet": "HLnpSz9h2S4hiLQ43rnSD9XkcUThA7B8hQMKmDaiTLcC",
+  "analysis_date": "2026-04-13T20:55:52.234924",
+  "mode": "LIVE",
+  "transactions_analyzed": 100,
+  "counterparties": {
+    "user_wallets": {
+      "0": {
+        "interaction_count": 41,
+        "first_seen": 1776106528
+      },
+      "1": {
+        "interaction_count": 40,
+        "first_seen": 1776106528
+      },
+      "cpamdpZCGKUy5JxQXB4dcpGPiikHawvSWAd6mEn1sGG": {
+        "interaction_count": 40,
+        "first_seen": 1776106528
+      },
+      "3rmHSu74h1ZcmAisVcWerTCiRDQbUrBKmcwptYGjHfet": {
+        "interaction_count": 40,
+        "first_seen": 1776106528
+      },
+      "5": {
+        "interaction_count": 37,
+        "first_seen": 1776106528
+      },
+      "8": {
+        "interaction_count": 37,
+        "first_seen": 1776106528
+      },
+      "4": {
+        "interaction_count": 36,
+        "first_seen": 1776106528
+      },
+      "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb": {
+        "interaction_count": 35,
+        "first_seen": 1776106528
+      },
+      "2": {
+        "interaction_count": 33,
+        "first_seen": 1776106528
+      },
+      "11": {
+        "interaction_count": 31,
+        "first_seen": 1776106528
+      },
+      "15": {
+        "interaction_count": 28,
+        "first_seen": 1776106528
+      },
+      "14": {
+        "interaction_count": 27,
+        "first_seen": 1776106528
+      },
+      "7": {
+        "interaction_count": 9,
+        "first_seen": 1776106528
+      },
+      "16": {
+        "interaction_count": 9,
+        "first_seen": 1776106528
+      },
+      "6": {
+        "interaction_count": 7,
+        "first_seen": 1776106528
+      },
+      "13": {
+        "interaction_count": 6,
+        "first_seen": 1776106528
+      },
+      "18": {
+        "interaction_count": 6,
+        "first_seen": 1776106528
+      },
+      "HehzrczPii9azd1QzPLjsjwsnygHvHpfBYPcmEp3gugG": {
+        "interaction_count": 6,
+        "first_seen": 1776106528
+      },
+      "245StxmR3XQB8SGUg4LJcxMrpjTPBHNFaZkj9jFpnaFq": {
+        "interaction_count": 6,
+        "first_seen": 1776106528
+      },
+      "29CWsqH84TykHDDwA6DtETUtXQPuKbVgKCmxtkBsbrrr": {
+        "interaction_count": 6,
+        "first_seen": 1776106528
+      },
+      "CiPriL1cfYhr7Jx1ZQFUqq58CNNSCTKtgrKj6G9M9zVw": {
+        "interaction_count": 6,
+        "first_seen": 1776106528
+      },
+      "HnJTqNEH6Bx2d8ZeMa8yrVumzoFLNbFtVg1qZA2R24DL": {
+        "interaction_count": 6,
+        "first_seen": 1776106528
+      },
+      "DeSYSGeEj9ytT55E9AmdFs9p2cm5fryXt61kGCammCrB": {
+        "interaction_count": 6,
+        "first_seen": 1776106528
+      },
+      "6KvXWfjwZ7mfiFALRDmj4YvJw3LxfSnLadj1kZfBykYp": {
+        "interaction_count": 6,
+        "first_seen": 1776106528
+      },
+      "G5UZAVbAf46s7cKWoyKu8kYTip9DGTpbLZ2qa9Aq69dP": {
+        "interaction_count": 6,
+        "first_seen": 1776106528
+      },
+      "NA247a7YE9S3p9CdKmMyETx8TTwbSdVbVYHHxpnHTUV": {
+        "interaction_count": 6,
+        "first_seen": 1776106528
+      },
+      "8N3GDaZ2iwN65oxVatKTLPNooAVUJTbfiVJ1ahyqwjSk": {
+        "interaction_count": 6,
+        "first_seen": 1776106528
+      },
+      "3": {
+        "interaction_count": 5,
+        "first_seen": 1776106528
+      },
+      "12": {
+        "interaction_count": 5,
+        "first_seen": 1776106528
+      },
+      "HTj5Mf96ErNL8u2qa6mmjexdsBwFy1jDri51nM78hYK2": {
+        "interaction_count": 5,
+        "first_seen": 1776106528
+      }
+    },
+    "system_programs": {
+      "ComputeBudget111111111111111111111111111111": {
+        "name": "Compute Budget",
+        "interactions": 48
+      },
+      "MemoSq4gqABAXKb96qnH8TysNcWxMyWCqXgDLGmfcHr": {
+        "name": "Memo Program v2",
+        "interactions": 3
+      },
+      "11111111111111111111111111111111": {
+        "name": "System Program",
+        "interactions": 44
+      },
+      "So11111111111111111111111111111111111111112": {
+        "name": "Wrapped SOL",
+        "interactions": 40
+      },
+      "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL": {
+        "name": "Associated Token Program",
+        "interactions": 45
+      },
+      "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA": {
+        "name": "Token Program",
+        "interactions": 40
+      }
+    },
+    "dex_programs": {},
+    "high_frequency_count": 36
+  }
+}

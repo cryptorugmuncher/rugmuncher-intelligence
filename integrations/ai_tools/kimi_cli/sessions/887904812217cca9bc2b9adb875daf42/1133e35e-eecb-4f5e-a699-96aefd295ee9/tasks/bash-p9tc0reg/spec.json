@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "id": "bash-p9tc0reg",
+  "kind": "bash",
+  "session_id": "1133e35e-eecb-4f5e-a699-96aefd295ee9",
+  "description": "Install PostgreSQL",
+  "tool_call_id": "tool_6I8tkVtnyWKz2qau7o3IQMbd",
+  "owner_role": "root",
+  "created_at": 1775756000.600664,
+  "command": "apt-get update && apt-get install -y postgresql postgresql-contrib 2>&1 | tail -20",
+  "shell_name": "bash",
+  "shell_path": "/bin/bash",
+  "cwd": "/root",
+  "timeout_s": 120,
+  "kind_payload": null
+}

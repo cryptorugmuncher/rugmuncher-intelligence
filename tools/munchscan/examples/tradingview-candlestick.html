@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MunchScan - TradingView Candlestick Chart</title>
+    <script src="https://unpkg.com/lightweight-charts@4.1.0/dist/lightweight-charts.standalone.production.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0d1117;
+            color: #e6edf3;
+            min-height: 100vh;
+        }
+        
+        .header {
+            background: #161b22;
+            border-bottom: 1px solid #30363d;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            background: linear-gradient(90deg, #00d4aa, #00a8e8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .token-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .token-pair {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .token-pair .base {
+            color: #00d4aa;
+        }
+        
+        .price-display {
+            text-align: right;
+        }
+        
+        .current-price {
+            font-size: 28px;
+            font-weight: 700;
+            color: #00d4aa;
+        }
+        
+        .price-change {
+            font-size: 14px;
+            color: #00d4aa;
+        }
+        
+        .price-change.negative {
+            color: #ff6b6b;
+        }
+        
+        .container {
+            display: flex;
+            height: calc(100vh - 73px);
+        }
+        
+        .sidebar {
+            width: 280px;
+            background: #161b22;
+            border-right: 1px solid #30363d;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        
+        .chart-container {
+            flex: 1;
+            position: relative;
+            background: #0d1117;
+        }
+        
+        #chart {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .controls {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10;
+        }
+        
+        .timeframe-buttons {
+            display: flex;
+            gap: 4px;
+            background: #21262d;
+            padding: 4px;
+            border-radius: 8px;
+        }
+        
+        .tf-btn {
+            padding: 6px 12px;
+            background: transparent;
+            border: none;
+            color: #8b949e;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        
+        .tf-btn:hover {
+            color: #e6edf3;
+        }
+        
+        .tf-btn.active {
+            background: #30363d;
+            color: #00d4aa;
+        }
+        
+        .indicators-btn {
+            padding: 8px 16px;
+            background: #21262d;
+            border: 1px solid #30363d;
+            color: #e6edf3;
+            cursor: pointer;
+            border-radius: 6px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .indicators-btn:hover {
+            background: #30363d;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        
+        .stat-card {
+            background: #21262d;
+            border-radius: 8px;
+            padding: 12px;
+            border: 1px solid #30363d;
+        }
+        
+        .stat-label {
+            font-size: 11px;
+            color: #8b949e;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+        
+        .stat-value {
+            font-size: 14px;
+            font-weight: 600;
+            color: #e6edf3;
+        }
+        
+        .stat-value.positive {
+            color: #00d4aa;
+        }
+        
+        .stat-value.negative {
+            color: #ff6b6b;
+        }
+        
+        .section-title {
+            font-size: 12px;
+            color: #8b949e;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            margin-top: 20px;
+        }
+        
+        .prediction-box {
+            background: linear-gradient(135deg, #1a2332, #21262d);
+            border: 1px solid #00d4aa;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 20px;
+        }
+        
+        .prediction-title {
+            font-size: 12px;
+            color: #00d4aa;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .prediction-value {
+            font-size: 20px;
+            font-weight: 700;
+        }
+        
+        .prediction-confidence {
+            font-size: 11px;
+            color: #8b949e;
+            margin-top: 4px;
+        }
+        
+        .prediction-bar {
+            height: 4px;
+            background: #30363d;
+            border-radius: 2px;
+            margin-top: 8px;
+            overflow: hidden;
+        }
+        
+        .prediction-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #00d4aa, #00a8e8);
+            border-radius: 2px;
+            transition: width 0.5s;
+        }
+        
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .sidebar {
+                display: none;
+            }
+            
+            .header {
+                padding: 12px 16px;
+            }
+            
+            .token-pair {
+                font-size: 14px;
+            }
+            
+            .current-price {
+                font-size: 20px;
+            }
+            
+            .timeframe-buttons {
+                flex-wrap: wrap;
+            }
+        }
+        
+        /* Loading state */
+        .loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid #30363d;
+            border-top-color: #00d4aa;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            🍔 MunchScan
+        </div>
+        <div class="token-info">
+            <div class="token-pair">
+                <span class="base">BTC</span>/USD
+            </div>
+            <div class="price-display">
+                <div class="current-price" id="currentPrice">$67,420.50</div>
+                <div class="price-change" id="priceChange">+2.34%</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="sidebar">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">24h High</div>
+                    <div class="stat-value">$68,120.00</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">24h Low</div>
+                    <div class="stat-value">$65,890.20</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">24h Volume</div>
+                    <div class="stat-value">$28.4B</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Market Cap</div>
+                    <div class="stat-value">$1.32T</div>
+                </div>
+            </div>
+            
+            <div class="prediction-box">
+                <div class="prediction-title">
+                    🤖 AI Prediction (24h)
+                </div>
+                <div class="prediction-value" id="predictionValue">$68,950.20</div>
+                <div class="prediction-bar">
+                    <div class="prediction-fill" style="width: 72%"></div>
+                </div>
+                <div class="prediction-confidence">72% confidence • Bullish trend</div>
+            </div>
+            
+            <div class="section-title">Technical Indicators</div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">RSI (14)</div>
+                    <div class="stat-value positive">62.45</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">MACD</div>
+                    <div class="stat-value positive">+145.2</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">MA (50)</div>
+                    <div class="stat-value">$66,120.80</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">MA (200)</div>
+                    <div class="stat-value">$61,450.30</div>
+                </div>
+            </div>
+            
+            <div class="section-title">Order Book (Mock)</div>
+            <div class="stat-card">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                    <span style="color: #ff6b6b; font-size: 12px;">Asks: 2.4 BTC</span>
+                    <span style="color: #00d4aa; font-size: 12px;">Bids: 3.1 BTC</span>
+                </div>
+                <div class="prediction-bar" style="height: 6px;">
+                    <div class="prediction-fill" style="width: 56%; background: linear-gradient(90deg, #ff6b6b 40%, #30363d 40%, #30363d 60%, #00d4aa 60%);"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="chart-container">
+            <div class="controls">
+                <div class="timeframe-buttons">
+                    <button class="tf-btn" data-tf="1m">1m</button>
+                    <button class="tf-btn" data-tf="5m">5m</button>
+                    <button class="tf-btn" data-tf="15m">15m</button>
+                    <button class="tf-btn active" data-tf="1h">1H</button>
+                    <button class="tf-btn" data-tf="4h">4H</button>
+                    <button class="tf-btn" data-tf="1d">1D</button>
+                    <button class="tf-btn" data-tf="1w">1W</button>
+                </div>
+                <button class="indicators-btn">
+                    📊 Indicators
+                </button>
+            </div>
+            <div id="chart"></div>
+        </div>
+    </div>
+
+    <script>
+        // Generate realistic crypto candlestick data
+        function generateCandleData(count, startPrice, startTime) {
+            const data = [];
+            let price = startPrice;
+            let time = startTime;
+            
+            for (let i = 0; i < count; i++) {
+                const volatility = price * 0.02; // 2% volatility
+                const trend = Math.sin(i / 20) * volatility * 0.5; // Add some trend
+                
+                const open = price;
+                const close = price + (Math.random() - 0.5) * volatility + trend;
+                const high = Math.max(open, close) + Math.random() * volatility * 0.5;
+                const low = Math.min(open, close) - Math.random() * volatility * 0.5;
+                const volume = Math.random() * 1000 + 500;
+                
+                data.push({
+                    time: time,
+                    open: parseFloat(open.toFixed(2)),
+                    high: parseFloat(high.toFixed(2)),
+                    low: parseFloat(low.toFixed(2)),
+                    close: parseFloat(close.toFixed(2)),
+                    volume: Math.floor(volume)
+                });
+                
+                price = close;
+                time += 3600; // 1 hour in seconds
+            }
+            
+            return data;
+        }
+        
+        // Initialize chart
+        const chartContainer = document.getElementById('chart');
+        
+        const chart = LightweightCharts.createChart(chartContainer, {
+            layout: {
+                background: { color: '#0d1117' },
+                textColor: '#e6edf3',
+                fontSize: 12,
+                fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+            },
+            grid: {
+                vertLines: { color: '#21262d' },
+                horzLines: { color: '#21262d' },
+            },
+            crosshair: {
+                mode: LightweightCharts.CrosshairMode.Normal,
+                vertLine: {
+                    color: '#00d4aa',
+                    labelBackgroundColor: '#00d4aa',
+                },
+                horzLine: {
+                    color: '#00d4aa',
+                    labelBackgroundColor: '#00d4aa',
+                },
+            },
+            rightPriceScale: {
+                borderColor: '#30363d',
+                scaleMargins: {
+                    top: 0.1,
+                    bottom: 0.2,
+                },
+            },
+            timeScale: {
+                borderColor: '#30363d',
+                timeVisible: true,
+                secondsVisible: false,
+            },
+            handleScroll: {
+                vertTouchDrag: false,
+            },
+        });
+        
+        // Add candlestick series
+        const candleSeries = chart.addCandlestickSeries({
+            upColor: '#00d4aa',
+            downColor: '#ff6b6b',
+            borderUpColor: '#00d4aa',
+            borderDownColor: '#ff6b6b',
+            wickUpColor: '#00d4aa',
+            wickDownColor: '#ff6b6b',
+        });
+        
+        // Add volume series at the bottom
+        const volumeSeries = chart.addHistogramSeries({
+            color: '#00d4aa',
+            priceFormat: {
+                type: 'volume',
+            },
+            priceScaleId: '',
+            scaleMargins: {
+                top: 0.85,
+                bottom: 0,
+            },
+        });
+        
+        // Generate and set data
+        const now = Math.floor(Date.now() / 1000);
+        const startTime = now - (3600 * 168); // 1 week ago
+        const candleData = generateCandleData(168, 65000, startTime);
+        
+        candleSeries.setData(candleData);
+        
+        // Volume data (color based on price movement)
+        const volumeData = candleData.map(d => ({
+            time: d.time,
+            value: d.volume,
+            color: d.close >= d.open ? '#00d4aa' : '#ff6b6b',
+        }));
+        volumeSeries.setData(volumeData);
+        
+        // Add moving average line
+        const maSeries = chart.addLineSeries({
+            color: '#f39c12',
+            lineWidth: 2,
+            title: 'MA 20',
+        });
+        
+        // Calculate simple moving average
+        const maData = [];
+        const period = 20;
+        for (let i = period - 1; i < candleData.length; i++) {
+            let sum = 0;
+            for (let j = 0; j < period; j++) {
+                sum += candleData[i - j].close;
+            }
+            maData.push({
+                time: candleData[i].time,
+                value: sum / period,
+            });
+        }
+        maSeries.setData(maData);
+        
+        // Add prediction line (simple linear extrapolation)
+        const predictionSeries = chart.addLineSeries({
+            color: '#00a8e8',
+            lineWidth: 2,
+            lineStyle: LightweightCharts.LineStyle.Dashed,
+            title: 'AI Prediction',
+        });
+        
+        // Simple prediction algorithm
+        const lastPrice = candleData[candleData.length - 1].close;
+        const trend = (candleData[candleData.length - 1].close - candleData[candleData.length - 20].close) / 20;
+        const predictionData = [];
+        let predTime = candleData[candleData.length - 1].time;
+        let predPrice = lastPrice;
+        
+        for (let i = 0; i < 24; i++) { // 24 hours prediction
+            predTime += 3600;
+            predPrice += trend + (Math.random() - 0.5) * 50;
+            predictionData.push({
+                time: predTime,
+                value: predPrice,
+            });
+        }
+        predictionSeries.setData(predictionData);
+        
+        // Fit content
+        chart.timeScale().fitContent();
+        
+        // Handle timeframe switching
+        document.querySelectorAll('.tf-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.tf-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                // In real app, this would fetch new data
+                console.log('Switching to timeframe:', btn.dataset.tf);
+            });
+        });
+        
+        // Simulate real-time updates
+        setInterval(() => {
+            const lastCandle = candleData[candleData.length - 1];
+            const newPrice = lastCandle.close + (Math.random() - 0.5) * 100;
+            
+            lastCandle.close = newPrice;
+            lastCandle.high = Math.max(lastCandle.high, newPrice);
+            lastCandle.low = Math.min(lastCandle.low, newPrice);
+            
+            candleSeries.update(lastCandle);
+            
+            // Update price display
+            document.getElementById('currentPrice').textContent = '$' + newPrice.toLocaleString('en-US', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            });
+            
+            // Random price change
+            const change = ((newPrice - candleData[0].open) / candleData[0].open * 100).toFixed(2);
+            const changeEl = document.getElementById('priceChange');
+            changeEl.textContent = (change >= 0 ? '+' : '') + change + '%';
+            changeEl.className = 'price-change ' + (change >= 0 ? '' : 'negative');
+            document.getElementById('currentPrice').style.color = change >= 0 ? '#00d4aa' : '#ff6b6b';
+        }, 3000);
+        
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            chart.applyOptions({
+                width: chartContainer.clientWidth,
+                height: chartContainer.clientHeight,
+            });
+        });
+        
+        // Subscribe to crosshair move for hover effects
+        chart.subscribeCrosshairMove((param) => {
+            if (param.time) {
+                const data = param.seriesData.get(candleSeries);
+                if (data) {
+                    document.getElementById('currentPrice').textContent = '$' + data.close.toLocaleString('en-US', {
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+</html>

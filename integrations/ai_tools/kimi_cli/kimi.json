@@ -1,0 +1,14 @@
+{
+  "work_dirs": [
+    {
+      "path": "/srv/trinity",
+      "kaos": "local",
+      "last_session_id": "6cf7e8bf-1cb0-456c-b2b5-f48d0170eb67"
+    },
+    {
+      "path": "/root",
+      "kaos": "local",
+      "last_session_id": null
+    }
+  ]
+}

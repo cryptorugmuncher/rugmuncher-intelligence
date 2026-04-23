@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "approval": {
+    "yolo": false,
+    "auto_approve_actions": [
+      "run command",
+      "edit file"
+    ]
+  },
+  "additional_dirs": [],
+  "custom_title": "And we are back give me notes you saved from last…",
+  "title_generated": false,
+  "title_generate_attempts": 0,
+  "plan_mode": false,
+  "plan_session_id": null,
+  "plan_slug": null,
+  "wire_mtime": null,
+  "archived": false,
+  "archived_at": null,
+  "auto_archive_exempt": false
+}

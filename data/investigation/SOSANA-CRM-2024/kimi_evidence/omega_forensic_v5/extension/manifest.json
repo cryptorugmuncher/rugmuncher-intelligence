@@ -1,0 +1,126 @@
+{
+  "manifest_version": 3,
+  "name": "RMI - RugMunch Intelligence",
+  "short_name": "RMI",
+  "version": "2.0.0",
+  "description": "Real-time crypto fraud protection. Scan tokens, detect scams, protect your wallet.",
+  "author": "RugMunch Intelligence",
+  "homepage_url": "https://intel.cryptorugmunch.com",
+  
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "default_title": "RMI - Click to scan"
+  },
+  
+  "background": {
+    "service_worker": "background/background.js",
+    "type": "module"
+  },
+  
+  "content_scripts": [
+    {
+      "matches": [
+        "*://dexscreener.com/*",
+        "*://www.dexscreener.com/*"
+      ],
+      "js": ["content_scripts/dexscreener.js"],
+      "css": ["content_scripts/rmi-overlay.css"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "*://dextools.io/*",
+        "*://www.dextools.io/*",
+        "*://app.dextools.io/*"
+      ],
+      "js": ["content_scripts/dextools.js"],
+      "css": ["content_scripts/rmi-overlay.css"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "*://birdeye.so/*",
+        "*://www.birdeye.so/*"
+      ],
+      "js": ["content_scripts/birdeye.js"],
+      "css": ["content_scripts/rmi-overlay.css"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "*://photon-sol.tinyastro.io/*",
+        "*://photon.tinyastro.io/*"
+      ],
+      "js": ["content_scripts/photon.js"],
+      "css": ["content_scripts/rmi-overlay.css"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "*://gmgn.ai/*",
+        "*://www.gmgn.ai/*"
+      ],
+      "js": ["content_scripts/gmgn.js"],
+      "css": ["content_scripts/rmi-overlay.css"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "*://solscan.io/*",
+        "*://etherscan.io/*",
+        "*://bscscan.com/*",
+        "*://arbiscan.io/*",
+        "*://basescan.org/*"
+      ],
+      "js": ["content_scripts/blockexplorer.js"],
+      "css": ["content_scripts/rmi-overlay.css"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content_scripts/phishing-detector.js"],
+      "run_at": "document_start"
+    }
+  ],
+  
+  "permissions": [
+    "storage",
+    "activeTab",
+    "alarms",
+    "notifications"
+  ],
+  
+  "host_permissions": [
+    "*://*.cryptorugmunch.com/*",
+    "*://intel.cryptorugmunch.com/*",
+    "*://api.rugmunch.io/*"
+  ],
+  
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "icons/*.png",
+        "content_scripts/*.css",
+        "content_scripts/injected.js"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}

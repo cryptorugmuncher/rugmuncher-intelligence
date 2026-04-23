@@ -1,0 +1,34 @@
+{
+  "wallet_id": "WALLET-SHIFT-001",
+  "address": "AvZHExxq2BaPrq17cKq1KMN3PWoCwqZRppV882JHY5sN",
+  "tier": "SHIFT Operation",
+  "classification": "suspect",
+  "function": "\"Early buyer\" wallet - Purchased SHIFT 13 minutes BEFORE announcement",
+  "status": "AFXigaYu-managed infrastructure",
+  "evidence": "Kill shot evidence - This wallet is actively managed by Tier 1 root infrastructure",
+  "risk_score": 0.95,
+  "shift_purchase": {
+    "amount": 2290000,
+    "token": "SHIFT",
+    "timestamp": "2025-04-21T00:13:00Z",
+    "announcement_time": "2025-04-21T00:26:00Z",
+    "time_advantage": "13 minutes before public announcement"
+  },
+  "connections": {
+    "managed_by": "AFXigaYuRKYmvd9HZQCobtZ98FNAwnwpsnjvJRztUGb6 (Tier 1)",
+    "links_to": [
+      "F4HGHWya2Q94nLVHkj3hbEAb2P15h5jGAVW2vu2fuTYi (SOSANA team)",
+      "7GsFEUPC9ZWMRb3wXsyrW33MP3Q6Jb8MpMjf2y1exC9y (SHIFT dumper)",
+      "DLHnb1ytcR7p7F5zM5L8QQJdKJScFvx8y5v4J2Cmjcqf (CRM #3 holder)"
+    ]
+  },
+  "contest_fraud": {
+    "claim": "Random early buyer predicted contest winner",
+    "reality": "Team-managed wallet purchased before announcement",
+    "voting_contract_existed": false,
+    "conclusion": "The 'community winner' was pre-selected, not voted on"
+  },
+  "legal_significance": "Proves insider coordination and contest manipulation - Securities fraud evidence",
+  "added_date": "2026-04-09",
+  "last_updated": "2026-04-12"
+}

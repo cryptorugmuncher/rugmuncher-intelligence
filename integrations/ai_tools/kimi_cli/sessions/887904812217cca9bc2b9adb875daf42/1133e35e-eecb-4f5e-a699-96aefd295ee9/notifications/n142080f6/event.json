@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "id": "n142080f6",
+  "category": "task",
+  "type": "task.completed",
+  "source_kind": "background_task",
+  "source_id": "bash-34s8sgor",
+  "title": "Background task completed: Install Python dependencies (fixed pytest)",
+  "body": "Task ID: bash-34s8sgor\nStatus: completed\nDescription: Install Python dependencies (fixed pytest)\nExit code: 0",
+  "severity": "success",
+  "created_at": 1775755559.7153072,
+  "payload": {
+    "task_id": "bash-34s8sgor",
+    "task_kind": "bash",
+    "status": "completed",
+    "description": "Install Python dependencies (fixed pytest)",
+    "exit_code": 0,
+    "interrupted": false,
+    "timed_out": false,
+    "terminal_reason": "completed",
+    "failure_reason": null
+  },
+  "targets": [
+    "llm",
+    "wire",
+    "shell"
+  ],
+  "dedupe_key": "background_task:bash-34s8sgor:completed"
+}

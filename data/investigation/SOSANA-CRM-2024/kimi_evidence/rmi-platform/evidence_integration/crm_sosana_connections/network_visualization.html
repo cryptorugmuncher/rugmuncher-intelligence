@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        body { margin: 0; background: #0a0a0a; font-family: sans-serif; }
+        svg { width: 100vw; height: 100vh; }
+        .node { stroke: #fff; stroke-width: 2px; }
+        .link { stroke-opacity: 0.6; }
+        .node-label { fill: #fff; font-size: 12px; pointer-events: none; }
+    </style>
+</head>
+<body>
+    <svg id="network"></svg>
+    <script>
+        const nodes = [{"id": 0, "name": "CRM International Wallets", "group": "token"}, {"id": 1, "name": "CRM Treasury Wallets", "group": "token"}, {"id": 2, "name": "Texas TSSB Dismissal", "group": "regulatory"}, {"id": 3, "name": "Nosey Pepper Inc.", "group": "mechanism"}, {"id": 4, "name": "CRM Wash Trading", "group": "token"}, {"id": 5, "name": "CRM Smart Contracts", "group": "token"}, {"id": 6, "name": "CRM Regulatory Immunity", "group": "token"}, {"id": 7, "name": "CRM Community Infiltration", "group": "token"}, {"id": 8, "name": "David Track", "group": "syndicate"}, {"id": 9, "name": "CRM Token", "group": "token"}, {"id": 10, "name": "Mark Hamlin", "group": "syndicate"}, {"id": 11, "name": "Muhammad Zidan (Mack Mills)", "group": "syndicate"}, {"id": 12, "name": "CRM Deployer", "group": "token"}, {"id": 13, "name": "CRM Future Threat", "group": "token"}, {"id": 14, "name": "Tracy Silver", "group": "syndicate"}, {"id": 15, "name": "SHIFT AI", "group": "token"}, {"id": 16, "name": "Voting Casino Mechanism", "group": "mechanism"}, {"id": 17, "name": "SOSANA Syndicate", "group": "syndicate"}, {"id": 18, "name": "Wayne Nash", "group": "syndicate"}];
+        const links = [{"source": 17, "target": 9, "value": 0.95, "type": "sabotage_operation"}, {"source": 8, "target": 1, "value": 0.88, "type": "operational_control"}, {"source": 3, "target": 12, "value": 0.82, "type": "shell_company_infrastructure"}, {"source": 10, "target": 5, "value": 0.75, "type": "technical_methodology"}, {"source": 15, "target": 9, "value": 0.9, "type": "sequential_operation"}, {"source": 11, "target": 7, "value": 0.7, "type": "propaganda_operation"}, {"source": 18, "target": 13, "value": 0.85, "type": "reboot_strategy"}, {"source": 14, "target": 0, "value": 0.78, "type": "jurisdictional_shield"}, {"source": 2, "target": 6, "value": 0.92, "type": "legal_precedent"}, {"source": 16, "target": 4, "value": 0.87, "type": "operational_similarity"}];
+        
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+        
+        const svg = d3.select("#network")
+            .attr("width", width)
+            .attr("height", height);
+        
+        const simulation = d3.forceSimulation(nodes)
+            .force("link", d3.forceLink(links).id(d => d.id).distance(150))
+            .force("charge", d3.forceManyBody().strength(-500))
+            .force("center", d3.forceCenter(width / 2, height / 2));
+        
+        const link = svg.append("g")
+            .selectAll("line")
+            .data(links)
+            .enter().append("line")
+            .attr("class", "link")
+            .attr("stroke", d => d3.interpolateReds(d.value))
+            .attr("stroke-width", d => d.value * 5);
+        
+        const node = svg.append("g")
+            .selectAll("circle")
+            .data(nodes)
+            .enter().append("circle")
+            .attr("class", "node")
+            .attr("r", d => d.group === "syndicate" ? 25 : 15)
+            .attr("fill", d => {
+                const colors = {
+                    "syndicate": "#ff0000",
+                    "token": "#ff6600",
+                    "regulatory": "#0066ff",
+                    "mechanism": "#9900ff"
+                };
+                return colors[d.group] || "#666";
+            })
+            .call(d3.drag()
+                .on("start", dragstarted)
+                .on("drag", dragged)
+                .on("end", dragended));
+        
+        const label = svg.append("g")
+            .selectAll("text")
+            .data(nodes)
+            .enter().append("text")
+            .attr("class", "node-label")
+            .attr("text-anchor", "middle")
+            .attr("dy", d => d.group === "syndicate" ? 35 : 25)
+            .text(d => d.name);
+        
+        simulation.on("tick", () => {
+            link
+                .attr("x1", d => d.source.x)
+                .attr("y1", d => d.source.y)
+                .attr("x2", d => d.target.x)
+                .attr("y2", d => d.target.y);
+            
+            node
+                .attr("cx", d => d.x)
+                .attr("cy", d => d.y);
+            
+            label
+                .attr("x", d => d.x)
+                .attr("y", d => d.y);
+        });
+        
+        function dragstarted(event, d) {
+            if (!event.active) simulation.alphaTarget(0.3).restart();
+            d.fx = d.x;
+            d.fy = d.y;
+        }
+        
+        function dragged(event, d) {
+            d.fx = event.x;
+            d.fy = event.y;
+        }
+        
+        function dragended(event, d) {
+            if (!event.active) simulation.alphaTarget(0);
+            d.fx = null;
+            d.fy = null;
+        }
+    </script>
+</body>
+</html>

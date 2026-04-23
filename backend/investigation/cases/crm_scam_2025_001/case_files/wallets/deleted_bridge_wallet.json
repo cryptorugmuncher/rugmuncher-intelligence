@@ -1,0 +1,46 @@
+{
+  "wallet_id": "WALLET-DELETED-001",
+  "address": "BmZY862D62",
+  "tier": "Cross-Project Bridge",
+  "classification": "suspect",
+  "status": "DELETED/RECOVERED - Spoliation Evidence",
+  "function": "The deleted bridge connecting SOSANA's destroyed voting contract to CRM infiltration",
+  "evidence": "Obstruction of Justice (18 U.S.C. § 1503) + Destruction of Evidence",
+  "risk_score": 0.92,
+  "deletion_timeline": {
+    "march_22_2026": {
+      "action": "Fake voting contract deleted/upgraded",
+      "evidence_status": "Original contract address nullified",
+      "claimed_reason": "Technical upgrade",
+      "actual_purpose": "Destroy evidence of 1,000 fake transactions"
+    },
+    "march_24_26_2026": {
+      "action": "BmZY862D62 bridge transactions detected",
+      "evidence": "Connecting deleted contract residue to CRM network"
+    }
+  },
+  "bridge_function": {
+    "flow": "DELETED CONTRACT (March 22) → BmZY862D62 (bridge) → 8eVZa7 → 7abBmGf4H (victim)",
+    "critical_finding": "BmZY862D62 is the only surviving on-chain link between deleted fake voting contract and active CRM infiltration"
+  },
+  "post_deletion_activity": {
+    "march_24_26": "Bridge transactions to 8eVZa7 (Tier 4)",
+    "march_26": "Coordination with HxyXAE1PH (Tier 3) during 'upgrade' period",
+    "same_day": "Final bridge to DLHnb1yt (CRM #3 holder) - same day as 970-wallet seeding"
+  },
+  "legal_significance": {
+    "intentional_spoliation": "Deleting contract was obstruction",
+    "continuing_enterprise": "Bridge remained active post-deletion",
+    "crm_connection": "Deletion was cover-up for ongoing CRM infiltration",
+    "obstruction_charge": "18 U.S.C. § 1503 - Consciousness of guilt proven"
+  },
+  "recovery_status": "BLOCKCHAIN_PRESERVED - Immutable evidence despite deletion attempt",
+  "connections": [
+    "8eVZa7bEBnd6MA6JJkNdABRN4S3LbVLRnCZNJAUeuwQj",
+    "DLHnb1ytcR7p7F5zM5L8QQJdKJScFvx8y5v4J2Cmjcqf",
+    "HxyXAE1PHQsh6iLj3t8MagpFovmR7yk76PEADmTKeVfi"
+  ],
+  "added_date": "2026-04-12",
+  "last_updated": "2026-04-12",
+  "note": "CRITICAL: BmZY862D62 also appears in Nov 2025 BKL operation - links March 26 AFXigaYu deployment to earlier criminal activity"
+}

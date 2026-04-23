@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RMI - Don't Get Rugged | Crypto Intelligence Platform</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #0a0a0f;
+            color: #fff;
+            line-height: 1.6;
+        }
+        .hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(220,38,38,0.1)" stroke-width="0.5"/></svg>');
+            background-size: 100px 100px;
+            opacity: 0.5;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .logo {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        h1 {
+            font-size: 3.5em;
+            font-weight: 800;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #dc2626 0%, #ff6b6b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .tagline {
+            font-size: 1.5em;
+            color: #94a3b8;
+            margin-bottom: 30px;
+        }
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            color: white;
+            padding: 18px 50px;
+            font-size: 1.3em;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(220, 38, 38, 0.4);
+            margin: 10px;
+        }
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 50px rgba(220, 38, 38, 0.6);
+        }
+        .cta-secondary {
+            display: inline-block;
+            background: transparent;
+            color: #fff;
+            padding: 18px 50px;
+            font-size: 1.3em;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            border: 2px solid rgba(255,255,255,0.3);
+            transition: all 0.3s ease;
+            margin: 10px;
+        }
+        .cta-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: #fff;
+        }
+        .pain-points {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 50px;
+            color: #dc2626;
+        }
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .problem-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+        }
+        .problem-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        .problem-card h3 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            color: #ff6b6b;
+        }
+        .problem-card p {
+            color: #94a3b8;
+        }
+        .solution {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            padding: 80px 20px;
+        }
+        .solution-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+        .feature {
+            background: rgba(220, 38, 38, 0.1);
+            border: 1px solid rgba(220, 38, 38, 0.2);
+            border-radius: 12px;
+            padding: 25px;
+        }
+        .feature-icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        .feature h4 {
+            font-size: 1.1em;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+        .feature p {
+            color: #94a3b8;
+            font-size: 0.95em;
+        }
+        .tiers {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 50px;
+        }
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            border-color: #dc2626;
+        }
+        .pricing-card.popular {
+            background: rgba(220, 38, 38, 0.1);
+            border-color: #dc2626;
+            transform: scale(1.05);
+        }
+        .tier-name {
+            font-size: 1.2em;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .tier-price {
+            font-size: 2.5em;
+            font-weight: 800;
+            color: #dc2626;
+            margin-bottom: 5px;
+        }
+        .tier-price span {
+            font-size: 0.4em;
+            color: #94a3b8;
+        }
+        .tier-features {
+            list-style: none;
+            margin: 20px 0;
+            text-align: left;
+        }
+        .tier-features li {
+            padding: 8px 0;
+            color: #cbd5e1;
+            font-size: 0.9em;
+        }
+        .tier-features li::before {
+            content: "✓";
+            color: #dc2626;
+            margin-right: 8px;
+        }
+        .social-proof {
+            background: #0a0a0f;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        .stat {
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 3em;
+            font-weight: 800;
+            color: #dc2626;
+        }
+        .stat-label {
+            color: #94a3b8;
+            font-size: 1.1em;
+        }
+        .final-cta {
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            padding: 80px 20px;
+            text-align: center;
+        }
+        .final-cta h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        .final-cta p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        .final-cta .cta-button {
+            background: #fff;
+            color: #dc2626;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+        .final-cta .cta-button:hover {
+            box-shadow: 0 15px 50px rgba(0,0,0,0.4);
+        }
+        .footer {
+            padding: 40px 20px;
+            text-align: center;
+            color: #64748b;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2em;
+            }
+            .tagline {
+                font-size: 1.1em;
+            }
+            .pricing-card.popular {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="logo">🔴</div>
+            <h1>RUGMUNCHER INTELLIGENCE</h1>
+            <p class="tagline">Don't Get Rugged. Follow Smart Money.</p>
+            <p style="color: #64748b; margin-bottom: 30px;">Enterprise-grade blockchain forensics at consumer prices</p>
+            <a href="http://167.86.116.51:8889" class="cta-button">🚀 Launch Platform</a>
+            <a href="http://167.86.116.51:8889/RMI_Retail_Features_Complete_Guide.pdf" class="cta-secondary">📄 View Features</a>
+        </div>
+    </section>
+
+    <!-- Pain Points -->
+    <section class="pain-points">
+        <h2 class="section-title">Tired of Getting Rugged?</h2>
+        <div class="problems-grid">
+            <div class="problem-card">
+                <div class="problem-icon">💸</div>
+                <h3>Losing Money to Scams</h3>
+                <p>87% of traders have lost money to rug pulls, honeypots, or coordinated dumps</p>
+            </div>
+            <div class="problem-card">
+                <div class="problem-icon">😵‍💫</div>
+                <h3>Information Overload</h3>
+                <p>Can't track all the wallets, patterns, and red flags across multiple chains</p>
+            </div>
+            <div class="problem-card">
+                <div class="problem-icon">🐋</div>
+                <h3>Missing Whale Moves</h3>
+                <p>Smart money acts first. You're always 3 steps behind the insiders</p>
+            </div>
+            <div class="problem-card">
+                <div class="problem-icon">🤖</div>
+                <h3>Bot Manipulation</h3>
+                <p>Sniper bots, wash trading, and fake volume distort every chart</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution -->
+    <section class="solution">
+        <div class="solution-content">
+            <h2 class="section-title">Meet Your Crypto Bodyguard 🛡️</h2>
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">🗺️</div>
+                    <h4>Muncher Maps</h4>
+                    <p>Visual blockchain investigation. Track wallet connections through 6 degrees of separation</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🎯</div>
+                    <h4>Fresh Wallet Detection</h4>
+                    <p>Predict rugs 6-12 hours early. 87% of scams have 60%+ fresh wallets</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🤖</div>
+                    <h4>Bot Farm Detection</h4>
+                    <p>Identify coordinated manipulation, sybil networks, and fake volume</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🐋</div>
+                    <h4>Whale Intelligence</h4>
+                    <p>Track 1000+ smart money wallets. Get alerts when they buy/sell</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🔗</div>
+                    <h4>Bundle Detection</h4>
+                    <p>Spot coordinated buying across multiple wallets in real-time</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🧠</div>
+                    <h4>AI Risk Reports</h4>
+                    <p>GPT-4o + Claude 3.5 analyze every contract. Get plain English summaries</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="tiers">
+        <h2 class="section-title">Choose Your Protection Level</h2>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <div class="tier-name">🆓 FREE</div>
+                <div class="tier-price">$0<span>/mo</span></div>
+                <ul class="tier-features">
+                    <li>5 scans/day</li>
+                    <li>1 chain (ETH)</li>
+                    <li>Basic risk score</li>
+                    <li>Honeypot check</li>
+                    <li>Community Trenches</li>
+                </ul>
+                <a href="http://167.86.116.51:8889" style="color: #dc2626; text-decoration: none; font-weight: 600;">Get Started →</a>
+            </div>
+            <div class="pricing-card">
+                <div class="tier-name">💎 BASIC</div>
+                <div class="tier-price">$29<span>/mo</span></div>
+                <ul class="tier-features">
+                    <li>25 scans/day</li>
+                    <li>3 chains</li>
+                    <li>Telegram bot alerts</li>
+                    <li>Bundle detection</li>
+                    <li>5 Trenches posts/day</li>
+                </ul>
+                <a href="http://167.86.116.51:8889" style="color: #dc2626; text-decoration: none; font-weight: 600;">Start Free Trial →</a>
+            </div>
+            <div class="pricing-card popular">
+                <div class="tier-name">🔥 PRO</div>
+                <div class="tier-price">$99<span>/mo</span></div>
+                <ul class="tier-features">
+                    <li>Unlimited scans</li>
+                    <li>15+ chains</li>
+                    <li>Muncher Maps (2D)</li>
+                    <li>AI risk reports</li>
+                    <li>API access</li>
+                    <li>Copy trading detection</li>
+                </ul>
+                <a href="http://167.86.116.51:8889" style="color: #dc2626; text-decoration: none; font-weight: 600;">Most Popular →</a>
+            </div>
+            <div class="pricing-card">
+                <div class="tier-name">👑 ELITE</div>
+                <div class="tier-price">$299<span>/mo</span></div>
+                <ul class="tier-features">
+                    <li>Everything in PRO</li>
+                    <li>3D Muncher Maps</li>
+                    <li>6 degrees of separation</li>
+                    <li>Whale intelligence</li>
+                    <li>Social OSINT</li>
+                    <li>Predictive analytics</li>
+                </ul>
+                <a href="http://167.86.116.51:8889" style="color: #dc2626; text-decoration: none; font-weight: 600;">Go ELITE →</a>
+            </div>
+        </div>
+        <p style="text-align: center; margin-top: 30px; color: #64748b;">
+            🏢 Enterprise plans available with custom pricing, dedicated analyst, and SLA
+        </p>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="social-proof">
+        <h2 class="section-title">Trusted by Crypto Detectives Worldwide</h2>
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-number">$50M+</div>
+                <div class="stat-label">Losses Prevented</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Chains Supported</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">55+</div>
+                <div class="stat-label">AI Features</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">70%</div>
+                <div class="stat-label">Cost Savings vs Competitors</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <h2>Ready to Stop Getting Rugged?</h2>
+        <p>Join thousands of traders who sleep better knowing RMI has their back</p>
+        <a href="http://167.86.116.51:8889" class="cta-button">🚀 Start FREE Today</a>
+        <p style="margin-top: 20px; font-size: 0.9em; opacity: 0.8;">
+            No credit card required • 5 scans/day forever free
+        </p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>🔴 RUGMUNCHER INTELLIGENCE — Enterprise Architecture. Consumer Price.</p>
+        <p style="margin-top: 10px;">
+            Platform: <a href="http://167.86.116.51:8889" style="color: #dc2626;">167.86.116.51:8889</a> | 
+            <a href="http://167.86.116.51:8889/RMI_Retail_Features_Complete_Guide.pdf" style="color: #64748b;">Features PDF</a> | 
+            <a href="http://167.86.116.51:8889/RMI_System_Overview.pdf" style="color: #64748b;">System Overview</a>
+        </p>
+        <p style="margin-top: 20px; font-size: 0.85em;">© 2025 RugMuncher Intelligence. All rights reserved.</p>
+    </footer>
+</body>
+</html>

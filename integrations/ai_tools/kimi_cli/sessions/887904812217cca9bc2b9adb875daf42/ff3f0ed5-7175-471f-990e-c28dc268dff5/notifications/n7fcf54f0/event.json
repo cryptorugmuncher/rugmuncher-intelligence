@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "id": "n7fcf54f0",
+  "category": "task",
+  "type": "task.completed",
+  "source_kind": "background_task",
+  "source_id": "bash-5vrgku3m",
+  "title": "Background task completed: Pull remaining Ollama models",
+  "body": "Task ID: bash-5vrgku3m\nStatus: completed\nDescription: Pull remaining Ollama models\nExit code: 0",
+  "severity": "success",
+  "created_at": 1775781109.6479168,
+  "payload": {
+    "task_id": "bash-5vrgku3m",
+    "task_kind": "bash",
+    "status": "completed",
+    "description": "Pull remaining Ollama models",
+    "exit_code": 0,
+    "interrupted": false,
+    "timed_out": false,
+    "terminal_reason": "completed",
+    "failure_reason": null
+  },
+  "targets": [
+    "llm",
+    "wire",
+    "shell"
+  ],
+  "dedupe_key": "background_task:bash-5vrgku3m:completed"
+}

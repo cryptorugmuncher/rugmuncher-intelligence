@@ -1,0 +1,282 @@
+version: '3.8'
+
+services:
+  # ═══════════════════════════════════════════════════════════
+  # DRAGONFLY - High-Performance Redis Alternative (25x faster)
+  # ═══════════════════════════════════════════════════════════
+  dragonfly:
+    image: docker.dragonflydb.io/dragonflydb/dragonfly:latest
+    container_name: rmi_dragonfly
+    ports:
+      - "6379:6379"
+    volumes:
+      - dragonfly_data:/data
+    command: >
+      --port 6379
+      --maxmemory 2gb
+      --cache_mode true
+      --snapshot_cron "*/5 * * * *"
+    networks:
+      - rmi_network
+    ulimits:
+      memlock: -1
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "-p", "6379", "ping"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      # ═══════════════════════════════════════════════════════════
+  # CLOUDFLARE TUNNEL — Edge proxy for all services
+  # ═══════════════════════════════════════════════════════════
+  cloudflare-tunnel:
+    image: cloudflare/cloudflared:latest
+    container_name: rmi_cloudflare
+    restart: unless-stopped
+    command: tunnel --config /etc/cloudflared/config.yml run
+    volumes:
+      - /root/.cloudflared:/etc/cloudflared:ro
+    networks:
+      - rmi_network
+    depends_on:
+      - backend
+      - telegram-bot
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+
+  # ═══════════════════════════════════════════════════════════
+  # RMI BACKEND API
+  # ═══════════════════════════════════════════════════════════
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: rmi_backend
+    ports:
+      - "8000:8000"
+    environment:
+      - REDIS_HOST=dragonfly
+      - REDIS_PORT=6379
+      - BOT_TOKEN=${BOT_TOKEN}
+      - REDIS_PASSWORD=${REDIS_PASSWORD}
+      - REDIS_DB=0
+      - SUPABASE_URL=${SUPABASE_URL}
+      - SUPABASE_KEY=${SUPABASE_KEY:-${SUPABASE_ANON_KEY}}
+      - OPENROUTER_API_KEY=${OPENROUTER_API_KEY}
+      - HELIUS_API_KEY=${HELIUS_API_KEY}
+      - MORALIS_API_KEY=${MORALIS_API_KEY}
+      - GROQ_API_KEY=${GROQ_API_KEY}
+      - SUPABASE_SERVICE_KEY=${SUPABASE_SERVICE_KEY:-${SUPABASE_KEY}}
+      - CHANNEL_NEWS=${CHANNEL_NEWS}
+      - CHANNEL_ALERTS=${CHANNEL_ALERTS}
+      - CHANNEL_PREMIUM=${CHANNEL_PREMIUM}
+      - CHANNEL_ALPHA=${CHANNEL_ALPHA}
+      - GHOST_ADMIN_KEY=${GHOST_ADMIN_KEY}
+      - GHOST_URL=http://rmi-ghost:2368
+      - ADMIN_API_KEY=${ADMIN_API_KEY}
+    volumes:
+      - ./backend:/app
+      - /app/venv
+    depends_on:
+      dragonfly:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - rmi_network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+  # ═══════════════════════════════════════════════════════════
+  # BACKGROUND WORKER
+  # ═══════════════════════════════════════════════════════════
+  worker:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.worker
+    container_name: rmi_worker
+    environment:
+      - REDIS_HOST=dragonfly
+      - REDIS_PORT=6379
+      - REDIS_PASSWORD=${REDIS_PASSWORD}
+      - REDIS_DB=0
+      - SUPABASE_URL=${SUPABASE_URL}
+      - SUPABASE_KEY=${SUPABASE_KEY}
+    volumes:
+      - ./backend:/app
+      - /app/venv
+    depends_on:
+      dragonfly:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - rmi_network
+    command: python -u worker.py
+    healthcheck:
+      test: ["CMD", "python", "-c", "import sys; sys.exit(0)"]
+      interval: 60s
+      timeout: 5s
+      retries: 3
+
+  # ═══════════════════════════════════════════════════════════
+  # TELEGRAM INTELLIGENCE BOT - Captain of the Swarm
+  # ═══════════════════════════════════════════════════════════
+  telegram-bot:
+    build:
+      context: ./bots/telegram
+      dockerfile: Dockerfile
+    container_name: rmi-telegram-bot
+    ports:
+      - "8080:8080"
+    environment:
+      - BOT_TOKEN=${BOT_TOKEN}
+      - BACKEND_URL=http://backend:8000
+      - ORCHESTRATOR_URL=http://orchestrator:8082
+      - COINGECKO_API_KEY=${COINGECKO_API_KEY}
+      - HELIUS_API_KEY=${HELIUS_API_KEY}
+      - MORALIS_API_KEY=${MORALIS_API_KEY}
+      - CHANNEL_SCANS=${CHANNEL_SCANS:-}
+      - CHANNEL_NEWS=${CHANNEL_NEWS:-}
+      - CHANNEL_ALERTS=${CHANNEL_ALERTS:-}
+      - CHANNEL_PREMIUM=${CHANNEL_PREMIUM:-}
+      - CHANNEL_ALPHA=${CHANNEL_ALPHA:-}
+      - WEBAPP_URL=${WEBAPP_URL:-https://rugmunch.io}
+      - ADMIN_IDS=${ADMIN_IDS:-}
+      - AUTO_NEWS_ENABLED=${AUTO_NEWS_ENABLED:-false}
+      - NEWS_REFRESH_MINUTES=${NEWS_REFRESH_MINUTES:-30}
+      - WEBHOOK_URL=${WEBHOOK_URL:-}
+      - WEBHOOK_PORT=${WEBHOOK_PORT:-8080}
+      - WEBHOOK_PATH=${WEBHOOK_PATH:-/webhook}
+      - GROQ_API_KEY=${GROQ_API_KEY}
+      - STARS_PROVIDER_TOKEN=${STARS_PROVIDER_TOKEN:-}
+      - WEBAPP_URL=${WEBAPP_URL:-https://rugmunch.io}
+      - REDIS_HOST=dragonfly
+      - REDIS_PORT=6379
+    depends_on:
+      backend:
+        condition: service_started
+    restart: unless-stopped
+    networks:
+      - rmi_network
+
+  # ═══════════════════════════════════════════════════════════
+  # BOT ORCHESTRATOR - 8-Bot Task Force Coordinator
+  # ═══════════════════════════════════════════════════════════
+  orchestrator:
+    build:
+      context: .
+      dockerfile: orchestrator/Dockerfile
+    container_name: rmi_orchestrator
+    ports:
+      - "8081:8081"
+    environment:
+      - ORCHESTRATOR_PORT=8081
+      - NVIDIA_API_KEY=${NVIDIA_API_KEY:-}
+      - OPENROUTER_API_KEY=${OPENROUTER_API_KEY:-}
+      - BACKEND_URL=http://backend:8000
+      - GROQ_API_KEY=${GROQ_API_KEY}
+    depends_on:
+      backend:
+        condition: service_started
+    restart: unless-stopped
+    networks:
+      - rmi_network
+
+  # ═══════════════════════════════════════════════════════════
+  # N8N - Workflow Automation
+  # ═══════════════════════════════════════════════════════════
+  n8n:
+    image: n8nio/n8n:latest
+    container_name: rmi_n8n
+    ports:
+      - "5678:5678"
+    environment:
+      - N8N_BASIC_AUTH_ACTIVE=true
+      - N8N_BASIC_AUTH_USER=admin
+      - N8N_BASIC_AUTH_PASSWORD=${N8N_PASSWORD:-RugMuncher2024}
+      - N8N_HOST=0.0.0.0
+      - N8N_PORT=5678
+      - WEBHOOK_URL=http://localhost:5678/
+      - NODE_ENV=production
+      - EXECUTIONS_MODE=regular
+      - EXECUTIONS_TIMEOUT=300
+      - DB_TYPE=sqlite
+      - DB_SQLITE_PATH=/home/node/.n8n/database.sqlite
+    volumes:
+      - n8n_data:/home/node/.n8n
+    restart: unless-stopped
+    networks:
+      - rmi_network
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:5678/healthz"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # ═══════════════════════════════════════════════════════════
+  # OPTIONAL: NOCODB (Spreadsheet UI for Supabase)
+  # ═══════════════════════════════════════════════════════════
+  nocodb:
+    image: nocodb/nocodb:latest
+    container_name: rmi_nocodb
+    ports:
+      - "8085:8080"
+    environment:
+      - NC_DB=pg://${SUPABASE_HOST}:5432?u=${SUPABASE_USER}&p=${SUPABASE_PASSWORD}&d=postgres
+      - NC_PUBLIC_URL=${NOCODB_URL:-http://localhost:8080}
+      - NC_REDIS_URL=redis://:${REDIS_PASSWORD}@dragonfly:6379
+    volumes:
+      - nocodb_data:/usr/app/data
+    restart: unless-stopped
+    networks:
+      - rmi_network
+    profiles:
+      - admin
+
+  # ═══════════════════════════════════════════════════════════
+  # OPTIONAL: BASEROW (Team Collaboration)
+  # ═══════════════════════════════════════════════════════════
+  baserow:
+    image: baserow/baserow:latest
+    container_name: rmi_baserow
+    ports:
+      - "3000:80"
+    environment:
+      - BASEROW_PUBLIC_URL=${BASEROW_URL:-http://localhost:3000}
+      - BASEROW_REDIS_HOST=dragonfly
+      - BASEROW_REDIS_PORT=6379
+      - BASEROW_REDIS_PASSWORD=${REDIS_PASSWORD}
+    volumes:
+      - baserow_data:/baserow/data
+    restart: unless-stopped
+    networks:
+      - rmi_network
+    profiles:
+      - admin
+
+# ═══════════════════════════════════════════════════════════
+# VOLUMES
+# ═══════════════════════════════════════════════════════════
+volumes:
+  dragonfly_data:
+    driver: local
+  n8n_data:
+    driver: local
+  nocodb_data:
+    driver: local
+  baserow_data:
+    driver: local
+
+# ═══════════════════════════════════════════════════════════
+# NETWORKS
+# ═══════════════════════════════════════════════════════════
+networks:
+  rmi_network:
+    driver: bridge

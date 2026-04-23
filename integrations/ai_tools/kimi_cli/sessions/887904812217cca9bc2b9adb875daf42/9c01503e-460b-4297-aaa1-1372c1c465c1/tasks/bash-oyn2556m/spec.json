@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "id": "bash-oyn2556m",
+  "kind": "bash",
+  "session_id": "9c01503e-460b-4297-aaa1-1372c1c465c1",
+  "description": "Start file dump server",
+  "tool_call_id": "tool_y2AAG484EjI2ZypphngQjjzg",
+  "owner_role": "root",
+  "created_at": 1775685364.8356378,
+  "command": "cd /root && mkdir -p dumps && python3 dump_server.py",
+  "shell_name": "bash",
+  "shell_path": "/bin/bash",
+  "cwd": "/root",
+  "timeout_s": 60,
+  "kind_payload": null
+}

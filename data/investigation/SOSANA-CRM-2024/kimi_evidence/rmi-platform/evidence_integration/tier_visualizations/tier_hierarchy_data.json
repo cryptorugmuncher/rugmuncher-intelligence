@@ -1,0 +1,1152 @@
+{
+  "nodes": [
+    {
+      "id": "t1_deployer",
+      "address": "7Xb8C9...pQr2St",
+      "tier": "TierLevel.TIER_1",
+      "role": "deployer",
+      "risk_score": 100,
+      "usd_extracted": 0,
+      "is_active": true,
+      "labels": [
+        "Deployer",
+        "Contract Creator"
+      ],
+      "x": 400,
+      "y": 50,
+      "radius": 35,
+      "color": "#ff0000",
+      "icon": "\ud83c\udfaf"
+    },
+    {
+      "id": "t1_controller",
+      "address": "9Yz0A1...uVw3Xy",
+      "tier": "TierLevel.TIER_1",
+      "role": "liquidity_controller",
+      "risk_score": 98,
+      "usd_extracted": 245000,
+      "is_active": true,
+      "labels": [
+        "Primary Controller",
+        "SOSANA/SHIFT Linked"
+      ],
+      "x": 600,
+      "y": 50,
+      "radius": 40,
+      "color": "#ff0000",
+      "icon": "\ud83d\udca7"
+    },
+    {
+      "id": "t2_drainer",
+      "address": "2Bc3De...fGh4Ij",
+      "tier": "TierLevel.TIER_2",
+      "role": "liquidity_controller",
+      "risk_score": 85,
+      "usd_extracted": 187500,
+      "is_active": true,
+      "labels": [
+        "Pool Drainer",
+        "Flash Loan"
+      ],
+      "x": 200,
+      "y": 200,
+      "radius": 43.75,
+      "color": "#ff6600",
+      "icon": "\ud83d\udca7"
+    },
+    {
+      "id": "t2_volume",
+      "address": "5Kl6Mn...oPq7Rs",
+      "tier": "TierLevel.TIER_2",
+      "role": "market_maker",
+      "risk_score": 88,
+      "usd_extracted": 125000,
+      "is_active": true,
+      "labels": [
+        "Fake Volume",
+        "Wash Trade Primary"
+      ],
+      "x": 400,
+      "y": 200,
+      "radius": 37.5,
+      "color": "#ff6600",
+      "icon": "\ud83d\udcc8"
+    },
+    {
+      "id": "t2_emergency",
+      "address": "8Tu9Vw...xYz0A1",
+      "tier": "TierLevel.TIER_2",
+      "role": "liquidity_controller",
+      "risk_score": 91,
+      "usd_extracted": 89000,
+      "is_active": true,
+      "labels": [
+        "Emergency Exit",
+        "Rug Pull"
+      ],
+      "x": 600,
+      "y": 200,
+      "radius": 33.9,
+      "color": "#ff6600",
+      "icon": "\ud83d\udca7"
+    },
+    {
+      "id": "t2_manipulator",
+      "address": "3Bc4De...fGh5Ij",
+      "tier": "TierLevel.TIER_2",
+      "role": "market_maker",
+      "risk_score": 94,
+      "usd_extracted": 67000,
+      "is_active": true,
+      "labels": [
+        "Price Manipulator"
+      ],
+      "x": 800,
+      "y": 200,
+      "radius": 31.7,
+      "color": "#ff6600",
+      "icon": "\ud83d\udcc8"
+    },
+    {
+      "id": "t2_bridge",
+      "address": "6Kl7Mn...oPq8Rs",
+      "tier": "TierLevel.TIER_2",
+      "role": "liquidity_controller",
+      "risk_score": 97,
+      "usd_extracted": 45000,
+      "is_active": true,
+      "labels": [
+        "Cross-Chain Bridge"
+      ],
+      "x": 1000,
+      "y": 200,
+      "radius": 29.5,
+      "color": "#ff6600",
+      "icon": "\ud83d\udca7"
+    },
+    {
+      "id": "t3_dist_01",
+      "address": "DIST001...006f",
+      "tier": "TierLevel.TIER_3",
+      "role": "distributor",
+      "risk_score": 75,
+      "usd_extracted": 15000,
+      "is_active": true,
+      "labels": [
+        "Distribution Node",
+        "Cluster 1"
+      ],
+      "x": 150,
+      "y": 350,
+      "radius": 18,
+      "color": "#ffcc00",
+      "icon": "\ud83d\udce6"
+    },
+    {
+      "id": "t3_dist_02",
+      "address": "DIST002...00de",
+      "tier": "TierLevel.TIER_3",
+      "role": "distributor",
+      "risk_score": 76,
+      "usd_extracted": 17500,
+      "is_active": true,
+      "labels": [
+        "Distribution Node",
+        "Cluster 1"
+      ],
+      "x": 230,
+      "y": 350,
+      "radius": 18,
+      "color": "#ffcc00",
+      "icon": "\ud83d\udce6"
+    },
+    {
+      "id": "t3_dist_03",
+      "address": "DIST003...014d",
+      "tier": "TierLevel.TIER_3",
+      "role": "distributor",
+      "risk_score": 77,
+      "usd_extracted": 20000,
+      "is_active": true,
+      "labels": [
+        "Distribution Node",
+        "Cluster 1"
+      ],
+      "x": 150,
+      "y": 410,
+      "radius": 18,
+      "color": "#ffcc00",
+      "icon": "\ud83d\udce6"
+    },
+    {
+      "id": "t3_dist_04",
+      "address": "DIST004...01bc",
+      "tier": "TierLevel.TIER_3",
+      "role": "distributor",
+      "risk_score": 78,
+      "usd_extracted": 22500,
+      "is_active": true,
+      "labels": [
+        "Distribution Node",
+        "Cluster 1"
+      ],
+      "x": 230,
+      "y": 410,
+      "radius": 18,
+      "color": "#ffcc00",
+      "icon": "\ud83d\udce6"
+    },
+    {
+      "id": "t3_dist_05",
+      "address": "DIST005...022b",
+      "tier": "TierLevel.TIER_3",
+      "role": "distributor",
+      "risk_score": 79,
+      "usd_extracted": 25000,
+      "is_active": true,
+      "labels": [
+        "Distribution Node",
+        "Cluster 2"
+      ],
+      "x": 450,
+      "y": 350,
+      "radius": 18,
+      "color": "#ffcc00",
+      "icon": "\ud83d\udce6"
+    },
+    {
+      "id": "t3_dist_06",
+      "address": "DIST006...029a",
+      "tier": "TierLevel.TIER_3",
+      "role": "distributor",
+      "risk_score": 80,
+      "usd_extracted": 27500,
+      "is_active": true,
+      "labels": [
+        "Distribution Node",
+        "Cluster 2"
+      ],
+      "x": 530,
+      "y": 350,
+      "radius": 18,
+      "color": "#ffcc00",
+      "icon": "\ud83d\udce6"
+    },
+    {
+      "id": "t3_dist_07",
+      "address": "DIST007...0309",
+      "tier": "TierLevel.TIER_3",
+      "role": "distributor",
+      "risk_score": 81,
+      "usd_extracted": 30000,
+      "is_active": true,
+      "labels": [
+        "Distribution Node",
+        "Cluster 2"
+      ],
+      "x": 450,
+      "y": 410,
+      "radius": 18,
+      "color": "#ffcc00",
+      "icon": "\ud83d\udce6"
+    },
+    {
+      "id": "t3_dist_08",
+      "address": "DIST008...0378",
+      "tier": "TierLevel.TIER_3",
+      "role": "distributor",
+      "risk_score": 82,
+      "usd_extracted": 32500,
+      "is_active": true,
+      "labels": [
+        "Distribution Node",
+        "Cluster 2"
+      ],
+      "x": 530,
+      "y": 410,
+      "radius": 18,
+      "color": "#ffcc00",
+      "icon": "\ud83d\udce6"
+    },
+    {
+      "id": "t3_dist_09",
+      "address": "DIST009...03e7",
+      "tier": "TierLevel.TIER_3",
+      "role": "distributor",
+      "risk_score": 83,
+      "usd_extracted": 35000,
+      "is_active": true,
+      "labels": [
+        "Distribution Node",
+        "Cluster 3"
+      ],
+      "x": 750,
+      "y": 350,
+      "radius": 18,
+      "color": "#ffcc00",
+      "icon": "\ud83d\udce6"
+    },
+    {
+      "id": "t3_dist_10",
+      "address": "DIST010...0456",
+      "tier": "TierLevel.TIER_3",
+      "role": "distributor",
+      "risk_score": 84,
+      "usd_extracted": 37500,
+      "is_active": true,
+      "labels": [
+        "Distribution Node",
+        "Cluster 3"
+      ],
+      "x": 830,
+      "y": 350,
+      "radius": 18,
+      "color": "#ffcc00",
+      "icon": "\ud83d\udce6"
+    },
+    {
+      "id": "t3_dist_11",
+      "address": "DIST011...04c5",
+      "tier": "TierLevel.TIER_3",
+      "role": "distributor",
+      "risk_score": 85,
+      "usd_extracted": 40000,
+      "is_active": true,
+      "labels": [
+        "Distribution Node",
+        "Cluster 3"
+      ],
+      "x": 750,
+      "y": 410,
+      "radius": 18,
+      "color": "#ffcc00",
+      "icon": "\ud83d\udce6"
+    },
+    {
+      "id": "t3_dist_12",
+      "address": "DIST012...0534",
+      "tier": "TierLevel.TIER_3",
+      "role": "distributor",
+      "risk_score": 86,
+      "usd_extracted": 42500,
+      "is_active": true,
+      "labels": [
+        "Distribution Node",
+        "Cluster 3"
+      ],
+      "x": 830,
+      "y": 410,
+      "radius": 18,
+      "color": "#ffcc00",
+      "icon": "\ud83d\udce6"
+    },
+    {
+      "id": "t4_wash_01",
+      "address": "WASH001...0309",
+      "tier": "TierLevel.TIER_4",
+      "role": "wash_trader",
+      "risk_score": 70,
+      "usd_extracted": 5000,
+      "is_active": false,
+      "labels": [
+        "Ghost Signer",
+        "Volume Bot"
+      ],
+      "x": 590.0,
+      "y": 550,
+      "radius": 12,
+      "color": "#ff99cc",
+      "icon": "\ud83d\udd04"
+    },
+    {
+      "id": "t4_wash_02",
+      "address": "WASH002...0612",
+      "tier": "TierLevel.TIER_4",
+      "role": "wash_trader",
+      "risk_score": 71,
+      "usd_extracted": 5800,
+      "is_active": false,
+      "labels": [
+        "Ghost Signer",
+        "Volume Bot"
+      ],
+      "x": 595.2941176470588,
+      "y": 590,
+      "radius": 12,
+      "color": "#ff99cc",
+      "icon": "\ud83d\udd04"
+    },
+    {
+      "id": "t4_wash_03",
+      "address": "WASH003...091b",
+      "tier": "TierLevel.TIER_4",
+      "role": "wash_trader",
+      "risk_score": 72,
+      "usd_extracted": 6600,
+      "is_active": false,
+      "labels": [
+        "Ghost Signer",
+        "Volume Bot"
+      ],
+      "x": 600.5882352941177,
+      "y": 630,
+      "radius": 12,
+      "color": "#ff99cc",
+      "icon": "\ud83d\udd04"
+    },
+    {
+      "id": "t4_wash_04",
+      "address": "WASH004...0c24",
+      "tier": "TierLevel.TIER_4",
+      "role": "wash_trader",
+      "risk_score": 73,
+      "usd_extracted": 7400,
+      "is_active": false,
+      "labels": [
+        "Ghost Signer",
+        "Volume Bot"
+      ],
+      "x": 605.8823529411765,
+      "y": 550,
+      "radius": 12,
+      "color": "#ff99cc",
+      "icon": "\ud83d\udd04"
+    },
+    {
+      "id": "t4_wash_05",
+      "address": "WASH005...0f2d",
+      "tier": "TierLevel.TIER_4",
+      "role": "wash_trader",
+      "risk_score": 74,
+      "usd_extracted": 8200,
+      "is_active": false,
+      "labels": [
+        "Ghost Signer",
+        "Volume Bot"
+      ],
+      "x": 611.1764705882354,
+      "y": 590,
+      "radius": 12,
+      "color": "#ff99cc",
+      "icon": "\ud83d\udd04"
+    },
+    {
+      "id": "t4_wash_06",
+      "address": "WASH006...1236",
+      "tier": "TierLevel.TIER_4",
+      "role": "wash_trader",
+      "risk_score": 75,
+      "usd_extracted": 9000,
+      "is_active": false,
+      "labels": [
+        "Ghost Signer",
+        "Volume Bot"
+      ],
+      "x": 616.4705882352941,
+      "y": 630,
+      "radius": 12,
+      "color": "#ff99cc",
+      "icon": "\ud83d\udd04"
+    },
+    {
+      "id": "t4_wash_07",
+      "address": "WASH007...153f",
+      "tier": "TierLevel.TIER_4",
+      "role": "wash_trader",
+      "risk_score": 76,
+      "usd_extracted": 9800,
+      "is_active": false,
+      "labels": [
+        "Ghost Signer",
+        "Volume Bot"
+      ],
+      "x": 621.7647058823529,
+      "y": 550,
+      "radius": 12,
+      "color": "#ff99cc",
+      "icon": "\ud83d\udd04"
+    },
+    {
+      "id": "t4_wash_08",
+      "address": "WASH008...1848",
+      "tier": "TierLevel.TIER_4",
+      "role": "wash_trader",
+      "risk_score": 77,
+      "usd_extracted": 10600,
+      "is_active": false,
+      "labels": [
+        "Ghost Signer",
+        "Volume Bot"
+      ],
+      "x": 627.0588235294117,
+      "y": 590,
+      "radius": 12,
+      "color": "#ff99cc",
+      "icon": "\ud83d\udd04"
+    },
+    {
+      "id": "t4_wash_09",
+      "address": "WASH009...1b51",
+      "tier": "TierLevel.TIER_4",
+      "role": "wash_trader",
+      "risk_score": 78,
+      "usd_extracted": 11400,
+      "is_active": false,
+      "labels": [
+        "Ghost Signer",
+        "Volume Bot"
+      ],
+      "x": 632.3529411764706,
+      "y": 630,
+      "radius": 12,
+      "color": "#ff99cc",
+      "icon": "\ud83d\udd04"
+    },
+    {
+      "id": "t4_wash_10",
+      "address": "WASH010...1e5a",
+      "tier": "TierLevel.TIER_4",
+      "role": "wash_trader",
+      "risk_score": 79,
+      "usd_extracted": 12200,
+      "is_active": false,
+      "labels": [
+        "Ghost Signer",
+        "Volume Bot"
+      ],
+      "x": 637.6470588235294,
+      "y": 550,
+      "radius": 12,
+      "color": "#ff99cc",
+      "icon": "\ud83d\udd04"
+    },
+    {
+      "id": "t4_wash_11",
+      "address": "WASH011...2163",
+      "tier": "TierLevel.TIER_4",
+      "role": "wash_trader",
+      "risk_score": 80,
+      "usd_extracted": 13000,
+      "is_active": false,
+      "labels": [
+        "Ghost Signer",
+        "Volume Bot"
+      ],
+      "x": 642.9411764705883,
+      "y": 590,
+      "radius": 12,
+      "color": "#ff99cc",
+      "icon": "\ud83d\udd04"
+    },
+    {
+      "id": "t4_wash_12",
+      "address": "WASH012...246c",
+      "tier": "TierLevel.TIER_4",
+      "role": "wash_trader",
+      "risk_score": 81,
+      "usd_extracted": 13800,
+      "is_active": false,
+      "labels": [
+        "Ghost Signer",
+        "Volume Bot"
+      ],
+      "x": 648.2352941176471,
+      "y": 630,
+      "radius": 12,
+      "color": "#ff99cc",
+      "icon": "\ud83d\udd04"
+    },
+    {
+      "id": "t4_wash_13",
+      "address": "WASH013...2775",
+      "tier": "TierLevel.TIER_4",
+      "role": "wash_trader",
+      "risk_score": 82,
+      "usd_extracted": 14600,
+      "is_active": false,
+      "labels": [
+        "Ghost Signer",
+        "Volume Bot"
+      ],
+      "x": 653.5294117647059,
+      "y": 550,
+      "radius": 12,
+      "color": "#ff99cc",
+      "icon": "\ud83d\udd04"
+    },
+    {
+      "id": "t4_wash_14",
+      "address": "WASH014...2a7e",
+      "tier": "TierLevel.TIER_4",
+      "role": "wash_trader",
+      "risk_score": 83,
+      "usd_extracted": 15400,
+      "is_active": false,
+      "labels": [
+        "Ghost Signer",
+        "Volume Bot"
+      ],
+      "x": 658.8235294117646,
+      "y": 590,
+      "radius": 12,
+      "color": "#ff99cc",
+      "icon": "\ud83d\udd04"
+    },
+    {
+      "id": "t4_wash_15",
+      "address": "WASH015...2d87",
+      "tier": "TierLevel.TIER_4",
+      "role": "wash_trader",
+      "risk_score": 84,
+      "usd_extracted": 16200,
+      "is_active": false,
+      "labels": [
+        "Ghost Signer",
+        "Volume Bot"
+      ],
+      "x": 664.1176470588235,
+      "y": 630,
+      "radius": 12,
+      "color": "#ff99cc",
+      "icon": "\ud83d\udd04"
+    },
+    {
+      "id": "t4_wash_16",
+      "address": "WASH016...3090",
+      "tier": "TierLevel.TIER_4",
+      "role": "wash_trader",
+      "risk_score": 85,
+      "usd_extracted": 17000,
+      "is_active": false,
+      "labels": [
+        "Ghost Signer",
+        "Volume Bot"
+      ],
+      "x": 669.4117647058823,
+      "y": 550,
+      "radius": 12,
+      "color": "#ff99cc",
+      "icon": "\ud83d\udd04"
+    },
+    {
+      "id": "t4_wash_17",
+      "address": "WASH017...3399",
+      "tier": "TierLevel.TIER_4",
+      "role": "wash_trader",
+      "risk_score": 86,
+      "usd_extracted": 17800,
+      "is_active": false,
+      "labels": [
+        "Ghost Signer",
+        "Volume Bot"
+      ],
+      "x": 674.7058823529412,
+      "y": 590,
+      "radius": 12,
+      "color": "#ff99cc",
+      "icon": "\ud83d\udd04"
+    },
+    {
+      "id": "t5_gate",
+      "address": "0xEXIT...GATE01",
+      "tier": "TierLevel.TIER_5",
+      "role": "exit_wallet",
+      "risk_score": 82,
+      "usd_extracted": 320000,
+      "is_active": true,
+      "labels": [
+        "Gate.io",
+        "KYC Vector"
+      ],
+      "x": 200,
+      "y": 750,
+      "radius": 28,
+      "color": "#9900ff",
+      "icon": "\ud83c\udd94"
+    },
+    {
+      "id": "t5_coinbase",
+      "address": "0xEXIT...COIN01",
+      "tier": "TierLevel.TIER_5",
+      "role": "exit_wallet",
+      "risk_score": 86,
+      "usd_extracted": 185000,
+      "is_active": true,
+      "labels": [
+        "Coinbase",
+        "KYC Vector"
+      ],
+      "x": 400,
+      "y": 750,
+      "radius": 28,
+      "color": "#9900ff",
+      "icon": "\ud83c\udd94"
+    },
+    {
+      "id": "t5_otc",
+      "address": "0xEXIT...OTC001",
+      "tier": "TierLevel.TIER_5",
+      "role": "exit_wallet",
+      "risk_score": 90,
+      "usd_extracted": 95000,
+      "is_active": true,
+      "labels": [
+        "OTC Desk"
+      ],
+      "x": 600,
+      "y": 750,
+      "radius": 28,
+      "color": "#9900ff",
+      "icon": "\ud83d\udcb0"
+    },
+    {
+      "id": "t5_mixer",
+      "address": "0xEXIT...MIX001",
+      "tier": "TierLevel.TIER_5",
+      "role": "exit_wallet",
+      "risk_score": 94,
+      "usd_extracted": 70000,
+      "is_active": true,
+      "labels": [
+        "Tornado Cash"
+      ],
+      "x": 800,
+      "y": 750,
+      "radius": 28,
+      "color": "#9900ff",
+      "icon": "\ud83d\udcb0"
+    },
+    {
+      "id": "reserve_alpha",
+      "address": "0xRESERVE...ALPHA1",
+      "tier": "TierLevel.TIER_1",
+      "role": "reserve_holder",
+      "risk_score": 100,
+      "usd_extracted": 523000,
+      "is_active": true,
+      "labels": [
+        "Reserve Holder",
+        "104.6M CRM",
+        "ACTIVE THREAT"
+      ],
+      "x": 100,
+      "y": 400,
+      "radius": 45,
+      "color": "#ff0000",
+      "icon": "\ud83c\udfe6"
+    },
+    {
+      "id": "reserve_beta",
+      "address": "0xRESERVE...BETA01",
+      "tier": "TierLevel.TIER_1",
+      "role": "reserve_holder",
+      "risk_score": 85,
+      "usd_extracted": 119000,
+      "is_active": true,
+      "labels": [
+        "Secondary Reserve",
+        "23.8M CRM"
+      ],
+      "x": 900,
+      "y": 400,
+      "radius": 30,
+      "color": "#cc0000",
+      "icon": "\ud83c\udfe6"
+    }
+  ],
+  "links": [
+    {
+      "source": "t1_controller",
+      "target": "t2_drainer",
+      "strength": 0.9,
+      "transaction_count": 50,
+      "usd_flow": 100000,
+      "link_type": "direct"
+    },
+    {
+      "source": "t1_controller",
+      "target": "t2_volume",
+      "strength": 0.9,
+      "transaction_count": 60,
+      "usd_flow": 120000,
+      "link_type": "direct"
+    },
+    {
+      "source": "t1_controller",
+      "target": "t2_emergency",
+      "strength": 0.9,
+      "transaction_count": 70,
+      "usd_flow": 140000,
+      "link_type": "direct"
+    },
+    {
+      "source": "t1_controller",
+      "target": "t2_manipulator",
+      "strength": 0.9,
+      "transaction_count": 80,
+      "usd_flow": 160000,
+      "link_type": "direct"
+    },
+    {
+      "source": "t1_controller",
+      "target": "t2_bridge",
+      "strength": 0.9,
+      "transaction_count": 90,
+      "usd_flow": 180000,
+      "link_type": "direct"
+    },
+    {
+      "source": "t2_drainer",
+      "target": "t3_dist_01",
+      "strength": 0.7,
+      "transaction_count": 20,
+      "usd_flow": 30000,
+      "link_type": "funding"
+    },
+    {
+      "source": "t2_drainer",
+      "target": "t3_dist_02",
+      "strength": 0.7,
+      "transaction_count": 25,
+      "usd_flow": 35000,
+      "link_type": "funding"
+    },
+    {
+      "source": "t2_volume",
+      "target": "t3_dist_03",
+      "strength": 0.7,
+      "transaction_count": 20,
+      "usd_flow": 30000,
+      "link_type": "funding"
+    },
+    {
+      "source": "t2_volume",
+      "target": "t3_dist_04",
+      "strength": 0.7,
+      "transaction_count": 25,
+      "usd_flow": 35000,
+      "link_type": "funding"
+    },
+    {
+      "source": "t2_volume",
+      "target": "t3_dist_05",
+      "strength": 0.7,
+      "transaction_count": 30,
+      "usd_flow": 40000,
+      "link_type": "funding"
+    },
+    {
+      "source": "t2_emergency",
+      "target": "t3_dist_05",
+      "strength": 0.7,
+      "transaction_count": 20,
+      "usd_flow": 30000,
+      "link_type": "funding"
+    },
+    {
+      "source": "t2_emergency",
+      "target": "t3_dist_06",
+      "strength": 0.7,
+      "transaction_count": 25,
+      "usd_flow": 35000,
+      "link_type": "funding"
+    },
+    {
+      "source": "t2_manipulator",
+      "target": "t3_dist_07",
+      "strength": 0.7,
+      "transaction_count": 20,
+      "usd_flow": 30000,
+      "link_type": "funding"
+    },
+    {
+      "source": "t2_manipulator",
+      "target": "t3_dist_08",
+      "strength": 0.7,
+      "transaction_count": 25,
+      "usd_flow": 35000,
+      "link_type": "funding"
+    },
+    {
+      "source": "t2_manipulator",
+      "target": "t3_dist_09",
+      "strength": 0.7,
+      "transaction_count": 30,
+      "usd_flow": 40000,
+      "link_type": "funding"
+    },
+    {
+      "source": "t2_bridge",
+      "target": "t3_dist_09",
+      "strength": 0.7,
+      "transaction_count": 20,
+      "usd_flow": 30000,
+      "link_type": "funding"
+    },
+    {
+      "source": "t2_bridge",
+      "target": "t3_dist_10",
+      "strength": 0.7,
+      "transaction_count": 25,
+      "usd_flow": 35000,
+      "link_type": "funding"
+    },
+    {
+      "source": "t3_dist_01",
+      "target": "t4_wash_01",
+      "strength": 0.5,
+      "transaction_count": 100,
+      "usd_flow": 5000,
+      "link_type": "wash_trade"
+    },
+    {
+      "source": "t3_dist_02",
+      "target": "t4_wash_02",
+      "strength": 0.5,
+      "transaction_count": 100,
+      "usd_flow": 5000,
+      "link_type": "wash_trade"
+    },
+    {
+      "source": "t3_dist_02",
+      "target": "t4_wash_03",
+      "strength": 0.5,
+      "transaction_count": 150,
+      "usd_flow": 6000,
+      "link_type": "wash_trade"
+    },
+    {
+      "source": "t3_dist_03",
+      "target": "t4_wash_03",
+      "strength": 0.5,
+      "transaction_count": 100,
+      "usd_flow": 5000,
+      "link_type": "wash_trade"
+    },
+    {
+      "source": "t3_dist_04",
+      "target": "t4_wash_04",
+      "strength": 0.5,
+      "transaction_count": 100,
+      "usd_flow": 5000,
+      "link_type": "wash_trade"
+    },
+    {
+      "source": "t3_dist_04",
+      "target": "t4_wash_05",
+      "strength": 0.5,
+      "transaction_count": 150,
+      "usd_flow": 6000,
+      "link_type": "wash_trade"
+    },
+    {
+      "source": "t3_dist_05",
+      "target": "t4_wash_05",
+      "strength": 0.5,
+      "transaction_count": 100,
+      "usd_flow": 5000,
+      "link_type": "wash_trade"
+    },
+    {
+      "source": "t3_dist_06",
+      "target": "t4_wash_06",
+      "strength": 0.5,
+      "transaction_count": 100,
+      "usd_flow": 5000,
+      "link_type": "wash_trade"
+    },
+    {
+      "source": "t3_dist_06",
+      "target": "t4_wash_07",
+      "strength": 0.5,
+      "transaction_count": 150,
+      "usd_flow": 6000,
+      "link_type": "wash_trade"
+    },
+    {
+      "source": "t3_dist_07",
+      "target": "t4_wash_07",
+      "strength": 0.5,
+      "transaction_count": 100,
+      "usd_flow": 5000,
+      "link_type": "wash_trade"
+    },
+    {
+      "source": "t3_dist_08",
+      "target": "t4_wash_08",
+      "strength": 0.5,
+      "transaction_count": 100,
+      "usd_flow": 5000,
+      "link_type": "wash_trade"
+    },
+    {
+      "source": "t3_dist_08",
+      "target": "t4_wash_09",
+      "strength": 0.5,
+      "transaction_count": 150,
+      "usd_flow": 6000,
+      "link_type": "wash_trade"
+    },
+    {
+      "source": "t3_dist_09",
+      "target": "t4_wash_09",
+      "strength": 0.5,
+      "transaction_count": 100,
+      "usd_flow": 5000,
+      "link_type": "wash_trade"
+    },
+    {
+      "source": "t3_dist_10",
+      "target": "t4_wash_10",
+      "strength": 0.5,
+      "transaction_count": 100,
+      "usd_flow": 5000,
+      "link_type": "wash_trade"
+    },
+    {
+      "source": "t3_dist_10",
+      "target": "t4_wash_11",
+      "strength": 0.5,
+      "transaction_count": 150,
+      "usd_flow": 6000,
+      "link_type": "wash_trade"
+    },
+    {
+      "source": "t3_dist_11",
+      "target": "t4_wash_11",
+      "strength": 0.5,
+      "transaction_count": 100,
+      "usd_flow": 5000,
+      "link_type": "wash_trade"
+    },
+    {
+      "source": "t3_dist_12",
+      "target": "t4_wash_12",
+      "strength": 0.5,
+      "transaction_count": 100,
+      "usd_flow": 5000,
+      "link_type": "wash_trade"
+    },
+    {
+      "source": "t3_dist_12",
+      "target": "t4_wash_13",
+      "strength": 0.5,
+      "transaction_count": 150,
+      "usd_flow": 6000,
+      "link_type": "wash_trade"
+    },
+    {
+      "source": "t3_dist_01",
+      "target": "t5_gate",
+      "strength": 0.6,
+      "transaction_count": 5,
+      "usd_flow": 20000,
+      "link_type": "exit"
+    },
+    {
+      "source": "t3_dist_02",
+      "target": "t5_coinbase",
+      "strength": 0.6,
+      "transaction_count": 6,
+      "usd_flow": 21000,
+      "link_type": "exit"
+    },
+    {
+      "source": "t3_dist_03",
+      "target": "t5_otc",
+      "strength": 0.6,
+      "transaction_count": 7,
+      "usd_flow": 22000,
+      "link_type": "exit"
+    },
+    {
+      "source": "t3_dist_04",
+      "target": "t5_mixer",
+      "strength": 0.6,
+      "transaction_count": 5,
+      "usd_flow": 23000,
+      "link_type": "exit"
+    },
+    {
+      "source": "t3_dist_05",
+      "target": "t5_gate",
+      "strength": 0.6,
+      "transaction_count": 6,
+      "usd_flow": 24000,
+      "link_type": "exit"
+    },
+    {
+      "source": "t3_dist_06",
+      "target": "t5_coinbase",
+      "strength": 0.6,
+      "transaction_count": 7,
+      "usd_flow": 25000,
+      "link_type": "exit"
+    },
+    {
+      "source": "t3_dist_07",
+      "target": "t5_otc",
+      "strength": 0.6,
+      "transaction_count": 5,
+      "usd_flow": 26000,
+      "link_type": "exit"
+    },
+    {
+      "source": "t3_dist_08",
+      "target": "t5_mixer",
+      "strength": 0.6,
+      "transaction_count": 6,
+      "usd_flow": 27000,
+      "link_type": "exit"
+    },
+    {
+      "source": "t3_dist_09",
+      "target": "t5_gate",
+      "strength": 0.6,
+      "transaction_count": 7,
+      "usd_flow": 28000,
+      "link_type": "exit"
+    },
+    {
+      "source": "t3_dist_10",
+      "target": "t5_coinbase",
+      "strength": 0.6,
+      "transaction_count": 5,
+      "usd_flow": 29000,
+      "link_type": "exit"
+    },
+    {
+      "source": "t3_dist_11",
+      "target": "t5_otc",
+      "strength": 0.6,
+      "transaction_count": 6,
+      "usd_flow": 30000,
+      "link_type": "exit"
+    },
+    {
+      "source": "t3_dist_12",
+      "target": "t5_mixer",
+      "strength": 0.6,
+      "transaction_count": 7,
+      "usd_flow": 31000,
+      "link_type": "exit"
+    },
+    {
+      "source": "reserve_alpha",
+      "target": "t5_gate",
+      "strength": 0.3,
+      "transaction_count": 0,
+      "usd_flow": 0,
+      "link_type": "potential_exit"
+    },
+    {
+      "source": "reserve_beta",
+      "target": "t5_coinbase",
+      "strength": 0.2,
+      "transaction_count": 0,
+      "usd_flow": 0,
+      "link_type": "potential_exit"
+    }
+  ],
+  "generated_at": "2026-04-06T23:43:57.587234"
+}

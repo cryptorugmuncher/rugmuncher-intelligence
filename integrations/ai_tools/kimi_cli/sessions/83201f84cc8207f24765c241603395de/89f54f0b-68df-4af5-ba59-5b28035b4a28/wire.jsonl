@@ -1,0 +1,3 @@
+{"type": "metadata", "protocol_version": "1.8"}
+{"timestamp": 1775566649.2797003, "message": {"type": "TurnBegin", "payload": {"user_input": "What is 2+2?"}}}
+{"timestamp": 1775566649.2826796, "message": {"type": "TurnEnd", "payload": {}}}

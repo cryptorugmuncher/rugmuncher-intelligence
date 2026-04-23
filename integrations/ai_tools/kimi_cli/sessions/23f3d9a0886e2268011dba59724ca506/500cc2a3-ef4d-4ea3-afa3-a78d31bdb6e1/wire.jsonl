@@ -1,0 +1,3 @@
+{"type": "metadata", "protocol_version": "1.8"}
+{"timestamp": 1775565343.0998597, "message": {"type": "TurnBegin", "payload": {"user_input": "Hello, confirm you are working"}}}
+{"timestamp": 1775565343.105816, "message": {"type": "TurnEnd", "payload": {}}}

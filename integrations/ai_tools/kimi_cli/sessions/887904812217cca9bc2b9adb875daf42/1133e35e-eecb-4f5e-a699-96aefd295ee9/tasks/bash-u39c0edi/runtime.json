@@ -1,0 +1,14 @@
+{
+  "status": "failed",
+  "worker_pid": 238758,
+  "child_pid": 238762,
+  "child_pgid": 238762,
+  "started_at": 1775755321.785913,
+  "heartbeat_at": 1775755338.7902496,
+  "updated_at": 1775755338.7902496,
+  "finished_at": 1775755338.7902496,
+  "exit_code": 1,
+  "interrupted": false,
+  "timed_out": false,
+  "failure_reason": "Command failed with exit code 1"
+}

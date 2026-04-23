@@ -1,0 +1,97 @@
+{
+  "nodes": [
+    "CRM International Wallets",
+    "CRM Treasury Wallets",
+    "Texas TSSB Dismissal",
+    "Nosey Pepper Inc.",
+    "CRM Wash Trading",
+    "CRM Smart Contracts",
+    "CRM Regulatory Immunity",
+    "CRM Community Infiltration",
+    "David Track",
+    "CRM Token",
+    "Mark Hamlin",
+    "Muhammad Zidan (Mack Mills)",
+    "CRM Deployer",
+    "CRM Future Threat",
+    "Tracy Silver",
+    "SHIFT AI",
+    "Voting Casino Mechanism",
+    "SOSANA Syndicate",
+    "Wayne Nash"
+  ],
+  "edges": [
+    {
+      "source": "SOSANA Syndicate",
+      "target": "CRM Token",
+      "type": "sabotage_operation",
+      "confidence": 0.95,
+      "description": "SOSANA syndicate executed active sabotage against CRM when \n            CRM refused to silence inves..."
+    },
+    {
+      "source": "David Track",
+      "target": "CRM Treasury Wallets",
+      "type": "operational_control",
+      "confidence": 0.88,
+      "description": "David Track's methodology in SOSANA (controlling treasury \n            wallets for phased extraction..."
+    },
+    {
+      "source": "Nosey Pepper Inc.",
+      "target": "CRM Deployer",
+      "type": "shell_company_infrastructure",
+      "confidence": 0.82,
+      "description": "Both operations use Wyoming shell company structure for \n            jurisdictional arbitrage. Same ..."
+    },
+    {
+      "source": "Mark Hamlin",
+      "target": "CRM Smart Contracts",
+      "type": "technical_methodology",
+      "confidence": 0.75,
+      "description": "Mark Hamlin's Forsage 'Unilevel Trap' (3-tier recruitment) \n            mirrors CRM's 5-tier extract..."
+    },
+    {
+      "source": "SHIFT AI",
+      "target": "CRM Token",
+      "type": "sequential_operation",
+      "confidence": 0.9,
+      "description": "Documented sequence: SOSANA launched first, promoted SHIFT AI \n            as 'winning project' (29%..."
+    },
+    {
+      "source": "Muhammad Zidan (Mack Mills)",
+      "target": "CRM Community Infiltration",
+      "type": "propaganda_operation",
+      "confidence": 0.7,
+      "description": "Zidan's AI 'meat shield' approach used to create illusion \n            of community consensus agains..."
+    },
+    {
+      "source": "Wayne Nash",
+      "target": "CRM Future Threat",
+      "type": "reboot_strategy",
+      "confidence": 0.85,
+      "description": "Wayne Nash's reboot expertise suggests CRM may face similar \n            'V2.0' relaunch attempt if ..."
+    },
+    {
+      "source": "Tracy Silver",
+      "target": "CRM International Wallets",
+      "type": "jurisdictional_shield",
+      "confidence": 0.78,
+      "description": "Silver's fugitive status and international recruiter network \n            enables CRM funds to flow ..."
+    },
+    {
+      "source": "Texas TSSB Dismissal",
+      "target": "CRM Regulatory Immunity",
+      "type": "legal_precedent",
+      "confidence": 0.92,
+      "description": "TSSB dismissal validated Wyoming shell company strategy. \n            Same defense would likely appl..."
+    },
+    {
+      "source": "Voting Casino Mechanism",
+      "target": "CRM Wash Trading",
+      "type": "operational_similarity",
+      "confidence": 0.87,
+      "description": "SOSANA's 7PM-8PM insider buy window matches CRM's wash trading \n            patterns. Same extractio..."
+    }
+  ],
+  "total_connections": 10,
+  "avg_confidence": 0.842
+}

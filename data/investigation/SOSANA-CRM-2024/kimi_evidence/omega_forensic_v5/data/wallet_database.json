@@ -1,0 +1,365 @@
+[
+  {
+    "address": "CNSob1LwXvDRmjioxyjm78tDb2S7nzFK6K8t3VmuhKpn",
+    "category": "root_funder",
+    "evidence_tier": "tier_1_direct",
+    "labels": [
+      "ROOT_FUNDER",
+      "MOONPAY_KYC",
+      "CLEAN_ON_RAMP",
+      "TIER_0"
+    ],
+    "balance_crm": 0,
+    "balance_sol": 0.5,
+    "first_seen": "2025-08-10",
+    "last_seen": "2025-12-31",
+    "connected_wallets": [
+      "EQ2E92SS64j4uh3UxfG6bFHwq2cbj6YMn8kw9Pm3T4ew"
+    ],
+    "cross_project_affiliations": [
+      "SOSANA",
+      "CRM"
+    ],
+    "kyc_vectors": [
+      {
+        "type": "moonpay",
+        "confidence": "high",
+        "entity": "MoonPay"
+      }
+    ],
+    "notes": "Root funder via MoonPay. Clean retail on-ramp. KYC vector exists."
+  },
+  {
+    "address": "EQ2E92SS64j4uh3UxfG6bFHwq2cbj6YMn8kw9Pm3T4ew",
+    "category": "bridge_node",
+    "evidence_tier": "tier_2_strong",
+    "labels": [
+      "RELAY_NODE",
+      "TIER_0_LINK",
+      "ENTRY_COORDINATOR"
+    ],
+    "balance_crm": 0,
+    "balance_sol": 2.0,
+    "first_seen": "2025-08-15",
+    "last_seen": "2026-03-01",
+    "connected_wallets": [
+      "CNSob1LwXvDRmjioxyjm78tDb2S7nzFK6K8t3VmuhKpn",
+      "HxyXAE1PHQsh6iLj3t8MagpFovmR7yk76PEADmTKeVfi"
+    ],
+    "cross_project_affiliations": [
+      "SOSANA"
+    ],
+    "notes": "Relay node linking root entry to coordinator."
+  },
+  {
+    "address": "ASTyfSima4LLAdDgoFGkgqoKowG1LZFDr9fAQrg7iaJZ",
+    "category": "treasury_command",
+    "evidence_tier": "tier_1_direct",
+    "labels": [
+      "NUCLEAR_TREASURY",
+      "PAYMASTER",
+      "PBTC_CONTROLLER",
+      "TIER_1",
+      "$5.8M"
+    ],
+    "balance_crm": 0,
+    "balance_sol": 34445.0,
+    "first_seen": "2025-09-10",
+    "last_seen": "2026-03-28",
+    "connected_wallets": [
+      "8eVZa7bEBnd6MA6JJkNdABRN4S3LbVLRnCZNJAUeuwQj",
+      "DojAziGhpLddzSPTCsCvp577wkP9N6AtVc87HJqihcZd"
+    ],
+    "cross_project_affiliations": [
+      "SHIFT_AI",
+      "CRM",
+      "SOSANA"
+    ],
+    "notes": "Nuclear treasury with 34,445 SOL (~$5.8M). Controls 42,997 PBTC."
+  },
+  {
+    "address": "H8sMJSCQxfKiFTCfDR3DUMLPwcRbM61LGFJ8N4dK3WjS",
+    "category": "treasury_command",
+    "evidence_tier": "tier_1_direct",
+    "labels": [
+      "PARALLEL_TREASURY",
+      "ACTIVE_BURST",
+      "TIER_1",
+      "$6.7M"
+    ],
+    "balance_crm": 0,
+    "balance_sol": 39828.0,
+    "first_seen": "2025-09-15",
+    "last_seen": "2026-03-28",
+    "connected_wallets": [
+      "8VTFvhQ5C8aGvQbXoRzKpLcM3dWnJ7sYtE2iU9oP4hA1"
+    ],
+    "cross_project_affiliations": [
+      "CRM",
+      "SOSANA"
+    ],
+    "notes": "Parallel treasury with 39,828 SOL (~$6.7M). Active burst pattern."
+  },
+  {
+    "address": "A77HErqtfN1hLLpvZ9pCtu66FEtM8BveoaKbbMoZ4RiR",
+    "category": "treasury_command",
+    "evidence_tier": "tier_1_direct",
+    "labels": [
+      "MASTER_CONTROLLER",
+      "TIER_0_ROOT",
+      "$18M",
+      "URGENT"
+    ],
+    "balance_crm": 0,
+    "balance_sol": 100000.0,
+    "first_seen": "2025-08-01",
+    "last_seen": "2026-03-28",
+    "connected_wallets": [
+      "ASTyfSima4LLAdDgoFGkgqoKowG1LZFDr9fAQrg7iaJZ",
+      "H8sMJSCQxfKiFTCfDR3DUMLPwcRbM61LGFJ8N4dK3WjS"
+    ],
+    "cross_project_affiliations": [
+      "SOSANA",
+      "CRM",
+      "SHIFT_AI"
+    ],
+    "notes": "MASTER CONTROLLER. $18M+ moving NOW. Root of entire operation."
+  },
+  {
+    "address": "8eVZa7bEBnd6MA6JJkNdABRN4S3LbVLRnCZNJAUeuwQj",
+    "category": "bridge_node",
+    "evidence_tier": "tier_1_direct",
+    "labels": [
+      "PRIMARY_BRIDGE",
+      "SMOKING_GUN",
+      "CRM_PBTC_NEXUS",
+      "TIER_3",
+      "19.7M_CRM",
+      "73K_PBTC"
+    ],
+    "balance_crm": 19700000.0,
+    "balance_sol": 45.0,
+    "first_seen": "2025-08-25",
+    "last_seen": "2026-03-28",
+    "connected_wallets": [
+      "HLnpSz9h2S4hiLQ4uN3vGYAHJqDmbFCwkx9prSXkdPMc",
+      "F4HGHWyaCvDkUF88svvCHhSMpR9YzHCYSNmojaKQtRSB"
+    ],
+    "cross_project_affiliations": [
+      "CRM",
+      "PBTC",
+      "SOSANA",
+      "SHIFT_AI"
+    ],
+    "notes": "SMOKING GUN: Primary bridge. 19.7M CRM + 73,574 PBTC."
+  },
+  {
+    "address": "DLHnb1yt6DMx2PCEuTniiTPfoM4EuTfuTqT8jRfdw9P8",
+    "category": "hostage_bag",
+    "evidence_tier": "tier_2_strong",
+    "labels": [
+      "DORMANT_VOLCANO",
+      "CORE_CLUSTER_LEADER",
+      "TIER_3",
+      "104.6M_CRM",
+      "237M_GAS"
+    ],
+    "balance_crm": 104600000.0,
+    "balance_sol": 50.0,
+    "first_seen": "2025-09-01",
+    "last_seen": "2026-03-28",
+    "connected_wallets": [
+      "8eVZa7bEBnd6MA6JJkNdABRN4S3LbVLRnCZNJAUeuwQj"
+    ],
+    "cross_project_affiliations": [
+      "CRM",
+      "GAS"
+    ],
+    "notes": "DORMANT VOLCANO: 104.6M CRM + 237M GAS. Largest concentration."
+  },
+  {
+    "address": "7abBmGf4HNu3UXsanJc7WwAPW2PgkEb9hwrFKwCySvyL",
+    "category": "dumper_node",
+    "evidence_tier": "tier_1_direct",
+    "labels": [
+      "COMPROMISED_WHALE",
+      "FIELD_OPERATIVE",
+      "30M_CRM",
+      "TIER_5"
+    ],
+    "balance_crm": 30000000.0,
+    "balance_sol": 25.0,
+    "first_seen": "2025-12-31",
+    "last_seen": "2026-02-10",
+    "connected_wallets": [
+      "8eVZa7bEBnd6MA6JJkNdABRN4S3LbVLRnCZNJAUeuwQj"
+    ],
+    "cross_project_affiliations": [
+      "CRM"
+    ],
+    "notes": "Compromised whale. 30M CRM. Received 1M from 8eVZa7b."
+  },
+  {
+    "address": "D9ZGRMhmdMdf5dRdEiLSJLrSETsFuofSPDZHjx5tuULT",
+    "category": "dumper_node",
+    "evidence_tier": "tier_2_strong",
+    "labels": [
+      "FIELD_OPERATIVE",
+      "DORMANT",
+      "32M_CRM",
+      "TIER_5",
+      "CRITICAL_THREAT"
+    ],
+    "balance_crm": 31971154.0,
+    "balance_sol": 5.0,
+    "first_seen": "2025-11-01",
+    "last_seen": "2026-02-01",
+    "connected_wallets": [
+      "HLnpSz9h2S4hiLQ4uN3vGYAHJqDmbFCwkx9prSXkdPMc"
+    ],
+    "cross_project_affiliations": [
+      "CRM"
+    ],
+    "notes": "Field operative. 31.97M CRM. DORMANT - armed and waiting."
+  },
+  {
+    "address": "HPVUJGJwJnpGBDCzoAPKPjHe8QfXLgRjbktXCRyMNi5w",
+    "category": "dumper_node",
+    "evidence_tier": "tier_2_strong",
+    "labels": [
+      "FIELD_OPERATIVE",
+      "DORMANT",
+      "22M_CRM",
+      "TIER_5",
+      "CRITICAL_THREAT"
+    ],
+    "balance_crm": 22015172.0,
+    "balance_sol": 3.0,
+    "first_seen": "2025-11-15",
+    "last_seen": "2026-02-01",
+    "connected_wallets": [
+      "HLnpSz9h2S4hiLQ4uN3vGYAHJqDmbFCwkx9prSXkdPMc"
+    ],
+    "cross_project_affiliations": [
+      "CRM"
+    ],
+    "notes": "Field operative. 22.02M CRM. DORMANT."
+  },
+  {
+    "address": "hHxyZi7ZxbYqQmBhTRtdwpjwpfhmWVypRfMVmn2HzPt",
+    "category": "dumper_node",
+    "evidence_tier": "tier_2_strong",
+    "labels": [
+      "FIELD_OPERATIVE",
+      "RELOADING",
+      "19.3M_CRM",
+      "TIER_5",
+      "IMMINENT_THREAT"
+    ],
+    "balance_crm": 19298335.0,
+    "balance_sol": 4.0,
+    "first_seen": "2025-12-15",
+    "last_seen": "2026-03-28",
+    "connected_wallets": [],
+    "cross_project_affiliations": [
+      "CRM"
+    ],
+    "notes": "Field operative. 19.3M CRM. RELOADING - recently funded."
+  },
+  {
+    "address": "HLnpSz9h2S4hiLQ4uN3vGYAHJqDmbFCwkx9prSXkdPMc",
+    "category": "dumper_node",
+    "evidence_tier": "tier_1_direct",
+    "labels": [
+      "ACTIVE_DUMP_WALLET",
+      "WAVE_2",
+      "79.7M_CRM",
+      "DELETED",
+      "TIER_6",
+      "URGENT"
+    ],
+    "balance_crm": 79700000.0,
+    "balance_sol": 0.0,
+    "first_seen": "2025-08-20",
+    "last_seen": "2026-03-28",
+    "connected_wallets": [
+      "8eVZa7bEBnd6MA6JJkNdABRN4S3LbVLRnCZNJAUeuwQj",
+      "GVC9Zvh3mxfUHfMRi9zGzjRdQtfoQ2WkFXHSfy3ySwoT"
+    ],
+    "cross_project_affiliations": [
+      "CRM"
+    ],
+    "notes": "ACTIVE DUMP: 79.7M CRM. Selling NOW. Wallet DELETED March 26."
+  },
+  {
+    "address": "GVC9Zvh3mxfUHfMRi9zGzjRdQtfoQ2WkFXHSfy3ySwoT",
+    "category": "payroll_distributor",
+    "evidence_tier": "tier_1_direct",
+    "labels": [
+      "FEE_COLLECTOR",
+      "SOL_COLLECTOR",
+      "223_SOL",
+      "TIER_6",
+      "LIVE"
+    ],
+    "balance_crm": 0,
+    "balance_sol": 223.88,
+    "first_seen": "2026-03-26",
+    "last_seen": "2026-03-28",
+    "connected_wallets": [
+      "HLnpSz9h2S4hiLQ4uN3vGYAHJqDmbFCwkx9prSXkdPMc"
+    ],
+    "cross_project_affiliations": [
+      "CRM"
+    ],
+    "notes": "Fee collector. 223.88 SOL collected. LIVE extraction."
+  },
+  {
+    "address": "AFXigaYuRKYmvd9HZQCobtZ98FNAwnwpsnjvJRztUGb6",
+    "category": "botnet_seeder",
+    "evidence_tier": "tier_1_direct",
+    "labels": [
+      "BOTNET_COMMANDER",
+      "970_WALLET_DEPLOYER",
+      "SOSANA_LINK",
+      "TIER_4"
+    ],
+    "balance_crm": 0,
+    "balance_sol": 1.97,
+    "first_seen": "2025-08-15",
+    "last_seen": "2026-03-28",
+    "connected_wallets": [
+      "CNSob1LwXvDRmjioxyjm78tDb2S7nzFK6K8t3VmuhKpn"
+    ],
+    "cross_project_affiliations": [
+      "SOSANA",
+      "SHIFT_AI"
+    ],
+    "notes": "Botnet commander. Deployed 970 wallets in 7 seconds on March 26."
+  },
+  {
+    "address": "HFTwoBvjLcjo5CTpM42jKKVyETnHGWDUM4CpB4fZVBSc",
+    "category": "verified_victim",
+    "evidence_tier": "tier_1_direct",
+    "labels": [
+      "VICTIM_WALLET",
+      "MARCUS_AURELIUS",
+      "DUSTED",
+      "WITNESS_INTIMIDATION"
+    ],
+    "balance_crm": 0,
+    "balance_sol": 0.001,
+    "first_seen": "2025-01-01",
+    "last_seen": "2026-03-28",
+    "connected_wallets": [],
+    "cross_project_affiliations": [],
+    "notes": "Victim wallet - Marcus Aurelius (CRM Developer). Dusted - witness intimidation.",
+    "kyc_vectors": [
+      {
+        "type": "victim_identity",
+        "name": "Marcus Aurelius",
+        "role": "CRM Developer"
+      }
+    ]
+  }
+]

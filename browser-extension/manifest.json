@@ -1,0 +1,75 @@
+{
+  "manifest_version": 3,
+  "name": "Rug Munch Intel",
+  "version": "1.0.0",
+  "description": "Real-time crypto wallet risk analysis and scam detection",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "notifications",
+    "alarms",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://etherscan.io/*",
+    "https://bscscan.com/*",
+    "https://polygonscan.com/*",
+    "https://arbiscan.io/*",
+    "https://optimistic.etherscan.io/*",
+    "https://basescan.org/*",
+    "https://solscan.io/*",
+    "https://*.dextools.io/*",
+    "https://dexscreener.com/*",
+    "https://*.coingecko.com/*",
+    "https://api.cryptorugmunch.com/*",
+    "https://app.cryptorugmunch.com/*"
+  ],
+  "background": {
+    "service_worker": "src/background/background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://etherscan.io/*",
+        "https://bscscan.com/*",
+        "https://polygonscan.com/*",
+        "https://arbiscan.io/*",
+        "https://optimistic.etherscan.io/*",
+        "https://basescan.org/*",
+        "https://solscan.io/*",
+        "https://*.dextools.io/*",
+        "https://dexscreener.com/*"
+      ],
+      "js": ["src/content/content.js"],
+      "css": ["src/content/content.css"],
+      "run_at": "document_end"
+    }
+  ],
+  "action": {
+    "default_popup": "src/popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "default_title": "Rug Munch Intel - Wallet Risk Analyzer"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "options_page": "src/options/options.html",
+  "web_accessible_resources": [
+    {
+      "resources": ["icons/*", "sounds/*"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}

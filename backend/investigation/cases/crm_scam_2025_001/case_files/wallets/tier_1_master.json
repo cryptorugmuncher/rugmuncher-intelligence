@@ -1,0 +1,38 @@
+{
+  "wallet_id": "WALLET-T1-001",
+  "address": "AFXigaYuRKYmvd9HZQCobtZ98FNAwnwpsnjvJRztUGb6",
+  "tier": 1,
+  "classification": "suspect",
+  "function": "Master routing node, cross-project capital coordination",
+  "status": "ACTIVE",
+  "evidence": "Seeds 970 wallets at 138/second - military-grade automation",
+  "risk_score": 1.0,
+  "crm_balance": 0,
+  "usdc_balance": 0,
+  "transaction_count": 970,
+  "critical_evidence": {
+    "date": "2026-03-26",
+    "time": "21:38:07 UTC",
+    "duration_seconds": 7,
+    "wallets_seeded": 970,
+    "rate_per_second": 138.57,
+    "human_maximum": "2-3 wallets in 7 seconds",
+    "conclusion": "Military-grade automation, not organic community growth"
+  },
+  "related_wallets": [
+    "BMq4XUa3rJJNkjXbJDpMFdSmPjvz5f9w4TvYFGADVkX5",
+    "AvZHExxq2BaPrq17cKq1KMN3PWoCwqZRppV882JHY5sN",
+    "F4HGHWya2Q94nLVHkj3hbEAb2P15h5jGAVW2vu2fuTYi"
+  ],
+  "connections": {
+    "manages": "AvZHExxq2 (early SHIFT buyer)",
+    "links_to": [
+      "SOSANA v2 team wallet",
+      "SHIFT systematic dumper",
+      "CRM #3 holder"
+    ]
+  },
+  "legal_significance": "Root infrastructure - Primary target for asset freeze and identity discovery",
+  "added_date": "2026-04-09",
+  "last_updated": "2026-04-12"
+}

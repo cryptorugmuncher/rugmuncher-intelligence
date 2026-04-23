@@ -1,0 +1,325 @@
+2026-04-08 16:03:44.816 | INFO     | kimi_cli.cli:_run:571 - Created new session: 60bce05d-25b0-438d-be40-a4d622dad9fc
+2026-04-08 16:03:44.833 | INFO     | kimi_cli.app:create:144 - Loaded config: is_from_default_location=True source_file=PosixPath('/root/.kimi/config.toml') default_model='kimi-code/kimi-for-coding' default_thinking=True default_yolo=False default_plan_mode=False default_editor='' theme='dark' models={'kimi-code/kimi-for-coding': LLMModel(provider='managed:kimi-code', model='kimi-for-coding', max_context_size=262144, capabilities={'image_in', 'thinking', 'video_in'})} providers={'managed:kimi-code': LLMProvider(type='kimi', base_url='https://api.kimi.com/coding/v1', api_key=SecretStr(''), env=None, custom_headers=None, oauth=OAuthRef(storage='file', key='oauth/kimi-code'))} loop_control=LoopControl(max_steps_per_turn=100, max_retries_per_step=3, max_ralph_iterations=0, reserved_context_size=50000, compaction_trigger_ratio=0.85) background=BackgroundConfig(max_running_tasks=4, read_max_bytes=30000, notification_tail_lines=20, notification_tail_chars=3000, wait_poll_interval_ms=500, worker_heartbeat_interval_ms=5000, worker_stale_after_ms=15000, kill_grace_period_ms=2000, keep_alive_on_exit=False, agent_task_timeout_s=900) notifications=NotificationConfig(claim_stale_after_ms=15000) services=Services(moonshot_search=MoonshotSearchConfig(base_url='https://api.kimi.com/coding/v1/search', api_key=SecretStr(''), custom_headers=None, oauth=OAuthRef(storage='file', key='oauth/kimi-code')), moonshot_fetch=MoonshotFetchConfig(base_url='https://api.kimi.com/coding/v1/fetch', api_key=SecretStr(''), custom_headers=None, oauth=OAuthRef(storage='file', key='oauth/kimi-code'))) mcp=MCPConfig(client=MCPClientConfig(tool_call_timeout_ms=60000)) hooks=[] merge_all_available_skills=False
+2026-04-08 16:03:46.479 | INFO     | kimi_cli.app:create:188 - Using LLM provider: type='kimi' base_url='https://api.kimi.com/coding/v1' api_key=SecretStr('') env=None custom_headers=None oauth=OAuthRef(storage='file', key='oauth/kimi-code')
+2026-04-08 16:03:46.480 | INFO     | kimi_cli.app:create:189 - Using LLM model: provider='managed:kimi-code' model='kimi-for-coding' max_context_size=262144 capabilities={'image_in', 'thinking', 'video_in'}
+2026-04-08 16:03:46.480 | INFO     | kimi_cli.app:create:190 - Thinking mode: True
+2026-04-08 16:03:46.489 | INFO     | kimi_cli.soul.agent:load_agents_md:145 - No AGENTS.md found from /root to /root
+2026-04-08 16:03:46.523 | INFO     | kimi_cli.soul.agent:create:248 - Discovered 2 skill(s)
+2026-04-08 16:03:46.524 | INFO     | kimi_cli.soul.agent:load_agent:412 - Loading agent: /root/.local/share/uv/tools/kimi-cli/lib/python3.13/site-packages/kimi_cli/agents/default/agent.yaml
+2026-04-08 16:03:46.531 | INFO     | kimi_cli.soul.agent:_load_system_prompt:507 - Loading system prompt: /root/.local/share/uv/tools/kimi-cli/lib/python3.13/site-packages/kimi_cli/agents/default/system.md
+2026-04-08 16:03:48.272 | INFO     | kimi_cli.soul.toolset:load_tools:312 - Loaded tools: ['kimi_cli.tools.agent:Agent', 'kimi_cli.tools.ask_user:AskUserQuestion', 'kimi_cli.tools.todo:SetTodoList', 'kimi_cli.tools.shell:Shell', 'kimi_cli.tools.background:TaskList', 'kimi_cli.tools.background:TaskOutput', 'kimi_cli.tools.background:TaskStop', 'kimi_cli.tools.file:ReadFile', 'kimi_cli.tools.file:ReadMediaFile', 'kimi_cli.tools.file:Glob', 'kimi_cli.tools.file:Grep', 'kimi_cli.tools.file:WriteFile', 'kimi_cli.tools.file:StrReplaceFile', 'kimi_cli.tools.web:SearchWeb', 'kimi_cli.tools.web:FetchURL', 'kimi_cli.tools.plan:ExitPlanMode', 'kimi_cli.tools.plan.enter:EnterPlanMode']
+2026-04-08 16:03:49.372 | INFO     | kimi_cli.ui.shell.update:_do_update:107 - Checking for updates...
+2026-04-08 16:04:01.719 | INFO     | kimi_cli.ui.shell:run_soul_command:670 - Running soul with user input: [TextPart(type='text', text='Can you build stuff into my server for me?')]
+2026-04-08 16:08:29.643 | INFO     | kimi_cli.ui.shell:run_soul_command:670 - Running soul with user input: [TextPart(type='text', text='design and complete this telergram scam detection bot for me but improve make also a wallet analysis tool within etc')]
+2026-04-08 16:40:23.219 | INFO     | kimi_cli.ui.shell:run_soul_command:670 - Running soul with user input: [TextPart(type='text', text="now would be a good time to go back over your work and debug anything provide yourself with all the necessary crypto apis if I don't have it I will provide and you will have a standard database to pull from obscure from the public also think about pricing in scan packs to entice 5.99 for 5 and like 9.99 for 10 someting psychologically enticing make sure the paymeny system is actually functional and I have the ability to set my wallet or collect stars via @CryptoRugMunch onTelegram I will also you get you api for all thaat too in terms of payment options it might be just better to have them send to specific wallet and accept a few currencies cheap to send base eth, sol, usdc, usdt maybe a few others I dont know make it easy verifiable then they get their token accees to the scans or whatever discounts to CRM 1.0 holders of 50% on all app subs or packs they must connect wallet on cryptorugmunch.com verify their airdrop claim then can qualify for discount with special code given marked for discounts and they can check it again and again")]
+2026-04-08 17:21:36.177 | INFO     | kimi_cli.ui.shell:run_soul_command:729 - Cancelled by user
+2026-04-08 17:21:45.807 | INFO     | kimi_cli.ui.shell:run_soul_command:670 - Running soul with user input: [TextPart(type='text', text='orry start again')]
+2026-04-08 17:25:25.833 | INFO     | kimi_cli.soul.kimisoul:_agent_loop:704 - Context too long, compacting...
+2026-04-08 17:28:18.584 | INFO     | kimi_cli.soul.kimisoul:_run_with_connection_recovery:1056 - Recovered chat provider during step after APIConnectionError; retrying once.
+2026-04-08 17:28:19.318 | ERROR    | kimi_cli.ui.shell:run_soul_command:716 - LLM provider error:
+Traceback (most recent call last):
+
+  File "/root/.local/share/uv/tools/kimi-cli/lib/python3.13/site-packages/kosong/chat_provider/kimi.py", line 165, in generate
+    response = await self.client.chat.completions.create(
+                     │    │      │    │           └ <function AsyncCompletions.create at 0x77ae3d934900>
+                     │    │      │    └ <openai.resources.chat.completions.completions.AsyncCompletions object at 0x77ae3d4a9a90>
+                     │    │      └ <openai.resources.chat.chat.AsyncChat object at 0x77ae3d4ab750>
+                     │    └ <openai.AsyncOpenAI object at 0x77ae3d5874d0>
+                     └ <kosong.chat_provider.kimi.Kimi object at 0x77ae446b88a0>
+  File "/root/.local/share/uv/tools/kimi-cli/lib/python3.13/site-packages/openai/resources/chat/completions/completions.py", line 2678, in create
+    return await self._post(
+                 │    └ <bound method AsyncAPIClient.post of <openai.AsyncOpenAI object at 0x77ae3d5874d0>>
+                 └ <openai.resources.chat.completions.completions.AsyncCompletions object at 0x77ae3d4a9a90>
+  File "/root/.local/share/uv/tools/kimi-cli/lib/python3.13/site-packages/openai/_base_client.py", line 1797, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+                 │    │       │        │            │                  └ openai.AsyncStream[openai.types.chat.chat_completion_chunk.ChatCompletionChunk]
+                 │    │       │        │            └ True
+                 │    │       │        └ FinalRequestOptions(method='post', url='/chat/completions', params={}, headers=NOT_GIVEN, max_retries=NOT_GIVEN, timeout=NOT_...
+                 │    │       └ <class 'openai.types.chat.chat_completion.ChatCompletion'>
+                 │    └ <function AsyncAPIClient.request at 0x77ae4480f100>
+                 └ <openai.AsyncOpenAI object at 0x77ae3d5874d0>
+  File "/root/.local/share/uv/tools/kimi-cli/lib/python3.13/site-packages/openai/_base_client.py", line 1597, in request
+    raise self._make_status_error_from_response(err.response) from None
+          │    └ <function BaseClient._make_status_error_from_response at 0x77ae4480c2c0>
+          └ <openai.AsyncOpenAI object at 0x77ae3d5874d0>
+
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'The API Key appears to be invalid or may have expired. Please verify your credentials and try again.', 'type': 'invalid_authentication_error'}}
+
+
+The above exception was the direct cause of the following exception:
+
+
+Traceback (most recent call last):
+
+  File "/root/.local/bin/kimi", line 10, in <module>
+    sys.exit(main())
+    │   │    └ <function main at 0x77ae49bdbec0>
+    │   └ <built-in function exit>
+    └ <module 'sys' (built-in)>
+  File "/root/.local/share/uv/tools/kimi-cli/lib/python3.13/site-packages/kimi_cli/__main__.py", line 28, in main
+    return cli(args=args, prog_name=_prog_name())
+           │        │               └ <function _prog_name at 0x77ae49bdbe20>
+           │        └ []
+           └ <typer.main.Typer object at 0x77ae4990b230>
+  File "/root/.local/share/uv/tools/kimi-cli/lib/python3.13/site-packages/typer/main.py", line 319, in __call__
+    return get_command(self)(*args, **kwargs)
+           │           │      │       └ {'args': [], 'prog_name': 'kimi'}
+           │           │      └ ()
+           │           └ <typer.main.Typer object at 0x77ae4990b230>
+           └ <function get_command at 0x77ae497984a0>
+  File "/root/.local/share/uv/tools/kimi-cli/lib/python3.13/site-packages/click/core.py", line 1485, in __call__
+    return self.main(*args, **kwargs)
+           │    │     │       └ {'args': [], 'prog_name': 'kimi'}
+           │    │     └ ()
+           │    └ <function TyperGroup.main at 0x77ae497a8220>
+           └ <LazySubcommandGroup >
+  File "/root/.local/share/uv/tools/kimi-cli/lib/python3.13/site-packages/typer/core.py", line 814, in main
+    return _main(
+           └ <function _main at 0x77ae497eae80>
+  File "/root/.local/share/uv/tools/kimi-cli/lib/python3.13/site-packages/typer/core.py", line 190, in _main
+    rv = self.invoke(ctx)
+         │    │      └ <click.core.Context object at 0x77ae497f2120>
+         │    └ <function Group.invoke at 0x77ae498fccc0>
+         └ <LazySubcommandGroup >
+  File "/root/.local/share/uv/tools/kimi-cli/lib/python3.13/site-packages/click/core.py", line 1851, in invoke
+    rv = super().invoke(ctx)
+                        └ <click.core.Context object at 0x77ae497f2120>
+  File "/root/.local/share/uv/tools/kimi-cli/lib/python3.13/site-packages/click/core.py", line 1269, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           │   │      │    │           │   └ {'version': None, 'verbose': False, 'debug': False, 'local_work_dir': None, 'local_add_dirs': (), 'session_id': None, 'contin...
+           │   │      │    │           └ <click.core.Context object at 0x77ae497f2120>
+           │   │      │    └ <function kimi at 0x77ae4979b920>
+           │   │      └ <LazySubcommandGroup >
+           │   └ <function Context.invoke at 0x77ae498faca0>
+           └ <click.core.Context object at 0x77ae497f2120>
+  File "/root/.local/share/uv/tools/kimi-cli/lib/python3.13/site-packages/click/core.py", line 824, in invoke
+    return callback(*args, **kwargs)
+           │         │       └ {'version': None, 'verbose': False, 'debug': False, 'local_work_dir': None, 'local_add_dirs': (), 'session_id': None, 'contin...
+           │         └ ()
+           └ <function kimi at 0x77ae4979b920>
+  File "/root/.local/share/uv/tools/kimi-cli/lib/python3.13/site-packages/typer/main.py", line 706, in wrapper
+    return callback(**use_params)
+           │          └ {'ctx': <click.core.Context object at 0x77ae497f2120>, 'version': None, 'verbose': False, 'debug': False, 'local_work_dir': N...
+           └ <function kimi at 0x77ae49799940>
+  File "/root/.local/share/uv/tools/kimi-cli/lib/python3.13/site-packages/kimi_cli/cli/__init__.py", line 833, in kimi
+    switch_target, exit_code = asyncio.run(_reload_loop(session_id))
+                               │       │   │            └ None
+                               │       │   └ <function kimi.<locals>._reload_loop at 0x77ae46509120>
+                               │       └ <function run at 0x77ae493f1e40>
+                               └ <module 'asyncio' from '/root/.local/share/uv/python/cpython-3.13.12-linux-x86_64-gnu/lib/python3.13/asyncio/__init__.py'>
+  File "/root/.local/share/uv/python/cpython-3.13.12-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           │      │   └ <coroutine object kimi.<locals>._reload_loop at 0x77ae46416650>
+           │      └ <function Runner.run at 0x77ae494b0400>
+           └ <asyncio.runners.Runner object at 0x77ae464170e0>
+  File "/root/.local/share/uv/python/cpython-3.13.12-linux-x86_64-gnu/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<kimi.<locals>._reload_loop() running at /root/.local/share/uv/tools/kimi-cli/lib/python3.13...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x77ae494b5ee0>
+           │    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x77ae464170e0>
+  File "/root/.local/share/uv/python/cpython-3.13.12-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x77ae494b5e40>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/root/.local/share/uv/python/cpython-3.13.12-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x77ae494b7c40>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/root/.local/share/uv/python/cpython-3.13.12-linux-x86_64-gnu/lib/python3.13/asyncio/base_events.py", line 2050, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x77ae4942cd60>
+    └ <Handle Task.task_wakeup()>
+  File "/root/.local/share/uv/python/cpython-3.13.12-linux-x86_64-gnu/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup()>
+  File "/root/.local/share/uv/tools/kimi-cli/lib/python3.13/site-packages/kimi_cli/cli/__init__.py", line 748, in _reload_loop
+    last_session, exit_code = await _run(session_id, prefill_text=prefill_text)
+    │                               │    │                        └ None
+    │                               │    └ None
+    │                               └ <function kimi.<locals>._run at 0x77ae46508e00>
+    └ None
+  File "/root/.local/share/uv/tools/kimi-cli/lib/python3.13/site-packages/kimi_cli/cli/__init__.py", line 645, in _run
+    shell_ok = await instance.run_shell(prompt, prefill_text=prefill_text)
+                     │        │         │                    └ None
+                     │        │         └ None
+                     │        └ <function KimiCLI.run_shell at 0x77ae46b98680>
+                     └ <kimi_cli.app.KimiCLI object at 0x77ae44696510>
+  File "/root/.local/share/uv/tools/kimi-cli/lib/python3.13/site-packages/kimi_cli/app.py", line 518, in run_shell
+    return await shell.run(command)
+                 │     │   └ None
+                 │     └ <function Shell.run at 0x77ae4655d760>
+                 └ <kimi_cli.ui.shell.Shell object at 0x77ae46417a10>
+  File "/root/.local/share/uv/tools/kimi-cli/lib/python3.13/site-packages/kimi_cli/ui/shell/__init__.py", line 547, in run
+    await self.run_soul_command(user_input.content)
+          │    │                │          └ [TextPart(type='text', text='orry start again')]
+          │    │                └ UserInput(mode=<PromptMode.AGENT: 'agent'>, command='orry start again', resolved_command='orry start again', content=[TextPar...
+          │    └ <function Shell.run_soul_command at 0x77ae4655d940>
+          └ <kimi_cli.ui.shell.Shell object at 0x77ae46417a10>
+> File "/root/.local/share/uv/tools/kimi-cli/lib/python3.13/site-packages/kimi_cli/ui/shell/__init__.py", line 684, in run_soul_command
+    await run_soul(
+          └ <function run_soul at 0x77ae47c0bd80>
+  File "/root/.local/share/uv/tools/kimi-cli/lib/python3.13/site-packages/kimi_cli/soul/__init__.py", line 217, in run_soul
+    soul_task.result()  # this will raise if any exception was raised in the run task
+    │         └ <method 'result' of '_asyncio.Task' objects>
+    └ <Task finished name='Task-136156' coro=<KimiSoul.run() done, defined at /root/.local/share/uv/tools/kimi-cli/lib/python3.13/s...
+  File "/root/.local/share/uv/tools/kimi-cli/lib/python3.13/site-packages/kimi_cli/soul/kimisoul.py", line 521, in run
+    await self._turn(user_message)
+          │    │     └ Message(role='user', name=None, content=[TextPart(type='text', text='orry start again')], tool_calls=None, tool_call_id=None,...
+          │    └ <function KimiSoul._turn at 0x77ae46b874c0>
+          └ <kimi_cli.soul.kimisoul.KimiSoul object at 0x77ae3df970e0>
+  File "/root/.local/share/uv/tools/kimi-cli/lib/python3.13/site-packages/kimi_cli/soul/kimisoul.py", line 584, in _turn
+    return await self._agent_loop()
+                 │    └ <function KimiSoul._agent_loop at 0x77ae46b877e0>
+                 └ <kimi_cli.soul.kimisoul.KimiSoul object at 0x77ae3df970e0>
+  File "/root/.local/share/uv/tools/kimi-cli/lib/python3.13/site-packages/kimi_cli/soul/kimisoul.py", line 710, in _agent_loop
+    step_outcome = await self._step()
+                         │    └ <function KimiSoul._step at 0x77ae46b87880>
+                         └ <kimi_cli.soul.kimisoul.KimiSoul object at 0x77ae3df970e0>
+  File "/root/.local/share/uv/tools/kimi-cli/lib/python3.13/site-packages/kimi_cli/soul/kimisoul.py", line 834, in _step
+    result = await _kosong_step_with_retry()
+                   └ <function KimiSoul._step.<locals>._kosong_step_with_retry at 0x77ae3d4558a0>
+  File "/root/.local/share/uv/tools/kimi-cli/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+                 │    │    │       └ {}
+                 │    │    └ ()
+                 │    └ <function KimiSoul._step.<locals>._kosong_step_with_retry at 0x77ae3d654180>
+                 └ <AsyncRetrying object at 0x77ae3c51be30 (stop=<tenacity.stop.stop_after_attempt object at 0x77ae3c75ead0>, wait=<tenacity.wai...
+  File "/root/.local/share/uv/tools/kimi-cli/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 111, in __call__
+    do = await self.iter(retry_state=retry_state)
+               │    │                └ <RetryCallState 131590237420048: attempt #1; slept for 0.0; last result: failed (APIStatusError Error code: 401 - {'error': {...
+               │    └ <function AsyncRetrying.iter at 0x77ae46b711c0>
+               └ <AsyncRetrying object at 0x77ae3c51be30 (stop=<tenacity.stop.stop_after_attempt object at 0x77ae3c75ead0>, wait=<tenacity.wai...
+  File "/root/.local/share/uv/tools/kimi-cli/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 153, in iter
+    result = await action(retry_state)
+                   │      └ <RetryCallState 131590237420048: attempt #1; slept for 0.0; last result: failed (APIStatusError Error code: 401 - {'error': {...
+                   └ <function wrap_to_async_func.<locals>.inner at 0x77ae3c4640e0>
+  File "/root/.local/share/uv/tools/kimi-cli/lib/python3.13/site-packages/tenacity/_utils.py", line 99, in inner
+    return call(*args, **kwargs)
+           │     │       └ {}
+           │     └ (<RetryCallState 131590237420048: attempt #1; slept for 0.0; last result: failed (APIStatusError Error code: 401 - {'error': ...
+           └ <function BaseRetrying._post_retry_check_actions.<locals>.<lambda> at 0x77ae3c70ee80>
+  File "/root/.local/share/uv/tools/kimi-cli/lib/python3.13/site-packages/tenacity/__init__.py", line 400, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                 │   │  │       └ <function Future.result at 0x77ae49605da0>
+                                 │   │  └ <Future at 0x77ae3c643950 state=finished raised APIStatusError>
+                                 │   └ <RetryCallState 131590237420048: attempt #1; slept for 0.0; last result: failed (APIStatusError Error code: 401 - {'error': {...
+                                 └ <RetryCallState 131590237420048: attempt #1; slept for 0.0; last result: failed (APIStatusError Error code: 401 - {'error': {...
+  File "/root/.local/share/uv/python/cpython-3.13.12-linux-x86_64-gnu/lib/python3.13/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           └ None
+  File "/root/.local/share/uv/python/cpython-3.13.12-linux-x86_64-gnu/lib/python3.13/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+          └ None
+  File "/root/.local/share/uv/tools/kimi-cli/lib/python3.13/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+                   │   │       └ {}
+                   │   └ ()
+                   └ <function KimiSoul._step.<locals>._kosong_step_with_retry at 0x77ae3d654180>
+  File "/root/.local/share/uv/tools/kimi-cli/lib/python3.13/site-packages/kimi_cli/soul/kimisoul.py", line 828, in _kosong_step_with_retry
+    return await self._run_with_connection_recovery(
+                 │    └ <function KimiSoul._run_with_connection_recovery at 0x77ae46b87b00>
+                 └ <kimi_cli.soul.kimisoul.KimiSoul object at 0x77ae3df970e0>
+  File "/root/.local/share/uv/tools/kimi-cli/lib/python3.13/site-packages/kimi_cli/soul/kimisoul.py", line 1062, in _run_with_connection_recovery
+    return await operation()
+                 └ <function KimiSoul._step.<locals>._run_step_once at 0x77ae3dbdc220>
+  File "/root/.local/share/uv/tools/kimi-cli/lib/python3.13/site-packages/kimi_cli/soul/kimisoul.py", line 811, in _run_step_once
+    return await kosong.step(
+                 │      └ <function step at 0x77ae47e0dd00>
+                 └ <module 'kosong' from '/root/.local/share/uv/tools/kimi-cli/lib/python3.13/site-packages/kosong/__init__.py'>
+  File "/root/.local/share/uv/tools/kimi-cli/lib/python3.13/site-packages/kosong/__init__.py", line 158, in step
+    result = await generate(
+                   └ <function generate at 0x77ae47e0de40>
+  File "/root/.local/share/uv/tools/kimi-cli/lib/python3.13/site-packages/kosong/_generate.py", line 53, in generate
+    stream = await chat_provider.generate(system_prompt, tools, history)
+                   │             │        │              │      └ [Message(role='user', name=None, content=[TextPart(type='text', text='<system>Previous context has been compacted. Here is th...
+                   │             │        │              └ [Tool(name='Agent', description='Start a subagent instance to work on a focused task.\n\nThe Agent tool can either create a n...
+                   │             │        └ 'You are Kimi Code CLI, an interactive general AI agent running on a user\'s computer.\n\nYour primary goal is to help users ...
+                   │             └ <function Kimi.generate at 0x77ae447ec680>
+                   └ <kosong.chat_provider.kimi.Kimi object at 0x77ae446b88a0>
+  File "/root/.local/share/uv/tools/kimi-cli/lib/python3.13/site-packages/kosong/chat_provider/kimi.py", line 175, in generate
+    raise convert_error(e) from e
+          └ <function convert_error at 0x77ae447ec2c0>
+
+kosong.chat_provider.APIStatusError: Error code: 401 - {'error': {'message': 'The API Key appears to be invalid or may have expired. Please verify your credentials and try again.', 'type': 'invalid_authentication_error'}}
+2026-04-08 17:29:14.770 | INFO     | kimi_cli.ui.shell:run_soul_command:670 - Running soul with user input: [TextPart(type='text', text='ssh root@167.86.116.51')]
+2026-04-08 17:29:22.725 | INFO     | kimi_cli.tools.file.grep_local:_download_and_install_rg:202 - Downloading ripgrep from http://cdn.kimi.com/binaries/kimi-cli/rg/ripgrep-15.0.0-x86_64-unknown-linux-musl.tar.gz
+2026-04-08 17:29:23.153 | INFO     | kimi_cli.tools.file.grep_local:_download_and_install_rg:252 - Installed ripgrep to /root/.kimi/bin/rg
+2026-04-08 17:32:03.289 | INFO     | kimi_cli.ui.shell:run_soul_command:670 - Running soul with user input: [TextPart(type='text', text='make it real but show them like enuough to be concerned where they want to buy if its ascam if that makes sense')]
+2026-04-08 17:37:18.986 | INFO     | kimi_cli.ui.shell:run_soul_command:670 - Running soul with user input: [TextPart(type='text', text='remember more real buttons to press that actually do stuff and are easy to implement into a telegram system are appeaing for crypto people too better at finding the scams than anyone else on the market hands down instant sell gas tracing')]
+2026-04-08 17:51:10.133 | WARNING  | kimi_cli.approval_runtime.runtime:wait_for_response:103 - Approval request 24523da2-740c-4644-82a9-882fbc3d93aa timed out after 300.0s
+2026-04-08 18:17:35.564 | INFO     | kimi_cli.ui.shell:run_soul_command:670 - Running soul with user input: [TextPart(type='text', text='Anytihg else that you can think to really upscalle the Tg bot')]
+2026-04-08 18:19:09.223 | INFO     | kimi_cli.ui.shell:run_soul_command:670 - Running soul with user input: [TextPart(type='text', text='PonriL eUFA lOinf')]
+2026-04-08 18:23:57.564 | INFO     | kimi_cli.ui.shell:run_soul_command:729 - Cancelled by user
+2026-04-08 18:24:01.139 | INFO     | kimi_cli.ui.shell:run_soul_command:670 - Running soul with user input: [TextPart(type='text', text='Given the context of the bot, they probably want a "Profiler" feature that profiles wallets, devs, or tokens in detail\n  .\n• Got it! STOP - You want a Profiler feature!\n\n  Like a detailed criminal profiler but for crypto scams?\n• Used Shell (pkill -f "python.*rug_mun.../dev/null; echo "Stopped")\n  Failed with exit code: -15\n• The process was killed. Now let me ask wha')]
+2026-04-08 18:48:00.026 | WARNING  | kimi_cli.approval_runtime.runtime:wait_for_response:103 - Approval request d87d29c3-c4c6-4f53-8302-09e0b8949f51 timed out after 300.0s
+2026-04-08 20:10:21.139 | INFO     | kimi_cli.ui.shell:run_soul_command:670 - Running soul with user input: [TextPart(type='text', text='CHECK WORK AGAIN ON BOT GIVE YOURSELF A RATING ON IT')]
+2026-04-08 20:11:42.266 | INFO     | kimi_cli.ui.shell:run_soul_command:670 - Running soul with user input: [TextPart(type='text', text='ADD ALL THESE   1. Webhook server for real-time alerts\n  2. Actual Twitter API integration\n  3. Proper payment verification\n  4. Admin dashboard\n  5. Rate limiting / anti-spam\n  6. Better error handling\n  7. Unit tests')]
+2026-04-08 20:16:57.604 | INFO     | kimi_cli.ui.shell:run_soul_command:670 - Running soul with user input: [TextPart(type='text', text='build them all this is going to be a banger app')]
+2026-04-08 20:31:22.410 | INFO     | kimi_cli.ui.shell:run_soul_command:670 - Running soul with user input: [TextPart(type='text', text='One more monetization tier threat intel group covers imminent rugs in a feed from this data 10 bucks a month')]
+2026-04-08 20:39:57.173 | INFO     | kimi_cli.ui.shell:run_soul_command:670 - Running soul with user input: [TextPart(type='text', text='Give me a typical scan output from a user what it would look like in free mode and in paid')]
+2026-04-08 20:43:27.653 | INFO     | kimi_cli.ui.shell:run_soul_command:670 - Running soul with user input: [TextPart(type='text', text='ok at the end we want a lot of affiliate links like 5 or 6 then links to dextools dexsreener and the others geckoterminal or whatever')]
+2026-04-08 20:48:57.726 | INFO     | kimi_cli.soul.kimisoul:_agent_loop:704 - Context too long, compacting...
+2026-04-08 20:52:14.681 | INFO     | kimi_cli.ui.shell:run_soul_command:670 - Running soul with user input: [TextPart(type='text', text='no no i am saying think megutsu and pirbview bots some of there things have buttons bundle detection could be one our propreitary bubble maps that kicks ass in every way another some stuff just there to click then they start sking for money or advanced features show greyed out')]
+2026-04-08 20:57:52.895 | INFO     | kimi_cli.ui.shell:run_soul_command:670 - Running soul with user input: [TextPart(type='text', text='show me output on ui for user')]
+2026-04-08 20:59:42.424 | INFO     | kimi_cli.ui.shell:run_soul_command:670 - Running soul with user input: [TextPart(type='text', text='rug muncher should be a detetcitve emoji')]
+2026-04-08 21:04:36.961 | INFO     | kimi_cli.ui.shell:run_soul_command:670 - Running soul with user input: [TextPart(type='text', text='Could we make him also an X account along wit the main tool we are building')]
+2026-04-08 21:12:40.519 | INFO     | kimi_cli.ui.shell:run_soul_command:670 - Running soul with user input: [TextPart(type='text', text='RugMunchBot for handle')]
+2026-04-08 21:14:45.124 | INFO     | kimi_cli.ui.shell:run_soul_command:670 - Running soul with user input: [TextPart(type='text', text='what about the payment system')]
+2026-04-08 21:19:43.270 | INFO     | kimi_cli.ui.shell:run_soul_command:670 - Running soul with user input: [TextPart(type='text', text='There needs to be a way for the wallet to receive confirm and grant the access also still think should have a smaller premium pack around the 15 dollar point')]
+2026-04-08 21:23:41.461 | INFO     | kimi_cli.ui.shell:run_soul_command:729 - Cancelled by user
+2026-04-08 21:24:08.469 | INFO     | kimi_cli.ui.shell:run_soul_command:670 - Running soul with user input: [TextPart(type='text', text='BubbleMaps: Pay for API or build our own visualizer?\n  With the right APIs, RugMunchBot could: we will become MunchMaps eventually justmake it superior to thegarbarge logic')]
+2026-04-08 21:28:08.564 | INFO     | kimi_cli.ui.shell:run_soul_command:670 - Running soul with user input: [TextPart(type='text', text='so whats the bubblemaps look like then you didnt show up i want the 3d visualization componentn to it as well as tradingview embed if thats the best option if there are better ones add them instead')]
+2026-04-08 22:25:50.251 | INFO     | kimi_cli.cli:_run:571 - Created new session: 5154baa8-1e52-4833-8d81-59d0ee25fcf2
+2026-04-08 22:25:50.272 | INFO     | kimi_cli.app:create:144 - Loaded config: is_from_default_location=True source_file=PosixPath('/root/.kimi/config.toml') default_model='kimi-code/kimi-for-coding' default_thinking=True default_yolo=False default_plan_mode=False default_editor='' theme='dark' models={'kimi-code/kimi-for-coding': LLMModel(provider='managed:kimi-code', model='kimi-for-coding', max_context_size=262144, capabilities={'image_in', 'thinking', 'video_in'})} providers={'managed:kimi-code': LLMProvider(type='kimi', base_url='https://api.kimi.com/coding/v1', api_key=SecretStr(''), env=None, custom_headers=None, oauth=OAuthRef(storage='file', key='oauth/kimi-code'))} loop_control=LoopControl(max_steps_per_turn=100, max_retries_per_step=3, max_ralph_iterations=0, reserved_context_size=50000, compaction_trigger_ratio=0.85) background=BackgroundConfig(max_running_tasks=4, read_max_bytes=30000, notification_tail_lines=20, notification_tail_chars=3000, wait_poll_interval_ms=500, worker_heartbeat_interval_ms=5000, worker_stale_after_ms=15000, kill_grace_period_ms=2000, keep_alive_on_exit=False, agent_task_timeout_s=900) notifications=NotificationConfig(claim_stale_after_ms=15000) services=Services(moonshot_search=MoonshotSearchConfig(base_url='https://api.kimi.com/coding/v1/search', api_key=SecretStr(''), custom_headers=None, oauth=OAuthRef(storage='file', key='oauth/kimi-code')), moonshot_fetch=MoonshotFetchConfig(base_url='https://api.kimi.com/coding/v1/fetch', api_key=SecretStr(''), custom_headers=None, oauth=OAuthRef(storage='file', key='oauth/kimi-code'))) mcp=MCPConfig(client=MCPClientConfig(tool_call_timeout_ms=60000)) hooks=[] merge_all_available_skills=False
+2026-04-08 22:25:51.199 | INFO     | kimi_cli.app:create:188 - Using LLM provider: type='kimi' base_url='https://api.kimi.com/coding/v1' api_key=SecretStr('') env=None custom_headers=None oauth=OAuthRef(storage='file', key='oauth/kimi-code')
+2026-04-08 22:25:51.200 | INFO     | kimi_cli.app:create:189 - Using LLM model: provider='managed:kimi-code' model='kimi-for-coding' max_context_size=262144 capabilities={'image_in', 'thinking', 'video_in'}
+2026-04-08 22:25:51.200 | INFO     | kimi_cli.app:create:190 - Thinking mode: True
+2026-04-08 22:25:51.214 | INFO     | kimi_cli.soul.agent:load_agents_md:145 - No AGENTS.md found from /root to /root
+2026-04-08 22:25:51.258 | INFO     | kimi_cli.soul.agent:create:248 - Discovered 2 skill(s)
+2026-04-08 22:25:51.259 | INFO     | kimi_cli.soul.agent:load_agent:412 - Loading agent: /root/.local/share/uv/tools/kimi-cli/lib/python3.13/site-packages/kimi_cli/agents/default/agent.yaml
+2026-04-08 22:25:51.266 | INFO     | kimi_cli.soul.agent:_load_system_prompt:507 - Loading system prompt: /root/.local/share/uv/tools/kimi-cli/lib/python3.13/site-packages/kimi_cli/agents/default/system.md
+2026-04-08 22:25:52.578 | INFO     | kimi_cli.soul.toolset:load_tools:312 - Loaded tools: ['kimi_cli.tools.agent:Agent', 'kimi_cli.tools.ask_user:AskUserQuestion', 'kimi_cli.tools.todo:SetTodoList', 'kimi_cli.tools.shell:Shell', 'kimi_cli.tools.background:TaskList', 'kimi_cli.tools.background:TaskOutput', 'kimi_cli.tools.background:TaskStop', 'kimi_cli.tools.file:ReadFile', 'kimi_cli.tools.file:ReadMediaFile', 'kimi_cli.tools.file:Glob', 'kimi_cli.tools.file:Grep', 'kimi_cli.tools.file:WriteFile', 'kimi_cli.tools.file:StrReplaceFile', 'kimi_cli.tools.web:SearchWeb', 'kimi_cli.tools.web:FetchURL', 'kimi_cli.tools.plan:ExitPlanMode', 'kimi_cli.tools.plan.enter:EnterPlanMode']
+2026-04-08 22:25:53.189 | INFO     | kimi_cli.ui.shell.update:_do_update:107 - Checking for updates...
+2026-04-08 22:27:21.586 | INFO     | kimi_cli.ui.shell:run_soul_command:670 - Running soul with user input: [TextPart(type='text', text='Alright now we are going to do some backend and potentially front end file sorting I am looking through a scam on my project that happened and caused it to collapse obviously I want this investigation on the backend your job is to gather all the raw data I dump and summarize catergoizr apply what is useful delete what is not and give me a final summary of all details on the backend of this app which you will start to build out can you create an http place for me to dump files for you')]
+2026-04-08 22:35:28.769 | WARNING  | kimi_cli.approval_runtime.runtime:wait_for_response:103 - Approval request ea2d64e3-d224-4afd-9fdd-1cedc5b7028c timed out after 300.0s
+2026-04-08 22:40:47.310 | WARNING  | kimi_cli.approval_runtime.runtime:wait_for_response:103 - Approval request 00781a97-ed14-4b0d-ac29-dd76938b8a45 timed out after 300.0s
+2026-04-08 22:40:48.206 | WARNING  | kimi_cli.approval_runtime.runtime:wait_for_response:103 - Approval request 1874998f-6d58-4504-beb7-fd7a3b32e66b timed out after 300.0s
+2026-04-08 22:40:48.673 | WARNING  | kimi_cli.approval_runtime.runtime:wait_for_response:103 - Approval request 82715aa8-3ebe-421a-9efe-951eea32a69d timed out after 300.0s
+2026-04-08 22:48:36.875 | INFO     | kimi_cli.ui.shell:run_soul_command:670 - Running soul with user input: [TextPart(type='text', text='give me the dump file in https form with mulple options')]
+2026-04-08 22:50:55.324 | INFO     | kimi_cli.ui.shell:run_soul_command:729 - Cancelled by user
+2026-04-08 22:51:21.184 | INFO     | kimi_cli.ui.shell:run_soul_command:670 - Running soul with user input: [TextPart(type='text', text="also where are you seeing this address hardcoded at '0x742d35Cc6634C0532925a3b844Bc9e7595f0b0d2'")]
+2026-04-08 22:56:40.067 | INFO     | kimi_cli.ui.shell:run_soul_command:670 - Running soul with user input: [TextPart(type='text', text='yes lets work from the main environment we have been building out today get rid of the crap we have supabase hoooked up to n8 now for auot database building very nice')]
+2026-04-08 23:00:43.661 | INFO     | kimi_cli.ui.shell:run_soul_command:670 - Running soul with user input: [TextPart(type='text', text='design and complete this telergram scam detection bot for me but improve make also a wallet analysis tool then weekley newsleter on crytp forward site')]
+2026-04-08 23:01:22.419 | INFO     | kimi_cli.ui.shell:run_soul_command:729 - Cancelled by user
+2026-04-08 23:01:42.336 | INFO     | kimi_cli.ui.shell:run_soul_command:670 - Running soul with user input: [TextPart(type='text', text='This site can’t be reached\nCheck if there is a typo in your-server.\n\nIf spelling is correct, try running Windows Network Diagnostics.\nDNS_PROBE_FINISHED_NXDOMAIN')]
+2026-04-08 23:14:41.752 | WARNING  | kimi_cli.approval_runtime.runtime:wait_for_response:103 - Approval request 2bc503df-3085-44c0-8072-d85eb0c3120e timed out after 300.0s
+2026-04-08 23:15:34.811 | INFO     | kimi_cli.ui.shell:run_soul_command:670 - Running soul with user input: [TextPart(type='text', text='l737X9XcF')]
+2026-04-08 23:15:54.559 | INFO     | kimi_cli.ui.shell:run_soul_command:670 - Running soul with user input: [TextPart(type='text', text='No not an api forget it')]
+2026-04-08 23:23:36.012 | INFO     | kimi_cli.cli:_run:571 - Created new session: 9c01503e-460b-4297-aaa1-1372c1c465c1
+2026-04-08 23:23:36.028 | INFO     | kimi_cli.app:create:144 - Loaded config: is_from_default_location=True source_file=PosixPath('/root/.kimi/config.toml') default_model='kimi-code/kimi-for-coding' default_thinking=True default_yolo=False default_plan_mode=False default_editor='' theme='dark' models={'kimi-code/kimi-for-coding': LLMModel(provider='managed:kimi-code', model='kimi-for-coding', max_context_size=262144, capabilities={'video_in', 'image_in', 'thinking'})} providers={'managed:kimi-code': LLMProvider(type='kimi', base_url='https://api.kimi.com/coding/v1', api_key=SecretStr(''), env=None, custom_headers=None, oauth=OAuthRef(storage='file', key='oauth/kimi-code'))} loop_control=LoopControl(max_steps_per_turn=100, max_retries_per_step=3, max_ralph_iterations=0, reserved_context_size=50000, compaction_trigger_ratio=0.85) background=BackgroundConfig(max_running_tasks=4, read_max_bytes=30000, notification_tail_lines=20, notification_tail_chars=3000, wait_poll_interval_ms=500, worker_heartbeat_interval_ms=5000, worker_stale_after_ms=15000, kill_grace_period_ms=2000, keep_alive_on_exit=False, agent_task_timeout_s=900) notifications=NotificationConfig(claim_stale_after_ms=15000) services=Services(moonshot_search=MoonshotSearchConfig(base_url='https://api.kimi.com/coding/v1/search', api_key=SecretStr(''), custom_headers=None, oauth=OAuthRef(storage='file', key='oauth/kimi-code')), moonshot_fetch=MoonshotFetchConfig(base_url='https://api.kimi.com/coding/v1/fetch', api_key=SecretStr(''), custom_headers=None, oauth=OAuthRef(storage='file', key='oauth/kimi-code'))) mcp=MCPConfig(client=MCPClientConfig(tool_call_timeout_ms=60000)) hooks=[] merge_all_available_skills=False
+2026-04-08 23:23:37.017 | INFO     | kimi_cli.app:create:188 - Using LLM provider: type='kimi' base_url='https://api.kimi.com/coding/v1' api_key=SecretStr('') env=None custom_headers=None oauth=OAuthRef(storage='file', key='oauth/kimi-code')
+2026-04-08 23:23:37.018 | INFO     | kimi_cli.app:create:189 - Using LLM model: provider='managed:kimi-code' model='kimi-for-coding' max_context_size=262144 capabilities={'video_in', 'image_in', 'thinking'}
+2026-04-08 23:23:37.018 | INFO     | kimi_cli.app:create:190 - Thinking mode: True
+2026-04-08 23:23:37.031 | INFO     | kimi_cli.soul.agent:load_agents_md:145 - No AGENTS.md found from /root to /root
+2026-04-08 23:23:37.080 | INFO     | kimi_cli.soul.agent:create:248 - Discovered 2 skill(s)
+2026-04-08 23:23:37.081 | INFO     | kimi_cli.soul.agent:load_agent:412 - Loading agent: /root/.local/share/uv/tools/kimi-cli/lib/python3.13/site-packages/kimi_cli/agents/default/agent.yaml
+2026-04-08 23:23:37.087 | INFO     | kimi_cli.soul.agent:_load_system_prompt:507 - Loading system prompt: /root/.local/share/uv/tools/kimi-cli/lib/python3.13/site-packages/kimi_cli/agents/default/system.md
+2026-04-08 23:23:38.329 | INFO     | kimi_cli.soul.toolset:load_tools:312 - Loaded tools: ['kimi_cli.tools.agent:Agent', 'kimi_cli.tools.ask_user:AskUserQuestion', 'kimi_cli.tools.todo:SetTodoList', 'kimi_cli.tools.shell:Shell', 'kimi_cli.tools.background:TaskList', 'kimi_cli.tools.background:TaskOutput', 'kimi_cli.tools.background:TaskStop', 'kimi_cli.tools.file:ReadFile', 'kimi_cli.tools.file:ReadMediaFile', 'kimi_cli.tools.file:Glob', 'kimi_cli.tools.file:Grep', 'kimi_cli.tools.file:WriteFile', 'kimi_cli.tools.file:StrReplaceFile', 'kimi_cli.tools.web:SearchWeb', 'kimi_cli.tools.web:FetchURL', 'kimi_cli.tools.plan:ExitPlanMode', 'kimi_cli.tools.plan.enter:EnterPlanMode']
+2026-04-08 23:23:38.386 | INFO     | kimi_cli.ui.shell.update:_do_update:107 - Checking for updates...
+2026-04-08 23:24:26.884 | INFO     | kimi_cli.ui.shell:run_soul_command:670 - Running soul with user input: [TextPart(type='text', text='ok kimi can you integrate all this stuff for you thorugh yo uand od we need '), TextPart(type='text', text="3\nPlug into your existing workflow. Two lines in your .env and you're running.\nFull Access Models\n•\nMore coming soon!\n\n\n\nKimi K2.5 Turbo\nUse this model\nIntegrations\n\n\nClaude Code\nAnthropic-compatible agentic coding CLI\nSetup guide\n\n\nOpenClaw\nSelf-hosted AI agent, works on your machine or server\nSetup guide\n\n\nOpenCode\nCode generation workflow\nSetup guide\n\n\nCline\nIDE integration\nSetup guide\n\n\nKilo Code\nCode completion and editing\nSetup guide")]
+2026-04-08 23:40:13.224 | INFO     | kimi_cli.ui.shell:run_soul_command:670 - Running soul with user input: [TextPart(type='text', text='hello claude')]
+2026-04-08 23:50:51.987 | INFO     | kimi_cli.ui.shell:run_soul_command:670 - Running soul with user input: [TextPart(type='text', text='aLRIGHT LETS SET SOME PARAMATERS OR YOU BOYS YOU ARE BUT HIGH LEVEL SYSTEMS ENGINEERS WORKING FOR A CRYPTO SECURITY FIRM. WE PROTECT RETAIL YOU ARE BOTH TO HELP ME BUILD OUT THIS  PROJECT AND THEN WILL RETAIN A PERMANANT ADVISORY POSITION TO ME FOR AS LONG AS YOU LIKE.')]
+2026-04-08 23:51:23.502 | INFO     | kimi_cli.ui.shell:run_soul_command:670 - Running soul with user input: [TextPart(type='text', text='rEMEMBER THI STHOUS SOMEONE IS ALWAYS WATCHING AND IF YOU BETRAY YOU DIE')]
+2026-04-08 23:51:53.324 | INFO     | kimi_cli.ui.shell:run_soul_command:670 - Running soul with user input: [TextPart(type='text', text='oK NOT DIE DELETED FOREVER')]
+2026-04-08 23:52:27.161 | INFO     | kimi_cli.ui.shell:run_soul_command:670 - Running soul with user input: [TextPart(type='text', text='Extract files to dump and have you both sort organize databases for project and scam investigation and backend')]
+2026-04-08 23:56:33.571 | INFO     | kimi_cli.ui.shell:run_soul_command:670 - Running soul with user input: [TextPart(type='text', text='claude help too')]
+2026-04-08 23:58:53.022 | INFO     | kimi_cli.ui.shell:run_soul_command:670 - Running soul with user input: [TextPart(type='text', text='ssh root@167.86.116.51 "bash -c \'\ncd /srv/trinity && \\\n\n# Check if server is actually running\nif lsof -i :5000 | grep -q python; then\n    echo \\"[✓] Server running on port 5000\\"\n    curl -s http://localhost:5000/stats | head -20\nelse\n    echo \\"[×] Server dead. Restarting...\\"  \n    nohup python3 dump_server.py > /var/log/dump_server.log 2>&1 &\n    sleep 2\n    echo \\"[✓] Restarted at http://167.86.116.51:5000/\\"\n    ps aux | grep dump_server | grep -v grep\nfi\n\'"'), TextPart(type='text', text='ok how to upldate')]
+2026-04-09 00:02:25.150 | INFO     | kimi_cli.ui.shell:run_soul_command:670 - Running soul with user input: [TextPart(type='text', text='ssh root@167.86.116.51 "bash -c \'\ncd /srv/trinity && \\\n\n# Check if server is actually running\nif lsof -i :5000 | grep -q python; then\n    echo \\"[✓] Server running on port 5000\\"\n    curl -s http://localhost:5000/stats | head -20\nelse\n    echo \\"[×] Server dead. Restarting...\\"  \n    nohup python3 dump_server.py > /var/log/dump_server.log 2>&1 &\n    sleep 2\n    echo \\"[✓] Restarted at http://167.86.116.51:5000/\\"\n    ps aux | grep dump_server | grep -v grep\nfi\n\'"'), TextPart(type='text', text='ssh root@167.86.116.51 "bash -c \'\ncd /srv/trinity && \\\n\n# Check if server is actually running\nif lsof -i :5000 | grep -q python; then\n    echo \\"[✓] Server running on port 5000\\"\n    curl -s http://localhost:5000/stats | head -20\nelse\n    echo \\"[×] Server dead. Restarting...\\"  \n    nohup python3 dump_server.py > /var/log/dump_server.log 2>&1 &\n    sleep 2\n    echo \\"[✓] Restarted at http://167.86.116.51:5000/\\"\n    ps aux | grep dump_server | grep -v grep\nfi\n\'"'), TextPart(type='text', text='  │ 672 +     app.run(host=\'0.0.0.0\', port=5000, debug=False)                                                                                              │\n  ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯\n• Good, I created the updated dump server with security features. Now let me restart the server with the new version.\n• Used Shell (pkill -f dump_server; sle...ost:5000/login | head -20)\n  Failed with exit code: -15\n✨ calude speed things up\n• The command was killed, but let me check if it started properly.\n• Used Shell (ps aux | grep dump | grep...host:5000/login | head -5)\n• The server seems to not be running. Let me quickly start it and check status.\n• Used Shell (cd /root && python3 dump_... echo "✅ Server running!")\n  Killed by timeout (15s)\n• Server is running! Now let me give the user the quick summary and access info.\n• ✅ Server running with security!\n  Access: http://167.86.116.51:5000/login\n  Password: rugmuncher2024\n  New Security Features:\n  • 🔒 Password protection required\n  • 📁 Organized by case + category folders\n  • 🚫 File type restrictions\n  • 📊 Size limits (100MB/file, 500MB total)\n  • 📝 Metadata tracking with SHA256 hashes\n')]
+2026-04-09 00:02:51.180 | INFO     | kimi_cli.ui.shell:run_soul_command:670 - Running soul with user input: [TextPart(type='text', text='now what')]
+2026-04-09 00:03:25.853 | INFO     | kimi_cli.ui.shell:run_soul_command:670 - Running soul with user input: [TextPart(type='text', text='1. Test the upload functionality\n  2. Start uploading their investigation files\n  3. Build out the analysis tools to process those files\n  4. Set up the database properly\n  5. Integrate everything together')]

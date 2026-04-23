@@ -1,0 +1,14 @@
+{
+  "status": "completed",
+  "worker_pid": 239117,
+  "child_pid": 239119,
+  "child_pgid": 239119,
+  "started_at": 1775755493.407847,
+  "heartbeat_at": 1775755559.5308504,
+  "updated_at": 1775755559.5308504,
+  "finished_at": 1775755559.5308504,
+  "exit_code": 0,
+  "interrupted": false,
+  "timed_out": false,
+  "failure_reason": null
+}

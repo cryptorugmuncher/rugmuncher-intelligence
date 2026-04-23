@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MunchMaps V2 - Blockchain Investigation Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/cytoscape@3.26.0/dist/cytoscape.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0f;
+            color: #fff;
+            line-height: 1.6;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%234a90e2' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 48px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #4A90E2 0%, #9B59B6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        
+        .tagline {
+            font-size: 20px;
+            color: #8892b0;
+            margin-bottom: 40px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #4A90E2 0%, #9B59B6 100%);
+            color: white;
+            padding: 16px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(74, 144, 226, 0.3);
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 60px;
+            flex-wrap: wrap;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 36px;
+            font-weight: 700;
+            color: #4A90E2;
+        }
+        
+        .stat-label {
+            color: #8892b0;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .demo-section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .demo-title {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 40px;
+        }
+        
+        .search-box {
+            display: flex;
+            gap: 10px;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+        
+        .search-input {
+            flex: 1;
+            padding: 16px 24px;
+            border-radius: 12px;
+            border: 2px solid #2d3748;
+            background: #1a1a2e;
+            color: white;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        
+        .search-input:focus {
+            border-color: #4A90E2;
+        }
+        
+        .search-input::placeholder {
+            color: #4a5568;
+        }
+        
+        .chain-select {
+            padding: 16px 20px;
+            border-radius: 12px;
+            border: 2px solid #2d3748;
+            background: #1a1a2e;
+            color: white;
+            font-size: 16px;
+            outline: none;
+            cursor: pointer;
+        }
+        
+        #cy {
+            width: 100%;
+            height: 500px;
+            background: #1a1a2e;
+            border-radius: 16px;
+            border: 2px solid #2d3748;
+        }
+        
+        .features {
+            padding: 80px 20px;
+            background: #0f0f16;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .feature-card {
+            background: #1a1a2e;
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid #2d3748;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: #4A90E2;
+        }
+        
+        .feature-icon {
+            font-size: 32px;
+            margin-bottom: 16px;
+        }
+        
+        .feature-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .feature-desc {
+            color: #8892b0;
+            font-size: 15px;
+        }
+        
+        .pricing {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .pricing-title {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 60px;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .pricing-card {
+            background: #1a1a2e;
+            padding: 40px 30px;
+            border-radius: 16px;
+            border: 1px solid #2d3748;
+            text-align: center;
+            position: relative;
+        }
+        
+        .pricing-card.popular {
+            border-color: #4A90E2;
+            transform: scale(1.05);
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #4A90E2 0%, #9B59B6 100%);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .plan-name {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .plan-price {
+            font-size: 48px;
+            font-weight: 700;
+            color: #4A90E2;
+            margin-bottom: 10px;
+        }
+        
+        .plan-price span {
+            font-size: 16px;
+            color: #8892b0;
+        }
+        
+        .plan-features {
+            list-style: none;
+            text-align: left;
+            margin: 30px 0;
+        }
+        
+        .plan-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #2d3748;
+            color: #8892b0;
+        }
+        
+        .plan-features li:before {
+            content: '✓';
+            color: #4A90E2;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #4a5568;
+            border-top: 1px solid #2d3748;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="hero-content">
+            <h1 class="logo">🍔 MunchMaps V2</h1>
+            <p class="tagline">The Ultimate Blockchain Investigation Platform. Track scammers. Recover funds. Stay safe.</p>
+            <a href="#demo" class="cta-button">Start Free Investigation</a>
+            
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-value">33</div>
+                    <div class="stat-label">Wallet Types</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">5</div>
+                    <div class="stat-label">Chains</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">19</div>
+                    <div class="stat-label">Data Sources</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">$0</div>
+                    <div class="stat-label">To Start</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="demo-section" id="demo">
+        <h2 class="demo-title">Try It Free - No Signup Required</h2>
+        <div class="search-box">
+            <input type="text" class="search-input" id="walletInput" placeholder="Enter wallet address (0x...)" />
+            <select class="chain-select" id="chainSelect">
+                <option value="ethereum">Ethereum</option>
+                <option value="solana">Solana</option>
+                <option value="tron">Tron</option>
+                <option value="bsc">BSC</option>
+                <option value="polygon">Polygon</option>
+            </select>
+            <button class="cta-button" onclick="analyzeWallet()">Analyze</button>
+        </div>
+        <div id="cy"></div>
+    </div>
+    
+    <div class="features">
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🔍</div>
+                <h3 class="feature-title">33 Wallet Classifications</h3>
+                <p class="feature-desc">From pig butcherers to nation-state actors, know exactly who you're dealing with.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">️</div>
+                <h3 class="feature-title">Temporal Playback</h3>
+                <p class="feature-desc">Watch scams unfold frame-by-frame. See exactly when funds moved.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🏦</div>
+                <h3 class="feature-title">CEX Tracker</h3>
+                <p class="feature-desc">See exactly which exchange scammers use. Know who to contact for freeze.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🚨</div>
+                <h3 class="feature-title">Pig Butcherer Specialist</h3>
+                <p class="feature-desc">Specialized tracking for romance scammers on Tron. Recovery assistance included.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🤖</div>
+                <h3 class="feature-title">AI Investigation Copilot</h3>
+                <p class="feature-desc">ChatGPT-powered analysis. Ask questions in plain English.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚖️</div>
+                <h3 class="feature-title">Court-Ready Reports</h3>
+                <p class="feature-desc">Professional PDF reports for law enforcement and legal proceedings.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="pricing">
+        <h2 class="pricing-title">Simple Pricing</h2>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <div class="plan-name">Free</div>
+                <div class="plan-price">$0<span>/mo</span></div>
+                <ul class="plan-features">
+                    <li>5 lookups per day</li>
+                    <li>Basic risk score</li>
+                    <li>Static network graph</li>
+                    <li>Community support</li>
+                </ul>
+                <button class="cta-button">Get Started</button>
+            </div>
+            
+            <div class="pricing-card popular">
+                <div class="popular-badge">Most Popular</div>
+                <div class="plan-name">Professional</div>
+                <div class="plan-price">$199<span>/mo</span></div>
+                <ul class="plan-features">
+                    <li>Unlimited lookups</li>
+                    <li>All 33 wallet types</li>
+                    <li>Temporal playback</li>
+                    <li>CEX tracking</li>
+                    <li>API access</li>
+                    <li>Priority support</li>
+                </ul>
+                <button class="cta-button">Start Trial</button>
+            </div>
+            
+            <div class="pricing-card">
+                <div class="plan-name">Enterprise</div>
+                <div class="plan-price">$999<span>/mo</span></div>
+                <ul class="plan-features">
+                    <li>Everything in Pro</li>
+                    <li>White-label reports</li>
+                    <li>Custom integrations</li>
+                    <li>Dedicated manager</li>
+                    <li>SLA guarantee</li>
+                </ul>
+                <button class="cta-button">Contact Sales</button>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2024 MunchMaps V2. Open Source. Free for Law Enforcement.</p>
+        <p style="margin-top: 10px;">Made with ❤️ for the crypto community</p>
+    </footer>
+    
+    <script>
+        let cy = null;
+        
+        function initGraph() {
+            cy = cytoscape({
+                container: document.getElementById('cy'),
+                style: [
+                    {
+                        selector: 'node',
+                        style: {
+                            'background-color': '#4A90E2',
+                            'label': 'data(label)',
+                            'text-valign': 'center',
+                            'text-halign': 'center',
+                            'color': '#fff',
+                            'font-size': '12px',
+                            'width': 'mapData(risk, 0, 1, 30, 80)',
+                            'height': 'mapData(risk, 0, 1, 30, 80)',
+                            'border-width': 2,
+                            'border-color': '#fff'
+                        }
+                    },
+                    {
+                        selector: 'edge',
+                        style: {
+                            'width': 2,
+                            'line-color': '#2d3748',
+                            'target-arrow-color': '#2d3748',
+                            'target-arrow-shape': 'triangle',
+                            'curve-style': 'bezier'
+                        }
+                    },
+                    {
+                        selector: '.high-risk',
+                        style: {
+                            'background-color': '#e53e3e'
+                        }
+                    }
+                ],
+                layout: {
+                    name: 'cose',
+                    padding: 10
+                }
+            });
+            
+            // Add demo data
+            cy.add([
+                { data: { id: 'a', label: 'Target Wallet', risk: 0.8 } },
+                { data: { id: 'b', label: 'Connected 1', risk: 0.3 } },
+                { data: { id: 'c', label: 'CEX Deposit', risk: 0.1 } },
+                { data: { id: 'ab', source: 'a', target: 'b' } },
+                { data: { id: 'bc', source: 'b', target: 'c' } }
+            ]);
+            
+            cy.layout({ name: 'cose', animationDuration: 1000 }).run();
+        }
+        
+        function analyzeWallet() {
+            const address = document.getElementById('walletInput').value;
+            const chain = document.getElementById('chainSelect').value;
+            
+            if (!address) {
+                alert('Please enter a wallet address');
+                return;
+            }
+            
+            // Demo - just reload the graph
+            cy.elements().remove();
+            
+            // Add some random nodes for demo
+            const nodes = [
+                { data: { id: 'target', label: address.slice(0, 6) + '...', risk: 0.7 } },
+            ];
+            
+            for (let i = 0; i < 5; i++) {
+                nodes.push({
+                    data: { 
+                        id: 'node' + i, 
+                        label: 'Wallet ' + (i + 1),
+                        risk: Math.random()
+                    }
+                });
+                nodes.push({
+                    data: { 
+                        id: 'edge' + i,
+                        source: i === 0 ? 'target' : 'node' + (i-1),
+                        target: 'node' + i
+                    }
+                });
+            }
+            
+            cy.add(nodes);
+            cy.layout({ name: 'cose', animationDuration: 500 }).run();
+            
+            // Show upgrade prompt
+            setTimeout(() => {
+                alert('🎉 Analysis complete!\n\nUpgrade to Professional to see:\n• 2nd & 3rd degree connections\n• 33 wallet type classifications\n• Full risk breakdown\n• CEX funding tracker');
+            }, 1000);
+        }
+        
+        // Init on load
+        window.onload = initGraph;
+    </script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+name = "rmi-api-gateway"
+main = "src/index.ts"
+compatibility_date = "2026-04-23"
+account_id = "8f9bd9165c1250b426c66dc1967deefd"
+
+[vars]
+API_ORIGIN = "https://api.rugmunch.io"
+CACHE_TTL_SECONDS = "30"
+
+# Route: intercept api.rugmunch.io/*
+# Add after deploy via: wrangler route add "api.rugmunch.io/*" <worker_name>

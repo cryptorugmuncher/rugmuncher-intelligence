@@ -1,0 +1,54 @@
+{
+  "total_wallets": 42,
+  "by_tier": {
+    "tier_1_command": 4,
+    "tier_2_liquidity": 5,
+    "tier_3_distribution": 12,
+    "tier_4_wash_trading": 17,
+    "tier_5_exit": 4
+  },
+  "critical_wallets": [
+    {
+      "address": "0xRESERVE...ALPHA1",
+      "tier": 1,
+      "risk_score": 100,
+      "usd_extracted": 523000,
+      "threat_level": "CRITICAL",
+      "notes": "104.6M CRM reserve - active threat"
+    },
+    {
+      "address": "7Xb8C9...pQr2St",
+      "tier": 1,
+      "risk_score": 100,
+      "role": "deployer",
+      "threat_level": "CRITICAL"
+    },
+    {
+      "address": "9Yz0A1...uVw3Xy",
+      "tier": 1,
+      "risk_score": 98,
+      "usd_extracted": 245000,
+      "linked_scams": [
+        "SOSANA",
+        "SHIFT AI"
+      ],
+      "threat_level": "CRITICAL"
+    }
+  ],
+  "kyc_targets": [
+    {
+      "exchange": "Gate.io",
+      "user_id": "GATE_USER_8847291",
+      "wallet": "0xEXIT...GATE01",
+      "estimated_funds": 320000,
+      "priority": 1
+    },
+    {
+      "exchange": "Coinbase",
+      "user_id": "CB_USER_5521847",
+      "wallet": "0xEXIT...COIN01",
+      "estimated_funds": 185000,
+      "priority": 2
+    }
+  ]
+}

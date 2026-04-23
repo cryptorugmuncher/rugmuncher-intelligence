@@ -1,0 +1,136 @@
+{
+  "timestamp": "2026-04-13T20:47:33.400173",
+  "mode": "SIMULATED",
+  "tier_4_destination": {
+    "address": "Mihso7kXXNPb7GUZ71H7rGYfTDyNS5VD6MmUX3d7c4o",
+    "timestamp": "2026-04-13T20:47:33.400199",
+    "balance": 2.4567,
+    "token_accounts": [
+      {
+        "mint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "amount": 150.75,
+        "symbol": "USDC"
+      },
+      {
+        "mint": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+        "amount": 50000,
+        "symbol": "BONK"
+      },
+      {
+        "mint": "7i5KKsX2weiTkry7jA4ZwSuXGhsTr28yMza8ksChtEmF",
+        "amount": 2500,
+        "symbol": "WIF"
+      }
+    ],
+    "transaction_count": 347,
+    "recent_transactions": [
+      {
+        "signature": "5xKx...AbcD",
+        "description": "Transfer from automation wallet",
+        "time": "2 hours ago"
+      },
+      {
+        "signature": "3yLm...XyZ9",
+        "description": "Jupiter DEX swap SOL->USDC",
+        "time": "5 hours ago"
+      },
+      {
+        "signature": "7zNp...QwR2",
+        "description": "Deposit to Binance",
+        "time": "12 hours ago"
+      },
+      {
+        "signature": "8aRs...TuV4",
+        "description": "Received BONK tokens",
+        "time": "1 day ago"
+      },
+      {
+        "signature": "9bQt...WxY6",
+        "description": "Withdrawal from KuCoin",
+        "time": "2 days ago"
+      }
+    ],
+    "exchange_deposits": [
+      "Binance",
+      "KuCoin"
+    ],
+    "suspicious_activity": [
+      "High-frequency transactions (347 total)",
+      "Multiple CEX connections (Binance, KuCoin)",
+      "Token diversification (SOL, USDC, BONK, WIF)",
+      "Recent activity within 2 hours",
+      "DEX swap activity (Jupiter aggregator)"
+    ],
+    "incoming_flows": [
+      {
+        "from": "AFXigaYu...",
+        "amount": 0.8832,
+        "time": "3 days ago"
+      },
+      {
+        "from": "Unknown",
+        "amount": 1.5,
+        "time": "1 day ago"
+      }
+    ]
+  },
+  "peel_chain_destinations": [
+    {
+      "address": "Cx5qTEtnp3arFVBuusMX15wjdt4CZ5gnkmXuJz5R6baC",
+      "balance": 0.0849,
+      "transaction_count": 12,
+      "status": "DORMANT"
+    },
+    {
+      "address": "3q5yXMf34FPFrkUGr1mkE1b8GwG8i7wuDFDZe3FmtyzQ",
+      "balance": 0,
+      "transaction_count": 4,
+      "status": "DORMANT/EMPTY"
+    },
+    {
+      "address": "26mL6qS7wP5VzteoCu1tUCeYF9jNcFbQdpx4FTkFtQEA",
+      "balance": 0.1397661759886077,
+      "transaction_count": 25,
+      "status": "ACTIVE"
+    },
+    {
+      "address": "EiD9VyQVUsrFE9K8mvSZxJ3EqYa8kZfdZxC6ZULQK9D3",
+      "balance": 0,
+      "transaction_count": 3,
+      "status": "DORMANT/EMPTY"
+    },
+    {
+      "address": "3gLgiouvMndU6EzBtxwgF3Q3P8gKzXzQ6mQ3nV4XzQ9F",
+      "balance": 0,
+      "transaction_count": 4,
+      "status": "DORMANT/EMPTY"
+    }
+  ],
+  "high_value_targets": [
+    {
+      "address": "Mihso7kXXNPb7GUZ71H7rGYfTDyNS5VD6MmUX3d7c4o",
+      "balance_sol": 2.4567,
+      "usd_value": 4269.755,
+      "priority": "EMERGENCY_FREEZE",
+      "threat_score": 100
+    },
+    {
+      "address": "26mL6qS7wP5VzteoCu1tUCeYF9jNcFbQdpx4FTkFtQEA",
+      "balance_sol": 0.1397661759886077,
+      "usd_value": 20.964926398291155,
+      "priority": "INVESTIGATE"
+    }
+  ],
+  "exchange_connections": [],
+  "threat_assessment": {
+    "score": 100,
+    "indicators": [
+      "High activity (347 txs)",
+      "Significant holdings (2.46 SOL)",
+      "Diversified holdings (3 tokens)",
+      "CEX connections (Binance, KuCoin)",
+      "ACTIVE NOW (recent transactions)"
+    ],
+    "classification": "CRITICAL"
+  }
+}

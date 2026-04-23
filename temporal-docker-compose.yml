@@ -1,0 +1,123 @@
+version: '3.5'
+
+services:
+  # PostgreSQL for Temporal persistence
+  temporal-postgresql:
+    image: postgres:15-alpine
+    container_name: temporal-postgresql
+    environment:
+      POSTGRES_USER: temporal
+      POSTGRES_PASSWORD: temporal
+      POSTGRES_DB: temporal
+    volumes:
+      - /var/lib/temporal/postgresql:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "temporal"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - temporal-network
+
+  # Elasticsearch for visibility
+  temporal-elasticsearch:
+    image: elasticsearch:7.17.0
+    container_name: temporal-elasticsearch
+    environment:
+      - cluster.name=temporal-cluster
+      - discovery.type=single-node
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+      - xpack.security.enabled=false
+    volumes:
+      - /var/lib/temporal/elasticsearch:/usr/share/elasticsearch/data
+    ports:
+      - "9201:9200"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9200/_cluster/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks:
+      - temporal-network
+
+  # Temporal Server
+  temporal-server:
+    image: temporalio/server:1.22.0
+    container_name: temporal-server
+    depends_on:
+      temporal-postgresql:
+        condition: service_healthy
+      temporal-elasticsearch:
+        condition: service_healthy
+    environment:
+      - DB=postgresql
+      - DB_PORT=5432
+      - POSTGRES_USER=temporal
+      - POSTGRES_PWD=temporal
+      - POSTGRES_SEEDS=temporal-postgresql
+      - DYNAMIC_CONFIG_FILE_PATH=config/dynamicconfig/development.yaml
+      - ENABLE_ES=true
+      - ES_SEEDS=temporal-elasticsearch
+      - ES_VERSION=v7
+    ports:
+      - "7233:7233"   # Frontend gRPC
+      - "7234:7234"   # History gRPC
+      - "7235:7235"   # Matching gRPC
+      - "7236:7236"   # Worker gRPC
+      - "7239:7239"   # Web gRPC
+    volumes:
+      - ./temporal-dynamic-config.yaml:/etc/temporal/config/dynamicconfig/development.yaml
+    networks:
+      - temporal-network
+    restart: unless-stopped
+
+  # Temporal Admin Tools
+  temporal-admin-tools:
+    image: temporalio/admin-tools:1.22.0
+    container_name: temporal-admin-tools
+    depends_on:
+      - temporal-server
+    environment:
+      - TEMPORAL_CLI_ADDRESS=temporal-server:7233
+    stdin_open: true
+    tty: true
+    networks:
+      - temporal-network
+    entrypoint: ["tail", "-f", "/dev/null"]
+
+  # Temporal Web UI
+  temporal-web:
+    image: temporalio/web:1.16.0
+    container_name: temporal-web
+    depends_on:
+      - temporal-server
+    environment:
+      - TEMPORAL_GRPC_ENDPOINT=temporal-server:7233
+      - TEMPORAL_PERMIT_WRITE_API=true
+    ports:
+      - "8088:8088"
+    networks:
+      - temporal-network
+    restart: unless-stopped
+
+  # Temporal UI (new version)
+  temporal-ui:
+    image: temporalio/ui:2.21.0
+    container_name: temporal-ui
+    depends_on:
+      - temporal-server
+    environment:
+      - TEMPORAL_ADDRESS=temporal-server:7233
+      - TEMPORAL_CORS_ORIGINS=http://localhost:3000
+      - TEMPORAL_CSRF_COOKIE_INSECURE=true
+    ports:
+      - "8233:8233"
+    networks:
+      - temporal-network
+    restart: unless-stopped
+
+networks:
+  temporal-network:
+    driver: bridge
