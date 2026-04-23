@@ -111,6 +111,7 @@ const publicMenuItems: MenuItem[] = [
 
 const adminMenuItems: MenuItem[] = [
   { id: 'admin', label: 'Dev Console', icon: Terminal, badge: 'ADMIN', category: 'admin' },
+  { id: 'darkroom', label: 'Darkroom', icon: Eye, badge: 'ADMIN', category: 'admin' },
 ];
 
 export default function Sidebar() {

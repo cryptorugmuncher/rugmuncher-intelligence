@@ -965,6 +965,149 @@ class ApiClient {
     });
     return response.data;
   }
+
+  // ═══════════ DARKROOM CONTROL CENTER ═══════════
+  async getMarketBriefing(adminKey: string): Promise<any> {
+    const response = await this.client.get('/api/v1/darkroom/market/briefing', {
+      headers: { 'X-Admin-Key': adminKey },
+    });
+    return response.data;
+  }
+
+  async getMarketTrending(adminKey: string, limit: number = 20): Promise<any> {
+    const response = await this.client.get('/api/v1/darkroom/market/trending', {
+      headers: { 'X-Admin-Key': adminKey },
+      params: { limit },
+    });
+    return response.data;
+  }
+
+  async getContentDrafts(adminKey: string, status?: string): Promise<any> {
+    const response = await this.client.get('/api/v1/darkroom/content/drafts', {
+      headers: { 'X-Admin-Key': adminKey },
+      params: { status },
+    });
+    return response.data;
+  }
+
+  async createContentDraft(adminKey: string, draft: any): Promise<any> {
+    const response = await this.client.post('/api/v1/darkroom/content/draft', draft, {
+      headers: { 'X-Admin-Key': adminKey },
+    });
+    return response.data;
+  }
+
+  async publishContent(adminKey: string, draftId: string): Promise<any> {
+    const response = await this.client.post(`/api/v1/darkroom/content/publish?draft_id=${draftId}`, {}, {
+      headers: { 'X-Admin-Key': adminKey },
+    });
+    return response.data;
+  }
+
+  async getContentStats(adminKey: string): Promise<any> {
+    const response = await this.client.get('/api/v1/darkroom/content/stats', {
+      headers: { 'X-Admin-Key': adminKey },
+    });
+    return response.data;
+  }
+
+  async postTelegram(adminKey: string, message: string, channel: string = '@rmi_alpha_alerts', pin: boolean = false): Promise<any> {
+    const response = await this.client.post('/api/v1/darkroom/social/telegram/post', {
+      message, channel, pin,
+    }, {
+      headers: { 'X-Admin-Key': adminKey },
+    });
+    return response.data;
+  }
+
+  async getTelegramStats(adminKey: string): Promise<any> {
+    const response = await this.client.get('/api/v1/darkroom/social/telegram/stats', {
+      headers: { 'X-Admin-Key': adminKey },
+    });
+    return response.data;
+  }
+
+  async getGhostStats(adminKey: string): Promise<any> {
+    const response = await this.client.get('/api/v1/darkroom/social/ghost/stats', {
+      headers: { 'X-Admin-Key': adminKey },
+    });
+    return response.data;
+  }
+
+  async getProjectStatus(adminKey: string): Promise<any> {
+    const response = await this.client.get('/api/v1/darkroom/project/status', {
+      headers: { 'X-Admin-Key': adminKey },
+    });
+    return response.data;
+  }
+
+  async getAgentMesh(adminKey: string): Promise<any> {
+    const response = await this.client.get('/api/v1/darkroom/agents/mesh', {
+      headers: { 'X-Admin-Key': adminKey },
+    });
+    return response.data;
+  }
+
+  async getActiveTasks(adminKey: string, limit: number = 50): Promise<any> {
+    const response = await this.client.get('/api/v1/darkroom/tasks/active', {
+      headers: { 'X-Admin-Key': adminKey },
+      params: { limit },
+    });
+    return response.data;
+  }
+
+  // Advisor Agent
+
+  // Auto-Content Pipeline
+  async autoGenerateContent(adminKey: string, source: string = 'market_intel', count: number = 3, tone: string = 'analytical'): Promise<any> {
+    const response = await this.client.post('/api/v1/darkroom/content/auto-generate', {
+      source, count, tone,
+    }, {
+      headers: { 'X-Admin-Key': adminKey },
+    });
+    return response.data;
+  }
+
+  async getPreparedContent(adminKey: string): Promise<any> {
+    const response = await this.client.get('/api/v1/darkroom/content/prepared', {
+      headers: { 'X-Admin-Key': adminKey },
+    });
+    return response.data;
+  }
+
+  async approveContent(adminKey: string, draftId: string, decision: string, scheduledFor?: string): Promise<any> {
+    const response = await this.client.post('/api/v1/darkroom/content/approve', {
+      draft_id: draftId, decision, scheduled_for: scheduledFor,
+    }, {
+      headers: { 'X-Admin-Key': adminKey },
+    });
+    return response.data;
+  }
+
+  async advisorChat(adminKey: string, message: string, sessionId?: string, context?: any): Promise<any> {
+    const response = await this.client.post('/api/v1/darkroom/advisor/chat', {
+      message, session_id: sessionId, context,
+    }, {
+      headers: { 'X-Admin-Key': adminKey },
+    });
+    return response.data;
+  }
+
+  async advisorSuggest(adminKey: string): Promise<any> {
+    const response = await this.client.post('/api/v1/darkroom/advisor/suggest', {}, {
+      headers: { 'X-Admin-Key': adminKey },
+    });
+    return response.data;
+  }
+
+  async advisorAct(adminKey: string, action: string, params?: any, confirm?: boolean): Promise<any> {
+    const response = await this.client.post('/api/v1/darkroom/advisor/act', {
+      action, params, confirm,
+    }, {
+      headers: { 'X-Admin-Key': adminKey },
+    });
+    return response.data;
+  }
 }
 
 export const api = new ApiClient();
