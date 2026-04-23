@@ -13,44 +13,61 @@ from typing import Dict, Any, List, Optional, Tuple
 
 logger = logging.getLogger("token_budget")
 
-# Free tier limits (requests per day, per month, etc.)
+# ═══════════════════════════════════════════════════════════
+# 🆓 FREE TIER PROVIDERS — $0 COST (use these first!)
+# ═══════════════════════════════════════════════════════════
 FREE_TIER_LIMITS: Dict[str, Dict[str, Any]] = {
-    "workers-ai": {
+    "workers-ai": {          # 🆓 FREE — Cloudflare Workers AI
         "type": "daily_requests",
         "limit": 10000,
-        "description": "Cloudflare Workers AI free tier",
+        "description": "🆓 FREE — Cloudflare Workers AI (10k req/day, $0)",
     },
-    "openrouter-free": {
+    "openrouter-free": {     # 🆓 FREE — OpenRouter free models
         "type": "unlimited_requests",
         "limit": 999999,
-        "description": "OpenRouter free models",
+        "description": "🆓 FREE — OpenRouter free models ($0)",
     },
-    "gemini": {
+    "gemini": {              # 🆓 FREE TIER — Google Gemini
         "type": "daily_requests",
         "limit": 1500,
-        "description": "Gemini free tier (approx 1500 requests/day)",
+        "description": "🆓 FREE TIER — Google Gemini (~1,500 req/day free)",
     },
-    "groq": {
+    "groq": {                # 🆓 FREE CREDITS — Groq ($5 initial)
         "type": "free_credits",
-        "limit": 500,
-        "description": "Groq free credits ($5 initial)",
+        "limit": 5,
+        "description": "🆓 FREE CREDITS — Groq ($5 initial free)",
         "unit": "usd",
     },
 }
 
-# Cost estimates per 1K tokens (USD)
+# ═══════════════════════════════════════════════════════════
+# 💰 PAID PROVIDERS — Cost per 1K tokens (USD)
+# ═══════════════════════════════════════════════════════════
+# 💰 PAID PROVIDER COST RATES — Price per 1,000 tokens (USD)
+# ═════════════════════════════════════════════════════════==
 COST_RATES: Dict[str, Dict[str, float]] = {
-    "openai": {"input": 0.0015, "output": 0.002},
-    "anthropic": {"input": 0.003, "output": 0.015},
-    "groq": {"input": 0.00005, "output": 0.00008},
-    "deepseek": {"input": 0.00014, "output": 0.00028},
-    "fireworks": {"input": 0.0002, "output": 0.0002},
-    "gemini": {"input": 0.000125, "output": 0.000375},
-    "mistral": {"input": 0.0002, "output": 0.0006},
-    "nvidia": {"input": 0.0005, "output": 0.0005},
-    "nvidia_dev": {"input": 0.0005, "output": 0.0005},
-    "kimi": {"input": 0.001, "output": 0.002},
-    "together": {"input": 0.0002, "output": 0.0002},
+    # 💰 PAID — OpenAI
+    "openai":      {"input": 0.00150, "output": 0.00200},
+    # 💰 PAID — Anthropic (most expensive)
+    "anthropic":   {"input": 0.00300, "output": 0.01500},
+    # 🆓 FREE CREDITS then 💰 PAID — Groq (very cheap after free credits)
+    "groq":        {"input": 0.00005, "output": 0.00008},
+    # 💰 PAID — DeepSeek (very cheap)
+    "deepseek":    {"input": 0.00014, "output": 0.00028},
+    # 💰 PAID — Fireworks (very cheap)
+    "fireworks":   {"input": 0.00020, "output": 0.00020},
+    # 🆓 FREE TIER then 💰 PAID — Gemini (cheap after free tier)
+    "gemini":      {"input": 0.000125, "output": 0.000375},
+    # 💰 PAID — Mistral
+    "mistral":     {"input": 0.00020, "output": 0.00060},
+    # 🆓 FREE CREDITS then 💰 PAID — NVIDIA
+    "nvidia":      {"input": 0.00050, "output": 0.00050},
+    # 🆓 FREE CREDITS then 💰 PAID — NVIDIA Dev
+    "nvidia_dev":  {"input": 0.00050, "output": 0.00050},
+    # 💰 PAID — Kimi
+    "kimi":        {"input": 0.00100, "output": 0.00200},
+    # 💰 PAID — Together AI
+    "together":    {"input": 0.00020, "output": 0.00020},
 }
 
 

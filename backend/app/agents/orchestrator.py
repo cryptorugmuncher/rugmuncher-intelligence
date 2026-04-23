@@ -109,6 +109,12 @@ def main():
     except Exception as e:
         logger.warning(f"Could not load sentiment_agent: {e}")
 
+    try:
+        from app.agents.free_api_hunter import run as hunter_run
+        register_agent("free_api_hunter", hunter_run, minutes=7200)  # Every 5 days
+    except Exception as e:
+        logger.warning(f"Could not load free_api_hunter: {e}")
+
     sched = start_scheduler()
     try:
         while True:
