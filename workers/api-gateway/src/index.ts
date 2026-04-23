@@ -10,17 +10,33 @@ export interface Env {
   AI: any; // Workers AI binding
 }
 
+// ═══════════════════════════════════════════════════════════
+// CACHE CONFIG — Aggressive edge caching for speed
+// ═══════════════════════════════════════════════════════════
+
 const CACHEABLE_PATHS = [
   '/api/v1/health',
   '/api/v1/email/business-emails',
   '/api/v1/status',
   '/api/v1/rag/namespaces',
+  '/api/v1/budget/summary',
+  '/api/v1/budget/free-quota',
 ];
 
 const CACHEABLE_PREFIXES = [
   '/api/v1/profiles/',
   '/api/v1/news',
+  '/api/v1/crypto/',       // Crypto data
+  '/api/v1/mcp/',          // MCP read-only endpoints
+  '/api/v1/chain/',        // Chain data
+  '/api/v1/token/',        // Token metadata
 ];
+
+// Crypto API origins we can cache directly at edge
+const CRYPTO_EDGE_ORIGINS: Record<string, string> = {
+  'coingecko': 'https://api.coingecko.com/api/v3',
+  'helius': 'https://mainnet.helius-rpc.com',
+};
 
 function isCacheable(request: Request): boolean {
   if (request.method !== 'GET') return false;
@@ -30,9 +46,43 @@ function isCacheable(request: Request): boolean {
 }
 
 function getCacheTTL(path: string): number {
+  // Profiles — short cache
   if (path.startsWith('/api/v1/profiles/')) return 60;
+  // News — medium cache
   if (path.startsWith('/api/v1/news')) return 300;
+  // Crypto prices — 30s cache (prices change fast)
+  if (path.startsWith('/api/v1/crypto/prices')) return 30;
+  if (path.startsWith('/api/v1/crypto/')) return 120;
+  // Token metadata — long cache (rarely changes)
+  if (path.startsWith('/api/v1/token/')) return 3600;
+  // Chain data — medium cache
+  if (path.startsWith('/api/v1/chain/')) return 60;
+  // MCP read endpoints — medium cache
+  if (path.startsWith('/api/v1/mcp/query') || path.startsWith('/api/v1/mcp/search')) return 300;
+  if (path.startsWith('/api/v1/mcp/')) return 60;
+  // Budget/quota — short cache
+  if (path.startsWith('/api/v1/budget/')) return 30;
   return 30;
+}
+
+function getEdgeOptimizedHeaders(response: Response, path: string): Headers {
+  const headers = new Headers(response.headers);
+  headers.set('X-Content-Type-Options', 'nosniff');
+  headers.set('X-Frame-Options', 'DENY');
+  headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
+  headers.set('Strict-Transport-Security', 'max-age=63072000; includeSubDomains; preload');
+  headers.set('Permissions-Policy', 'geolocation=(), microphone=(), camera=()');
+
+  // Performance headers
+  headers.set('X-DNS-Prefetch-Control', 'on');
+
+  // Cache headers based on path
+  const ttl = getCacheTTL(path);
+  if (isCacheable(new Request(path))) {
+    headers.set('Cache-Control', `public, max-age=${ttl}, s-maxage=${ttl * 2}`);
+  }
+
+  return headers;
 }
 
 // ═══════════════════════════════════════════════════════════
@@ -260,6 +310,62 @@ async function hashRequestBody(request: Request): Promise<string> {
 }
 
 // ═══════════════════════════════════════════════════════════
+// CRYPTO API PROXY — Edge cache for crypto data
+// ═══════════════════════════════════════════════════════════
+
+async function handleCryptoAPI(request: Request): Promise<Response> {
+  const url = new URL(request.url);
+  const pathParts = url.pathname.split('/').filter(Boolean);
+  const source = pathParts[2]; // e.g., 'coingecko', 'helius'
+  const config = CRYPTO_EDGE_ORIGINS[source];
+
+  if (!config) {
+    return new Response(JSON.stringify({ error: 'Unknown crypto source' }), { status: 400, headers: { 'Content-Type': 'application/json' } });
+  }
+
+  const targetPath = '/' + pathParts.slice(3).join('/');
+  const targetUrl = config + targetPath + url.search;
+
+  const cache = caches.default;
+  if (request.method === 'GET') {
+    const cached = await cache.match(request);
+    if (cached) {
+      return new Response(cached.body, {
+        status: cached.status,
+        headers: { ...Object.fromEntries(cached.headers), 'X-Crypto-Cache': 'HIT' },
+      });
+    }
+  }
+
+  const originRequest = new Request(targetUrl, { method: request.method, headers: request.headers });
+  const response = await fetch(originRequest);
+
+  // Cache GET responses aggressively
+  if (request.method === 'GET' && response.status === 200) {
+    const ttl = source === 'coingecko' ? 30 : 60;
+    const responseClone = response.clone();
+    ctx.waitUntil(
+      cache.put(
+        request,
+        new Response(responseClone.body, {
+          status: responseClone.status,
+          headers: { ...Object.fromEntries(responseClone.headers), 'Cache-Control': `public, max-age=${ttl}` },
+        })
+      )
+    );
+  }
+
+  return new Response(response.body, {
+    status: response.status,
+    headers: {
+      ...Object.fromEntries(response.headers),
+      'X-Crypto-Cache': 'MISS',
+      'X-Crypto-Source': source,
+    },
+  });
+}
+
+// ═══════════════════════════════════════════════════════════
 // MAIN HANDLER
 // ═══════════════════════════════════════════════════════════
 
@@ -267,6 +373,11 @@ export default {
   async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     const url = new URL(request.url);
     const origin = env.API_ORIGIN || 'https://api.rugmunch.io';
+
+    // Route crypto API requests directly at edge (faster than origin)
+    if (url.pathname.startsWith('/api/v1/crypto/')) {
+      return handleCryptoAPI(request);
+    }
 
     // Route Workers AI requests
     if (url.pathname.startsWith('/ai/')) {
@@ -319,17 +430,14 @@ export default {
 
     const responseClone = response.clone();
 
-    // Add security headers
-    const headers = new Headers(response.headers);
-    headers.set('X-Content-Type-Options', 'nosniff');
-    headers.set('X-Frame-Options', 'DENY');
-    headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
+    // Apply edge-optimized headers (security + performance + cache)
+    const headers = getEdgeOptimizedHeaders(response, url.pathname);
     headers.set('X-Cache', 'MISS');
 
     // Cache if cacheable
     if (isCacheable(request) && response.status === 200) {
       const ttl = getCacheTTL(url.pathname);
-      headers.set('Cache-Control', `public, max-age=${ttl}`);
+      headers.set('Cache-Control', `public, max-age=${ttl}, s-maxage=${ttl * 2}`);
       ctx.waitUntil(
         cache.put(
           request,
@@ -337,7 +445,7 @@ export default {
             status: responseClone.status,
             headers: {
               ...Object.fromEntries(responseClone.headers),
-              'Cache-Control': `public, max-age=${ttl}`,
+              'Cache-Control': `public, max-age=${ttl}, s-maxage=${ttl * 2}`,
             },
           })
         )
