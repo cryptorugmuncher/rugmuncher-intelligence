@@ -1,7 +1,10 @@
 """
 On-Chain Monitor
-Watches for new token deployments and flags suspicious patterns.
+================
+Watches for new token deployments and flags suspicious patterns using FREE AI.
+Always prioritizes free providers (Workers AI, OpenRouter free, Gemini free tier).
 """
+
 import os
 import json
 import logging
@@ -28,6 +31,40 @@ def _get_supabase():
     return None
 
 
+def _ai_risk_assessment(chain: str, data: dict) -> dict:
+    """Use FREE AI to assess on-chain risk. Always free-first."""
+    try:
+        from app.services.cloudflare_ai import smart_chat
+        from app.services.vault_keys import get_all_ai_keys
+
+        keys = get_all_ai_keys()
+        text = json.dumps(data, default=str)[:3000]
+
+        result = smart_chat(
+            messages=[
+                {"role": "system", "content": "Assess token risk. Reply with JSON only: {\"risk_level\": \"LOW|MEDIUM|HIGH\", \"flags\": [\"flag1\", \"flag2\"], \"reason\": \"short reason\"}"},
+                {"role": "user", "content": f"{chain} token data: {text}"},
+            ],
+            keys=keys,
+            priority="free",
+        )
+        content = result.get("response", "") or result.get("choices", [{}])[0].get("message", {}).get("content", "")
+        # Try to extract JSON from response
+        try:
+            parsed = json.loads(content.strip())
+            return {
+                "risk_level": parsed.get("risk_level", "UNKNOWN"),
+                "flags": parsed.get("flags", []),
+                "reason": parsed.get("reason", ""),
+                "ai_analyzed": True,
+            }
+        except json.JSONDecodeError:
+            return {"risk_level": "UNKNOWN", "flags": [], "reason": "AI parse failed", "ai_analyzed": False}
+    except Exception as e:
+        logger.warning(f"FREE AI risk assessment failed: {e}")
+        return {"risk_level": "UNKNOWN", "flags": [], "reason": "AI unavailable", "ai_analyzed": False}
+
+
 def check_solana_new_tokens():
     """Query Solana for recent large token mints via simple heuristic."""
     try:
@@ -51,23 +88,27 @@ def check_solana_new_tokens():
 
 
 def run():
-    logger.info("Chain monitor running")
+    logger.info("⛓️ Chain monitor running (FREE AI priority)")
     sb = _get_supabase()
 
     # Check Solana
     sol_result = check_solana_new_tokens()
+    assessment = {}
     if sol_result:
-        logger.info("Solana RPC reachable")
+        logger.info("Solana RPC reachable — analyzing with FREE AI")
+        assessment = _ai_risk_assessment("solana", sol_result)
 
-    # Store a heartbeat
+    # Store heartbeat + assessment
     if sb:
         try:
             sb.table("agent_heartbeats").insert({
                 "agent": "chain_monitor",
                 "checked_at": datetime.utcnow().isoformat(),
                 "solana_reachable": sol_result is not None,
+                "risk_level": assessment.get("risk_level", "UNKNOWN"),
+                "ai_analyzed": assessment.get("ai_analyzed", False),
             }).execute()
         except Exception:
             pass
 
-    logger.info("Chain monitor complete")
+    logger.info(f"✅ Chain monitor complete — risk: {assessment.get('risk_level', 'UNKNOWN')}")

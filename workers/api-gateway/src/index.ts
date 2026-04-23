@@ -43,7 +43,38 @@ async function handleWorkersAI(request: Request, env: Env): Promise<Response> {
   const url = new URL(request.url);
   const pathParts = url.pathname.split('/').filter(Boolean);
 
-  // /ai/chat → text generation
+  // /ai/smart — 🆓 FREE-FIRST smart routing (tries Workers AI first, then fallback)
+  if (pathParts[1] === 'smart' && request.method === 'POST') {
+    const body = await request.json<{ messages: any[]; model?: string; fallback_provider?: string; fallback_key?: string }>();
+
+    // 1. 🆓 ALWAYS try Workers AI first (FREE)
+    try {
+      const model = body.model || '@cf/meta/llama-3.1-8b-instruct';
+      const response = await env.AI.run(model, {
+        messages: body.messages,
+        stream: false,
+      });
+      return new Response(JSON.stringify(response), {
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Edge-AI': 'workers-ai',
+          'X-Free-Provider': 'true',
+          'X-Cost': '0',
+        },
+      });
+    } catch (e) {
+      // Workers AI failed — try fallback if provided
+      if (body.fallback_provider && body.fallback_key) {
+        return await handleAIGatewayFallback(body);
+      }
+      return new Response(JSON.stringify({ error: 'Workers AI failed and no fallback provided', details: String(e) }), {
+        status: 503,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+  }
+
+  // /ai/chat → text generation (direct Workers AI — FREE)
   if (pathParts[1] === 'chat' && request.method === 'POST') {
     const body = await request.json<{ messages: any[]; model?: string }>();
     const model = body.model || '@cf/meta/llama-3.1-8b-instruct';
@@ -52,22 +83,79 @@ async function handleWorkersAI(request: Request, env: Env): Promise<Response> {
       stream: false,
     });
     return new Response(JSON.stringify(response), {
-      headers: { 'Content-Type': 'application/json', 'X-Edge-AI': 'workers-ai' },
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Edge-AI': 'workers-ai',
+        'X-Free-Provider': 'true',
+        'X-Cost': '0',
+      },
     });
   }
 
-  // /ai/embeddings → edge embeddings
+  // /ai/embeddings → edge embeddings (FREE)
   if (pathParts[1] === 'embeddings' && request.method === 'POST') {
     const body = await request.json<{ text: string | string[]; model?: string }>();
     const model = body.model || '@cf/baai/bge-base-en-v1.5';
     const texts = Array.isArray(body.text) ? body.text : [body.text];
     const response = await env.AI.run(model, { text: texts });
     return new Response(JSON.stringify(response), {
-      headers: { 'Content-Type': 'application/json', 'X-Edge-AI': 'workers-ai' },
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Edge-AI': 'workers-ai',
+        'X-Free-Provider': 'true',
+        'X-Cost': '0',
+      },
     });
   }
 
   return new Response('Not Found', { status: 404 });
+}
+
+async function handleAIGatewayFallback(body: any): Promise<Response> {
+  const provider = body.fallback_provider;
+  const apiKey = body.fallback_key;
+  const config = AI_PROVIDER_CONFIG[provider];
+  if (!config) {
+    return new Response(JSON.stringify({ error: 'Unknown fallback provider' }), { status: 400, headers: { 'Content-Type': 'application/json' } });
+  }
+  const payload = {
+    model: body.model || _defaultModel(provider),
+    messages: body.messages,
+    temperature: body.temperature || 0.7,
+  };
+  const targetUrl = config.baseUrl + '/chat/completions';
+  const originHeaders: Record<string, string> = {
+    'Content-Type': 'application/json',
+    'Authorization': config.headerName === 'x-api-key' ? apiKey : `Bearer ${apiKey}`,
+  };
+  const originRequest = new Request(targetUrl, { method: 'POST', headers: originHeaders, body: JSON.stringify(payload) });
+  const response = await fetch(originRequest);
+  return new Response(response.body, {
+    status: response.status,
+    headers: {
+      ...Object.fromEntries(response.headers),
+      'X-AI-Gateway': provider,
+      'X-Free-Provider': 'false',
+      'X-Fallback-Used': 'true',
+    },
+  });
+}
+
+function _defaultModel(provider: string): string {
+  const defaults: Record<string, string> = {
+    openai: 'gpt-4o-mini',
+    anthropic: 'claude-3-haiku-20240307',
+    groq: 'llama-3.1-8b-instant',
+    openrouter: 'openrouter/free',
+    deepseek: 'deepseek-chat',
+    fireworks: 'accounts/fireworks/models/llama-v3p1-8b-instruct',
+    gemini: 'gemini-1.5-flash',
+    mistral: 'mistral-small-latest',
+    nvidia: 'meta/llama-3.1-nemotron-70b-instruct',
+    kimi: 'kimi-k2.5',
+    together: 'meta-llama/Llama-3.3-70B-Instruct-Turbo',
+  };
+  return defaults[provider] || '';
 }
 
 // ═══════════════════════════════════════════════════════════

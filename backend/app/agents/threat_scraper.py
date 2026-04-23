@@ -1,7 +1,10 @@
 """
 Threat Intel Scraper
-Fetches public threat data and stores in Supabase/Redis.
+====================
+Fetches public threat data and uses FREE AI to analyze and summarize.
+Always prioritizes free providers (Workers AI, OpenRouter free, Gemini free tier).
 """
+
 import os
 import json
 import logging
@@ -27,8 +30,33 @@ def _get_supabase():
     return None
 
 
+def _ai_summarize_threat(raw_data: dict) -> str:
+    """Use FREE AI to summarize threat intel. Always free-first."""
+    try:
+        from app.services.cloudflare_ai import smart_chat
+        from app.services.vault_keys import get_all_ai_keys
+
+        keys = get_all_ai_keys()
+        # Truncate data to avoid token overload
+        text = json.dumps(raw_data, default=str)[:4000]
+
+        result = smart_chat(
+            messages=[
+                {"role": "system", "content": "Summarize crypto threat intel in 2 sentences. Be concise."},
+                {"role": "user", "content": f"Threat data: {text}"},
+            ],
+            keys=keys,
+            priority="free",
+        )
+        content = result.get("response", "") or result.get("choices", [{}])[0].get("message", {}).get("content", "")
+        return content.strip() if content else "No summary available"
+    except Exception as e:
+        logger.warning(f"AI threat summary failed (will retry with free provider next run): {e}")
+        return "AI summary unavailable"
+
+
 def run():
-    logger.info("Threat scraper running")
+    logger.info("🛡️ Threat scraper running (FREE AI priority)")
     sb = _get_supabase()
     results = []
 
@@ -37,7 +65,13 @@ def run():
             req = Request(src["url"], headers={"User-Agent": "RugMuncher-Intel/1.0", **src.get("headers", {})})
             with urlopen(req, timeout=20) as resp:
                 data = json.loads(resp.read().decode("utf-8"))
-                results.append({"source": src["name"], "data": data, "scraped_at": datetime.utcnow().isoformat()})
+                summary = _ai_summarize_threat(data)
+                results.append({
+                    "source": src["name"],
+                    "data": data,
+                    "ai_summary": summary,
+                    "scraped_at": datetime.utcnow().isoformat(),
+                })
         except Exception as e:
             logger.warning(f"Source {src['name']} failed: {e}")
 
@@ -47,9 +81,10 @@ def run():
                 sb.table("threat_intel").insert({
                     "source": r["source"],
                     "raw_data": r["data"],
+                    "ai_summary": r["ai_summary"],
                     "scraped_at": r["scraped_at"],
                 }).execute()
         except Exception as e:
             logger.warning(f"DB insert failed: {e}")
 
-    logger.info(f"Threat scraper complete: {len(results)} sources")
+    logger.info(f"✅ Threat scraper complete: {len(results)} sources analyzed with FREE AI")
