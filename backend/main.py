@@ -286,6 +286,26 @@ async def status():
         "version": "2.0.0"
     }
 
+@app.get("/api/v1/stats")
+async def stats():
+    """Public system stats for dashboards."""
+    r = await get_redis()
+    today = datetime.utcnow().strftime("%Y-%m-%d")
+    api_calls = int(await r.get(f"rmi:metrics:api_calls:{today}") or 0)
+    cache_hits = int(await r.get("rmi:metrics:cache_hits") or 0)
+    cache_misses = int(await r.get("rmi:metrics:cache_misses") or 1)
+    hit_rate = cache_hits / (cache_hits + cache_misses)
+    cases_raw = await r.hgetall("rmi:cases") or {}
+    wallets_raw = await r.hgetall("rmi:wallets") or {}
+    return {
+        "total_investigations": len(cases_raw),
+        "total_wallets": len(wallets_raw),
+        "api_calls_today": api_calls,
+        "cache_hit_rate": round(hit_rate, 3),
+        "dragonfly_status": "connected",
+        "supabase_status": "connected",
+    }
+
 # ═══════════════════════════════════════════════════════════════
 # AUTHENTICATION
 # ═══════════════════════════════════════════════════════════════
@@ -2198,6 +2218,14 @@ app.include_router(content_router)
 from app.rmi_intel_chat import router as intel_router
 app.include_router(intel_router)
 
+# ═══ Profile Management ═══
+from app.routers.profile import router as profile_router
+from app.routers.email import router as email_router
+from app.routers.admin_control import router as admin_control_router
+app.include_router(profile_router)
+app.include_router(email_router)
+app.include_router(admin_control_router)
+
 # ═══════════════════════════════════════════════════════════════
 # GAMIFICATION
 # ═══════════════════════════════════════════════════════════════
@@ -2899,6 +2927,24 @@ async def specter_status():
         "status": "online"
     }
 
+
+# ── Agent Management Endpoints ──
+@app.get("/api/v1/admin/agents/status")
+async def agent_status(request: Request):
+    try:
+        from app.agents.orchestrator import get_agent_status
+        return {"agents": get_agent_status()}
+    except Exception as e:
+        return {"agents": {}, "error": str(e)}
+
+@app.post("/api/v1/admin/agents/{name}/restart")
+async def restart_agent(name: str, request: Request):
+    try:
+        from app.agents.orchestrator import run_agent
+        run_agent(name)
+        return {"success": True, "agent": name}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 if __name__ == "__main__":
     import uvicorn

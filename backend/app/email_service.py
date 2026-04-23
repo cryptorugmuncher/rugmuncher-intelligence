@@ -83,6 +83,45 @@ BUSINESS_EMAILS: Dict[str, Dict[str, str]] = {
     },
 }
 
+# ── Default Email Templates ────────────────────────────────────────────────
+DEFAULT_TEMPLATES: Dict[str, Dict[str, str]] = {
+    "welcome": {
+        "subject": "Welcome to RugMunch Intelligence, {{name}}!",
+        "body_text": "Hi {{name}},\n\nWelcome to RugMunch Intelligence. Your account is active and you can start scanning contracts immediately.\n\nBest,\nThe RugMunch Team",
+        "body_html": "<html><body><h2>Welcome to RugMunch Intelligence, {{name}}!</h2><p>Your account is active and you can start scanning contracts immediately.</p><p>Best,<br>The RugMunch Team</p></body></html>",
+    },
+    "notification": {
+        "subject": "RugMunch Alert: {{title}}",
+        "body_text": "Hi {{name}},\n\n{{message}}\n\nView details: {{link}}\n\nRugMunch Intelligence",
+        "body_html": "<html><body><h2>{{title}}</h2><p>Hi {{name}},</p><p>{{message}}</p><p><a href='{{link}}'>View Details</a></p><p>RugMunch Intelligence</p></body></html>",
+    },
+    "scan_complete": {
+        "subject": "Scan Complete: {{contract_address}}",
+        "body_text": "Hi {{name}},\n\nYour scan for {{contract_address}} on {{chain}} is complete.\n\nRisk Score: {{risk_score}}/100\nVerdict: {{verdict}}\n\nView full report: {{report_link}}",
+        "body_html": "<html><body><h2>Scan Complete</h2><p>Hi {{name}},</p><p>Your scan for <code>{{contract_address}}</code> on <strong>{{chain}}</strong> is complete.</p><p>Risk Score: <strong>{{risk_score}}/100</strong></p><p>Verdict: <strong>{{verdict}}</strong></p><p><a href='{{report_link}}'>View Full Report</a></p></body></html>",
+    },
+    "contact_form": {
+        "subject": "Contact Form: {{subject}} from {{name}}",
+        "body_text": "New contact submission:\n\nFrom: {{name}} <{{email}}>\nSubject: {{subject}}\n\nMessage:\n{{message}}\n\n— RugMunch Contact Form",
+        "body_html": "<html><body><h2>New Contact Submission</h2><p><strong>From:</strong> {{name}} &lt;{{email}}&gt;</p><p><strong>Subject:</strong> {{subject}}</p><p><strong>Message:</strong></p><blockquote>{{message}}</blockquote><p>— RugMunch Contact Form</p></body></html>",
+    },
+    "newsletter": {
+        "subject": "{{title}} — RugMunch Intelligence Update",
+        "body_text": "Hi {{name}},\n\n{{content}}\n\nUnsubscribe: {{unsubscribe_link}}\nRugMunch Intelligence",
+        "body_html": "<html><body><h2>{{title}}</h2><p>Hi {{name}},</p><div>{{content}}</div><p><a href='{{unsubscribe_link}}'>Unsubscribe</a></p><p>RugMunch Intelligence</p></body></html>",
+    },
+    "password_reset": {
+        "subject": "Reset your RugMunch password",
+        "body_text": "Hi {{name}},\n\nClick the link to reset your password:\n{{reset_link}}\n\nThis link expires in 1 hour.\n\nRugMunch Intelligence",
+        "body_html": "<html><body><h2>Reset your RugMunch password</h2><p>Hi {{name}},</p><p><a href='{{reset_link}}'>Reset Password</a></p><p>This link expires in 1 hour.</p><p>RugMunch Intelligence</p></body></html>",
+    },
+    "partnership_inquiry": {
+        "subject": "Partnership Inquiry from {{name}} — {{organization}}",
+        "body_text": "New partnership inquiry:\n\nName: {{name}}\nOrganization: {{organization}}\nEmail: {{email}}\n\nMessage:\n{{message}}\n\n— RugMunch Partnerships",
+        "body_html": "<html><body><h2>New Partnership Inquiry</h2><p><strong>Name:</strong> {{name}}</p><p><strong>Organization:</strong> {{organization}}</p><p><strong>Email:</strong> {{email}}</p><p><strong>Message:</strong></p><blockquote>{{message}}</blockquote><p>— RugMunch Partnerships</p></body></html>",
+    },
+}
+
 
 def send_email(
     to: str,
