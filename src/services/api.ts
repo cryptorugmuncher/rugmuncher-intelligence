@@ -595,6 +595,42 @@ class ApiClient {
     return response.data;
   }
 
+  // ═══════════ PROFILE ═══════════
+
+  async getMyProfile(): Promise<any> {
+    const response = await this.client.get('/api/v1/me');
+    return response.data;
+  }
+
+  async updateMyProfile(updates: Record<string, any>): Promise<any> {
+    const response = await this.client.put('/api/v1/me', updates);
+    return response.data;
+  }
+
+  async getMyBadges(): Promise<any[]> {
+    const response = await this.client.get('/api/v1/me/badges');
+    return response.data;
+  }
+
+  async getMyScans(limit: number = 20, offset: number = 0): Promise<{ items: any[]; total: number; limit: number; offset: number }> {
+    const response = await this.client.get('/api/v1/me/scans', { params: { limit, offset } });
+    return response.data;
+  }
+
+  async uploadAvatar(file: File): Promise<{ avatar_url: string; success: boolean }> {
+    const formData = new FormData();
+    formData.append('file', file);
+    const response = await this.client.post('/api/v1/me/avatar', formData, {
+      headers: { 'Content-Type': 'multipart/form-data' },
+    });
+    return response.data;
+  }
+
+  async getPublicProfile(username: string): Promise<any> {
+    const response = await this.client.get(`/api/v1/profiles/${username}`);
+    return response.data;
+  }
+
   // ═══════════ GAMIFICATION ═══════════
 
   async getGamificationProfile(): Promise<any> {

@@ -45,6 +45,9 @@ import PricingPage from './components/PricingPage';
 import TrenchesPage from './components/TrenchesPage';
 import RugPullRehab from './components/RugPullRehab';
 import SettingsPage from './components/SettingsPage';
+import ProfilePage from './components/ProfilePage';
+import OnboardingModal from './components/OnboardingModal';
+import EmailDashboard from './components/EmailDashboard';
 import InvestigationsPage from './components/InvestigationsPage';
 import EvidencePage from './components/EvidencePage';
 import WalletClustering from './components/WalletClustering';
@@ -175,6 +178,10 @@ function App() {
         return <RehabManager />;
       case 'settings':
         return <SettingsPage />;
+      case 'profile':
+        return <ProfilePage />;
+      case 'email-dashboard':
+        return <EmailDashboard />;
       case 'gamification':
         return <GamificationProfile />;
 
@@ -288,7 +295,10 @@ function App() {
   };
 
   return (
-    <Layout>{renderPage()}</Layout>
+    <>
+      <Layout>{renderPage()}</Layout>
+      <OnboardingModal />
+    </>
   );
 }
 

@@ -59,9 +59,13 @@ export default function Header() {
                 )}
               </p>
             </div>
-            <div className="w-9 h-9 rounded-full bg-gradient-to-br from-purple-600 to-blue-600 flex items-center justify-center">
+            <button
+              onClick={() => useAppStore.getState().setCurrentPage('profile')}
+              className="w-9 h-9 rounded-full bg-gradient-to-br from-purple-600 to-blue-600 flex items-center justify-center hover:ring-2 hover:ring-purple-400 transition-all"
+              title="Profile"
+            >
               <User size={18} className="text-white" />
-            </div>
+            </button>
             <button
               onClick={handleLogout}
               className="p-2 text-gray-400 hover:text-red-400 hover:bg-red-500/10 rounded-lg"
