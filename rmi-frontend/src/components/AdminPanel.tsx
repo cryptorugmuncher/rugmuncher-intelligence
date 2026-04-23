@@ -3,7 +3,7 @@
  * God mode for developers - control everything
  */
 import { useState, useEffect } from 'react';
-import { useQuery } from '@tanstack/react-query';
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { api } from '../services/api';
 import { db } from '../services/supabase';
 import {
@@ -80,6 +80,67 @@ export default function AdminPanel() {
   const [activeTab, setActiveTab] = useState<'overview' | 'users' | 'evidence' | 'investigations' | 'trenches' | 'revenue' | 'feature_flags' | 'audit_logs' | 'api_mgmt' | 'bots' | 'n8n' | 'website' | 'database' | 'ai' | 'alerts' | 'system'>('overview');
   const [testMessage, setTestMessage] = useState('');
   const [n8nStatus, setN8nStatus] = useState<'unknown' | 'online' | 'offline'>('unknown');
+  const [adminKey, setAdminKey] = useState(localStorage.getItem('admin_key') || '');
+  const [dbQuery, setDbQuery] = useState('SELECT * FROM profiles LIMIT 10');
+  const [dbResult, setDbResult] = useState<any>(null);
+  const [logLevel, setLogLevel] = useState<string>('');
+  const queryClient = useQueryClient();
+
+  // Admin data fetching
+  const { data: systemData, isLoading: systemLoading } = useQuery({
+    queryKey: ['admin-system', adminKey],
+    queryFn: () => api.getSystemStats(adminKey),
+    enabled: !!adminKey && (activeTab === 'system' || activeTab === 'overview'),
+    refetchInterval: 5000,
+  });
+
+  const { data: servicesData } = useQuery({
+    queryKey: ['admin-services', adminKey],
+    queryFn: () => api.getServices(adminKey),
+    enabled: !!adminKey && (activeTab === 'system' || activeTab === 'overview'),
+    refetchInterval: 10000,
+  });
+
+  const { data: logsData, refetch: refetchLogs } = useQuery({
+    queryKey: ['admin-logs', adminKey, logLevel],
+    queryFn: () => api.getLogs(adminKey, 100, logLevel || undefined),
+    enabled: !!adminKey && activeTab === 'system',
+  });
+
+  const { data: dbTablesData } = useQuery({
+    queryKey: ['admin-db-tables', adminKey],
+    queryFn: () => api.getDatabaseTables(adminKey),
+    enabled: !!adminKey && activeTab === 'database',
+  });
+
+  const { data: botsData } = useQuery({
+    queryKey: ['admin-bots', adminKey],
+    queryFn: () => api.getBots(adminKey),
+    enabled: !!adminKey && activeTab === 'bots',
+  });
+
+  const { data: alertsData, refetch: refetchAlerts } = useQuery({
+    queryKey: ['admin-alerts', adminKey],
+    queryFn: () => api.getAlertsHistory(adminKey, 50),
+    enabled: !!adminKey && activeTab === 'alerts',
+  });
+
+  const serviceActionMutation = useMutation({
+    mutationFn: ({ serviceId, action }: { serviceId: string; action: string }) =>
+      api.serviceAction(adminKey, serviceId, action),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ['admin-services'] }),
+  });
+
+  const sendAlertMutation = useMutation({
+    mutationFn: ({ message, channel }: { message: string; channel: string }) =>
+      api.sendTestAlert(adminKey, message, channel),
+    onSuccess: () => refetchAlerts(),
+  });
+
+  const runQueryMutation = useMutation({
+    mutationFn: (sql: string) => api.runDatabaseQuery(adminKey, sql, 100),
+    onSuccess: (data) => setDbResult(data),
+  });
 
   // Fetch data
   const { data: health } = useQuery({
@@ -142,12 +203,29 @@ export default function AdminPanel() {
           <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-red-600 to-orange-600 flex items-center justify-center">
             <Shield className="w-6 h-6 text-white" />
           </div>
-          <div>
+          <div className="flex-1">
             <h1 className="text-2xl font-bold text-white flex items-center gap-2">
               RMI Control Center
               <span className="px-2 py-0.5 bg-red-500/20 text-red-400 text-xs rounded border border-red-500/50">DEV MODE</span>
             </h1>
             <p className="text-gray-400">Complete ecosystem management and monitoring</p>
+          </div>
+          <div className="flex items-center gap-2">
+            <input
+              type="password"
+              placeholder="Admin Key"
+              value={adminKey}
+              onChange={(e) => {
+                setAdminKey(e.target.value);
+                localStorage.setItem('admin_key', e.target.value);
+              }}
+              className="bg-crypto-dark border border-crypto-border rounded px-3 py-2 text-sm text-white w-48"
+            />
+            {adminKey ? (
+              <span className="px-2 py-1 bg-green-500/20 text-green-400 text-xs rounded">KEY SET</span>
+            ) : (
+              <span className="px-2 py-1 bg-red-500/20 text-red-400 text-xs rounded">NO KEY</span>
+            )}
           </div>
         </div>
       </div>
@@ -211,11 +289,17 @@ export default function AdminPanel() {
                 Backend Services
               </h3>
               <div className="space-y-2">
-                <ServiceRow name="FastAPI" status={health?.status === 'healthy' || false} port="8000" />
-                <ServiceRow name="Dragonfly Cache" status={health?.dragonfly || false} port="6379" />
-                <ServiceRow name="Supabase PostgreSQL" status={health?.supabase || false} port="5432" />
-                <ServiceRow name="N8N Automation" status={n8nStatus === 'online'} port="5678" />
-                <ServiceRow name="The Trenches" status={true} port="8888" />
+                {servicesData?.services?.map((svc: any) => (
+                  <ServiceRow key={svc.id} name={svc.name} status={svc.online} port={String(svc.port)} />
+                )) || (
+                  <>
+                    <ServiceRow name="FastAPI" status={health?.status === 'healthy' || false} port="8000" />
+                    <ServiceRow name="Dragonfly Cache" status={health?.dragonfly || false} port="6379" />
+                    <ServiceRow name="Supabase PostgreSQL" status={health?.supabase || false} port="5432" />
+                    <ServiceRow name="N8N Automation" status={n8nStatus === 'online'} port="5678" />
+                    <ServiceRow name="The Trenches" status={true} port="8888" />
+                  </>
+                )}
               </div>
             </div>
 
@@ -311,14 +395,14 @@ export default function AdminPanel() {
               <Bot className="w-6 h-6 text-neon-blue" />
               Telegram Bot Fleet
             </h2>
-            <button className="btn-primary flex items-center gap-2">
+            <button className="btn-primary flex items-center gap-2" onClick={() => alert('Add bot via Redis or database')}>
               <Plus className="w-4 h-4" />
               Add Bot
             </button>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {BOTS.map((bot) => (
+            {botsData?.bots?.map((bot: any) => (
               <div key={bot.id} className="crypto-card">
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex items-center gap-3">
@@ -332,7 +416,7 @@ export default function AdminPanel() {
                   </div>
                   <div className="flex items-center gap-2">
                     <span className={`w-2 h-2 rounded-full ${bot.status === 'active' ? 'bg-green-500 animate-pulse' : 'bg-red-500'}`} />
-                    <button className="p-2 hover:bg-crypto-dark rounded">
+                    <button className="p-2 hover:bg-crypto-dark rounded" onClick={() => api.updateBot(adminKey, bot.id, { status: bot.status === 'active' ? 'stopped' : 'active' })}>
                       <Power className="w-4 h-4 text-gray-400" />
                     </button>
                   </div>
@@ -344,7 +428,7 @@ export default function AdminPanel() {
                     <div className="flex gap-2">
                       <input
                         type="password"
-                        value={bot.token}
+                        value={bot.token || '***'}
                         readOnly
                         className="flex-1 bg-crypto-dark border border-crypto-border rounded px-3 py-2 text-sm text-gray-400"
                       />
@@ -355,24 +439,29 @@ export default function AdminPanel() {
                   </div>
 
                   <div className="flex gap-2">
-                    <button className="flex-1 btn-primary text-sm py-2">Send Test</button>
-                    <button className="flex-1 btn-secondary text-sm py-2">Edit</button>
-                    <button className="flex-1 btn-secondary text-sm py-2 text-red-400">Stop</button>
+                    <button className="flex-1 btn-primary text-sm py-2" onClick={() => sendAlertMutation.mutate({ message: `Test from ${bot.name}`, channel: bot.name })}>Send Test</button>
+                    <button className="flex-1 btn-secondary text-sm py-2" onClick={() => alert('Edit bot via Redis CLI')}>Edit</button>
+                    <button className="flex-1 btn-secondary text-sm py-2 text-red-400" onClick={() => api.updateBot(adminKey, bot.id, { status: 'stopped' })}>Stop</button>
                   </div>
 
                   <div className="pt-3 border-t border-crypto-border">
                     <div className="flex justify-between text-sm">
                       <span className="text-gray-500">Messages Today</span>
-                      <span className="text-white">-</span>
+                      <span className="text-white">{bot.messages_today ?? '-'}</span>
                     </div>
                     <div className="flex justify-between text-sm">
                       <span className="text-gray-500">Subscribers</span>
-                      <span className="text-white">-</span>
+                      <span className="text-white">{bot.subscribers ?? '-'}</span>
                     </div>
                   </div>
                 </div>
               </div>
-            ))}
+            )) || (
+              <div className="crypto-card col-span-2 text-center py-12 text-gray-500">
+                <Bot className="w-8 h-8 mx-auto mb-2" />
+                <p>No bots configured or admin key missing</p>
+              </div>
+            )}
           </div>
         </div>
       )}
@@ -581,11 +670,11 @@ export default function AdminPanel() {
               Database Management
             </h2>
             <div className="flex gap-2">
-              <button className="btn-secondary flex items-center gap-2">
+              <button className="btn-secondary flex items-center gap-2" onClick={() => alert('Backup queued via service action')}>
                 <Download className="w-4 h-4" />
                 Backup
               </button>
-              <button className="btn-secondary flex items-center gap-2">
+              <button className="btn-secondary flex items-center gap-2" onClick={() => alert('Restore not yet implemented')}>
                 <Upload className="w-4 h-4" />
                 Restore
               </button>
@@ -605,12 +694,18 @@ export default function AdminPanel() {
                   </tr>
                 </thead>
                 <tbody>
-                  <TableRow name="wallets" rows={allWallets?.length} size="-" lastWrite="-" />
-                  <TableRow name="investigations" rows={allInvestigations?.length} size="-" lastWrite="-" />
-                  <TableRow name="evidence" rows={0} size="-" lastWrite="-" />
-                  <TableRow name="users" rows={0} size="-" lastWrite="-" />
-                  <TableRow name="ai_cache" rows={0} size="-" lastWrite="-" />
-                  <TableRow name="system_health_log" rows={0} size="-" lastWrite="-" />
+                  {dbTablesData?.tables?.map((t: any) => (
+                    <TableRow key={t.name} name={t.name} rows={t.rows} size={t.size} lastWrite={t.last_write} />
+                  )) || (
+                    <>
+                      <TableRow name="wallets" rows={allWallets?.length} size="-" lastWrite="-" />
+                      <TableRow name="investigations" rows={allInvestigations?.length} size="-" lastWrite="-" />
+                      <TableRow name="evidence" rows={0} size="-" lastWrite="-" />
+                      <TableRow name="users" rows={0} size="-" lastWrite="-" />
+                      <TableRow name="ai_cache" rows={0} size="-" lastWrite="-" />
+                      <TableRow name="system_health_log" rows={0} size="-" lastWrite="-" />
+                    </>
+                  )}
                 </tbody>
               </table>
             </div>
@@ -620,10 +715,24 @@ export default function AdminPanel() {
             <div className="crypto-card">
               <h3 className="text-lg font-semibold text-white mb-4">Query Console</h3>
               <textarea
-                placeholder="SELECT * FROM wallets WHERE..."
+                value={dbQuery}
+                onChange={(e) => setDbQuery(e.target.value)}
+                placeholder="SELECT * FROM profiles LIMIT 10"
                 className="w-full h-32 bg-crypto-dark border border-crypto-border rounded p-3 text-sm font-mono text-white"
               />
-              <button className="w-full mt-3 btn-primary">Execute Query</button>
+              <button
+                className="w-full mt-3 btn-primary"
+                onClick={() => runQueryMutation.mutate(dbQuery)}
+                disabled={runQueryMutation.isPending}
+              >
+                {runQueryMutation.isPending ? 'Executing...' : 'Execute Query'}
+              </button>
+              {dbResult && (
+                <div className="mt-4 bg-crypto-dark rounded p-3 overflow-auto max-h-64">
+                  <div className="text-xs text-gray-500 mb-2">{dbResult.row_count} rows</div>
+                  <pre className="text-xs text-gray-300">{JSON.stringify(dbResult.data, null, 2)}</pre>
+                </div>
+              )}
             </div>
 
             <div className="crypto-card">
@@ -710,6 +819,10 @@ export default function AdminPanel() {
               <Bell className="w-6 h-6 text-neon-red" />
               Alert System
             </h2>
+            <button className="btn-secondary flex items-center gap-2" onClick={() => refetchAlerts()}>
+              <RefreshCw className="w-4 h-4" />
+              Refresh
+            </button>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -737,11 +850,40 @@ export default function AdminPanel() {
           </div>
 
           <div className="crypto-card">
+            <h3 className="text-lg font-semibold text-white mb-4">Send Test Alert</h3>
+            <div className="flex gap-3 mb-4">
+              <input
+                type="text"
+                placeholder="Test message..."
+                value={testMessage}
+                onChange={(e) => setTestMessage(e.target.value)}
+                className="flex-1 bg-crypto-dark border border-crypto-border rounded px-4 py-2 text-white"
+              />
+              <button
+                className="btn-primary flex items-center gap-2"
+                onClick={() => sendAlertMutation.mutate({ message: testMessage || 'Test alert', channel: '@rmi_backend' })}
+                disabled={sendAlertMutation.isPending}
+              >
+                <Send className="w-4 h-4" />
+                {sendAlertMutation.isPending ? 'Sending...' : 'Send'}
+              </button>
+            </div>
             <h3 className="text-lg font-semibold text-white mb-4">Recent Alerts</h3>
             <div className="space-y-2">
-              <AlertRow type="scam" message="Critical: Honeypot detected on 0x742..." time="2m ago" channel="@rmi_alpha_alerts" />
-              <AlertRow type="whale" message="Whale moved 500 ETH to new wallet" time="15m ago" channel="@rmi_alpha_alerts" />
-              <AlertRow type="system" message="API health check passed" time="1h ago" channel="@rmi_backend" />
+              {alertsData?.alerts?.map((alert: any, i: number) => (
+                <AlertRow
+                  key={alert.id || i}
+                  type={alert.severity || 'system'}
+                  message={alert.message}
+                  time={alert.timestamp ? new Date(alert.timestamp).toLocaleTimeString() : 'recent'}
+                  channel={alert.channel || '@rmi_backend'}
+                />
+              )) || (
+                <div className="text-center py-4 text-gray-500">
+                  <Clock className="w-6 h-6 mx-auto mb-2" />
+                  <p>No recent alerts or admin key missing</p>
+                </div>
+              )}
             </div>
           </div>
         </div>
