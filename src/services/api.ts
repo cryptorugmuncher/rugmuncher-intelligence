@@ -8,7 +8,7 @@ import axios, { type AxiosInstance, type AxiosError } from 'axios';
 const API_BASE_URL = import.meta.env.VITE_API_URL || '';
 
 class ApiClient {
-  private client: AxiosInstance;
+  public client: AxiosInstance;
 
   constructor() {
     this.client = axios.create({
