@@ -66,6 +66,7 @@ const mainMenuItems: MenuItem[] = [
   { id: 'wallets', label: 'My Wallets', icon: Wallet, category: 'main' },
   { id: 'gamification', label: 'Agent Profile', icon: Trophy, category: 'main' },
   { id: 'telegram-dashboard', label: 'Telegram Bot', icon: Bot, category: 'main' },
+  { id: 'crm-v2-transparency', label: '$CRM V2 Tracker', icon: Gem, badge: 'SOON', category: 'main' },
 ];
 
 const aiMenuItems: MenuItem[] = [

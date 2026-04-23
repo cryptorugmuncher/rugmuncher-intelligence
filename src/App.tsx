@@ -57,6 +57,7 @@ import WalletClustering from './components/WalletClustering';
 import WalletTools from './components/WalletTools';
 import CryptoNewsPanel from './components/CryptoNewsPanel';
 import CRMv2Planning from './components/CRMv2Planning';
+import CRMv2Transparency from './components/CRMv2Transparency';
 import CapitalAcquisition from './components/CapitalAcquisition';
 import CommunitySentinel from './components/CommunitySentinel';
 import ProjectTreasury from './components/ProjectTreasury';
@@ -264,6 +265,8 @@ function App() {
       // Planning & Strategy
       case 'crm-v2-planning':
         return <CRMv2Planning />;
+      case 'crm-v2-transparency':
+        return <CRMv2Transparency />;
       case 'capital-acquisition':
         return <CapitalAcquisition />;
 
