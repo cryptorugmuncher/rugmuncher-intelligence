@@ -1,0 +1,15 @@
+[Unit]
+Description=RugMuncher Background Agents
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/root/rmi
+ExecStart=/root/rmi/backend/venv/bin/python /root/rmi/scripts/run_agents.py
+Restart=always
+RestartSec=10
+StandardOutput=append:/var/log/rmi-agents.log
+StandardError=append:/var/log/rmi-agents.log
+
+[Install]
+WantedBy=multi-user.target

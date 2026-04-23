@@ -1,0 +1,15 @@
+name = "rmi-api-gateway"
+main = "src/index.ts"
+compatibility_date = "2026-04-23"
+account_id = "8f9bd9165c1250b426c66dc1967deefd"
+
+[vars]
+API_ORIGIN = "https://api.rugmunch.io"
+CACHE_TTL_SECONDS = "30"
+
+[ai]
+binding = "AI"
+
+[[kv_namespaces]]
+binding = "QUOTA_KV"
+id = "113a3af5f112437e8d12531a5695c64b"

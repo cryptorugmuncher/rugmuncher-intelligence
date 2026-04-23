@@ -1,0 +1,7 @@
+name = "rmi-frontend-edge"
+main = "src/index.ts"
+compatibility_date = "2026-04-23"
+account_id = "8f9bd9165c1250b426c66dc1967deefd"
+
+# Route: intercept rugmunch.io/* and app.rugmunch.io/*
+# Add after deploy via wrangler route
