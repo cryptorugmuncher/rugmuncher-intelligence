@@ -1,0 +1,90 @@
+{
+  "generated_at": "2026-04-13T20:39:05.264348",
+  "case_id": "CRM-SCAM-2025-001-RECOVERY",
+  "recoverable_assets": {
+    "wallets_with_value": [
+      {
+        "wallet": "HLnpSz9h2S4hiLQ43rnSD9XkcUThA7B8hQMKmDaiTLcC",
+        "role": "Tier 1 Feeder",
+        "value_usd": 16069.904514,
+        "sol_balance": 107.13269676
+      },
+      {
+        "wallet": "8eVZa7bEBnd6MA6JJkNdABRN4S3LbVLRnCZNJAUeuwQj",
+        "role": "Tier 5 Feeder",
+        "value_usd": 26.588909249999997,
+        "sol_balance": 0.177259395
+      },
+      {
+        "wallet": "Cx5qTEtnp3arFVBuusMXHafoRzLCLuigtz2AiQAFmq2Q",
+        "role": "Tier 2 Bridge",
+        "value_usd": 12.7318623,
+        "sol_balance": 0.084879082
+      }
+    ],
+    "total_recoverable_usd": 16109.22528555,
+    "count": 3
+  },
+  "traceable_positions": {
+    "active_empty_wallets": [
+      {
+        "wallet": "F4HGHWyajPWc9h2jS49Wxa5bdqPsL7YEvwq6xv1xBh1s",
+        "role": "Tier 2 Bridge",
+        "status": "active_but_empty",
+        "action": "Trace outgoing transactions"
+      },
+      {
+        "wallet": "AFXigaYuRKYmvd9HZQCobtZ98FNAwnwpsnjvJRztUGb6",
+        "role": "Tier 4 Field Ops",
+        "status": "active_but_empty",
+        "action": "Trace outgoing transactions"
+      },
+      {
+        "wallet": "DojAziGhpT6A9CY4C9PAmzZWm3ypZqgfnUAypm8PjqPE",
+        "role": "Tier 3 Relay",
+        "status": "active_but_empty",
+        "action": "Trace outgoing transactions"
+      },
+      {
+        "wallet": "HxyXAE1PHZ5iTFB7GzNHrp7djm2Bi8b8bNjqU0gKj46a",
+        "role": "Tier 3 Relay",
+        "status": "active_but_empty",
+        "action": "Trace outgoing transactions"
+      },
+      {
+        "wallet": "CaTWE2NPewVt1WLrQZeQGvUiMYexyV3YBaWhEDQ33kDh",
+        "role": "Tier 2 Relay",
+        "status": "active_but_empty",
+        "action": "Trace outgoing transactions"
+      },
+      {
+        "wallet": "CNSob1L8o7mM9Uwo1K1HVrV5H3Su8QweRzPrgLU3197i",
+        "role": "Tier 0 Distribution",
+        "status": "active_but_empty",
+        "action": "Trace outgoing transactions"
+      },
+      {
+        "wallet": "5dQWEMf1tTgkUwM3M3p4yAFv15nMxCvS9mof3x5BwtWc",
+        "role": "Tier 2 Pivot",
+        "status": "active_but_empty",
+        "action": "Trace outgoing transactions"
+      }
+    ],
+    "count": 7,
+    "recommended_action": "Subpoena transaction history for outgoing flows"
+  },
+  "dormant_assets": {
+    "wallets": [],
+    "count": 0,
+    "note": "May have been wiped or funds moved pre-investigation"
+  },
+  "recovery_recommendations": [
+    "1. Freeze any active wallets with balances immediately",
+    "2. Subpoena Helius/Solscan for transaction history on traceable wallets",
+    "3. Monitor dormant wallets for reactivation",
+    "4. Cross-reference outgoing transactions with exchange deposit addresses",
+    "5. Check for LP positions in Orca/Raydium/Jupiter pools",
+    "6. Investigate staking positions (Marinade, Lido, Jito)",
+    "7. Trace any remaining NFT holdings (Magic Eden, Tensor)"
+  ]
+}

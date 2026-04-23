@@ -1,0 +1,30 @@
+{
+  "wallet_id": "WALLET-T2-001",
+  "address": "BMq4XUa3rJJNkjXbJDpMFdSmPjvz5f9w4TvYFGADVkX5",
+  "tier": 2,
+  "classification": "suspect",
+  "function": "Cross-Project Bridge - Connects SHIFT extraction to CRM infiltration",
+  "status": "ACTIVE",
+  "evidence": "Receives from Tier 1 (AFXigaYu), routes to downstream CRM nodes",
+  "risk_score": 0.85,
+  "pattern": "Modular money laundering - token-to-token, avoiding fiat rails",
+  "transaction_flow": {
+    "receives_from": "AFXigaYu (Tier 1)",
+    "routes_to": [
+      "HxyXAE1PH (Tier 3)",
+      "8eVZa7 (Tier 4)",
+      "CRM execution wallets"
+    ]
+  },
+  "related_wallets": [
+    "AFXigaYuRKYmvd9HZQCobtZ98FNAwnwpsnjvJRztUGb6",
+    "HxyXAE1PHQsh6iLj3t8MagpFovmR7yk76PEADmTKeVfi"
+  ],
+  "legal_significance": "Money laundering bridge - Critical for tracing cross-token proceeds",
+  "charges_applicable": [
+    "Money Laundering (18 U.S.C. § 1956)",
+    "RICO Act (18 U.S.C. § 1962)"
+  ],
+  "added_date": "2026-04-09",
+  "last_updated": "2026-04-12"
+}

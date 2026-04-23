@@ -1,0 +1,3 @@
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/dist-BDBjscBh.js","assets/chunk-Bj-mKKzh.js","assets/dist-C3UTPYWW.js"])))=>i.map(i=>d[i]);
+import{t as e}from"./preload-helper-D4M6sveU.js";import{i as t,l as n,o as r,s as i}from"./dist-C3UTPYWW.js";var a=class{constructor(e){this.openModal=i.open,this.closeModal=i.close,this.subscribeModal=i.subscribe,this.setTheme=t.setThemeConfig,t.setThemeConfig(e),n.setConfig(e),this.initUi()}async initUi(){if(typeof window<`u`){await e(()=>import(`./dist-BDBjscBh.js`),__vite__mapDeps([0,1,2]));let t=document.createElement(`wcm-modal`);document.body.insertAdjacentElement(`beforeend`,t),r.setIsUiLoaded(!0)}}};export{a as WalletConnectModal};
+//# sourceMappingURL=dist-CD1jc8p6.js.map

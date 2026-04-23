@@ -1,0 +1,687 @@
+{
+  "wallet": "HLnpSz9h2S4hiLQ43rnSD9XkcUThA7B8hQMKmDaiTLcC",
+  "analysis_date": "2026-04-13T20:57:12.434932",
+  "mode": "LIVE_HELIUS",
+  "transactions_analyzed": 50,
+  "system_programs": {
+    "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA": {
+      "name": "Token Program",
+      "interactions": 43
+    },
+    "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb": {
+      "name": "Token-2022 Program",
+      "interactions": 6
+    }
+  },
+  "dex_programs": {},
+  "user_associations": {
+    "NRG6ebfB69PLiD1Xgj1NrCur2CF3i3mndt7eQFff6Vy": {
+      "interaction_count": 36,
+      "transaction_count": 6,
+      "types": [
+        "transferChecked",
+        "token_holder"
+      ],
+      "first_seen": 1776106609,
+      "last_seen": 1776106609
+    },
+    "2QfBNK2WDwSLoUQRb1zAnp3KM12N9hQ8q6ApwUMnWW2T": {
+      "interaction_count": 16,
+      "transaction_count": 4,
+      "types": [
+        "token_holder"
+      ],
+      "first_seen": 1776106609,
+      "last_seen": 1776106609
+    },
+    "9d9mb8kooFfaD3SctgZtkxQypkshx6ezhbKio89ixyy2": {
+      "interaction_count": 16,
+      "transaction_count": 4,
+      "types": [
+        "token_holder"
+      ],
+      "first_seen": 1776106609,
+      "last_seen": 1776106609
+    },
+    "FdSQ8oUrs6iAQ2q8kN6BNfgwmDwSrTdzpD3UzcHtRcpv": {
+      "interaction_count": 13,
+      "transaction_count": 1,
+      "types": [
+        "createAccount",
+        "initializeAccount3",
+        "closeAccount",
+        "token_holder",
+        "transfer",
+        "create",
+        "transferChecked"
+      ],
+      "first_seen": 1776106609,
+      "last_seen": 1776106609
+    },
+    "2pYKuWt12Ggiksy4UAj1DLP79sFZJ7uVvh1VjzMqavqh": {
+      "interaction_count": 13,
+      "transaction_count": 1,
+      "types": [
+        "createAccount",
+        "initializeAccount3",
+        "closeAccount",
+        "token_holder",
+        "transfer",
+        "create",
+        "transferChecked"
+      ],
+      "first_seen": 1776106609,
+      "last_seen": 1776106609
+    },
+    "CBPDTrE4kxX4T7BmH9XxYK6pkg2ap77ETr3iMmZqRcSJ": {
+      "interaction_count": 13,
+      "transaction_count": 1,
+      "types": [
+        "createAccount",
+        "initializeAccount3",
+        "closeAccount",
+        "token_holder",
+        "transfer",
+        "create",
+        "transferChecked"
+      ],
+      "first_seen": 1776106609,
+      "last_seen": 1776106609
+    },
+    "644PbdmSxkeNkSWduUeU1qNj9hv7kUCUHt5A23QHa2fT": {
+      "interaction_count": 13,
+      "transaction_count": 1,
+      "types": [
+        "createAccount",
+        "initializeAccount3",
+        "closeAccount",
+        "token_holder",
+        "transfer",
+        "create",
+        "transferChecked"
+      ],
+      "first_seen": 1776106609,
+      "last_seen": 1776106609
+    },
+    "9LFiTup5RpWNLgUcDbF87YFHqT9as43AYG8LG39Yj9p3": {
+      "interaction_count": 13,
+      "transaction_count": 2,
+      "types": [
+        "token_holder",
+        "transfer",
+        "createIdempotent"
+      ],
+      "first_seen": 1776106609,
+      "last_seen": 1776106609
+    },
+    "3g2QoX6TrVriNzmAWNoqXDZ5M4EbveLHW44rUcE7ACzw": {
+      "interaction_count": 13,
+      "transaction_count": 1,
+      "types": [
+        "createAccount",
+        "initializeAccount3",
+        "closeAccount",
+        "token_holder",
+        "transfer",
+        "transferChecked",
+        "createIdempotent"
+      ],
+      "first_seen": 1776106609,
+      "last_seen": 1776106609
+    },
+    "12qLws5i98jqXjndNHwgcb2daE4cpR77H4q1p2miH6sz": {
+      "interaction_count": 13,
+      "transaction_count": 1,
+      "types": [
+        "createAccount",
+        "initializeAccount3",
+        "closeAccount",
+        "token_holder",
+        "transfer",
+        "transferChecked",
+        "createIdempotent"
+      ],
+      "first_seen": 1776106609,
+      "last_seen": 1776106609
+    },
+    "2t3zM294nDiur1bBo3d51x6sRkx27bJDKEsJ78c6n6dL": {
+      "interaction_count": 12,
+      "transaction_count": 1,
+      "types": [
+        "createAccount",
+        "initializeAccount3",
+        "closeAccount",
+        "token_holder",
+        "transfer",
+        "transferChecked",
+        "createIdempotent"
+      ],
+      "first_seen": 1776106609,
+      "last_seen": 1776106609
+    },
+    "3M5XJbfEFFzuqfCZsX8gBekRkQ1x4oX5GZQ7YVWtNaqP": {
+      "interaction_count": 12,
+      "transaction_count": 6,
+      "types": [
+        "token_holder"
+      ],
+      "first_seen": 1776106609,
+      "last_seen": 1776106609
+    },
+    "B1ybqWPp2UH1ABCSSgwiiVgpsz3Q44HZCF1to8hBuxG7": {
+      "interaction_count": 12,
+      "transaction_count": 4,
+      "types": [
+        "transferChecked"
+      ],
+      "first_seen": 1776106609,
+      "last_seen": 1776106609
+    },
+    "DJcceGQbEef2DMpHuv5MFWgm5wGTZAV2dWA57YN2DjJq": {
+      "interaction_count": 12,
+      "transaction_count": 1,
+      "types": [
+        "createAccount",
+        "initializeAccount3",
+        "closeAccount",
+        "token_holder",
+        "transfer",
+        "transferChecked",
+        "createIdempotent"
+      ],
+      "first_seen": 1776106609,
+      "last_seen": 1776106609
+    },
+    "7R7GSfddGdP7FPr5f2JXtKQevbYMQbW8j2JZwbqXwDS2": {
+      "interaction_count": 12,
+      "transaction_count": 1,
+      "types": [
+        "createAccount",
+        "initializeAccount3",
+        "closeAccount",
+        "token_holder",
+        "transfer",
+        "transferChecked",
+        "createIdempotent"
+      ],
+      "first_seen": 1776106609,
+      "last_seen": 1776106609
+    },
+    "moat5sFf2DwfL53x8WP8vZCMf5jP6W9k37G9Ex32nXH": {
+      "interaction_count": 12,
+      "transaction_count": 1,
+      "types": [
+        "transferChecked",
+        "createIdempotent",
+        "token_holder",
+        "transfer"
+      ],
+      "first_seen": 1776106609,
+      "last_seen": 1776106609
+    },
+    "8abFwsQkoMRAk5mD4eXFTBqVyTGsfUZ1hVsfZ3NDsDUW": {
+      "interaction_count": 12,
+      "transaction_count": 3,
+      "types": [
+        "token_holder"
+      ],
+      "first_seen": 1776106609,
+      "last_seen": 1776106609
+    },
+    "BWFZkx1pMpvwxammwTrizvoWzZZGiFEYUYW6Ee51SHLy": {
+      "interaction_count": 12,
+      "transaction_count": 3,
+      "types": [
+        "token_holder"
+      ],
+      "first_seen": 1776106609,
+      "last_seen": 1776106609
+    },
+    "rk51a7BHnsdQcD3heYoyZkJYy23KsPSTFMFL4uMwczR": {
+      "interaction_count": 12,
+      "transaction_count": 3,
+      "types": [
+        "token_holder"
+      ],
+      "first_seen": 1776106609,
+      "last_seen": 1776106609
+    },
+    "3LCeQdYNotasB49a5Uj3fvdDRXu9tuyCFfTEsps6T45L": {
+      "interaction_count": 12,
+      "transaction_count": 1,
+      "types": [
+        "createAccount",
+        "initializeAccount3",
+        "closeAccount",
+        "token_holder",
+        "transfer",
+        "transferChecked",
+        "createIdempotent"
+      ],
+      "first_seen": 1776106609,
+      "last_seen": 1776106609
+    },
+    "CRoTdDUM3NJGbuvB7Vr9rhmRxnSswMjnTLC1ANjhwsdq": {
+      "interaction_count": 12,
+      "transaction_count": 3,
+      "types": [
+        "token_holder"
+      ],
+      "first_seen": 1776106609,
+      "last_seen": 1776106609
+    },
+    "GsqD1QSLy5ddYVLvLTHsSnJX6mbGjKFAbpuXRg926HJ1": {
+      "interaction_count": 12,
+      "transaction_count": 3,
+      "types": [
+        "token_holder"
+      ],
+      "first_seen": 1776106609,
+      "last_seen": 1776106609
+    },
+    "2jp8voVf3BAixUQFMWgezeFsZw9GFppFKwpU1trCwBFa": {
+      "interaction_count": 12,
+      "transaction_count": 1,
+      "types": [
+        "createAccount",
+        "initializeAccount3",
+        "closeAccount",
+        "token_holder",
+        "transfer",
+        "transferChecked",
+        "createIdempotent"
+      ],
+      "first_seen": 1776106609,
+      "last_seen": 1776106609
+    },
+    "7joefHiBp96czgrk6HNpkJTR55UYJ8WdParnoeuZ32Zn": {
+      "interaction_count": 12,
+      "transaction_count": 1,
+      "types": [
+        "createAccount",
+        "initializeAccount3",
+        "closeAccount",
+        "token_holder",
+        "transfer",
+        "transferChecked",
+        "createIdempotent"
+      ],
+      "first_seen": 1776106609,
+      "last_seen": 1776106609
+    },
+    "45FEw3Yu3a6VkzowaMoHCR6rAJUptStWnRicWSUVtyAG": {
+      "interaction_count": 12,
+      "transaction_count": 1,
+      "types": [
+        "createAccount",
+        "initializeAccount3",
+        "closeAccount",
+        "token_holder",
+        "transfer",
+        "transferChecked",
+        "createIdempotent"
+      ],
+      "first_seen": 1776106609,
+      "last_seen": 1776106609
+    },
+    "FujUUkqRKU7BPfZnxp72zxm9NKJgQtgbM6DJBmhvEFDG": {
+      "interaction_count": 12,
+      "transaction_count": 1,
+      "types": [
+        "createAccount",
+        "initializeAccount3",
+        "closeAccount",
+        "token_holder",
+        "transfer",
+        "transferChecked",
+        "createIdempotent"
+      ],
+      "first_seen": 1776106609,
+      "last_seen": 1776106609
+    },
+    "4pYYqomCUmibQVaVqhw1tckh7cB7VHpcMUjmjMMAcz1W": {
+      "interaction_count": 12,
+      "transaction_count": 1,
+      "types": [
+        "createAccount",
+        "initializeAccount3",
+        "closeAccount",
+        "token_holder",
+        "transfer",
+        "transferChecked",
+        "createIdempotent"
+      ],
+      "first_seen": 1776106609,
+      "last_seen": 1776106609
+    },
+    "Ee8Wg2feJKv9i7k8eiBvqJtY45RbE5gR1Afo5dRFi75X": {
+      "interaction_count": 12,
+      "transaction_count": 1,
+      "types": [
+        "createAccount",
+        "initializeAccount3",
+        "closeAccount",
+        "token_holder",
+        "transfer",
+        "transferChecked",
+        "createIdempotent"
+      ],
+      "first_seen": 1776106609,
+      "last_seen": 1776106609
+    },
+    "83c13FXBWo1KeFN1DZMmZGum1VE9AxkghmxDzi1sktQ5": {
+      "interaction_count": 12,
+      "transaction_count": 1,
+      "types": [
+        "createAccount",
+        "initializeAccount3",
+        "closeAccount",
+        "token_holder",
+        "transfer",
+        "transferChecked",
+        "createIdempotent"
+      ],
+      "first_seen": 1776106609,
+      "last_seen": 1776106609
+    },
+    "BcGP1Bd3c8U8Fch2V94TQSNo9PRiLbNwYnFM51orUMSC": {
+      "interaction_count": 12,
+      "transaction_count": 1,
+      "types": [
+        "createAccount",
+        "initializeAccount3",
+        "closeAccount",
+        "token_holder",
+        "transfer",
+        "transferChecked",
+        "createIdempotent"
+      ],
+      "first_seen": 1776106609,
+      "last_seen": 1776106609
+    },
+    "9meN8FhT6tnMXKefE2wwjV8ZF6cWb9jYE31fnQ3xupRy": {
+      "interaction_count": 11,
+      "transaction_count": 1,
+      "types": [
+        "createAccount",
+        "initializeAccount3",
+        "closeAccount",
+        "token_holder",
+        "transferChecked",
+        "createIdempotent"
+      ],
+      "first_seen": 1776106609,
+      "last_seen": 1776106609
+    },
+    "3jThEbrV33C8nvJ5xYeq5XbxpZzdP3RrdmPXmm1PnAGX": {
+      "interaction_count": 11,
+      "transaction_count": 1,
+      "types": [
+        "createAccount",
+        "initializeAccount3",
+        "closeAccount",
+        "token_holder",
+        "transferChecked",
+        "createIdempotent"
+      ],
+      "first_seen": 1776106609,
+      "last_seen": 1776106609
+    },
+    "C13n7r8b1H45NRUVXBnsUvGcRamBZ2swoQ1wRjWaeF2h": {
+      "interaction_count": 11,
+      "transaction_count": 1,
+      "types": [
+        "createAccount",
+        "initializeAccount3",
+        "closeAccount",
+        "token_holder",
+        "transferChecked",
+        "createIdempotent"
+      ],
+      "first_seen": 1776106609,
+      "last_seen": 1776106609
+    },
+    "5heckvvvKAyardLvESTBAaLv9F3AwDYn9KWMMuVmPq8p": {
+      "interaction_count": 11,
+      "transaction_count": 1,
+      "types": [
+        "createAccount",
+        "initializeAccount3",
+        "closeAccount",
+        "token_holder",
+        "transferChecked",
+        "createIdempotent"
+      ],
+      "first_seen": 1776106609,
+      "last_seen": 1776106609
+    },
+    "GrBmsuagUfuysCmu4BHDu7gjLSDtszgyx3obny9h2utw": {
+      "interaction_count": 11,
+      "transaction_count": 1,
+      "types": [
+        "createAccount",
+        "initializeAccount3",
+        "closeAccount",
+        "token_holder",
+        "transferChecked",
+        "createIdempotent"
+      ],
+      "first_seen": 1776106609,
+      "last_seen": 1776106609
+    },
+    "eLNMm6FNo365fbNB7ZzkgitC7qXzV7tj4MVFzGLLAC6": {
+      "interaction_count": 11,
+      "transaction_count": 1,
+      "types": [
+        "createAccount",
+        "initializeAccount3",
+        "closeAccount",
+        "token_holder",
+        "transferChecked",
+        "createIdempotent"
+      ],
+      "first_seen": 1776106609,
+      "last_seen": 1776106609
+    },
+    "7neSyndL4j9weC7nBsa96LeqQshCjT7zqPXW1CdhjA8s": {
+      "interaction_count": 11,
+      "transaction_count": 1,
+      "types": [
+        "createAccount",
+        "initializeAccount3",
+        "closeAccount",
+        "token_holder",
+        "transfer",
+        "createIdempotent"
+      ],
+      "first_seen": 1776106609,
+      "last_seen": 1776106609
+    },
+    "BVF8QATS3CAXhUJt9mELDcRjZdKEK9TDLq3vfdsU6axo": {
+      "interaction_count": 11,
+      "transaction_count": 1,
+      "types": [
+        "createAccount",
+        "initializeAccount3",
+        "closeAccount",
+        "token_holder",
+        "transferChecked",
+        "createIdempotent"
+      ],
+      "first_seen": 1776106609,
+      "last_seen": 1776106609
+    },
+    "FMApJZbzqUuoP8pQYL4jo39q2ry5HRmiPkAXRRkdLDKb": {
+      "interaction_count": 11,
+      "transaction_count": 1,
+      "types": [
+        "createAccount",
+        "initializeAccount3",
+        "closeAccount",
+        "token_holder",
+        "transferChecked",
+        "createIdempotent"
+      ],
+      "first_seen": 1776106609,
+      "last_seen": 1776106609
+    },
+    "9R5HLkmuMxxP2bqpLTmZQ5rBmpwehd1ofqAHj3ZUCM1j": {
+      "interaction_count": 11,
+      "transaction_count": 1,
+      "types": [
+        "createAccount",
+        "initializeAccount3",
+        "closeAccount",
+        "token_holder",
+        "transferChecked",
+        "createIdempotent"
+      ],
+      "first_seen": 1776106609,
+      "last_seen": 1776106609
+    },
+    "4WJwjbCEpCUYquWNmZCFZks7wriKvi9MqS2w3ZGobEWQ": {
+      "interaction_count": 11,
+      "transaction_count": 1,
+      "types": [
+        "createAccount",
+        "initializeAccount3",
+        "closeAccount",
+        "token_holder",
+        "transferChecked",
+        "createIdempotent"
+      ],
+      "first_seen": 1776106609,
+      "last_seen": 1776106609
+    },
+    "EUjniwuyMT2Br2ciRpmBsi5XbkJ7Z1zf3HqMiqgjG66n": {
+      "interaction_count": 11,
+      "transaction_count": 1,
+      "types": [
+        "createAccount",
+        "initializeAccount3",
+        "closeAccount",
+        "token_holder",
+        "transfer",
+        "createIdempotent"
+      ],
+      "first_seen": 1776106609,
+      "last_seen": 1776106609
+    },
+    "4KziHFvBA71MqWWWP7KjF1PPQrWk9ARSaVFhC9pS2og6": {
+      "interaction_count": 11,
+      "transaction_count": 1,
+      "types": [
+        "createAccount",
+        "initializeAccount3",
+        "closeAccount",
+        "token_holder",
+        "transferChecked",
+        "createIdempotent"
+      ],
+      "first_seen": 1776106609,
+      "last_seen": 1776106609
+    },
+    "GpMZbSM2GgvTKHJirzeGfMFoaZ8UR2X7F4v8vHTvxFbL": {
+      "interaction_count": 10,
+      "transaction_count": 2,
+      "types": [
+        "transferChecked",
+        "token_holder"
+      ],
+      "first_seen": 1776106609,
+      "last_seen": 1776106609
+    },
+    "4ctQEp4vrKWqLp48DtduEv9Cpf8MZV6wGuiAtSU265tY": {
+      "interaction_count": 10,
+      "transaction_count": 1,
+      "types": [
+        "createAccount",
+        "initializeAccount3",
+        "closeAccount",
+        "token_holder",
+        "transfer",
+        "create",
+        "transferChecked"
+      ],
+      "first_seen": 1776106609,
+      "last_seen": 1776106609
+    },
+    "9tZopjXMNjnaC3rgvzN4H7uuL984W96fAJ48GYhxDmg5": {
+      "interaction_count": 10,
+      "transaction_count": 1,
+      "types": [
+        "createAccount",
+        "initializeAccount3",
+        "closeAccount",
+        "token_holder",
+        "transfer",
+        "create",
+        "transferChecked"
+      ],
+      "first_seen": 1776106609,
+      "last_seen": 1776106609
+    },
+    "CLGHVHabs1DdNvgcc4VSu7qBJdfqgWhPw8CtxY5VjjE5": {
+      "interaction_count": 10,
+      "transaction_count": 1,
+      "types": [
+        "createAccount",
+        "initializeAccount3",
+        "closeAccount",
+        "token_holder",
+        "transfer",
+        "create",
+        "transferChecked"
+      ],
+      "first_seen": 1776106609,
+      "last_seen": 1776106609
+    },
+    "Hx1GiH6oPkvQqEEN1yBgjJHeKZLodqtfnbfn4Xq3ZguW": {
+      "interaction_count": 10,
+      "transaction_count": 1,
+      "types": [
+        "createAccount",
+        "initializeAccount3",
+        "closeAccount",
+        "token_holder",
+        "transfer",
+        "create",
+        "transferChecked"
+      ],
+      "first_seen": 1776106609,
+      "last_seen": 1776106609
+    },
+    "Fp2WXsvGutYZavKvzAXdNsR13PN4BSvqGgtPyBbTRgzU": {
+      "interaction_count": 10,
+      "transaction_count": 1,
+      "types": [
+        "createAccount",
+        "initializeAccount3",
+        "closeAccount",
+        "token_holder",
+        "transfer",
+        "create",
+        "transferChecked"
+      ],
+      "first_seen": 1776106609,
+      "last_seen": 1776106609
+    },
+    "CXSu6mASpAr4LdGywku8rF1ZdPCa5ARKFpYycihevMJp": {
+      "interaction_count": 10,
+      "transaction_count": 1,
+      "types": [
+        "createAccount",
+        "initializeAccount3",
+        "closeAccount",
+        "token_holder",
+        "transfer",
+        "create",
+        "transferChecked"
+      ],
+      "first_seen": 1776106609,
+      "last_seen": 1776106609
+    }
+  },
+  "high_frequency_count": 106,
+  "critical_count": 1
+}

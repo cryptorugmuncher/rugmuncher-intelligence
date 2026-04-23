@@ -1,0 +1,42 @@
+{
+  "case_id": "CRM-SCAM-2025-001",
+  "generated_at": "2026-04-13T21:36:02.288889",
+  "submission_package": {
+    "fbi_ic3": {
+      "file": "law_enforcement/FBI_IC3_COMPLAINT.txt",
+      "priority": "CRITICAL - File immediately",
+      "method": "www.ic3.gov",
+      "status": "Ready for filing"
+    },
+    "emergency_freeze": {
+      "file": "law_enforcement/EMERGENCY_FREEZE_REQUEST.txt",
+      "priority": "CRITICAL - Send to Binance, KuCoin",
+      "wallets": [
+        "Mihso7kXXNPb7GUZ71H7rGYfTDyNS5VD6MmUX3d7c4o (ACTIVE NOW)",
+        "AFXigaYuRKYmvd9HZQCobtZ98FNAwnwpsnjvJRztUGb6 (Controller)"
+      ],
+      "status": "Ready for sending"
+    },
+    "fincen_sar": {
+      "file": "law_enforcement/FINCEN_SAR_FILING.txt",
+      "priority": "HIGH - File within 30 days of detection",
+      "institution": "All exchanges receiving deposits",
+      "status": "Template ready for exchange compliance"
+    }
+  },
+  "supporting_evidence": [
+    "evidence/SOSANA_ACTIVE_THREAT_INVESTIGATION.json",
+    "evidence/exchange_analysis.json",
+    "evidence/cross_token_expansion_master.json",
+    "evidence/crm_treasury_movements_detailed.json",
+    "case_files/communication/ (67 files)",
+    "case_files/screenshots/ (70+ images)"
+  ],
+  "key_facts_for_prosecutors": {
+    "kill_shot": "970 wallets in 7 seconds = Computer Fraud",
+    "confession": "Operator admitted running SOSANA scam",
+    "obstruction": "Voting contract deleted March 22",
+    "pattern": "5-tier infrastructure across 8+ tokens",
+    "active_threat": "Criminal operations ongoing NOW"
+  }
+}

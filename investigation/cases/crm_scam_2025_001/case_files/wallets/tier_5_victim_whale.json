@@ -1,0 +1,36 @@
+{
+  "wallet_id": "WALLET-T5-001",
+  "address": "7abBmGf4HNu3UXsanJc7WwAPW2PgkEb9hwrFKwCySvyL",
+  "tier": 5,
+  "classification": "victim",
+  "function": "Execution layer - Victim whale position (compromised)",
+  "status": "COMPROMISED - Used as field operative",
+  "evidence": "Received 1M CRM from Tier 4 distribution node at $0 cost basis",
+  "risk_score": 0.3,
+  "compromise_details": {
+    "crm_received": 1000000,
+    "cost_basis": "$0 (free-loaded)",
+    "source": "8eVZa7 (Tier 4 distribution node)",
+    "date": "2025-12-31",
+    "hops_from_root": 3
+  },
+  "victim_identity": {
+    "identifier": "Marcus Aurelius",
+    "role": "Primary investigator / Victim",
+    "cooperating_witness": true
+  },
+  "forensic_significance": "Victim believed they held independent whale position. Blockchain proves they hold operational inventory for criminal enterprise - tokens injected by Layer 4 infrastructure for downstream extraction.",
+  "threat_status": {
+    "current_crm_position": 20000000,
+    "network_unrealized_position": 19943,
+    "threat": "Network can crash CRM price 50-80% using this wallet as execution layer",
+    "imminent_dump_risk": "HIGH"
+  },
+  "related_wallets": [
+    "8eVZa7bEBnd6MA6JJkNdABRN4S3LbVLRnCZNJAUeuwQj",
+    "HLnpSz9h4Kz6rHLz9h1F2pKjGz9nHpT4sP1zM2bH6sT"
+  ],
+  "legal_significance": "Key victim testimony - Demonstrates infiltration methodology and victim impact",
+  "added_date": "2026-04-09",
+  "last_updated": "2026-04-12"
+}

@@ -1,0 +1,18 @@
+{
+  "suspect_id": "SUSPECT-001",
+  "name": "Peter Ohanyan",
+  "status": "PRIMARY SUSPECT",
+  "role": "Suspected infiltration coordinator",
+  "evidence_summary": "Pattern of infiltration tactics identified across multiple tokens",
+  "associated_wallets": [
+    "AFXigaYuRKYmvd9HZQCobtZ98FNAwnwpsnjvJRztUGb6",
+    "BMq4XUa3rJJNkjXbJDpMFdSmPjvz5f9w4TvYFGADVkX5",
+    "HxyXAE1PHQsh6iLj3t8MagpFovmR7yk76PEADmTKeVfi"
+  ],
+  "legal_considerations": "Pattern of racketeering activity - RICO eligible",
+  "risk_level": "CRITICAL",
+  "confidence": "Medium - requires additional identity verification",
+  "investigation_notes": "Linked to 5-tier criminal hierarchy. Coordinated multi-token extraction scheme from SHIFT AI through CRM token.",
+  "added_date": "2026-04-09",
+  "last_updated": "2026-04-12"
+}

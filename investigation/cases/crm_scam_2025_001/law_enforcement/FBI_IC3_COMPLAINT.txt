@@ -1,0 +1,116 @@
+
+================================================================================
+FBI INTERNET CRIME COMPLAINT CENTER (IC3) - FILING
+================================================================================
+
+COMPLAINT ID: CRM-SCAM-2025-001
+DATE FILED: 2026-04-13
+CLASSIFICATION: RICO-Eligible Continuing Criminal Enterprise
+
+COMPLAINANT INFORMATION:
+------------------------
+Name: Marcus Aurelius
+Role: Victim, Investigator
+Contact: [REDACTED - See evidence package]
+
+CRIMINAL ENTERPRISE SUMMARY:
+----------------------------
+A sophisticated multi-jurisdictional criminal organization has conducted
+systematic fraud across multiple cryptocurrency tokens, extracting 
+estimated $1.07M - $1.74M from 2,000+ victims using military-grade
+automation infrastructure.
+
+PREDICATE ACTS (RICO - 18 U.S.C. § 1962):
+----------------------------------------
+1. Computer Fraud (18 U.S.C. § 1030) - March 26, 2026
+   • 970 wallets seeded in 7 seconds (138/sec rate)
+   • Humanly impossible speed = automated criminal infrastructure
+   • Evidence: Transaction signatures on Solana blockchain
+
+2. Securities Fraud (15 U.S.C. § 78j) - December 8, 2025 - March 26, 2026
+   • Coordinated market manipulation across CRM token
+   • Insider pre-positioning before systematic dumps
+   • 30.52% token supply controlled by criminal enterprise
+
+3. Obstruction of Justice (18 U.S.C. § 1503) - March 22, 2026
+   • Voting contract deleted 4 days before coordinated dump
+   • Evidence destruction to prevent investigation
+   • Wallet: BmZY862D62L1ZMK8DUpXbr4AqRzy8A3Bdki8qVtaBWxT
+
+4. Wire Fraud (18 U.S.C. § 1343) - Ongoing since April 2025
+   • Electronic transmission of funds for fraudulent purposes
+   • Cross-border transactions to multiple exchanges
+
+5. Money Laundering (18 U.S.C. § 1956) - Ongoing
+   • 5-tier wallet structure designed to obscure fund sources
+   • DEX swaps, bridge transfers, exchange deposits
+
+ACTIVE THREAT - IMMEDIATE INTERVENTION REQUIRED:
+-----------------------------------------------
+• SOSANA token: Criminal operator admitted "Running that scam sosana now too"
+• Status: ONGOING criminal operations causing active harm
+• Infrastructure: Same automation deployed across 8+ projects
+
+FINANCIAL IMPACT:
+-----------------
+• CRM Token: $146,597 extracted, $58,300 unrealized position
+• SHIFT AI: $740,000+ extracted
+• SOSANA: Unknown - requires investigation (ACTIVE)
+• BONK/WIF/POPCAT/Pump.fun: Under investigation
+• TOTAL: $886,597+ confirmed, $1.07M-$1.74M estimated
+
+KEY EVIDENCE - BLOCKCHAIN VERIFIABLE:
+-------------------------------------
+TIER 1 ROOT: AFXigaYuRKYmvd9HZQCobtZ98FNAwnwpsnjvJRztUGb6
+• Military automation controller - 970 wallet operation
+• Verifiable: https://solana.fm/address/AFXigaYuRKYmvd9HZQCobtZ98FNAwnwpsnjvJRztUGb6
+
+TIER 2 BRIDGE: BMq4XUa3rJJNkjXbJDpMFdSmPjvz5f9w4TvYFGADVkX5
+• Cross-project coordination (SHIFT/SOSANA/CRM)
+• PBTC token distribution linking operations
+• Verifiable: https://solana.fm/address/BMq4XUa3rJJNkjXbJDpMFdSmPjvz5f9w4TvYFGADVkX5
+
+ACTIVE CASHOUT WALLET: Mihso7kXXNPb7GUZ71H7rGYfTDyNS5VD6MmUX3d7c4o
+• Current holdings: $4,269.76
+• Exchange links: Binance, KuCoin
+• Recent activity: Within 2 hours
+• Status: ACTIVE AND OPERATIONAL
+• Verifiable: https://solana.fm/address/Mihso7kXXNPb7GUZ71H7rGYfTDyNS5VD6MmUX3d7c4o
+
+KILL SHOT EVIDENCE:
+-------------------
+Date: March 26, 2026, 21:38:07 UTC
+Event: 970 wallets seeded with CRM in 7 seconds
+Rate: 138 wallets/second
+Human Maximum: 2-3 wallets in 7 seconds
+Conclusion: Military-grade automation = Computer Fraud
+
+BLOCKCHAIN VERIFICATION:
+All evidence cryptographically verifiable via:
+• Solana Explorer: https://explorer.solana.com/
+• SolanaFM: https://solana.fm/
+• Solscan: https://solscan.io/
+
+IMMEDIATE ACTIONS REQUESTED:
+--------------------------
+1. EMERGENCY FREEZE: Active controller wallet (Mihso7k...)
+2. PRESERVATION ORDER: All tier 1-5 wallets before evidence destruction
+3. INTERNATIONAL COORDINATION: Exchange KYC records (Binance, KuCoin)
+4. VICTIM PROTECTION: Issue warnings for ongoing SOSANA operations
+5. RICO INVESTIGATION: Treat as continuing criminal enterprise
+
+ATTACHED EVIDENCE:
+------------------
+• case_files/communication/ (67 files)
+• evidence/screenshots/ (70+ images)
+• evidence/transaction_csvs/ (10 files)
+• evidence/SOSANA_ACTIVE_THREAT_INVESTIGATION.json
+• evidence/exchange_analysis.json
+• CRM_TREASURY_FORENSIC_ANALYSIS.md
+• CRIMINAL_NETWORK_INTELLIGENCE_REPORT.md
+
+================================================================================
+Submitted by: Marcus Aurelius, Victim/Investigator
+Date: 2026-04-13
+Case ID: CRM-SCAM-2025-001
+================================================================================

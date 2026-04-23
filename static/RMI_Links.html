@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RMI - Deep Wallet Forensics & Connection Mapping</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: #fff;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #dc2626;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .subtitle {
+            text-align: center;
+            color: #94a3b8;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+        .section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .section h2 {
+            color: #dc2626;
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section h3 {
+            color: #64748b;
+            font-size: 1em;
+            margin: 20px 0 15px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .link-card {
+            background: rgba(220, 38, 38, 0.1);
+            border: 1px solid rgba(220, 38, 38, 0.3);
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin-bottom: 12px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .link-card:hover {
+            background: rgba(220, 38, 38, 0.2);
+            border-color: #dc2626;
+            transform: translateX(5px);
+        }
+        .link-card a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .link-card .url {
+            color: #94a3b8;
+            font-size: 0.85em;
+            margin-top: 5px;
+            font-family: 'Courier New', monospace;
+        }
+        .icon {
+            font-size: 1.2em;
+        }
+        .feature-list {
+            list-style: none;
+        }
+        .feature-list li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #cbd5e1;
+        }
+        .feature-list li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #dc2626;
+        }
+        .google-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #4285f4;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            margin: 10px 0;
+        }
+        .google-btn:hover {
+            background: #3367d6;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(66, 133, 244, 0.4);
+        }
+        .google-section {
+            text-align: center;
+            padding: 30px;
+        }
+        .pdf-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        @media (max-width: 600px) {
+            .pdf-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .footer {
+            text-align: center;
+            color: #64748b;
+            margin-top: 40px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔴 RUGMUNCHER INTELLIGENCE</h1>
+        <p class="subtitle">Deep Wallet Forensics & Connection Mapping</p>
+
+        <!-- Google Search -->
+        <div class="section google-section">
+            <h2>🔍 Google Search</h2>
+            <a href="https://www.google.com/search?q=deep%20wallet%20forensics%20and%20connection%20mapping" class="google-btn" target="_blank">
+                <span>🔎</span> Search: "Deep Wallet Forensics and Connection Mapping"
+            </a>
+        </div>
+
+        <!-- RMI Platform Links -->
+        <div class="section">
+            <h2><span class="icon">🎯</span> RMI Platform - Live Access</h2>
+            
+            <div class="link-card">
+                <a href="http://167.86.116.51:8889" target="_blank">
+                    <span>🏠</span> Main Dashboard
+                </a>
+                <div class="url">http://167.86.116.51:8889</div>
+            </div>
+            
+            <div class="link-card">
+                <a href="http://167.86.116.51:8889/analytics" target="_blank">
+                    <span>🗺️</span> Analytics / Muncher Maps
+                </a>
+                <div class="url">http://167.86.116.51:8889/analytics</div>
+            </div>
+            
+            <div class="link-card">
+                <a href="http://167.86.116.51:8889/clustering" target="_blank">
+                    <span>🔗</span> Wallet Clustering
+                </a>
+                <div class="url">http://167.86.116.51:8889/clustering</div>
+            </div>
+            
+            <div class="link-card">
+                <a href="http://167.86.116.51:8889/admin" target="_blank">
+                    <span>⚙️</span> Admin Panel
+                </a>
+                <div class="url">http://167.86.116.51:8889/admin</div>
+            </div>
+            
+            <div class="link-card">
+                <a href="http://167.86.116.51:8889/admin?tab=investigations" target="_blank">
+                    <span>🕵️</span> Investigation Operations
+                </a>
+                <div class="url">http://167.86.116.51:8889/admin?tab=investigations</div>
+            </div>
+        </div>
+
+        <!-- PDF Downloads -->
+        <div class="section">
+            <h2><span class="icon">📄</span> Documentation (PDF Downloads)</h2>
+            <div class="pdf-grid">
+                <div class="link-card">
+                    <a href="http://167.86.116.51:8889/RMI_Retail_Features_Complete_Guide.pdf" target="_blank">
+                        <span>📑</span> Retail Features Guide
+                    </a>
+                    <div class="url">Complete feature matrix</div>
+                </div>
+                <div class="link-card">
+                    <a href="http://167.86.116.51:8889/RMI_System_Overview.pdf" target="_blank">
+                        <span>🏗️</span> System Overview
+                    </a>
+                    <div class="url">Technical architecture</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features -->
+        <div class="section">
+            <h2><span class="icon">🛠️</span> Forensics Features Available</h2>
+            
+            <h3>Deep Wallet Forensics</h3>
+            <ul class="feature-list">
+                <li><strong>1-Holder Analysis</strong> - Deep wallet behavior profiling</li>
+                <li><strong>Transaction Pattern Recognition</strong> - Frequency, timing, counterparties</li>
+                <li><strong>CEX Interaction Mapping</strong> - Exchange deposit/withdrawal patterns</li>
+                <li><strong>Cross-Chain Identity</strong> - Same entity across multiple chains</li>
+                <li><strong>Behavioral Fingerprinting</strong> - Unique wallet signatures</li>
+            </ul>
+            
+            <h3>Connection Mapping (Muncher Maps)</h3>
+            <ul class="feature-list">
+                <li><strong>6 Degrees of Separation</strong> - Track through 6 hops</li>
+                <li><strong>3D Network Visualization</strong> - Interactive graph exploration</li>
+                <li><strong>Criminal Network Detection</strong> - Cross-reference known scammers</li>
+                <li><strong>Money Flow Animation</strong> - Watch funds move in real-time</li>
+                <li><strong>CEX Flow Tracking</strong> - Exchange tracing through multiple hops</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <p>🔴 RUGMUNCHER INTELLIGENCE - Don't Get Rugged. Follow Smart Money.</p>
+            <p>Generated: April 2025 | Platform: http://167.86.116.51:8889</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+{
+  "suspect_id": "SUSPECT-002",
+  "name": "SHIFT/CRM Operator Syndicate",
+  "status": "CONFIRMED ORGANIZATIONAL ENTITY",
+  "role": "Criminal Enterprise - 5-Tier Hierarchical Structure",
+  "classification": "RICO-eligible Criminal Organization",
+  "known_operators": [
+    {
+      "name": "David Track",
+      "role": "SOSANA lead operator",
+      "criminal_history": "SEC convictions",
+      "relevance": "Pattern of securities fraud"
+    },
+    {
+      "name": "Mark Ross",
+      "role": "Infrastructure operator",
+      "criminal_history": "Federal prison sentences",
+      "relevance": "RICO predicate acts"
+    },
+    {
+      "name": "Brian Lyles",
+      "role": "Coordination layer",
+      "criminal_history": "Financial crimes",
+      "relevance": "Enterprise continuity"
+    },
+    {
+      "name": "Mark Hamlin",
+      "role": "Technical operations",
+      "criminal_history": "Cyber fraud",
+      "relevance": "Automation infrastructure"
+    },
+    {
+      "name": "Tracy Silver",
+      "role": "Distribution management",
+      "criminal_history": "$850M Ponzi scheme fugitive",
+      "relevance": "Pattern of racketeering"
+    }
+  ],
+  "legal_significance": "15+ years of operator criminal history across multiple defendants elevates this from isolated fraud to pattern of racketeering activity under 18 U.S.C. § 1961(5)",
+  "risk_level": "CRITICAL",
+  "enterprise_structure": {
+    "tier_1": "Root Infrastructure - Capital coordination",
+    "tier_2": "Cross-Project Bridge - Money laundering",
+    "tier_3": "Field Coordination - Transaction management",
+    "tier_4": "Distribution Nodes - Ammunition loading",
+    "tier_5": "Execution Layer - Retail extraction"
+  },
+  "added_date": "2026-04-09",
+  "last_updated": "2026-04-12"
+}
