@@ -7,6 +7,8 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { api } from '../services/api';
 import { db } from '../services/supabase';
 import {
+  Cloud,
+  Search,
   Database,
   Server,
   Activity,
@@ -55,6 +57,8 @@ import TrenchesRehabManagement from './admin/TrenchesRehabManagement';
 import FeatureFlags from './admin/FeatureFlags';
 import AuditLogs from './admin/AuditLogs';
 import APIManagement from './admin/APIManagement';
+import ContentManagement from './admin/ContentManagement';
+import InfrastructureDashboard from './admin/InfrastructureDashboard';
 
 // N8N configuration
 const N8N_BASE = 'http://167.86.116.51:5678';
@@ -77,7 +81,7 @@ const WORKFLOWS = [
 ];
 
 export default function AdminPanel() {
-  const [activeTab, setActiveTab] = useState<'overview' | 'users' | 'evidence' | 'investigations' | 'trenches' | 'revenue' | 'feature_flags' | 'audit_logs' | 'api_mgmt' | 'bots' | 'n8n' | 'website' | 'database' | 'ai' | 'alerts' | 'system'>('overview');
+  const [activeTab, setActiveTab] = useState<'overview' | 'users' | 'evidence' | 'investigations' | 'trenches' | 'revenue' | 'feature_flags' | 'audit_logs' | 'api_mgmt' | 'bots' | 'n8n' | 'website' | 'database' | 'ai' | 'alerts' | 'system' | 'content' | 'infrastructure'>('overview');
   const [testMessage, setTestMessage] = useState('');
   const [n8nStatus, setN8nStatus] = useState<'unknown' | 'online' | 'offline'>('unknown');
   const [adminKey, setAdminKey] = useState(localStorage.getItem('admin_key') || '');
@@ -235,8 +239,9 @@ export default function AdminPanel() {
         {[
           { id: 'overview', label: 'Overview', icon: Activity },
           { id: 'users', label: 'Users', icon: Users },
-          { id: 'evidence', label: 'Evidence', icon: FileText },
-          { id: 'investigations', label: 'Investigations', icon: Shield },
+          { id: 'content', label: 'Content', icon: FileText },
+          { id: 'evidence', label: 'Evidence', icon: Shield },
+          { id: 'investigations', label: 'Investigations', icon: Search },
           { id: 'trenches', label: 'Trenches & Rehab', icon: MessageSquare },
           { id: 'revenue', label: 'Revenue', icon: Coins },
           { id: 'feature_flags', label: 'Features', icon: ToggleLeft },
@@ -248,6 +253,7 @@ export default function AdminPanel() {
           { id: 'database', label: 'Database', icon: Database },
           { id: 'ai', label: 'AI/OSINT', icon: Brain },
           { id: 'alerts', label: 'Alerts', icon: Bell },
+          { id: 'infrastructure', label: 'Infra', icon: Cloud },
           { id: 'system', label: 'System', icon: Server },
         ].map((tab) => (
           <button
@@ -1036,6 +1042,12 @@ export default function AdminPanel() {
 
       {/* API MANAGEMENT TAB */}
       {activeTab === 'api_mgmt' && <APIManagement />}
+
+      {/* CONTENT MANAGEMENT TAB */}
+      {activeTab === 'content' && <ContentManagement adminKey={adminKey} />}
+
+      {/* INFRASTRUCTURE TAB */}
+      {activeTab === 'infrastructure' && <InfrastructureDashboard adminKey={adminKey} />}
     </div>
   );
 }
