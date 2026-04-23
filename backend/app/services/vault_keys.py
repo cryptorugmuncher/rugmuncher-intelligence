@@ -91,3 +91,41 @@ def get_all_ai_keys() -> Dict[str, Optional[str]]:
     """Fetch all available AI keys."""
     providers = ["openai", "anthropic", "groq", "deepseek", "mistral", "fireworks", "nvidia", "gemini", "openrouter", "zai"]
     return {p: get_ai_key(p) for p in providers}
+
+
+# ═══════════════════════════════════════════════════════════
+# CRYPTO API KEYS
+# ═══════════════════════════════════════════════════════════
+
+def get_crypto_key(provider: str) -> Optional[str]:
+    """Get API key for a blockchain/crypto provider."""
+    mapping = {
+        "alchemy": ("crypto/alchemy", "api_key"),
+        "moralis": ("crypto/moralis", "api_key"),
+        "birdeye": ("crypto/birdeye", "api_key"),
+        "solscan": ("crypto/solscan", "api_key"),
+        "arkham": ("crypto/arkham", "api_key"),
+        "nansen": ("crypto/nansen", "api_key"),
+        "etherscan": ("crypto/etherscan", "api_key"),
+        "dune": ("crypto/dune", "api_key"),
+        "thegraph": ("crypto/thegraph", "api_key"),
+        "flipside": ("crypto/flipside", "api_key"),
+        "trm": ("crypto/trm", "api_key"),
+        "magiceden": ("crypto/magiceden", "api_key"),
+        "tensor": ("crypto/tensor", "api_key"),
+    }
+    path, key = mapping.get(provider, (None, None))
+    if not path:
+        return None
+    try:
+        return get_secret(path, key)
+    except Exception as e:
+        logger.warning(f"Vault lookup failed for crypto/{provider}: {e}")
+        return None
+
+
+def get_all_crypto_keys() -> Dict[str, Optional[str]]:
+    """Fetch all available crypto API keys."""
+    providers = ["alchemy", "moralis", "birdeye", "solscan", "arkham", "nansen",
+                 "etherscan", "dune", "thegraph", "flipside", "trm", "magiceden", "tensor"]
+    return {p: get_crypto_key(p) for p in providers}

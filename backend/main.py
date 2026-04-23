@@ -2223,12 +2223,14 @@ from app.routers.profile import router as profile_router
 from app.routers.email import router as email_router
 from app.routers.admin_control import router as admin_control_router
 from app.routers.darkroom import router as darkroom_router
+from app.routers.providers import router as providers_router
 from app.routers.rag import router as rag_router
 from app.routers.budget import router as budget_router
 app.include_router(profile_router)
 app.include_router(email_router)
 app.include_router(admin_control_router)
 app.include_router(darkroom_router)
+app.include_router(providers_router)
 app.include_router(rag_router)
 app.include_router(budget_router)
 
@@ -2951,6 +2953,85 @@ async def restart_agent(name: str, request: Request):
         return {"success": True, "agent": name}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+
+
+# ═══════════════════════════════════════════════════════════════════════════
+# UNIFIED CRYPTO ROUTER — 15+ sources with cascading fallback
+# ═══════════════════════════════════════════════════════════════════════════
+
+from app.services.crypto_fallback import get_token_price, get_token_data, get_trending_tokens, get_wallet_full_analysis
+from app.services.vault_keys import get_all_crypto_keys
+
+class UnifiedPriceResponse(BaseModel):
+    token_address: str
+    chain: str = "solana"
+    price_usd: Optional[float] = None
+    source: str = "unknown"
+    free: bool = True
+    sources: dict = {}
+    errors: list = []
+
+class UnifiedTokenDataResponse(BaseModel):
+    token_address: str
+    chain: str = "solana"
+    has_data: bool = False
+    sources: dict = {}
+    errors: list = []
+
+class UnifiedTrendingResponse(BaseModel):
+    chain: str = "solana"
+    tokens: list = []
+    source: str = "unknown"
+    sources: dict = {}
+    errors: list = []
+
+class UnifiedWalletResponse(BaseModel):
+    address: str
+    chain: str = "solana"
+    has_data: bool = False
+    sources: dict = {}
+    errors: list = []
+
+class CryptoKeysStatusResponse(BaseModel):
+    providers: dict = {}
+    active: list = []
+    placeholders: list = []
+
+@app.get("/api/v1/crypto/unified/price/{token_address}", response_model=UnifiedPriceResponse, summary="Token price — 10+ source fallback")
+async def crypto_unified_price(token_address: str, chain: str = "solana", symbol: str = ""):
+    """Get token price across CoinGecko, GMGN, Alchemy, Birdeye, Solscan, MCP, Moralis, Arkham, Nansen, CMC."""
+    data = get_token_price(token_address, chain, symbol)
+    if data.get("error") and not data.get("price_usd"):
+        raise HTTPException(status_code=404, detail=data)
+    return UnifiedPriceResponse(**data)
+
+@app.get("/api/v1/crypto/unified/data/{token_address}", response_model=UnifiedTokenDataResponse, summary="Comprehensive token data")
+async def crypto_unified_data(token_address: str, chain: str = "solana"):
+    """Get comprehensive token data from GMGN, Alchemy, Solscan, Arkham, Nansen, Birdeye, MCP."""
+    data = get_token_data(token_address, chain)
+    return UnifiedTokenDataResponse(**data)
+
+@app.get("/api/v1/crypto/unified/trending", response_model=UnifiedTrendingResponse, summary="Trending tokens")
+async def crypto_unified_trending(chain: str = "solana"):
+    """Get trending tokens from GMGN / CoinGecko."""
+    data = get_trending_tokens(chain)
+    return UnifiedTrendingResponse(**data)
+
+@app.get("/api/v1/crypto/unified/wallet/{address}", response_model=UnifiedWalletResponse, summary="Wallet forensics")
+async def crypto_unified_wallet(address: str, chain: str = "solana"):
+    """Full wallet analysis using Solscan, Alchemy, Arkham, Nansen, Moralis, MCP."""
+    data = get_wallet_full_analysis(address, chain)
+    return UnifiedWalletResponse(**data)
+
+@app.get("/api/v1/crypto/keys", response_model=CryptoKeysStatusResponse, summary="Crypto API key status")
+async def crypto_keys_status():
+    """Check which crypto API keys are configured and active."""
+    keys = get_all_crypto_keys()
+    active = [k for k, v in keys.items() if v and v != "PLACEHOLDER_UPDATE_ME"]
+    placeholders = [k for k, v in keys.items() if not v or v == "PLACEHOLDER_UPDATE_ME"]
+    return CryptoKeysStatusResponse(providers=keys, active=active, placeholders=placeholders)
+
 
 if __name__ == "__main__":
     import uvicorn
