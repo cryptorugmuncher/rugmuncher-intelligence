@@ -13,6 +13,7 @@ import Wallets from './components/Wallets';
 import Analytics from './components/Analytics';
 import AuthPage from './components/AuthPage';
 import AdminPanel from './components/AdminPanel';
+import DarkRoomControl from './components/DarkRoomControl';
 import { useAppStore } from './store/appStore';
 import { useEffect } from 'react';
 import { supabase } from './services/supabase';
@@ -139,6 +140,7 @@ function App() {
       'secure-wallets', 'funds', 'analytics-panel', 'whitepapers', 'contract-deployer',
       'wallet-tools', 'news-panel', 'crm-v2-planning', 'capital-acquisition', 'community-sentinel',
       'intel-terminal', 'rundown', 'meme-radar', 'whale-watch', 'autopsy', 'payment-hub', 'rehab-checkout', 'newsletter-subscribe', 'tier-checkout', 'token-scan',
+      'darkroom',
       'project-treasury', 'payment-center', 'airdrop-mgmt', 'referrals', 'telegram-stars',
       'telegram-bots', 'chief-of-staff'];
 

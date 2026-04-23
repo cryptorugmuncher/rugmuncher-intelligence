@@ -9,3 +9,7 @@ CACHE_TTL_SECONDS = "30"
 
 [ai]
 binding = "AI"
+
+[[kv_namespaces]]
+binding = "QUOTA_KV"
+id = "113a3af5f112437e8d12531a5695c64b"

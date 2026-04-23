@@ -1,14 +1,47 @@
 /**
  * RugMuncher API Gateway Worker
  * Edge-caches API responses, adds security headers, routes traffic,
- * and integrates Cloudflare Workers AI + AI Gateway.
+ * and integrates Cloudflare Workers AI + AI Gateway with FREE-PROVIDER FAILOVER.
+ *
+ * Free Provider Chain (auto-failover when quota exhausted):
+ *   1. Workers AI (CF free tier — 10K req/day)
+ *   2. OpenRouter Free models ($0)
+ *   3. Gemini Free tier (~1500 req/day)
+ *   4. Groq Free Credits ($5 initial)
+ *   5. Paid fallback (cheapest available)
  */
 
 export interface Env {
   API_ORIGIN: string;
   CACHE_TTL_SECONDS: string;
   AI: any; // Workers AI binding
+  QUOTA_KV: KVNamespace; // KV for tracking provider exhaustion
+  OPENROUTER_API_KEY?: string;
+  GEMINI_API_KEY?: string;
+  GROQ_API_KEY?: string;
 }
+
+// ═══════════════════════════════════════════════════════════
+// FREE PROVIDER CHAIN CONFIG
+// ═══════════════════════════════════════════════════════════
+
+interface FreeProvider {
+  name: string;
+  type: 'workers-ai' | 'openrouter' | 'gemini' | 'groq';
+  priority: number; // lower = tried first
+  model: string;
+  maxRetries: number;
+}
+
+const FREE_PROVIDER_CHAIN: FreeProvider[] = [
+  { name: 'workers-ai', type: 'workers-ai', priority: 1, model: '@cf/meta/llama-3.1-8b-instruct', maxRetries: 1 },
+  { name: 'openrouter-free', type: 'openrouter', priority: 2, model: 'openrouter/auto', maxRetries: 2 },
+  { name: 'gemini-free', type: 'gemini', priority: 3, model: 'gemini-1.5-flash', maxRetries: 2 },
+  { name: 'groq-free', type: 'groq', priority: 4, model: 'llama-3.1-8b-instant', maxRetries: 2 },
+];
+
+// How long to mark a provider as exhausted in KV (minutes)
+const EXHAUSTION_TTL_SECONDS = 3600; // 1 hour
 
 // ═══════════════════════════════════════════════════════════
 // CACHE CONFIG — Aggressive edge caching for speed
@@ -86,6 +119,273 @@ function getEdgeOptimizedHeaders(response: Response, path: string): Headers {
 }
 
 // ═══════════════════════════════════════════════════════════
+// KV QUOTA TRACKING HELPERS
+// ═══════════════════════════════════════════════════════════
+
+async function isProviderExhausted(kv: KVNamespace, provider: string): Promise<boolean> {
+  const key = `exhausted:${provider}`;
+  const value = await kv.get(key);
+  return value !== null;
+}
+
+async function markProviderExhausted(kv: KVNamespace, provider: string): Promise<void> {
+  const key = `exhausted:${provider}`;
+  await kv.put(key, 'true', { expirationTtl: EXHAUSTION_TTL_SECONDS });
+}
+
+async function clearProviderExhausted(kv: KVNamespace, provider: string): Promise<void> {
+  const key = `exhausted:${provider}`;
+  await kv.delete(key);
+}
+
+// ═══════════════════════════════════════════════════════════
+// FREE PROVIDER IMPLEMENTATIONS
+// ═══════════════════════════════════════════════════════════
+
+interface ChatMessage {
+  role: 'system' | 'user' | 'assistant';
+  content: string;
+}
+
+interface ChatResponse {
+  content: string;
+  provider: string;
+  model: string;
+  cost?: number;
+}
+
+/** 1. Workers AI (FREE) */
+async function tryWorkersAI(
+  env: Env,
+  messages: ChatMessage[],
+  model: string
+): Promise<ChatResponse | null> {
+  try {
+    const response = await env.AI.run(model, {
+      messages,
+      stream: false,
+    });
+    // Workers AI returns { response: string } for chat
+    const text = (response as any).response || JSON.stringify(response);
+    return { content: text, provider: 'workers-ai', model, cost: 0 };
+  } catch (err: any) {
+    const status = err?.status || err?.statusCode || 500;
+    // 429 = rate limit / quota exhausted
+    if (status === 429 || status === 403) {
+      throw new Error(`EXHAUSTED:workers-ai`);
+    }
+    throw err;
+  }
+}
+
+/** 2. OpenRouter Free ($0 models) */
+async function tryOpenRouter(
+  env: Env,
+  messages: ChatMessage[],
+  model: string
+): Promise<ChatResponse | null> {
+  const apiKey = env.OPENROUTER_API_KEY;
+  if (!apiKey) return null;
+
+  const body = {
+    model: model || 'openrouter/auto',
+    messages,
+    temperature: 0.7,
+    max_tokens: 4096,
+  };
+
+  const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${apiKey}`,
+      'HTTP-Referer': 'https://rugmunch.io',
+      'X-Title': 'RugMunch Intelligence',
+    },
+    body: JSON.stringify(body),
+  });
+
+  if (response.status === 429 || response.status === 402) {
+    throw new Error(`EXHAUSTED:openrouter-free`);
+  }
+  if (!response.ok) {
+    const err = await response.text();
+    throw new Error(`OpenRouter error ${response.status}: ${err}`);
+  }
+
+  const data = await response.json() as any;
+  const content = data.choices?.[0]?.message?.content || '';
+  return { content, provider: 'openrouter-free', model: body.model, cost: 0 };
+}
+
+/** 3. Gemini Free tier */
+async function tryGemini(
+  env: Env,
+  messages: ChatMessage[],
+  model: string
+): Promise<ChatResponse | null> {
+  const apiKey = env.GEMINI_API_KEY;
+  if (!apiKey) return null;
+
+  // Convert messages to Gemini format
+  const geminiModel = model || 'gemini-1.5-flash';
+  const systemMsg = messages.find(m => m.role === 'system')?.content || '';
+  const chatMessages = messages.filter(m => m.role !== 'system').map(m => ({
+    role: m.role === 'user' ? 'user' : 'model',
+    parts: [{ text: m.content }],
+  }));
+
+  const body = {
+    contents: chatMessages,
+    systemInstruction: systemMsg ? { parts: [{ text: systemMsg }] } : undefined,
+    generationConfig: {
+      temperature: 0.7,
+      maxOutputTokens: 4096,
+    },
+  };
+
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/${geminiModel}:generateContent?key=${apiKey}`;
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
+  });
+
+  if (response.status === 429 || response.status === 403) {
+    throw new Error(`EXHAUSTED:gemini-free`);
+  }
+  if (!response.ok) {
+    const err = await response.text();
+    throw new Error(`Gemini error ${response.status}: ${err}`);
+  }
+
+  const data = await response.json() as any;
+  const content = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
+  return { content, provider: 'gemini-free', model: geminiModel, cost: 0 };
+}
+
+/** 4. Groq Free Credits */
+async function tryGroq(
+  env: Env,
+  messages: ChatMessage[],
+  model: string
+): Promise<ChatResponse | null> {
+  const apiKey = env.GROQ_API_KEY;
+  if (!apiKey) return null;
+
+  const body = {
+    model: model || 'llama-3.1-8b-instant',
+    messages,
+    temperature: 0.7,
+    max_tokens: 4096,
+  };
+
+  const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${apiKey}`,
+    },
+    body: JSON.stringify(body),
+  });
+
+  if (response.status === 429 || response.status === 402) {
+    throw new Error(`EXHAUSTED:groq-free`);
+  }
+  if (!response.ok) {
+    const err = await response.text();
+    throw new Error(`Groq error ${response.status}: ${err}`);
+  }
+
+  const data = await response.json() as any;
+  const content = data.choices?.[0]?.message?.content || '';
+  return { content, provider: 'groq-free', model: body.model, cost: 0 };
+}
+
+// Map provider types to their try functions
+const PROVIDER_TRY_FN: Record<string, (env: Env, messages: ChatMessage[], model: string) => Promise<ChatResponse | null>> = {
+  'workers-ai': tryWorkersAI,
+  'openrouter': tryOpenRouter,
+  'gemini': tryGemini,
+  'groq': tryGroq,
+};
+
+// ═══════════════════════════════════════════════════════════
+// SMART CHAT with FREE-PROVIDER FAILOVER
+// ═══════════════════════════════════════════════════════════
+
+async function smartChatWithFailover(
+  env: Env,
+  messages: ChatMessage[],
+  preferredModel?: string
+): Promise<Response> {
+  const errors: string[] = [];
+
+  for (const provider of FREE_PROVIDER_CHAIN) {
+    // Check KV to see if this provider was recently exhausted
+    const exhausted = await isProviderExhausted(env.QUOTA_KV, provider.name);
+    if (exhausted) {
+      errors.push(`${provider.name}: skipped (recently exhausted)`);
+      continue;
+    }
+
+    const tryFn = PROVIDER_TRY_FN[provider.type];
+    if (!tryFn) continue;
+
+    try {
+      const result = await tryFn(env, messages, preferredModel || provider.model);
+      if (!result) {
+        errors.push(`${provider.name}: no API key configured`);
+        continue;
+      }
+
+      // Success! Clear any exhaustion marker (provider is healthy again)
+      await clearProviderExhausted(env.QUOTA_KV, provider.name);
+
+      return new Response(JSON.stringify({
+        content: result.content,
+        model: result.model,
+        provider: result.provider,
+        free: true,
+        cost: 0,
+      }), {
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Edge-AI': result.provider,
+          'X-Free-Provider': 'true',
+          'X-Cost': '0',
+          'X-Provider-Chain': FREE_PROVIDER_CHAIN.map(p => p.name).join(' -> '),
+          'X-Provider-Used': result.provider,
+        },
+      });
+    } catch (err: any) {
+      const msg = String(err?.message || err);
+      if (msg.includes('EXHAUSTED:')) {
+        const pname = msg.split(':')[1];
+        await markProviderExhausted(env.QUOTA_KV, pname);
+        errors.push(`${provider.name}: quota exhausted (cached 1h)`);
+      } else {
+        errors.push(`${provider.name}: ${msg.slice(0, 200)}`);
+      }
+    }
+  }
+
+  // All free providers exhausted — return error with details
+  return new Response(JSON.stringify({
+    error: 'All free providers exhausted or unavailable',
+    details: errors,
+    suggestion: 'Add a fallback_provider + fallback_key to use paid credits, or wait for free quota reset.',
+  }), {
+    status: 503,
+    headers: {
+      'Content-Type': 'application/json',
+      'X-Free-Provider': 'false',
+      'X-All-Exhausted': 'true',
+    },
+  });
+}
+
+// ═══════════════════════════════════════════════════════════
 // WORKERS AI — Edge Inference
 // ═══════════════════════════════════════════════════════════
 
@@ -93,40 +393,33 @@ async function handleWorkersAI(request: Request, env: Env): Promise<Response> {
   const url = new URL(request.url);
   const pathParts = url.pathname.split('/').filter(Boolean);
 
-  // /ai/smart — 🆓 FREE-FIRST smart routing (tries Workers AI first, then fallback)
+  // /ai/smart — 🆓 FREE-FIRST smart routing with cascading failover
   if (pathParts[1] === 'smart' && request.method === 'POST') {
-    const body = await request.json<{ messages: any[]; model?: string; fallback_provider?: string; fallback_key?: string }>();
+    const body = await request.json<{
+      messages: ChatMessage[];
+      model?: string;
+      fallback_provider?: string;
+      fallback_key?: string;
+    }>();
 
-    // 1. 🆓 ALWAYS try Workers AI first (FREE)
-    try {
-      const model = body.model || '@cf/meta/llama-3.1-8b-instruct';
-      const response = await env.AI.run(model, {
-        messages: body.messages,
-        stream: false,
-      });
-      return new Response(JSON.stringify(response), {
-        headers: {
-          'Content-Type': 'application/json',
-          'X-Edge-AI': 'workers-ai',
-          'X-Free-Provider': 'true',
-          'X-Cost': '0',
-        },
-      });
-    } catch (e) {
-      // Workers AI failed — try fallback if provided
-      if (body.fallback_provider && body.fallback_key) {
-        return await handleAIGatewayFallback(body);
-      }
-      return new Response(JSON.stringify({ error: 'Workers AI failed and no fallback provided', details: String(e) }), {
-        status: 503,
-        headers: { 'Content-Type': 'application/json' },
-      });
+    // Try free chain first
+    const freeResponse = await smartChatWithFailover(env, body.messages, body.model);
+    if (freeResponse.status === 200) {
+      return freeResponse;
     }
+
+    // All free exhausted — try paid fallback if provided
+    if (body.fallback_provider && body.fallback_key) {
+      return await handleAIGatewayFallback(body);
+    }
+
+    // Return the free exhaustion error
+    return freeResponse;
   }
 
   // /ai/chat → text generation (direct Workers AI — FREE)
   if (pathParts[1] === 'chat' && request.method === 'POST') {
-    const body = await request.json<{ messages: any[]; model?: string }>();
+    const body = await request.json<{ messages: ChatMessage[]; model?: string }>();
     const model = body.model || '@cf/meta/llama-3.1-8b-instruct';
     const response = await env.AI.run(model, {
       messages: body.messages,
@@ -196,7 +489,7 @@ function _defaultModel(provider: string): string {
     openai: 'gpt-4o-mini',
     anthropic: 'claude-3-haiku-20240307',
     groq: 'llama-3.1-8b-instant',
-    openrouter: 'openrouter/free',
+    openrouter: 'openrouter/auto',
     deepseek: 'deepseek-chat',
     fireworks: 'accounts/fireworks/models/llama-v3p1-8b-instruct',
     gemini: 'gemini-1.5-flash',
@@ -313,10 +606,10 @@ async function hashRequestBody(request: Request): Promise<string> {
 // CRYPTO API PROXY — Edge cache for crypto data
 // ═══════════════════════════════════════════════════════════
 
-async function handleCryptoAPI(request: Request): Promise<Response> {
+async function handleCryptoAPI(request: Request, ctx: ExecutionContext): Promise<Response> {
   const url = new URL(request.url);
   const pathParts = url.pathname.split('/').filter(Boolean);
-  const source = pathParts[2]; // e.g., 'coingecko', 'helius'
+  const source = pathParts[3]; // e.g., 'coingecko', 'helius' (path: /api/v1/crypto/{source}/...)
   const config = CRYPTO_EDGE_ORIGINS[source];
 
   if (!config) {
@@ -376,7 +669,7 @@ export default {
 
     // Route crypto API requests directly at edge (faster than origin)
     if (url.pathname.startsWith('/api/v1/crypto/')) {
-      return handleCryptoAPI(request);
+      return handleCryptoAPI(request, ctx);
     }
 
     // Route Workers AI requests

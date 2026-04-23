@@ -2222,11 +2222,13 @@ app.include_router(intel_router)
 from app.routers.profile import router as profile_router
 from app.routers.email import router as email_router
 from app.routers.admin_control import router as admin_control_router
+from app.routers.darkroom import router as darkroom_router
 from app.routers.rag import router as rag_router
 from app.routers.budget import router as budget_router
 app.include_router(profile_router)
 app.include_router(email_router)
 app.include_router(admin_control_router)
+app.include_router(darkroom_router)
 app.include_router(rag_router)
 app.include_router(budget_router)
 
