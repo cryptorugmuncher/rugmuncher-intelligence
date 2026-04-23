@@ -799,6 +799,86 @@ class ApiClient {
     return response.data;
   }
 
+
+  // ═══════════ BACKEND CONTROL (ADMIN) ═══════════
+  async getSystemStats(adminKey: string): Promise<any> {
+    const response = await this.client.get('/api/v1/admin/system', {
+      headers: { 'X-Admin-Key': adminKey },
+    });
+    return response.data;
+  }
+
+  async getLogs(adminKey: string, lines: number = 100, level?: string): Promise<any> {
+    const response = await this.client.get('/api/v1/admin/logs', {
+      headers: { 'X-Admin-Key': adminKey },
+      params: { lines, level },
+    });
+    return response.data;
+  }
+
+  async getDatabaseTables(adminKey: string): Promise<any> {
+    const response = await this.client.get('/api/v1/admin/database/tables', {
+      headers: { 'X-Admin-Key': adminKey },
+    });
+    return response.data;
+  }
+
+  async runDatabaseQuery(adminKey: string, sql: string, limit: number = 100): Promise<any> {
+    const response = await this.client.post('/api/v1/admin/database/query', {
+      sql, limit,
+    }, {
+      headers: { 'X-Admin-Key': adminKey },
+    });
+    return response.data;
+  }
+
+  async getServices(adminKey: string): Promise<any> {
+    const response = await this.client.get('/api/v1/admin/services', {
+      headers: { 'X-Admin-Key': adminKey },
+    });
+    return response.data;
+  }
+
+  async serviceAction(adminKey: string, serviceId: string, action: string): Promise<any> {
+    const response = await this.client.post(`/api/v1/admin/services/${serviceId}/action`, {
+      action,
+    }, {
+      headers: { 'X-Admin-Key': adminKey },
+    });
+    return response.data;
+  }
+
+  async getBots(adminKey: string): Promise<any> {
+    const response = await this.client.get('/api/v1/admin/bots', {
+      headers: { 'X-Admin-Key': adminKey },
+    });
+    return response.data;
+  }
+
+  async updateBot(adminKey: string, botId: string, updates: Record<string, any>): Promise<any> {
+    const response = await this.client.put(`/api/v1/admin/bots/${botId}`, updates, {
+      headers: { 'X-Admin-Key': adminKey },
+    });
+    return response.data;
+  }
+
+  async getAlertsHistory(adminKey: string, limit: number = 50): Promise<any> {
+    const response = await this.client.get('/api/v1/admin/alerts', {
+      headers: { 'X-Admin-Key': adminKey },
+      params: { limit },
+    });
+    return response.data;
+  }
+
+  async sendTestAlert(adminKey: string, message: string, channel: string = '@rmi_backend', severity: string = 'info'): Promise<any> {
+    const response = await this.client.post('/api/v1/admin/alerts/test', {
+      message, channel, severity,
+    }, {
+      headers: { 'X-Admin-Key': adminKey },
+    });
+    return response.data;
+  }
+
   // ═══════════ MIRROR.XYZ ═══════════
   async publishToMirror(title: string, body: string, tags?: string[]): Promise<any> {
     const response = await this.client.post('/api/v1/newsletter/mirror/publish', {

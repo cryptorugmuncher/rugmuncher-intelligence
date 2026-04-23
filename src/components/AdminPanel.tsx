@@ -897,51 +897,117 @@ export default function AdminPanel() {
               <Server className="w-6 h-6 text-neon-green" />
               System Control
             </h2>
+            {systemLoading && <span className="text-sm text-gray-400 animate-pulse">Loading...</span>}
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <SystemCard title="CPU" value="-" icon={Cpu} />
-            <SystemCard title="Memory" value="-" icon={HardDrive} />
-            <SystemCard title="Disk" value="-" icon={Database} />
-            <SystemCard title="Network" value="-" icon={Wifi} />
+            <SystemCard title="CPU" value={systemData?.cpu?.percent != null ? `${systemData.cpu.percent}%` : '-'} icon={Cpu} />
+            <SystemCard title="Memory" value={systemData?.memory?.percent != null ? `${systemData.memory.percent}%` : '-'} icon={HardDrive} />
+            <SystemCard title="Disk" value={systemData?.disk?.percent != null ? `${systemData.disk.percent}%` : '-'} icon={Database} />
+            <SystemCard title="Uptime" value={systemData?.uptime?.formatted || '-'} icon={Wifi} />
           </div>
 
           <div className="crypto-card">
             <h3 className="text-lg font-semibold text-white mb-4">Service Control</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-              <ServiceControl name="FastAPI Backend" port="8000" status="running" />
-              <ServiceControl name="N8N Automation" port="5678" status="running" />
-              <ServiceControl name="The Trenches" port="8888" status="running" />
-              <ServiceControl name="Website" port="8889" status="running" />
-              <ServiceControl name="Dragonfly Cache" port="6379" status="running" />
-              <ServiceControl name="PostgreSQL" port="5432" status="running" />
+              {servicesData?.services?.map((svc: any) => (
+                <div key={svc.id} className="flex items-center justify-between p-3 bg-crypto-dark rounded">
+                  <div>
+                    <p className="text-white font-medium">{svc.name}</p>
+                    <p className="text-xs text-gray-500">Port {svc.port} • {svc.status}</p>
+                  </div>
+                  <div className="flex gap-2">
+                    <button className="p-2 hover:bg-crypto-card rounded text-green-400" onClick={() => serviceActionMutation.mutate({ serviceId: svc.id, action: 'start' })} title="Start">
+                      <Play className="w-4 h-4" />
+                    </button>
+                    <button className="p-2 hover:bg-crypto-card rounded text-yellow-400" onClick={() => serviceActionMutation.mutate({ serviceId: svc.id, action: 'restart' })} title="Restart">
+                      <RotateCcw className="w-4 h-4" />
+                    </button>
+                    <button className="p-2 hover:bg-crypto-card rounded text-red-400" onClick={() => serviceActionMutation.mutate({ serviceId: svc.id, action: 'stop' })} title="Stop">
+                      <Pause className="w-4 h-4" />
+                    </button>
+                  </div>
+                </div>
+              )) || (
+                <>
+                  <ServiceControl name="FastAPI Backend" port="8000" status="running" />
+                  <ServiceControl name="N8N Automation" port="5678" status="running" />
+                  <ServiceControl name="The Trenches" port="8888" status="running" />
+                  <ServiceControl name="Website" port="8889" status="running" />
+                  <ServiceControl name="Dragonfly Cache" port="6379" status="running" />
+                  <ServiceControl name="PostgreSQL" port="5432" status="running" />
+                </>
+              )}
             </div>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div className="crypto-card">
-              <h3 className="text-lg font-semibold text-white mb-4">Log Viewer</h3>
-              <div className="bg-black rounded p-3 h-48 overflow-y-auto font-mono text-xs">
-                <div className="text-green-400">[INFO] System initialized</div>
-                <div className="text-blue-400">[DEBUG] Connected to Supabase</div>
-                <div className="text-green-400">[INFO] N8N workflows loaded</div>
-                <div className="text-yellow-400">[WARN] High cache usage</div>
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-lg font-semibold text-white">Log Viewer</h3>
+                <select
+                  value={logLevel}
+                  onChange={(e) => setLogLevel(e.target.value)}
+                  className="bg-crypto-dark border border-crypto-border rounded px-2 py-1 text-xs text-white"
+                >
+                  <option value="">All Levels</option>
+                  <option value="INFO">INFO</option>
+                  <option value="DEBUG">DEBUG</option>
+                  <option value="WARN">WARN</option>
+                  <option value="ERROR">ERROR</option>
+                </select>
               </div>
+              <div className="bg-black rounded p-3 h-64 overflow-y-auto font-mono text-xs space-y-1">
+                {logsData?.lines?.length ? (
+                  logsData.lines.map((line: string, i: number) => (
+                    <div key={i} className={
+                      line.includes('ERROR') ? 'text-red-400' :
+                      line.includes('WARN') ? 'text-yellow-400' :
+                      line.includes('DEBUG') ? 'text-blue-400' :
+                      'text-green-400'
+                    }>{line}</div>
+                  ))
+                ) : (
+                  <div className="text-gray-500 text-center py-8">No logs found or admin key missing</div>
+                )}
+              </div>
+              <div className="mt-2 text-xs text-gray-500">{logsData?.source || 'No log source'}</div>
             </div>
 
             <div className="crypto-card">
               <h3 className="text-lg font-semibold text-white mb-4">Danger Zone</h3>
               <div className="space-y-2">
-                <button className="w-full py-2 bg-red-500/20 text-red-400 border border-red-500/50 rounded hover:bg-red-500/30 transition-colors">
-                  Restart All Services
+                <button
+                  className="w-full py-2 bg-red-500/20 text-red-400 border border-red-500/50 rounded hover:bg-red-500/30 transition-colors"
+                  onClick={() => serviceActionMutation.mutate({ serviceId: 'fastapi', action: 'restart' })}
+                >
+                  Restart Backend
                 </button>
-                <button className="w-full py-2 bg-red-500/20 text-red-400 border border-red-500/50 rounded hover:bg-red-500/30 transition-colors">
+                <button
+                  className="w-full py-2 bg-red-500/20 text-red-400 border border-red-500/50 rounded hover:bg-red-500/30 transition-colors"
+                  onClick={() => serviceActionMutation.mutate({ serviceId: 'dragonfly', action: 'clear_cache' })}
+                >
                   Clear All Caches
                 </button>
-                <button className="w-full py-2 bg-red-500/20 text-red-400 border border-red-500/50 rounded hover:bg-red-500/30 transition-colors">
+                <button
+                  className="w-full py-2 bg-red-500/20 text-red-400 border border-red-500/50 rounded hover:bg-red-500/30 transition-colors"
+                  onClick={() => serviceActionMutation.mutate({ serviceId: 'fastapi', action: 'stop' })}
+                >
                   Emergency Stop
                 </button>
               </div>
+
+              {systemData?.backend_process && (
+                <div className="mt-6 pt-4 border-t border-crypto-border">
+                  <h4 className="text-sm font-semibold text-white mb-2">Backend Process</h4>
+                  <div className="space-y-1 text-sm">
+                    <div className="flex justify-between"><span className="text-gray-500">PID</span><span className="text-white">{systemData.backend_process.pid}</span></div>
+                    <div className="flex justify-between"><span className="text-gray-500">Memory</span><span className="text-white">{systemData.backend_process.memory_mb} MB</span></div>
+                    <div className="flex justify-between"><span className="text-gray-500">CPU</span><span className="text-white">{systemData.backend_process.cpu_percent}%</span></div>
+                    <div className="flex justify-between"><span className="text-gray-500">Threads</span><span className="text-white">{systemData.backend_process.threads}</span></div>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
